@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\AlbertoMartínezQuesa\\OneDrive - Palantir S.A\\Documentos\\Personal\\SUVESA\\Programacion\\SuvesaPosWeb\\DevSuvesaPosWeb\\ApiSuvesaPos\\Negocio\\Negocio.vbproj": {}
+    "C:\\WEBSuvesaPOS\\DevSuvesaPosWeb\\ApiSuvesaPos\\Negocio\\Negocio.vbproj": {}
   },
   "projects": {
-    "C:\\Users\\AlbertoMartínezQuesa\\OneDrive - Palantir S.A\\Documentos\\Personal\\SUVESA\\Programacion\\SuvesaPosWeb\\DevSuvesaPosWeb\\ApiSuvesaPos\\Negocio\\Negocio.vbproj": {
+    "C:\\WEBSuvesaPOS\\DevSuvesaPosWeb\\ApiSuvesaPos\\Negocio\\Negocio.vbproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\AlbertoMartínezQuesa\\OneDrive - Palantir S.A\\Documentos\\Personal\\SUVESA\\Programacion\\SuvesaPosWeb\\DevSuvesaPosWeb\\ApiSuvesaPos\\Negocio\\Negocio.vbproj",
+        "projectUniqueName": "C:\\WEBSuvesaPOS\\DevSuvesaPosWeb\\ApiSuvesaPos\\Negocio\\Negocio.vbproj",
         "projectName": "Negocio",
-        "projectPath": "C:\\Users\\AlbertoMartínezQuesa\\OneDrive - Palantir S.A\\Documentos\\Personal\\SUVESA\\Programacion\\SuvesaPosWeb\\DevSuvesaPosWeb\\ApiSuvesaPos\\Negocio\\Negocio.vbproj",
-        "packagesPath": "C:\\Users\\AlbertoMartínezQuesa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\AlbertoMartínezQuesa\\OneDrive - Palantir S.A\\Documentos\\Personal\\SUVESA\\Programacion\\SuvesaPosWeb\\DevSuvesaPosWeb\\ApiSuvesaPos\\Negocio\\obj\\",
+        "projectPath": "C:\\WEBSuvesaPOS\\DevSuvesaPosWeb\\ApiSuvesaPos\\Negocio\\Negocio.vbproj",
+        "packagesPath": "C:\\Users\\Ana\\.nuget\\packages\\",
+        "outputPath": "C:\\WEBSuvesaPOS\\DevSuvesaPosWeb\\ApiSuvesaPos\\Negocio\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\AlbertoMartínezQuesa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Ana\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -58,7 +58,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ZKoR0KPIEaU1VndqFh81RMcXAph2MuiZ0JbIi+Jpe4nPjk9ut6sLKqyPTOYVgIShNfjdH1MUPqYvW2ax/d79zg==",
+  "dgSpecHash": "g8oohroxrtNLjwqZstYoEIw+RBmns9PQlCptU6gCyaHcN9eFB+u/oL3lK9CcrEFrbK1biYkiv3Q9cXEv4N32xw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\AlbertoMartínezQuesa\\OneDrive - Palantir S.A\\Documentos\\Personal\\SUVESA\\Programacion\\SuvesaPosWeb\\DevSuvesaPosWeb\\ApiSuvesaPos\\Datos\\Datos.csproj",
+  "projectFilePath": "C:\\WEBSuvesaPOS\\DevSuvesaPosWeb\\ApiSuvesaPos\\Datos\\Datos.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
