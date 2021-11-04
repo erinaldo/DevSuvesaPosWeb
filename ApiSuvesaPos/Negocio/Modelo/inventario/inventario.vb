@@ -94,6 +94,9 @@
         Public Property Muestra As Boolean
         Public Property SoloUsoInterno As Boolean
 
+        Public Property Serie As New List(Of serie)
+        Public Property ArticulosRelacionados As New List(Of articulosrelacionados)
+
     End Class
 
 End Namespace

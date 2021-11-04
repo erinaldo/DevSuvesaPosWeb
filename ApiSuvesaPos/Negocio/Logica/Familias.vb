@@ -15,9 +15,9 @@ Namespace Logica
         End Function
 
         Public Function cargarSubFamilia(codigoFamilia As Integer) As List(Of Modelo.subFamilias)
-            Dim cuentasBancarias As New List(Of Modelo.subFamilias)
+            Dim subFamilia As New List(Of Modelo.subFamilias)
             'cx.Llenar_Tabla_Generico("Select * from SubFamilias where CodigoFamilia = " & codigo, Me.DataSetFamilia1.SubFamilias, Me.SqlConnection1.ConnectionString)
-            Return cuentasBancarias
+            Return subFamilia
         End Function
 
         Public Sub crearFamilia(familia As Modelo.familias)
@@ -50,7 +50,7 @@ Namespace Logica
             'Me.DataSetFamilia1.AcceptChanges()
         End Sub
 
-        Public Sub eliminarFamilias(proveedor As Modelo.familias)
+        Public Sub eliminarFamilias(familia As Modelo.familias)
             'valida que no exista productos relacionados
 
             'Cargo el codigo de la familia al que pertenecen las familias que se eliminaran
