@@ -1,10 +1,13 @@
 ﻿Namespace Logica
     Public Class Compras
 
+
+        '**************** Falta cargar los usuarios
+        '**************** actualmente los lotes no se usan porque no sirven pero se quiere
         Public Property Moneda As New Monedas
         Public Property Proveedores As New Proveedores
         Public Property Inventario As New Inventario
-        '**************** Falta cargar los usuarios
+
 
         Public Sub eliminarCompra(compra As Modelo.compras)
 

@@ -11,6 +11,7 @@
         Public Property Numero As String
         Public Property ExistenciaForzada As Decimal
         Public Property ExistVeteForzada As Decimal
+        Public Property Serie As New List(Of serie) 'las series que salen o que entran
     End Class
 End Namespace
 

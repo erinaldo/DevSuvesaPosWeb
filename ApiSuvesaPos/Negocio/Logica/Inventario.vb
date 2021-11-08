@@ -1,13 +1,13 @@
 ﻿Namespace Logica
     Public Class Inventario
 
-        Public Familia As New Familia
-        Public Ubicacion As New Ubicaciones
-        Public Bodega As New Bodega
-        Public Marca As New Marca
-        Public Presentaciones As New Presentaciones
-        Public Proveedores As New Proveedores
-        Public Moneda As New Monedas
+        Public Bodega As New Logica.Bodega
+        Public Marca As New Logica.Marca
+        Public Presentaciones As New Logica.Presentaciones
+        Public Proveedores As New Logica.Proveedores
+        Public Moneda As New Logica.Monedas
+        Public Familia As New Logica.Familia
+        Public Ubicacion As New Logica.Ubicaciones
 
         Public Function BuscarInventario(verInhabilitados As Boolean,
                                          soloConBarras As Boolean,
