@@ -16,13 +16,11 @@
             '    Exit Sub
             'End If
         End Function
-
         Public Function obtenerAjuste(consecutivo As String) As List(Of Modelo.ajusteinventario)
 
             'Fx.Llenar_Tabla_Generico("SELECT * FROM AjusteInventario WHERE (Consecutivo =" & identificador & " )", Me.DsAjusteInv2.AjusteInventario)
             'Fx.Llenar_Tabla_Generico("SELECT * FROM AjusteInventario_Detalle WHERE (Cons_Ajuste =" & identificador & " )", Me.DsAjusteInv2.AjusteInventario_Detalle)
         End Function
-
         Public Sub anulaAjuste(ajuste As Modelo.ajusteinventario)
 
             'registra en vitacora
@@ -63,7 +61,6 @@
             'End Function
 
         End Sub
-
         Public Sub crearAjuste(ajuste As Modelo.ajusteinventario)
 
             'validacion

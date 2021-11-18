@@ -38,7 +38,7 @@
         Public Property EnviarRecibo As Boolean
         Public Property CorreoRecibo As String
         Public Property Fallecido As Boolean
-        Public Property Usointegererno As Boolean
+        Public Property Usointerno As Boolean
 
     End Class
 

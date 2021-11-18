@@ -68,7 +68,6 @@
             'Me.da_cuentas.Update(Me.DataSet_Proveedores1.Cuentas_Bancarias_Proveedor)
         End Sub
 
-
         Public Function obtenerComprasPendientes(codigoProv As String) As List(Of Modelo.compras)
 
             '    Public Shared Function BuscarFacturas_Proveedor(ByVal CodigoProv As Integer, Optional ByVal Conexion As String = "") As DataTable
