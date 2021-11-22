@@ -1,12 +1,12 @@
 ﻿Namespace Logica
-    Public Class Empresa
+    Public Class Devolucion_prestamo
 
-        Public Function buscarEmpresas(filtro As String) As List(Of Modelo.empresa)
+        Public Function buscarDevolucion_Prestamo(texto As String) As List(Of Devolucion_prestamo)
 
             'Public Function buscar(ByVal texto As String) As DataTable
             '    Try
             '        conectado()
-            '        cmd = New SqlCommand("Consultar_empresa")
+            '        cmd = New SqlCommand("Consultar_Devolucion_prestamo")
             '        cmd.CommandType = CommandType.StoredProcedure
             '        cmd.Connection = cnn
             '        cmd.Parameters.AddWithValue("@id", texto)
@@ -28,17 +28,22 @@
 
         End Function
 
-        Public Sub crearEmpresas(empresa As Modelo.empresa)
+        Public Sub crearDevolucion_Prestamo(devolucion_prestamo As Modelo.devolucion_prestamo)
 
-            'Public Function insertar(ByVal dts As vempresa) As Boolean
+            'Public Function insertar(ByVal dts As vdevolucion) As Boolean
             '    Try
             '        conectado()
-            '        cmd = New SqlCommand("Insertar_empresa")
+            '        cmd = New SqlCommand("Insertar_Devolucion_prestamo")
             '        cmd.CommandType = CommandType.StoredProcedure
             '        cmd.Connection = cnn
             '        'cmd.Parameters.AddWithValue("@id", dts.gid)
-            '        cmd.Parameters.AddWithValue("@empresa", dts.gdescripcion)
-
+            '        cmd.Parameters.AddWithValue("@id_detalle_prestamo", dts.gdetalleprestamo)
+            '        cmd.Parameters.AddWithValue("@id_prestamo", dts.gprestamo)
+            '        cmd.Parameters.AddWithValue("@codigo", dts.gcodigo)
+            '        cmd.Parameters.AddWithValue("@descripcion", dts.gdescripcion)
+            '        cmd.Parameters.AddWithValue("@cantidad", dts.gcantidad)
+            '        cmd.Parameters.AddWithValue("@fecha", dts.gfecha)
+            '        cmd.Parameters.AddWithValue("@anulado", dts.ganulado)
             '        If cmd.ExecuteNonQuery Then
             '            Return True
             '        Else
@@ -55,16 +60,23 @@
 
         End Sub
 
-        Public Sub editarEmpresas(empresa As Modelo.empresa)
 
-            'Public Function editar(ByVal dts As vempresa) As Boolean
+        Public Function editarDevolucion_Prestamo(devolucion_prestamo As Modelo.devolucion_prestamo)
+
+            'Public Function editar(ByVal dts As vdevolucion) As Boolean
             '    Try
             '        conectado()
-            '        cmd = New SqlCommand("Modificar_empresa")
+            '        cmd = New SqlCommand("Modificar_Devolucion_prestamo")
             '        cmd.CommandType = CommandType.StoredProcedure
             '        cmd.Connection = cnn
             '        cmd.Parameters.AddWithValue("@id", dts.gid)
-            '        cmd.Parameters.AddWithValue("@empresa", dts.gdescripcion)
+            '        cmd.Parameters.AddWithValue("@id_detalle_prestamo", dts.gdetalleprestamo)
+            '        cmd.Parameters.AddWithValue("@id_prestamo", dts.gprestamo)
+            '        cmd.Parameters.AddWithValue("@codigo", dts.gcodigo)
+            '        cmd.Parameters.AddWithValue("@descripcion", dts.gdescripcion)
+            '        cmd.Parameters.AddWithValue("@cantidad", dts.gcantidad)
+            '        cmd.Parameters.AddWithValue("@fecha", dts.gfecha)
+            '        cmd.Parameters.AddWithValue("@anulado", dts.ganulado)
             '        If cmd.ExecuteNonQuery Then
             '            Return True
             '        Else
@@ -78,14 +90,14 @@
             '    End Try
             'End Function
 
-        End Sub
+        End Function
 
-        Public Sub eliminarEmpresas(id As Integer)
+        Public Sub eliminarDevolucion_Prestamo()
 
-            'Public Function eliminar(ByVal dts As vempresa) As Boolean
-            '    Try
+            'Public Function eliminar(ByVal dts As vdevolucion) As Boolean
+            '   Try
             '        conectado()
-            '        cmd = New SqlCommand("Eliminar_empresa")
+            '        cmd = New SqlCommand("Eliminar_Devolucion_prestamo")
             '        cmd.CommandType = CommandType.StoredProcedure
             '        cmd.Connection = cnn
             '        cmd.Parameters.Add("@id", SqlDbType.NVarChar, 50).Value = dts.gid
@@ -102,7 +114,7 @@
             '        desconectado()
             '    End Try
 
-            'End Function
+            'End 
 
         End Sub
 

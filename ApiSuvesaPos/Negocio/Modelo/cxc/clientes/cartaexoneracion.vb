@@ -1,5 +1,5 @@
 ﻿Namespace Modelo
-    Module cartaexoneracion
+    Public Class cartaexoneracion
         Public Property Id As Integer
         Public Property Identificacion As Long
         Public Property IdTipoExoneracion As Integer
@@ -9,5 +9,5 @@
         Public Property PorcentajeCompra As Decimal
         Public Property Impuesto As Decimal
         Public Property Nota As String
-    End Module
+    End Class
 End Namespace
