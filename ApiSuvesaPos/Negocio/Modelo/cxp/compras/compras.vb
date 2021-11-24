@@ -37,7 +37,8 @@
         Public Property Trans As Boolean
         Public Property NumTrans As String
         Public Property Prepagada As Boolean
-
+        Public Property Articulos_Comprados As New List(Of Modelo.articulos_comprados)
+        Public Property Articulos_Gastos As New List(Of Modelo.articulos_gastos)
     End Class
 End Namespace
 

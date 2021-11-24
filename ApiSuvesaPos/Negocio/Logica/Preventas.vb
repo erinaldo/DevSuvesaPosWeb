@@ -875,6 +875,117 @@
 
         End Sub
 
+        Public Function buscarFichasActivas() As List(Of Modelo.ficha)
+
+            'Private Sub BuscarFichasActivas()
+            '    Dim dt As New DataTable
+            '    cFunciones.Llenar_Tabla_Generico("select Id, Ficha, Tipo, BasedeDatos, Fecha, Nombre_Cliente, Total, Usuario from viewPreventasActivas order by fecha desc", dt, CadenaConexionSeePOS)
+            '    Me.viewFichasActivas.DataSource = dt
+            '    Me.viewFichasActivas.Columns("Id").Visible = False
+            '    Me.viewFichasActivas.Columns("BasedeDatos").Visible = False
+            '    'Me.viewFichasActivas.Columns("Fecha").DefaultCellStyle.Format = "d"
+            '    Me.viewFichasActivas.Columns("Total").DefaultCellStyle.Format = "N2"
+            'End Sub
+
+        End Function
+
+        Public Sub inactivarFicha(id As Integer, tipo As String, puntodeVenta As String)
+
+            'Private Sub btnInactivar_Click(sender As Object, e As EventArgs) Handles btnInactivar.Click
+            '    Try
+            '        If Me.viewFichasActivas.RowCount > 0 Then
+            '            Dim frm As New frmVersionCompleta
+            '            If frm.ShowDialog = Windows.Forms.DialogResult.OK Then
+            '                Dim id As String = Me.viewFichasActivas.Item("Id", Me.viewFichasActivas.CurrentRow.Index).Value
+            '                Dim base As String = Me.viewFichasActivas.Item("BasedeDatos", Me.viewFichasActivas.CurrentRow.Index).Value
+            '                Dim tipo As String = Me.viewFichasActivas.Item("Tipo", Me.viewFichasActivas.CurrentRow.Index).Value
+            '                If IsNumeric(id) = True Then
+            '                    Dim db As New OBSoluciones.SQL.Sentencias(CadenaConexionSeePOS)
+            '                    If tipo = "ABO" Then
+            '                        db.Ejecutar("Update " & base & ".dbo.PreAbonocCobrar Set Estado = 'Inactivada' Where Id_Recibo = " & id, CommandType.Text)
+            '                    Else
+            '                        db.Ejecutar("Update " & base & ".dbo.PreVentas Set Estado = 'Inactivada' Where Id = " & id, CommandType.Text)
+            '                    End If
+            '                    Me.buscarFichasActivas()
+            '                End If
+            '            End If
+            '        End If
+            '    Catch ex As Exception
+            '    End Try
+            'End Sub
+
+        End Sub
+
+        Public Sub generaVenta(id_preventa As Integer,
+                            puntodeventa As String,
+                            tipo As String,
+                            id_usuario As String,
+                            ByRef id_factura As Integer,
+                            ByRef num_factura As Integer)
+
+
+            'trans.SetParametro("@IdPreventa", Me.Id_PreVenta)
+            'trans.SetParametro("@PuntodeVenta", Me.PuntodeVenta)
+            'trans.SetParametro("@Tipo", Me.TipoFactura)
+            'trans.SetParametro("@Id_Usuario", Me.Id_Usuario)
+            'trans.AddParametrosSalidaInt("@Id_Factura", Id_Factura)
+            'trans.AddParametrosSalidaInt("@Num_Factura", Num_Factura)
+            'trans.Ejecutar("Facturar_PreVenta", Id_Factura, 4, Num_Factura, 5)
+
+
+        End Sub
+
+        Public Sub generaAbonoFirmadoContado(ByRef id As Integer,
+                                            id_factura As Integer,
+                                            fechaAbono As Date,
+                                            montoAbono As Decimal)
+
+            'trans.AddParametroSalida("@Id", Me.Num_Factura)
+            'trans.SetParametro("@IdFactura", Me.IdFacturaAbono)
+            'trans.SetParametro("@Fecha", Me.FechaAbono)
+            'trans.SetParametro("@Monto", Me.MontoAbono)
+            'trans.Ejecutar("InsertAbonoReintegro", Num_Factura, 0)
+
+        End Sub
+
+        Public Sub generarReciboCxC(id_preventa As Integer,
+                          id_usuario As String,
+                          puntodeventa As String,
+                          ByRef idrecibo As Integer,
+                          ByRef numrecibo As Integer)
+
+            'trans.SetParametro("@IdPreRecibo", Me.Id_PreVenta)
+            'trans.SetParametro("@Id_Usuario", Me.Id_Usuario)
+            'trans.SetParametro("@PuntodeVenta", Me.PuntodeVenta)
+            'trans.AddParametrosSalidaInt("@IdRecibo", Me.IdRecibo)
+            'trans.AddParametrosSalidaInt("@NumRecibo", Me.NumRecibo)
+            'trans.Ejecutar("Generar_ReciboDinero", Me.IdRecibo, 3, Me.NumRecibo, 4)
+            'Me.Num_Factura = Me.NumRecibo
+
+        End Sub
+
+        Public Sub generarApartado(id_preventa As Integer,
+                                  fechaVence As Date,
+                                  montoApartado As Decimal,
+                                  puntodeVenta As String,
+                                  id_usuario As String,
+                                  ByRef id_Apartado As Integer,
+                                  ByRef id_AbonoApartado As Integer)
+
+            'Me.Id_Apartado = 0
+            'trans.SetParametro("@IdPreventa", Me.Id_PreVenta)
+            'trans.SetParametro("@FechaVence", Me.FechaVence.ToShortDateString)
+            'trans.SetParametro("@MontoAbono", Me.MontoApartado)
+            'trans.SetParametro("@PuntodeVenta", Me.PuntodeVenta)
+            'trans.SetParametro("@Id_Usuario", Me.Id_Usuario)
+            'trans.AddParametrosSalidaInt("@IdApartado", Id_Apartado)
+            'trans.AddParametrosSalidaInt("@IdAbonoApartado", Id_AbonoApartado)
+            'trans.Ejecutar("Apartar_PreVenta", Id_Apartado, 5, Me.Id_AbonoApartado, 6)
+            'Me.Num_Factura = Id_Apartado
+
+        End Sub
+
+
         Public Function saldoFactura()
 
 

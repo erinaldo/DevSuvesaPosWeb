@@ -205,6 +205,7 @@
         End Sub
 
         Public Function buscarCompra(porNombre As Boolean, porFactura As Boolean, filtro As String) As List(Of Modelo.compras)
+            '== a busargasto pero filtrando los gastos
 
             Dim compras As New List(Of Modelo.compras)
             'Dim Fx As New cFunciones
