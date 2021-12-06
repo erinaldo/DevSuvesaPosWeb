@@ -5,9 +5,6 @@
         'ALTER TABLE Articulos_Comprados DISABLE TRIGGER RegistrarKardexComprasIngreso_Update
         'ALTER TABLE Articulos_Comprados ENABLE TRIGGER RegistrarKardexComprasIngreso_Update
 
-
-        'Cargar los usuario y los permsos
-        'lotes
         Public Property Moneda As Logica.Monedas
         Public Property Compras As Logica.Compras
 

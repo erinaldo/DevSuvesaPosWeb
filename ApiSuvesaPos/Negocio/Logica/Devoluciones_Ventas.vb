@@ -1,10 +1,8 @@
 ﻿Namespace Logica
     Public Class Devoluciones_Ventas
 
-
-        'cargar la cls de usuarios
-        'cargar la cls de ventas
-        'cargar la cls de aperturacja
+        Public Property Ventas As New Logica.Ventas
+        Public Property AperturaCaja As New Logica.AperturaCaja
         'cargar la cls de opcionedepago
         Public Property Moneda As New Logica.Monedas
         Public Property Inventario As New Logica.Inventario 'para verificar si tiene consigancion

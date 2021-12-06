@@ -1,8 +1,7 @@
 ﻿Namespace Logica
     Public Class AperturaCaja
 
-        'cargar la cls de usuarios
-        'cargar la cls de cantidad de cajas
+        Public Property Cantidad_Cajas As Logica.Cajas_Cantidad
         Public Property Moneda As New Logica.Monedas
         Public Property Denominacion_Moneda As New Logica.Denominacion_Moneda
 

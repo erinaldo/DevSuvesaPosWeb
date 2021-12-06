@@ -1,7 +1,6 @@
 ﻿Namespace Logica
     Public Class MovimientosBodega
 
-        '**************** Falta cargar los usuarios
         '**************** actualmente los lotes no se usan porque no sirven pero se quiere
 
         Public Property Bodegas As Logica.Bodega

@@ -1,7 +1,6 @@
 ﻿Namespace Logica
     Public Class AjustesInventario
 
-        '**************** Falta cargar los usuarios
         '**************** actualmente los lotes no se usan porque no sirven pero se quiere
         '**************** actualmente busca una cuenta contable pero no se usa
         Public Property Inventario As New Logica.Inventario

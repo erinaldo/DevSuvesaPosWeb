@@ -1,8 +1,7 @@
 ﻿Namespace Logica
     Public Class Abonoccobrar
 
-        'cargar cls usuarios
-        'cargar cls aperutacaja
+        Public Property AperturaCaja As New Logica.AperturaCaja
         Public Property Moneda As New Logica.Monedas
         Public Property Clientes As New Logica.Clientes
 

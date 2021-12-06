@@ -2,7 +2,6 @@
     Public Class Clientes
 
         Public Property Moneda As New Logica.Monedas
-        'cargar cls usuairos
 
         Public Function buscarCliente(porNombre As Boolean,
                                       porCedula As Boolean,

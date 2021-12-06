@@ -1,12 +1,12 @@
 ﻿Namespace Logica
     Public Class Preventas
-        'cargar usuarios
-        'cargar configuracions
-        'cargar apertura caja
-        'cargar pedidosbodega
-        'cargar exoneraciones
-        'cargar agentes y preciosdiferenciados
-        'cargar rifa
+
+        Public Property Configuraciones As New Logica.Configuraciones
+        Public Property AperturaCaja As New Logica.AperturaCaja
+        Public Property PedidoBodega As New Logica.PedidoBodega
+        Public Property CartaExoneracion As New Logica.CartaExoneracion
+        Public Property Agente_Ventas As New Logica.Agente_Ventas
+        Public Property Rifa As New Rifa
         Public Property Clientes As New Logica.Clientes
         Public Property Moneda As New Logica.Monedas
         Public Property Inventario As New Logica.Inventario

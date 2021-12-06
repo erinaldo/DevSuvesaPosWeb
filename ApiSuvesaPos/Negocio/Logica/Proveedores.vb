@@ -2,8 +2,7 @@
     Public Class Proveedores
 
         '***************************************************************
-        'hay que cargar monedas
-        '*** deberia ser de la case monedas para reutilizar el codigo
+        Public Property Moneda As New Logica.Monedas
         'actualmente se carga la cuanta contable del proveedor pero no se usa.
 
         Public Function buscarProveedores(nombre As String) As List(Of Modelo.proveedores)

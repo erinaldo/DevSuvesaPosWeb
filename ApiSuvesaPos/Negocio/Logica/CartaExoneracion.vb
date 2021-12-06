@@ -1,7 +1,7 @@
 ﻿Namespace Logica
     Public Class CartaExoneracion
 
-        'cargar tiposexoneracion
+        'Public Property TipoExoneracion As New Logica.ti
         Public Property Clientes As New Logica.Clientes
 
         Public Sub crearCartaExoneracion(cartaexoneracion As Modelo.cartaexoneracion)

@@ -1,10 +1,6 @@
 ﻿Namespace Logica
     Public Class Abonocpagar
 
-        '************************************************ saldo
-
-        '************************
-        'carga info del usuario y permisos
         Public Property Moneda As Logica.Monedas
         Public Property Bancos As Logica.Bancos
 

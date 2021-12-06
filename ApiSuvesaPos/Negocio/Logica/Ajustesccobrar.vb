@@ -1,8 +1,7 @@
 ﻿Namespace Logica
     Public Class Ajustesccobrar
 
-        'cargar cls de usaurios        
-        'cargar cls de ventas
+        Public Property Ventas As New Logica.Ventas
         Public Property Clientes As New Logica.Clientes
         Public Property Moneda As New Logica.Monedas
 

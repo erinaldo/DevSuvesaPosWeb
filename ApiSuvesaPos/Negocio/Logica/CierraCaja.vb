@@ -1,8 +1,7 @@
 ﻿Namespace Logica
     Public Class CierraCaja
 
-        'cargar cls de usuarios
-        'cargar cls de opcionesdepago
+        'Public Property OpcionesdePago As Logica.opc
         Public Property Moneda As New Logica.Monedas
         Public Property ArqueoCajas As New Logica.ArqueoCajas
 

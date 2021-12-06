@@ -2,8 +2,7 @@
     Public Class Cotizaciones
 
         Public Property Inventario As New Logica.Inventario
-        'cargar cls clientes
-        'cargar cls usuairos
+        Public Property Clientes As New Logica.Clientes
         Public Property Moneda As New Logica.Monedas
 
         Public Function buscarCotizacion(porNombre As Boolean,
