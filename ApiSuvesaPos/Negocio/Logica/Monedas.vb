@@ -3,19 +3,13 @@
         '****************************************************************************
         'Para el sistema siempre el codigo 1 = colones y el codigo 2 = dolares
 
-        Public Function cargarMonedas() As List(Of Modelo.moneda)
-            Dim moneda As New List(Of Modelo.moneda)
-            'Me.DaMoneda.Fill(Me.DataSetMoneda, "Moneda")
-            Return moneda
-        End Function
-
-        Public Function buscarMoneda(monedaNombre As String) As List(Of Modelo.moneda)
+        Public Function Buscar(monedaNombre As String) As List(Of Modelo.moneda)
             Dim moneda As New List(Of Modelo.moneda)
             'valor = Fx.BuscarDatos("Select CodMarca, Marca from Marcas", "Marca", "Buscar Marcas...", Me.SqlConnection.ConnectionString)
             Return moneda
         End Function
 
-        Public Sub crearMoneda(moneda As Modelo.moneda)
+        Public Sub Crear(moneda As Modelo.moneda)
             'Try
             '    BindingContext(DataSet, Tabla).EndCurrentEdit()
             '    Adaptador.Update(DataSet, Tabla)
@@ -27,7 +21,7 @@
             'End Try
         End Sub
 
-        Public Sub editarMoneda(moneda As Modelo.moneda)
+        Public Sub Editar(moneda As Modelo.moneda)
             'Try
             '    BindingContext(DataSet, Tabla).EndCurrentEdit()
             '    Adaptador.Update(DataSet, Tabla)
@@ -39,7 +33,7 @@
             'End Try
         End Sub
 
-        Public Sub eliminarMoneda(moneda As Modelo.moneda)
+        Public Sub Eliminar(moneda As Modelo.moneda)
 
             'BindingContext(DataSet, Tabla).RemoveAt(BindingContext(DataSet, Tabla).Position)
             'BindingContext(DataSet, Tabla).EndCurrentEdit()

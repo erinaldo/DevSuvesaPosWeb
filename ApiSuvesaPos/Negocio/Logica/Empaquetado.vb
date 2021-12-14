@@ -5,6 +5,7 @@
         Public Property Pantalla As New Logica.Marca
         Public Property Configuraciones As New Logica.Configuraciones
 
+
         Public Function cargarEmpaquetado() As List(Of Modelo.detalle_empaquetado)
 
             'Public Sub cargar()

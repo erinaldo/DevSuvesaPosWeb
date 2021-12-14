@@ -3,7 +3,7 @@
 
         Public Property Proveedores As New Logica.Proveedores
 
-        Public Sub crearRifa(rifa As Modelo.rifa)
+        Public Sub Crear(rifa As Modelo.rifa)
 
             '    Function Registrar()
             '    Try
@@ -26,7 +26,7 @@
 
         End Sub
 
-        Public Sub editarRifa(rifa As Modelo.rifa)
+        Public Sub Editar(rifa As Modelo.rifa)
 
             '    Function Registrar()
             '    Try
@@ -49,7 +49,7 @@
 
         End Sub
 
-        Public Function buscarRifa(porDescripcion As Boolean,
+        Public Function Buscar(porDescripcion As Boolean,
                                    porId As Boolean,
                                    filtro As String) As List(Of Modelo.rifa)
 
@@ -80,7 +80,7 @@
 
         End Function
 
-        Public Sub eliminarRifa(id As Integer)
+        Public Sub Eliminar(id As Integer)
 
             'Private Sub Eliminar()
             '    Try

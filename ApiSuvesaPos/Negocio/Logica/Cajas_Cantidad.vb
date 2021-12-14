@@ -2,7 +2,7 @@
     Public Class Cajas_Cantidad
 
 
-        Public Function obtenerCajas_Cantiad() As List(Of Cajas_Cantidad)
+        Public Function Buscar() As List(Of Cajas_Cantidad)
 
             'Me.AdapterNumCaja.Fill(Me.DataSetAperturaCaja1.Cajas_Cantidad)
 

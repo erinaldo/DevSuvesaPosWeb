@@ -3,7 +3,7 @@
 
         Public Property Inventario As New Logica.Inventario
 
-        Public Sub crearPedidoBodega(pedidobodega As Modelo.pedidobodega)
+        Public Sub Crear(pedidobodega As Modelo.pedidobodega)
 
             'Private db As OBSoluciones.SQL.Transaccion
             'Private Consecutivo As Integer
@@ -47,7 +47,7 @@
 
         End Sub
 
-        Public Function buscarPedidoBodega(porEstado As Boolean,
+        Public Function Buscar(porEstado As Boolean,
                                            filtroEstado As String,
                                            entreFechas As Boolean,
                                            desde As Date,
@@ -110,7 +110,7 @@
 
         End Function
 
-        Public Sub cambiarEstadoPedido(IdPedido As Integer, estado As String, idUsuario As String, cantidadPedida As Decimal, codigoProv As Integer)
+        Public Sub cambiarEstado(IdPedido As Integer, estado As String, idUsuario As String, cantidadPedida As Decimal, codigoProv As Integer)
 
             Select Case estado
                 Case "PEDIDO"

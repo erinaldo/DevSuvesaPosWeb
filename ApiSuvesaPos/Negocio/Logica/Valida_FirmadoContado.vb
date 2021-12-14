@@ -1,7 +1,7 @@
 ﻿Namespace Logica
     Public Class Valida_FirmadoContado
 
-        Public Function obtenerValida_FirmadoContado() As Modelo.valida_firmadocontado
+        Public Function Obtener() As Modelo.valida_firmadocontado
 
             'Public Function GET_VALIDACION(_ID_VALIDA_FIRMADOCONTADO As Integer) As DataTable
             '    Try
@@ -14,7 +14,7 @@
 
         End Function
 
-        Public Sub creaValida_FirmadoContado(valida_firmadocontado As Modelo.valida_firmadocontado)
+        Public Sub Crear(valida_firmadocontado As Modelo.valida_firmadocontado)
 
             'Public Sub SAVE_VALIDA_FIRMADOCONTADO(viewEXEPCION_FIRMADOCONTADO As DataGridView)
             '    Try
@@ -51,7 +51,7 @@
 
         End Sub
 
-        Public Sub editaValida_FirmadoContado(valida_firmadocontado As Modelo.valida_firmadocontado)
+        Public Sub Editar(valida_firmadocontado As Modelo.valida_firmadocontado)
 
             'Public Sub SAVE_VALIDA_FIRMADOCONTADO(viewEXEPCION_FIRMADOCONTADO As DataGridView)
             '    Try
@@ -90,7 +90,7 @@
 
         End Sub
 
-        Public Function cargarExepcion_FirmadoContado() As List(Of Modelo.exepcion_firmadocontado)
+        Public Function CargarExepcion() As List(Of Modelo.exepcion_firmadocontado)
 
             'Public Function CARGAR_EXEPCION_FIRMADOCONTADO(_ID_VALIDA_FIRMADOCONTADO As Integer) As DataTable
             '    Try

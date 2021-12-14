@@ -7,7 +7,7 @@
         Public Property Moneda As New Logica.Monedas
         Public Property Inventario As New Logica.Inventario 'para verificar si tiene consigancion
 
-        Public Function buscarDevolucion_ventas() As List(Of Modelo.devoluciones_ventas)
+        Public Function Buscar() As List(Of Modelo.devoluciones_ventas)
             'identificador = CDbl(Fx.Buscar_X_Descripcion_Fecha("SELECT  dbo.devoluciones_ventas.Devolucion, dbo.Ventas.Nombre_Cliente, dbo.devoluciones_ventas.Fecha FROM dbo.devoluciones_ventas INNER JOIN dbo.Ventas ON dbo.devoluciones_ventas.Id_Factura = dbo.Ventas.Id Order by dbo.devoluciones_ventas.Fecha DESC", "Nombre_Cliente", "Fecha", "Buscar Devolución de Venta"))
             'buscando = True
             'If identificador = 0.0 Then ' si se dio en el boton de cancelar
@@ -19,7 +19,7 @@
             'Me.llenarVentasOpcionesdePago(Me.BindingContext(Me.DataSetDevolucionVentas1, "devoluciones_ventas").Current("Id_Factura"))
         End Function
 
-        Public Sub anularDevolucion_venta()
+        Public Sub Anular()
 
             '    Function Anular_Detalle(ByVal Id As Long) As Boolean
             '    '--------------------------------------------------------------------------------------------
@@ -66,7 +66,7 @@
 
         End Sub
 
-        Public Sub crearDevoluciones_ventas(devoluciones_ventas As Modelo.devoluciones_ventas)
+        Public Sub Crear(devoluciones_ventas As Modelo.devoluciones_ventas)
 
             'If CadenaConexionSeePOS.ToLower.IndexOf("taller") > 0 Then
             '    Me.AdapterOpcionesPago.InsertCommand.CommandText = Me.AdapterOpcionesPago.InsertCommand.CommandText.Replace("OpcionesDePago", "SeePOs.dbo.OpcionesDePago")

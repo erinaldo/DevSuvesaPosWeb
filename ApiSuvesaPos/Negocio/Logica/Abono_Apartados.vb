@@ -2,6 +2,7 @@
     Public Class Abono_Apartados
 
 
+
         Public Function cargarAbonosApartados(porIdApartado As Boolean,
                                               porIdAbonoApartado As Boolean,
                                               id As Integer) As List(Of Modelo.abono_apartados)

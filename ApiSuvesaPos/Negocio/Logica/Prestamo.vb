@@ -1,7 +1,7 @@
 ﻿Namespace Logica
     Public Class Prestamo
 
-        Public Function buscarPrestamo() As List(Of Modelo.prestamo)
+        Public Function Buscar() As List(Of Modelo.prestamo)
 
             'Public Function buscar(ByVal texto As String, Optional ByVal _ConsultaBoleta As Boolean = False, Optional ByVal _SPrestamo As Boolean = True) As DataTable
             '    Try
@@ -35,7 +35,7 @@
 
         End Function
 
-        Public Sub crearPrestamo(prestamo As Modelo.prestamo)
+        Public Sub Crear(prestamo As Modelo.prestamo)
 
             'Public Function insertar(ByVal dts As vprestamo, _IdUsuarioCreo As String, _BoletaProveedor As String, Optional ByVal _SPrestamo As Boolean = True) As Boolean
             '    Try
@@ -78,7 +78,7 @@
 
         End Sub
 
-        Public Sub editarPrestamo(prestamo As Modelo.prestamo)
+        Public Sub Editar(prestamo As Modelo.prestamo)
 
             'Public Function editar(ByVal dts As vprestamo, _IdUsuarioCreo As String, _BoletaProveedor As String, Optional ByVal _SPrestamo As Boolean = True) As Boolean
             '    Try
@@ -121,7 +121,7 @@
 
         End Sub
 
-        Public Sub eliminarPrestamo()
+        Public Sub Eliminar()
 
             'Public Function eliminar(ByVal dts As vprestamo, Optional ByVal _SPrestamo As Boolean = True) As Boolean
             '    Try
@@ -153,7 +153,7 @@
 
         End Sub
 
-        Public Sub entragado()
+        Public Sub Entregado()
 
             'Public Function entregado(ByVal dts As vprestamo) As Boolean
             '    Try

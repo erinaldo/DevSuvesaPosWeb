@@ -2,7 +2,7 @@
     Public Class MensajeReceptor
 
 
-        Public Function buscarMensajeReceptor(entreFechas As Boolean,
+        Public Function Buscar(entreFechas As Boolean,
                                               porEstado As Boolean,
                                               estados As String,
                                               desde As Date,
@@ -33,7 +33,7 @@
 
         End Function
 
-        Public Sub crearMensajeReceptor(mensajereceptor As List(Of Modelo.mensajereceptor))
+        Public Sub Crear(mensajereceptor As List(Of Modelo.mensajereceptor))
 
             'Private Sub Guardar_Datos()
             '    Dim db As New OBSoluciones.SQL.Sentencias(CadenaConexionSeePOS)

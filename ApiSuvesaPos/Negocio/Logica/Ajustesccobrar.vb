@@ -5,7 +5,7 @@
         Public Property Clientes As New Logica.Clientes
         Public Property Moneda As New Logica.Monedas
 
-        Public Sub crearAjustesccobrar(ajustesccobrar As Modelo.ajustesccobrar)
+        Public Sub Crear(ajustesccobrar As Modelo.ajustesccobrar)
 
             'For i = 0 To BindingContext(AjusteCxC1, "ajustesccobrar.ajustesccobrardetalle_ajustesccobrar").Count - 1
             '    BindingContext(AjusteCxC1, "ajustesccobrar.ajustesccobrardetalle_ajustesccobrar").Position = i
@@ -22,7 +22,7 @@
 
         End Sub
 
-        Public Function buscarAjustesccobrar(porNombre As Boolean,
+        Public Function Buscar(porNombre As Boolean,
                                              porNuAjuste As Boolean,
                                              filtro As String,
                                              entreFechas As Boolean,
@@ -40,7 +40,7 @@
 
         End Function
 
-        Public Sub anularAjustesccobrar()
+        Public Sub Anular()
             'Function Registrar_Anulacion_Ajuste() As Boolean
             '    Dim i As Long
             '    Dim Facttem As Double

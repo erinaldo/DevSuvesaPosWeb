@@ -3,13 +3,13 @@
 
         Public Property Monedas As Logica.Monedas
 
-        Public Function buscarDenominacion_Moneda() As List(Of Modelo.denominacion_moneda)
+        Public Function Buscar() As List(Of Modelo.denominacion_moneda)
 
             'Me.AdapterDenominacion.Fill(Me.DataSetConfiguracionMoneda1.Denominacion_Moneda)
 
         End Function
 
-        Public Sub crearDenominacion_Moneda(denominacion_moneda As Modelo.denominacion_moneda)
+        Public Sub Crear(denominacion_moneda As Modelo.denominacion_moneda)
 
             'Function Registrar()
             '    Dim resp As Integer
@@ -43,7 +43,7 @@
 
         End Sub
 
-        Public Sub editarDenominacion_Moneda(denominacion_moneda As Modelo.denominacion_moneda)
+        Public Sub Editar(denominacion_moneda As Modelo.denominacion_moneda)
 
             'Function Registrar()
             '    Dim resp As Integer
@@ -77,7 +77,7 @@
 
         End Sub
 
-        Public Sub eliniarDenominacion_Moneda()
+        Public Sub Eliminar()
             'igual que crear y editar
         End Sub
 

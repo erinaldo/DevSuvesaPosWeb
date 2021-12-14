@@ -2,19 +2,13 @@
     Public Class Marca
 
 
-        Public Function cargarMarcas() As List(Of Modelo.marca)
-            Dim bodega As New List(Of Modelo.marca)
-            'Me.DaMarca.Fill(Me.DataSetMarca.Marcas)
-            Return bodega
-        End Function
-
-        Public Function buscarMarcas(marca As String) As List(Of Modelo.marca)
+        Public Function Buscar(marca As String) As List(Of Modelo.marca)
             Dim bodega As New List(Of Modelo.marca)
             'valor = Fx.BuscarDatos("Select CodMarca, Marca from Marcas", "Marca", "Buscar Marcas...", Me.SqlConnection.ConnectionString)
             Return bodega
         End Function
 
-        Public Sub crearMarca(bodega As Modelo.marca)
+        Public Sub Crear(bodega As Modelo.marca)
             'Try
             '    Me.BindingContext(Me.DataSetMarca.Marcas).EndCurrentEdit()
             '    Me.DaMarca.Update(Me.DataSetMarca.Marcas)
@@ -23,7 +17,7 @@
             'End Try
         End Sub
 
-        Public Sub editarMarca(bodega As Modelo.marca)
+        Public Sub Editar(bodega As Modelo.marca)
             'Try
             '    Me.BindingContext(Me.DataSetMarca.Marcas).EndCurrentEdit()
             '    Me.DaMarca.Update(Me.DataSetMarca.Marcas)
@@ -32,7 +26,7 @@
             'End Try
         End Sub
 
-        Public Sub eliminarMarca(bodega As Modelo.marca)
+        Public Sub Eliminar(bodega As Modelo.marca)
             'valida que no exista productos relacionados
 
             'BindingContext(DataSet, Tabla).RemoveAt(BindingContext(DataSet, Tabla).Position)

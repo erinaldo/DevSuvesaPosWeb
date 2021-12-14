@@ -5,7 +5,7 @@
         Public Property Moneda As New Logica.Monedas
         Public Property Clientes As New Logica.Clientes
 
-        Public Sub crearAbonoccobrar(abonoccobrar As Modelo.abonoccobrar)
+        Public Sub Crear(abonoccobrar As Modelo.abonoccobrar)
 
             'BindingContext(DsRecibos1, "abonoccobrar").EndCurrentEdit()
             'BindingContext(DsRecibos1, "abonoccobrar.abonoccobrardetalle_abonoccobrar").EndCurrentEdit()
@@ -88,7 +88,7 @@
 
         End Sub
 
-        Public Function buscarAbonosccobrar() As List(Of Modelo.abonoccobrar)
+        Public Function Buscar() As List(Of Modelo.abonoccobrar)
 
             'identificador = CDbl(Fx.Buscar_X_Descripcion_Fecha5C("SELECT abonoccobrar.Id_Recibo, abonoccobrar.Num_Recibo as Recibo , abonoccobrar.Nombre_Cliente AS Nombre_Cliente, abonoccobrar.Fecha,  abonoccobrar.Monto FROM abonoccobrar INNER JOIN  Moneda ON abonoccobrar.Cod_Moneda = Moneda.CodMoneda ORDER BY abonoccobrar.Fecha DESC", "Nombre_Cliente", "Fecha", "Buscar Recibo de Dinero"))
             'buscando = True
@@ -99,7 +99,7 @@
 
         End Function
 
-        Public Sub anularAbonosccobrar()
+        Public Sub Anular()
             '    Function Registrar_Anulacion_Venta() As Boolean
             '    Dim i As Long
             '    Dim Facttem As Double

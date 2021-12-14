@@ -1,7 +1,7 @@
 ﻿Namespace Logica
     Public Class Empresa
 
-        Public Function buscarEmpresas(filtro As String) As List(Of Modelo.empresa)
+        Public Function Buscar(filtro As String) As List(Of Modelo.empresa)
 
             'Public Function buscar(ByVal texto As String) As DataTable
             '    Try
@@ -28,7 +28,7 @@
 
         End Function
 
-        Public Sub crearEmpresas(empresa As Modelo.empresa)
+        Public Sub Crear(empresa As Modelo.empresa)
 
             'Public Function insertar(ByVal dts As vempresa) As Boolean
             '    Try
@@ -55,7 +55,7 @@
 
         End Sub
 
-        Public Sub editarEmpresas(empresa As Modelo.empresa)
+        Public Sub Editar(empresa As Modelo.empresa)
 
             'Public Function editar(ByVal dts As vempresa) As Boolean
             '    Try
@@ -80,7 +80,7 @@
 
         End Sub
 
-        Public Sub eliminarEmpresas(id As Integer)
+        Public Sub Eliminar(id As Integer)
 
             'Public Function eliminar(ByVal dts As vempresa) As Boolean
             '    Try

@@ -8,7 +8,7 @@
         Public Property Inventario As New Inventario
 
 
-        Public Sub eliminarCompra(compra As Modelo.compras)
+        Public Sub Eliminar(compra As Modelo.compras)
 
 
             'Dim Transaccion As SqlTransaction
@@ -63,7 +63,7 @@
             'End Try
         End Sub
 
-        Public Sub crearCompra(compra As Modelo.compras)
+        Public Sub Crear(compra As Modelo.compras)
             '
 
             'Dim Transaccion As SqlTransaction
@@ -133,7 +133,7 @@
             'End Try
         End Sub
 
-        Public Sub editarCompra(compra As Modelo.compras)
+        Public Sub Editar(compra As Modelo.compras)
             '
 
             'Dim Transaccion As SqlTransaction
@@ -203,7 +203,7 @@
             'End Try
         End Sub
 
-        Public Function buscarCompra(porNombre As Boolean, porFactura As Boolean, filtro As String) As List(Of Modelo.compras)
+        Public Function Buscar(porId As Boolean, porNombre As Boolean, porFactura As Boolean, filtro As String) As List(Of Modelo.compras)
             '== a busargasto pero filtrando los gastos
 
             Dim compras As New List(Of Modelo.compras)

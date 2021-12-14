@@ -9,7 +9,7 @@
         Public Familia As New Logica.Familia
         Public Ubicacion As New Logica.Ubicaciones
 
-        Public Function BuscarInventario(verInhabilitados As Boolean,
+        Public Function Buscar(verInhabilitados As Boolean,
                                          soloConBarras As Boolean,
                                         inicioCampo As Boolean,
                                          cualQuierParte As Boolean,
@@ -69,12 +69,11 @@
         End Function
 
         Public Function ObtenerInventario(codigo As String) As Modelo.inventario
-
             Dim inventario As New Modelo.inventario
             Return inventario
         End Function
 
-        Public Sub eliminaInventario(inventario As Modelo.inventario)
+        Public Sub Eliminar(inventario As Modelo.inventario)
 
             'Dim Items(1) As Integer
             'Dim Cx As New Conexion
@@ -100,7 +99,7 @@
 
         End Sub
 
-        Public Sub crearInventario(inventario As Modelo.inventario)
+        Public Sub Crear(inventario As Modelo.inventario)
             '**********************************
             'hay que validar que el codigo y las barras no se dupliquen
 
@@ -248,7 +247,7 @@
 
         End Sub
 
-        Public Sub editarInventario(inventario As Modelo.inventario)
+        Public Sub Editar(inventario As Modelo.inventario)
             '**********************************
             'hay que validar que el codigo y las barras no se dupliquen
 
@@ -421,7 +420,7 @@
 
         End Sub
 
-        Public Sub crearSerie(serie As Modelo.serie)
+        Public Sub CrearSerie(serie As Modelo.serie)
             'este metodo se usaria en las entradas de bodega
 
             'Try
@@ -444,7 +443,7 @@
             'Me.adserie.Update(Me.DataSetInventario.serie)
         End Sub
 
-        Public Sub eliminaSerie(serie As Modelo.serie)
+        Public Sub EliminaSerie(serie As Modelo.serie)
             'este metodo se usaria en las salidas de bodega
 
             'Me.adserie.Update(Me.DataSetInventario.serie)

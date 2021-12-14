@@ -5,7 +5,7 @@
         Public Property Proveedores As New Logica.Proveedores
         Public Property Inventario As New Logica.Inventario
 
-        Public Function buscarOrdenCompra() As List(Of Modelo.ordencompra)
+        Public Function Buscar() As List(Of Modelo.ordencompra)
 
 
             'Dim identificador As Double
@@ -21,7 +21,7 @@
 
         End Function
 
-        Public Sub crearOrdenCompra(ordencompra As Modelo.ordencompra)
+        Public Sub Crear(ordencompra As Modelo.ordencompra)
 
 
             'Function RegistrarOrden() As Boolean
@@ -56,7 +56,7 @@
 
         End Sub
 
-        Public Sub editarOrdenCompra(ordencompra As Modelo.ordencompra)
+        Public Sub Editar(ordencompra As Modelo.ordencompra)
 
 
             'Function RegistrarOrden() As Boolean
@@ -91,7 +91,7 @@
 
         End Sub
 
-        Public Sub anularOrdenCompra()
+        Public Sub Anular()
 
             'Function AnularOrden()
             '    Try

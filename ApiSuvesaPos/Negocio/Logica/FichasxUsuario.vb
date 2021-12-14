@@ -3,7 +3,7 @@
 
         'agregar cls de usuarios
 
-        Public Function cargarFichasxusuario() As List(Of Modelo.fichasxusuario)
+        Public Function Buscar() As List(Of Modelo.fichasxusuario)
 
             'Private Sub CargarUsuario()
             '    Try
@@ -28,7 +28,7 @@
 
         End Function
 
-        Public Sub crearFichasxUsuario(fichasxusuario As Modelo.fichasxusuario)
+        Public Sub Crear(fichasxusuario As Modelo.fichasxusuario)
 
             'Private Sub Registrar(_IdUsuario As String, _Nombre As String, _Desde As Decimal, _Hasta As Decimal, _EnMostrador As Integer)
             '    Try
@@ -47,7 +47,7 @@
 
         End Sub
 
-        Public Sub eliminarFichasxUsuarios(id As Integer)
+        Public Sub Eliminar(id As Integer)
 
             'Private Sub btnQuitar_Click(sender As Object, e As EventArgs) Handles btnQuitar.Click
             '    If Me.viewDatos.Rows.Count > 0 Then

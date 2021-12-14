@@ -5,7 +5,7 @@
         Public Property Moneda As New Logica.Monedas
         Public Property Denominacion_Moneda As New Logica.Denominacion_Moneda
 
-        Public Sub crarAperturaCaja(aperturacaja As Modelo.aperturacaja)
+        Public Sub Crear(aperturacaja As Modelo.aperturacaja)
 
             'Private Function Valida() As Boolean
             '    Try
@@ -99,7 +99,7 @@
             'End Function
         End Sub
 
-        Public Sub editarAperturaCaja(aperturacaja As Modelo.aperturacaja)
+        Public Sub Editar(aperturacaja As Modelo.aperturacaja)
 
             'Private Function Valida() As Boolean
             '    Try
@@ -193,7 +193,7 @@
             'End Function
         End Sub
 
-        Public Sub anularAperturaCaja()
+        Public Sub Anular()
 
             'Function Anular_Apertura()
             '    If MessageBox.Show("¿Desea anular la Apertura de caja?", "Atención...", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.Yes Then
@@ -208,11 +208,13 @@
 
         End Sub
 
-        Public Function buscarAperturaCaja(nombre As String,
-                                           filtrarActivas As Boolean,
-                                           entreFechas As Boolean,
-                                           desde As Date,
-                                           hasta As Date) As List(Of Modelo.aperturacaja)
+        Public Function Buscar(porNombre As Boolean,
+                               porId As Boolean,
+                               filtro As String,
+                               filtrarActivas As Boolean,
+                               entreFechas As Boolean,
+                               desde As Date,
+                               hasta As Date) As List(Of Modelo.aperturacaja)
             'Private Sub BuscarAperturas()
             '    Dim Fx As New cFunciones
             '    Dim Apertura As String
@@ -236,108 +238,6 @@
             '        Me.GroupBox3.Enabled = False
             '    End If
             'End Sub
-        End Function
-
-        Public Function cargarAperturaCaja(numapertura As Integer) As Modelo.aperturacaja
-
-            'Function CargarApertura(ByVal Numapertura As String)
-            '            Dim cnn As SqlConnection = Nothing
-
-            '            ' Dentro de un Try/Catch por si se produce un error
-            '            Try
-            '                Dim sConn As String = CadenaConexionSeePOS
-            '                cnn = New SqlConnection(sConn)
-            '                cnn.Open()
-            '                ' Creamos el comando para la consulta
-            '                Dim cmd As SqlCommand = New SqlCommand
-            '                Dim sel As String = "SELECT * FROM aperturacaja" &
-            '            " where NApertura  = @Id"
-            '                cmd.CommandText = sel
-            '                cmd.Connection = cnn
-            '                cmd.CommandType = CommandType.Text
-            '                cmd.CommandTimeout = 90
-            '                cmd.Parameters.Add(New SqlParameter("@Id", SqlDbType.BigInt))
-            '                cmd.Parameters("@Id").Value = Numapertura
-            '                Dim da As New SqlDataAdapter
-            '                da.SelectCommand = cmd
-            '                da.Fill(Me.DataSetAperturaCaja1.aperturacaja)
-            '            Catch ex As System.Exception
-            '                MsgBox(ex.ToString)
-            '            Finally
-            '                If Not cnn Is Nothing Then
-            '                    cnn.Close()
-            '                End If
-            '            End Try
-            '        End Function
-
-
-            '        Function CargarDenominacion(ByVal Numapertura As String)
-            '            Dim cnn As SqlConnection = Nothing
-
-            '            ' Dentro de un Try/Catch por si se produce un error
-            '            Try
-            '                Dim sConn As String = CadenaConexionSeePOS
-            '                cnn = New SqlConnection(sConn)
-            '                cnn.Open()
-            '                ' Creamos el comando para la consulta
-            '                Dim cmd As SqlCommand = New SqlCommand
-            '                Dim sel As String = "SELECT * FROM Apertura_Denominaciones" &
-            '            " where Id_Apertura  = @Id"
-            '                cmd.CommandText = sel
-            '                cmd.Connection = cnn
-            '                cmd.CommandType = CommandType.Text
-            '                cmd.CommandTimeout = 90
-            '                cmd.Parameters.Add(New SqlParameter("@Id", SqlDbType.BigInt))
-            '                cmd.Parameters("@Id").Value = Numapertura
-            '                Dim da As New SqlDataAdapter
-            '                da.SelectCommand = cmd
-            '                da.Fill(Me.DataSetAperturaCaja1.Apertura_Denominaciones)
-
-            '                For I As Integer = 0 To Me.DataSetAperturaCaja1.Denominacion_Moneda.Count - 1
-            '                    Me.DataSetAperturaCaja1.Denominacion_Moneda.Rows(I).Item("Total") = Me.DataSetAperturaCaja1.Apertura_Denominaciones.Rows(I).Item("Monto")
-            '                    Me.DataSetAperturaCaja1.Denominacion_Moneda.Rows(I).Item("Cantidad") = Me.DataSetAperturaCaja1.Apertura_Denominaciones.Rows(I).Item("Cantidad")
-            '                Next
-            '                CalcularTotales()
-
-            '            Catch ex As System.Exception
-            '                MsgBox(ex.ToString)
-            '            Finally
-            '                If Not cnn Is Nothing Then
-            '                    cnn.Close()
-            '                End If
-            '            End Try
-            '        End Function
-
-            '        Function CargarTope(ByVal Numapertura As String)
-            '            Dim cnn As SqlConnection = Nothing
-
-            '            ' Dentro de un Try/Catch por si se produce un error
-            '            Try
-            '                Dim sConn As String = CadenaConexionSeePOS
-            '                cnn = New SqlConnection(sConn)
-            '                cnn.Open()
-            '                ' Creamos el comando para la consulta
-            '                Dim cmd As SqlCommand = New SqlCommand
-            '                Dim sel As String = "SELECT * FROM Apertura_Total_Tope" &
-            '            " where NApertura  = @Id"
-            '                cmd.CommandText = sel
-            '                cmd.Connection = cnn
-            '                cmd.CommandType = CommandType.Text
-            '                cmd.CommandTimeout = 90
-            '                cmd.Parameters.Add(New SqlParameter("@Id", SqlDbType.BigInt))
-            '                cmd.Parameters("@Id").Value = Numapertura
-            '                Dim da As New SqlDataAdapter
-            '                da.SelectCommand = cmd
-            '                da.Fill(Me.DataSetAperturaCaja1.Apertura_Total_Tope)
-            '            Catch ex As System.Exception
-            '                MsgBox(ex.ToString)
-            '            Finally
-            '                If Not cnn Is Nothing Then
-            '                    cnn.Close()
-            '                End If
-            '            End Try
-            '        End Function
-
         End Function
 
 

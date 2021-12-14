@@ -3,7 +3,7 @@
 
         Public Property Moneda As New Logica.Monedas
 
-        Public Function buscarCliente(porNombre As Boolean,
+        Public Function Buscar(porNombre As Boolean,
                                       porCedula As Boolean,
                                       filtro As String) As List(Of Modelo.clientes)
 
@@ -18,7 +18,7 @@
 
         End Function
 
-        Public Sub crearCliente(cliente As Modelo.clientes)
+        Public Sub Crear(cliente As Modelo.clientes)
             'Dim Pasa As Boolean = True
 
             'If Len(Me.Txtnombre.Text) = 0 Then
@@ -107,11 +107,11 @@
             'End Function
         End Sub
 
-        Public Sub ediarCliente(cliente As Modelo.clientes)
+        Public Sub Editar(cliente As Modelo.clientes)
             'igual que crear
         End Sub
 
-        Public Sub eliminarCliente(cliente As Modelo.clientes)
+        Public Sub Eliminar(cliente As Modelo.clientes)
             '    Private Sub Eliminar()
             '    Dim Resultado As String
             '    Dim rs As SqlDataReader

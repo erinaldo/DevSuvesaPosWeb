@@ -1,7 +1,7 @@
 ﻿Namespace Logica
     Public Class Devolucion_prestamo
 
-        Public Function buscarDevolucion_Prestamo(texto As String) As List(Of Devolucion_prestamo)
+        Public Function Buscar(texto As String) As List(Of Devolucion_prestamo)
 
             'Public Function buscar(ByVal texto As String) As DataTable
             '    Try
@@ -28,7 +28,7 @@
 
         End Function
 
-        Public Sub crearDevolucion_Prestamo(devolucion_prestamo As Modelo.devolucion_prestamo)
+        Public Sub Crear(devolucion_prestamo As Modelo.devolucion_prestamo)
 
             'Public Function insertar(ByVal dts As vdevolucion) As Boolean
             '    Try
@@ -61,38 +61,7 @@
         End Sub
 
 
-        Public Function editarDevolucion_Prestamo(devolucion_prestamo As Modelo.devolucion_prestamo)
-
-            'Public Function editar(ByVal dts As vdevolucion) As Boolean
-            '    Try
-            '        conectado()
-            '        cmd = New SqlCommand("Modificar_Devolucion_prestamo")
-            '        cmd.CommandType = CommandType.StoredProcedure
-            '        cmd.Connection = cnn
-            '        cmd.Parameters.AddWithValue("@id", dts.gid)
-            '        cmd.Parameters.AddWithValue("@id_detalle_prestamo", dts.gdetalleprestamo)
-            '        cmd.Parameters.AddWithValue("@id_prestamo", dts.gprestamo)
-            '        cmd.Parameters.AddWithValue("@codigo", dts.gcodigo)
-            '        cmd.Parameters.AddWithValue("@descripcion", dts.gdescripcion)
-            '        cmd.Parameters.AddWithValue("@cantidad", dts.gcantidad)
-            '        cmd.Parameters.AddWithValue("@fecha", dts.gfecha)
-            '        cmd.Parameters.AddWithValue("@anulado", dts.ganulado)
-            '        If cmd.ExecuteNonQuery Then
-            '            Return True
-            '        Else
-            '            Return False
-            '        End If
-            '    Catch ex As Exception
-            '        MsgBox(ex.Message)
-            '        Return False
-            '    Finally
-            '        desconectado()
-            '    End Try
-            'End Function
-
-        End Function
-
-        Public Sub eliminarDevolucion_Prestamo()
+        Public Sub Eliminar()
 
             'Public Function eliminar(ByVal dts As vdevolucion) As Boolean
             '   Try

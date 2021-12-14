@@ -16,7 +16,7 @@
 
         End Function
 
-        Public Sub crearAbonoReintegro(ByRef Id As Integer,
+        Public Sub Crear(ByRef Id As Integer,
                                        idFactura As Integer,
                                        fecha As Date,
                                        monto As Decimal,
@@ -60,7 +60,7 @@
 
         End Sub
 
-        Public Function buscarAbonoReintegro(recibo As Integer) As List(Of Modelo.autorizacionventa)
+        Public Function Buscar(recibo As Integer) As List(Of Modelo.autorizacionventa)
 
             'reporte tiquete de caja
 

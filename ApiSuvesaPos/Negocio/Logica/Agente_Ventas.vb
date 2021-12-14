@@ -1,13 +1,8 @@
 ﻿Namespace Logica
     Public Class Agente_Ventas
 
-        Public Function cargarAgente_Ventas() As List(Of Modelo.agente_ventas)
 
-            'Me.Adapter_agentes.Fill(Me.DtsAgentes1, "agente_ventas")
-
-        End Function
-
-        Public Function buscarAgente_Ventas(nombre As String) As List(Of Modelo.agente_ventas)
+        Public Function Buscar(nombre As String) As List(Of Modelo.agente_ventas)
 
             'Dim cFunciones As New cFunciones
             'Me.Cod_agente_Buscar = cFunciones.BuscarDatosClientes("select id as id,nombre as Nombre from agente_ventas", "Nombre")
@@ -15,7 +10,7 @@
 
         End Function
 
-        Public Sub crearAgente_Ventas(agente_ventas As Modelo.agente_ventas)
+        Public Sub Crear(agente_ventas As Modelo.agente_ventas)
 
             '     Function Registrar()
             '    Try
@@ -41,7 +36,7 @@
 
         End Sub
 
-        Public Sub editarAgente_Ventas(agente_ventas As Modelo.agente_ventas)
+        Public Sub Editar(agente_ventas As Modelo.agente_ventas)
             'Public Sub RegistrarDatos(ByRef Adaptador As System.Data.SqlClient.SqlDataAdapter, ByRef DataSet As DataSet, ByRef Tabla As String, Optional ByVal ActivarNuevo As Boolean = True, Optional ByVal VerMsg As Boolean = True, Optional ByVal RecargarAdatador As Boolean = True)
             '    Try
             '        BindingContext(DataSet, Tabla).EndCurrentEdit()
@@ -67,7 +62,7 @@
             'End Sub
         End Sub
 
-        Public Sub eliminarAgente_Ventas(id As Integer)
+        Public Sub Eliminar(id As Integer)
 
             'Public Sub EliminarDatos(ByRef Adaptador As System.Data.SqlClient.SqlDataAdapter, ByRef DataSet As DataSet, ByRef Tabla As String, Optional ByVal RecargarAdatador As Boolean = True)
             '    Dim resp As Integer

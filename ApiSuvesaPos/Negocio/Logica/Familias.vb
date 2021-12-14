@@ -2,25 +2,13 @@
 Namespace Logica
     Public Class Familia
 
-        Public Function buscarFamilia(descripcion As String) As List(Of Modelo.familias)
+        Public Function Buscar(descripcion As String) As List(Of Modelo.familias)
             Dim familia As New List(Of Modelo.familias)
             'valor = Fx.BuscarDatos("Select Codigo,Descripcion From Familia", "Descripcion", "Buscar Familia...", Me.SqlConnection1.ConnectionString)
             Return familia
         End Function
 
-        Public Function cargarFamilia() As List(Of Modelo.familias)
-            Dim familia As New List(Of Modelo.familias)
-            'cx.Llenar_Tabla_Generico("Select * from familia", Me.DataSetFamilia1.Familia1, Me.SqlConnection1.ConnectionString)
-            Return familia
-        End Function
-
-        Public Function cargarSubFamilia(codigoFamilia As Integer) As List(Of Modelo.subFamilias)
-            Dim subFamilia As New List(Of Modelo.subFamilias)
-            'cx.Llenar_Tabla_Generico("Select * from SubFamilias where CodigoFamilia = " & codigo, Me.DataSetFamilia1.SubFamilias, Me.SqlConnection1.ConnectionString)
-            Return subFamilia
-        End Function
-
-        Public Sub crearFamilia(familia As Modelo.familias)
+        Public Sub Crear(familia As Modelo.familias)
             If estaVacio(familia.Descripcion) Or
                 estaVacio(familia.CuentaGra) Or
                 estaVacio(familia.CuentaExe) Or
@@ -35,7 +23,7 @@ Namespace Logica
             'Me.DataSetFamilia1.AcceptChanges()
         End Sub
 
-        Public Sub editarFamilia(familia As Modelo.familias)
+        Public Sub Editar(familia As Modelo.familias)
             If estaVacio(familia.Descripcion) Or
                 estaVacio(familia.CuentaGra) Or
                 estaVacio(familia.CuentaExe) Or
@@ -50,7 +38,7 @@ Namespace Logica
             'Me.DataSetFamilia1.AcceptChanges()
         End Sub
 
-        Public Sub eliminarFamilias(familia As Modelo.familias)
+        Public Sub Eliminar(familia As Modelo.familias)
             'valida que no exista productos relacionados
 
             'Cargo el codigo de la familia al que pertenecen las familias que se eliminaran

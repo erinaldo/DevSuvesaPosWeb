@@ -5,7 +5,7 @@
         Public Property Clientes As New Logica.Clientes
         Public Property Moneda As New Logica.Monedas
 
-        Public Function buscarCotizacion(porNombre As Boolean,
+        Public Function Buscar(porNombre As Boolean,
                                          porNumero As Boolean,
                                          filtro As String,
                                          entreFechas As Boolean,
@@ -19,80 +19,7 @@
             'End If
         End Function
 
-        Public Function obtenerCotizacion() As Modelo.cotizacion
-            '    Function LlenarVentas(ByVal Id As Double)
-            '    Me.CargarTelefono(Id)
-            '    Dim cnnv As SqlConnection = Nothing
-            '    Dim dt As New DataTable
-            '    '
-            '    ' Dentro de un Try/Catch por si se produce un error
-            '    Try
-            '        '''''''''LLENAR VENTAS''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-            '        ' Obtenemos la cadena de conexión adecuada
-            '        Dim sConn As String = CadenaConexionSeePOS()
-            '        cnnv = New SqlConnection(sConn)
-            '        cnnv.Open()
-            '        ' Creamos el comando para la consulta
-            '        Dim cmdv As SqlCommand = New SqlCommand
-            '        Dim sel As String = "SELECT * FROM Cotizacion WHERE (Cotizacion = @Id_Factura) "
-
-            '        cmdv.CommandText = sel
-            '        cmdv.Connection = cnnv
-            '        cmdv.CommandType = CommandType.Text
-            '        cmdv.CommandTimeout = 90
-            '        ' Los parámetros usados en la cadena de la consulta 
-            '        cmdv.Parameters.Add(New SqlParameter("@Id_Factura", SqlDbType.BigInt))
-
-            '        cmdv.Parameters("@Id_Factura").Value = Id
-
-            '        ' Creamos el dataAdapter y asignamos el comando de selección
-            '        Dim dv As New SqlDataAdapter
-            '        dv.SelectCommand = cmdv
-            '        ' Llenamos la tabla
-            '        dv.Fill(Me.DataSet_Cotizaciones21, "Cotizacion")
-
-
-            '        '''''''''LLENAR VENTAS DETALLES''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-            '        ' Obtenemos la cadena de conexión adecuada
-            '        'Dim sConn As String = CadenaConexionSeePOS
-            '        'cnn = New SqlConnection(sConn)
-            '        'cnn.Open()
-
-            '        ' Creamos el comando para la consulta
-            '        Dim cmd As SqlCommand = New SqlCommand
-            '        sel = "SELECT * FROM Cotizacion_Detalle WHERE (Cotizacion = @Id_Factura) "
-
-            '        cmd.CommandText = sel
-            '        cmd.Connection = cnnv
-            '        cmd.CommandType = CommandType.Text
-            '        cmd.CommandTimeout = 90
-            '        ' Los parámetros usados en la cadena de la consulta 
-            '        cmd.Parameters.Add(New SqlParameter("@Id_Factura", SqlDbType.BigInt))
-
-            '        cmd.Parameters("@Id_Factura").Value = Id
-
-            '        ' Creamos el dataAdapter y asignamos el comando de selección
-            '        Dim da As New SqlDataAdapter
-            '        da.SelectCommand = cmd
-            '        ' Llenamos la tabla
-            '        da.Fill(Me.DataSet_Cotizaciones21.Cotizacion_Detalle)
-
-
-            '    Catch ex As System.Exception
-            '        ' Si hay error, devolvemos un valor nulo.
-            '        MsgBox(ex.ToString)
-            '    Finally
-            '        ' Por si se produce un error,
-            '        ' comprobamos si en realidad el objeto Connection está iniciado,
-            '        ' de ser así, lo cerramos.
-            '        If Not cnnv Is Nothing Then
-            '            cnnv.Close()
-            '        End If
-            '    End Try
-            'End Function
-        End Function
-
-        Public Sub crearCotizacion(cotizacion As Modelo.cotizacion)
+        Public Sub Crear(cotizacion As Modelo.cotizacion)
 
             'Dim Contacto As String = ""
             'Dim frm As New frmContactoCotizacion
@@ -144,11 +71,11 @@
 
         End Sub
 
-        Public Sub editarCotzacion(cotizacion As Modelo.cotizacion)
+        Public Sub Editar(cotizacion As Modelo.cotizacion)
             'igual que el de crear
         End Sub
 
-        Public Sub anularCotizacion()
+        Public Sub Anular()
             'Function Registrar_Anulacion_Venta() As Boolean
 
             '    If Me.SqlConnection1.State <> Me.SqlConnection1.State.Open Then Me.SqlConnection1.Open()

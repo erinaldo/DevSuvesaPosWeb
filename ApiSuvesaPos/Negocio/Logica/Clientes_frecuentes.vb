@@ -1,7 +1,7 @@
 ﻿Namespace Logica
     Public Class Clientes_frecuentes
 
-        Public Sub anularCliente_Frecuentes()
+        Public Sub Anular()
 
             'Function Registrar_Anulacion_cliente(ByVal Anular As Boolean) As Boolean
             '    Dim Cx As New Conexion
@@ -23,7 +23,7 @@
 
         End Sub
 
-        Public Sub eliminar_Cliente_Frecuentes(identificacion As Integer)
+        Public Sub Eliminar(identificacion As Integer)
 
             'Me.BindingContext(Me.DataSetClienteFrecuente1, "Bitacora").EndCurrentEdit()
 
@@ -40,7 +40,7 @@
 
         End Sub
 
-        Public Sub crearCliente_Frecuente(cliente_frecuente As Modelo.clientes_frecuentes)
+        Public Sub Crear(cliente_frecuente As Modelo.clientes_frecuentes)
 
             'BindingContext(DataSetClienteFrecuente1, "Clientes_frecuentes").EndCurrentEdit()
 
@@ -52,7 +52,7 @@
 
         End Sub
 
-        Public Sub editarCliente_Frecuente(cliente_frecuente As Clientes_frecuentes)
+        Public Sub Editar(cliente_frecuente As Clientes_frecuentes)
 
             'BindingContext(DataSetClienteFrecuente1, "Clientes_frecuentes").EndCurrentEdit()
 
@@ -64,7 +64,7 @@
 
         End Sub
 
-        Public Function buscarCliente_Frecuente(porNombre As Boolean,
+        Public Function Buscar(porNombre As Boolean,
                                       porCedula As Boolean,
                                       filtro As String) As List(Of Modelo.clientes_frecuentes)
 

@@ -5,7 +5,7 @@
         Public Property Moneda As New Logica.Monedas
         Public Property ArqueoCajas As New Logica.ArqueoCajas
 
-        Public Function buscarCiereCaja() As List(Of Modelo.cierrecaja)
+        Public Function Buscar() As List(Of Modelo.cierrecaja)
 
             'Dim cFunciones As New cFunciones
             'Apertura = "0"
@@ -17,7 +17,7 @@
 
         End Function
 
-        Public Sub anularCierreCaja(idCiere As Integer)
+        Public Sub Anular(idCiere As Integer)
 
             'Private Sub Anular()
             '    Dim resp As Integer
@@ -42,7 +42,7 @@
 
         End Sub
 
-        Public Sub crearCierreCaja(cierrecaja As Modelo.cierrecaja)
+        Public Sub Crear(cierrecaja As Modelo.cierrecaja)
 
             'Private Function Registar() As Boolean
             '    If SqlConnection1.State <> SqlConnection1.State.Open Then SqlConnection1.Open()

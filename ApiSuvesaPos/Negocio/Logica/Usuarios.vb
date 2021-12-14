@@ -1,13 +1,15 @@
 ﻿Namespace Logica
     Public Class Usuarios
 
+        Public Property Perfil_x_Usuario As New Logica.Perfil_x_Usuario
+
         Public Function obtenerUsuarios() As List(Of Modelo.usuarios)
 
             'Me.AdapterUsuario.Fill(Me.DatasetUsuario1.Usuarios)
 
         End Function
 
-        Public Function buscarUsuarios() As List(Of Modelo.usuarios)
+        Public Function Buscar() As List(Of Modelo.usuarios)
 
             'Id = funcion.BuscarDatos("SELECT Id_Usuario,Nombre FROM Usuarios", "Nombre", "Buscar Usuario ...", Me.SqlConnection1.ConnectionString)
             'cedula = Id
@@ -15,7 +17,7 @@
 
         End Function
 
-        Public Sub crearUsuario(usuario As Modelo.usuarios)
+        Public Sub Crear(usuario As Modelo.usuarios)
 
             '    Function Registra()
             '    Try
@@ -58,7 +60,7 @@
 
         End Sub
 
-        Public Sub editarUsuario(usuario As Modelo.usuarios)
+        Public Sub Editar(usuario As Modelo.usuarios)
 
             '    Function Registra()
             '    Try

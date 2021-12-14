@@ -1,6 +1,7 @@
 ﻿Namespace Logica
     Public Class AutorizacionVenta
 
+
         Public Function buscarFacturasPendinetes(porNombreRetira As Boolean,
                                                  porNombreCliente As Boolean,
                                                  porNombreCajaro As Boolean,

@@ -2,6 +2,7 @@
     Public Class Apartados
 
 
+
         Public Function cargarApartadosPendientes(porNombre As Boolean,
                                                   porNumero As Boolean,
                                                   filtro As String) As List(Of Modelo.apartados)

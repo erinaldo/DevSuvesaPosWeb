@@ -4,7 +4,7 @@
         Public Property Moneda As New Monedas
         Public Property Proveedores As New Proveedores
 
-        Public Function buscarGasto(porNombre As Boolean, porFactura As Boolean, filtro As String) As List(Of Modelo.compras)
+        Public Function Buscar(porNombre As Boolean, porFactura As Boolean, filtro As String) As List(Of Modelo.compras)
             '== a busarcompra pero filtrando las compras
             Dim compras As New List(Of Modelo.compras)
             'Dim Fx As New cFunciones
@@ -15,7 +15,7 @@
             Return compras
         End Function
 
-        Public Sub crearGasto(gasto As Modelo.compras)
+        Public Sub Crear(gasto As Modelo.compras)
 
             'If IdGasto = -1 Then
             '    sql = " INSERT INTO Compras (Factura,CodigoProv,SubTotalGravado,SubTotalExento,Descuento,Impuesto" &
@@ -69,7 +69,7 @@
         End Sub
 
 
-        Public Sub editarGasto(gasto As Modelo.compras)
+        Public Sub Editar(gasto As Modelo.compras)
 
             'If IdGasto = -1 Then
             '    sql = " INSERT INTO Compras (Factura,CodigoProv,SubTotalGravado,SubTotalExento,Descuento,Impuesto" &
@@ -122,7 +122,7 @@
 
         End Sub
 
-        Public Sub eliminarGasto(idcompra As Integer)
+        Public Sub Eliminar(idcompra As Integer)
 
             '     Private Sub EliminarBD()
             '    Dim sql As String

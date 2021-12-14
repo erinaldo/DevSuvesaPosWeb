@@ -8,7 +8,7 @@
         Public Property Moneda As Logica.Monedas
         Public Property Compras As Logica.Compras
 
-        Public Sub crearDevolucionCompra(devolucionCompra As Modelo.devoluciones_compras)
+        Public Sub Crear(devolucionCompra As Modelo.devoluciones_compras)
 
 
             'If Me.SqlConnection1.State <> ConnectionState.Open Then Me.SqlConnection1.Open()
@@ -80,7 +80,7 @@
 
         End Sub
 
-        Public Function buscarDevolucionCompra(porNombreProveedor As Boolean,
+        Public Function Buscar(porNombreProveedor As Boolean,
                                                porNumeroDevolucion As Boolean,
                                                filtro As String,
                                                entreFechas As Boolean,
@@ -97,7 +97,7 @@
 
         End Function
 
-        Public Sub anularDevolucionCompra()
+        Public Sub Anular()
 
             '    Function Registrar_Anulacion() As Boolean
             '    Dim i As Long

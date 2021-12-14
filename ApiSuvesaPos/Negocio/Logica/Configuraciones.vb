@@ -2,11 +2,11 @@
     Public Class Configuraciones
 
 
-        Public Function cargarConfiguraciones() As List(Of Modelo.configuraciones)
+        Public Function Buscar() As List(Of Modelo.configuraciones)
             'DaConfiguracion.Fill(Me.DsConfiguracion.configuraciones)
         End Function
 
-        Public Sub editarConfiguraciones(configuraciones As Modelo.configuraciones)
+        Public Sub Editar(configuraciones As Modelo.configuraciones)
 
             'Private Sub registrar()
 

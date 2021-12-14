@@ -33,7 +33,7 @@
             'End Function
         End Function
 
-        Public Function buscarPreVenta(porNombre As Bodega,
+        Public Function BuscarPreVenta(porNombre As Bodega,
                                       porNumFactura As Boolean,
                                       filtro As String,
                                       entreFechas As Boolean,
@@ -67,7 +67,7 @@
 
         End Function
 
-        Public Sub crearPreVentas(ventas As Modelo.preventas)
+        Public Sub Crear(ventas As Modelo.preventas)
 
 
             'If Me.txtcodigo.Text <> "0" And (Me.txtNombre.Text.ToLower = "cliente de contado" Or Me.txtNombre.Text = "" Or Me.txtNombre.Text.ToLower = "cliente contado") Then
@@ -471,7 +471,7 @@
 
         End Sub
 
-        Public Sub editarPreVentas(ventas As Modelo.preventas)
+        Public Sub Editar(ventas As Modelo.preventas)
 
 
             'If Me.txtcodigo.Text <> "0" And (Me.txtNombre.Text.ToLower = "cliente de contado" Or Me.txtNombre.Text = "" Or Me.txtNombre.Text.ToLower = "cliente contado") Then
@@ -875,7 +875,7 @@
 
         End Sub
 
-        Public Function buscarFichasActivas() As List(Of Modelo.ficha)
+        Public Function BuscarFichasActivas() As List(Of Modelo.ficha)
 
             'Private Sub BuscarFichasActivas()
             '    Dim dt As New DataTable
@@ -889,7 +889,7 @@
 
         End Function
 
-        Public Sub inactivarFicha(id As Integer, tipo As String, puntodeVenta As String)
+        Public Sub InactivarFicha(id As Integer, tipo As String, puntodeVenta As String)
 
             'Private Sub btnInactivar_Click(sender As Object, e As EventArgs) Handles btnInactivar.Click
             '    Try
@@ -916,7 +916,7 @@
 
         End Sub
 
-        Public Sub generaVenta(id_preventa As Integer,
+        Public Sub GeneraVenta(id_preventa As Integer,
                             puntodeventa As String,
                             tipo As String,
                             id_usuario As String,
@@ -935,7 +935,7 @@
 
         End Sub
 
-        Public Sub generaAbonoFirmadoContado(ByRef id As Integer,
+        Public Sub GeneraAbonoFirmadoContado(ByRef id As Integer,
                                             id_factura As Integer,
                                             fechaAbono As Date,
                                             montoAbono As Decimal)
@@ -948,7 +948,7 @@
 
         End Sub
 
-        Public Sub generarReciboCxC(id_preventa As Integer,
+        Public Sub GenerarReciboCxC(id_preventa As Integer,
                           id_usuario As String,
                           puntodeventa As String,
                           ByRef idrecibo As Integer,
@@ -964,7 +964,7 @@
 
         End Sub
 
-        Public Sub generarApartado(id_preventa As Integer,
+        Public Sub GenerarApartado(id_preventa As Integer,
                                   fechaVence As Date,
                                   montoApartado As Decimal,
                                   puntodeVenta As String,
@@ -986,14 +986,5 @@
         End Sub
 
 
-        Public Function saldoFactura()
-
-
-
-        End Function
-
-        Public Function facturasPendientes(cod_Cliente As Integer) As List(Of Modelo.ventas)
-
-        End Function
     End Class
 End Namespace

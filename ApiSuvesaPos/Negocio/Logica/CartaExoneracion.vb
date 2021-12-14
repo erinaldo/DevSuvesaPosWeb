@@ -4,7 +4,7 @@
         'Public Property TipoExoneracion As New Logica.ti
         Public Property Clientes As New Logica.Clientes
 
-        Public Sub crearCartaExoneracion(cartaexoneracion As Modelo.cartaexoneracion)
+        Public Sub Crear(cartaexoneracion As Modelo.cartaexoneracion)
 
             'Private Sub AgregarCarta()
             '    If Me.txtPorcentajeCompra.Text <> "" Then
@@ -52,11 +52,11 @@
 
         End Sub
 
-        Public Sub editarCartaExoneracion(cartaexoneracion As Modelo.cartaexoneracion)
+        Public Sub Editar(cartaexoneracion As Modelo.cartaexoneracion)
             'igual que crear
         End Sub
 
-        Public Sub eliminarCartaExoneracion(id As Integer)
+        Public Sub Eliminar(id As Integer)
 
             'Private Sub EliminarCarta()
             '    Dim db As New OBSoluciones.SQL.Sentencias(CadenaConexionSeePOS)

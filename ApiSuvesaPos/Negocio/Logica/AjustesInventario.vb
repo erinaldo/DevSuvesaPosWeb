@@ -5,7 +5,7 @@
         '**************** actualmente busca una cuenta contable pero no se usa
         Public Property Inventario As New Logica.Inventario
 
-        Public Function buscarAjuste(porDescripcion As Boolean, porConsecutivo As Boolean, filtro As String) As List(Of Modelo.ajusteinventario)
+        Public Function Buscar(porDescripcion As Boolean, porConsecutivo As Boolean, filtro As String) As List(Of Modelo.ajusteinventario)
 
 
             'identificador = CDbl(Fx.Buscar_X_Descripcion_Fecha("SELECT AjusteInventario.Consecutivo, AjusteInventario_Detalle.Desc_Articulo AS Articulo, AjusteInventario.Fecha FROM AjusteInventario INNER JOIN AjusteInventario_Detalle ON AjusteInventario.Consecutivo = AjusteInventario_Detalle.Cons_Ajuste Order by AjusteInventario.Fecha DESC", "Articulo", "Fecha", "Buscar Ajuste de Inventario"))
@@ -15,12 +15,8 @@
             '    Exit Sub
             'End If
         End Function
-        Public Function obtenerAjuste(consecutivo As String) As List(Of Modelo.ajusteinventario)
 
-            'Fx.Llenar_Tabla_Generico("SELECT * FROM AjusteInventario WHERE (Consecutivo =" & identificador & " )", Me.DsAjusteInv2.AjusteInventario)
-            'Fx.Llenar_Tabla_Generico("SELECT * FROM AjusteInventario_Detalle WHERE (Cons_Ajuste =" & identificador & " )", Me.DsAjusteInv2.AjusteInventario_Detalle)
-        End Function
-        Public Sub anulaAjuste(ajuste As Modelo.ajusteinventario)
+        Public Sub Anular(ajuste As Modelo.ajusteinventario)
 
             'registra en vitacora
             'Function insertar_bitacora() As Boolean
@@ -60,7 +56,7 @@
             'End Function
 
         End Sub
-        Public Sub crearAjuste(ajuste As Modelo.ajusteinventario)
+        Public Sub Crear(ajuste As Modelo.ajusteinventario)
 
             'validacion
             'If Ceros() Then

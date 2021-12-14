@@ -4,7 +4,7 @@
     Public Property Proveedores As New Logica.Proveedores
 
 
-    Public Function cargarDescuentos() As List(Of Modelo.descuentos)
+    Public Function Buscar() As List(Of Modelo.descuentos)
 
         'Private Sub Cargar_Descuntos()
         '    Dim dt As New DataTable
@@ -17,7 +17,7 @@
 
     End Function
 
-    Public Sub crearDescuentos(descuento As Modelo.descuentos)
+    Public Sub Crear(descuento As Modelo.descuentos)
 
         'Private Sub Guardar_Descuento()
         '    If Me.IdProveedor <> "0" And Me.txtProveedor.Text <> "" Then
@@ -41,7 +41,7 @@
 
     End Sub
 
-    Public Sub eliminarDescuentos(id As Integer)
+    Public Sub Eliminar(id As Integer)
 
         'Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
         '    If MsgBox("Desea Eliminar El Descuento", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Confirmar Accion") Then

@@ -7,7 +7,7 @@
         Public Property Inventario As New Logica.Inventario
 
 
-        Public Function buscarMovimientoBodega(porBodega As Boolean,
+        Public Function Buscar(porBodega As Boolean,
                                                porReferencia As Boolean,
                                                filtro As String,
                                                porFecha As Boolean,
@@ -20,18 +20,16 @@
             'Buscar.CampoFiltro = "Bodega"
             'Buscar.CampoFecha = "Fecha"
             'Buscar.ShowDialog()
-        End Function
-
-        Public Function obtenerMovimientoBodega(boleta As String) As Modelo.movimientosbodega
 
             'Fx.Cargar_Tabla_Generico(Me.SqlDataAdapterMovimiento_Bodega, "SELECT * FROM MovimientosBodega WHERE (Boleta_Movimiento = " & Buscar.Codigo & ")")
             'Me.SqlDataAdapterMovimiento_Bodega.Fill(Me.DataSet_Movimiento_Bodega, "MovimientosBodega")
 
             'Fx.Cargar_Tabla_Generico(Me.SqlDataAdapter_MovimientDetalle, "SELECT * FROM MovimientosBodega_Detalle WHERE (Boleta_Movimiento = " & Buscar.Codigo & ")")
             'Me.SqlDataAdapter_MovimientDetalle.Fill(Me.DataSet_Movimiento_Bodega, "MovimientosBodega_Detalle")
+
         End Function
 
-        Public Sub crearMovimientoBodega(movimientobodega As Modelo.movimientosbodega)
+        Public Sub Crear(movimientobodega As Modelo.movimientosbodega)
 
             'valida que no exista la referencia
             'Private Function ValidaReferencia(ByVal _CodBodega As Integer, ByVal _Referencia As String) As Boolean
@@ -110,7 +108,7 @@
 
         End Sub
 
-        Public Sub anulaMovimietoBodega(movimientobodega As Modelo.movimientosbodega)
+        Public Sub Anular(movimientobodega As Modelo.movimientosbodega)
 
             'Function insertar_bitacora() As Boolean
             '    Dim funciones As New Conexion

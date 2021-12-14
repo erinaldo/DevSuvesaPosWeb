@@ -5,7 +5,7 @@
         Public Property AperturaCaja As New Logica.AperturaCaja
 
 
-        Public Sub crearMovimiento_Caja(movimiento_caja As Modelo.movimientosbodega)
+        Public Sub Crear(movimiento_caja As Modelo.movimientosbodega)
 
             'Sub Registrar()
             '    Try
@@ -37,7 +37,7 @@
 
         End Sub
 
-        Public Function buscarMovimiento_Caja(observaciones As String,
+        Public Function Buscar(observaciones As String,
                                               entreFechas As Boolean,
                                               desde As Date,
                                               hasta As Date) As List(Of Modelo.movimiento_caja)
@@ -53,7 +53,7 @@
 
         End Function
 
-        Public Sub anularMovimiento_Caja(id As Integer)
+        Public Sub Anular(id As Integer)
 
             'Sub Anular()
             '    Try

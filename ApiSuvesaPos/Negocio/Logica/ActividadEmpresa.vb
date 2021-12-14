@@ -1,7 +1,7 @@
 ﻿Namespace Logica
     Public Class ActividadEmpresa
 
-        Public Function obtenerActividadEmpresa() As List(Of Modelo.actividadempresa)
+        Public Function Buscar() As List(Of Modelo.actividadempresa)
 
             'Private Sub CargarActividades()
             '    Dim dt As New DataTable

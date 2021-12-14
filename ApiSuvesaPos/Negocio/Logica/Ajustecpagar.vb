@@ -5,8 +5,9 @@
         Public Property Proveedor As New Logica.Proveedores
         Public Property Moneda As New Logica.Monedas
 
-        Public Function buscarAjustecpagar(porNombreProveedor As Bodega,
+        Public Function Buscar(porNombreProveedor As Bodega,
                                            porNumeroAjuste As Boolean,
+                                           porId As Boolean,
                                            filtro As String,
                                            porFecha As Boolean,
                                            desde As Date,
@@ -21,35 +22,8 @@
 
         End Function
 
-        Public Function cargarAjustecpagar(id_AjustecPagar As String) As Modelo.ajustescpagar
 
-
-            'Dim cnnv As SqlConnection = Nothing
-            'Dim dt As New DataTable
-            'Dim cConexion As New Conexion
-            'Dim IdRec As Long
-            ''Dentro de un Try/Catch por si se produce un error
-            'Try
-            '    Dim Fx As New cFunciones
-            '    Fx.Llenar_Tabla_Generico("SELECT * FROM ajustescpagar WHERE ID_Ajuste = " & Id, Me.DsAjustePagar.Ajustescpagar, SqlConnection1.ConnectionString)
-            '    Fx.Llenar_Tabla_Generico("SELECT * FROM detalle_ajustescpagar WHERE Id_AjustecPagar = " & Id, Me.DsAjustePagar.Detalle_AjustescPagar, SqlConnection1.ConnectionString)
-
-
-            'Catch ex As System.Exception
-            '    ' Si hay error, devolvemos un valor nulo.
-            '    MsgBox(ex.ToString)
-            'Finally
-            '    ' Por si se produce un error,
-            '    ' comprobamos si en realidad el objeto Connection está iniciado,
-            '    ' de ser así, lo cerramos.
-            '    If Not cnnv Is Nothing Then
-            '        cnnv.Close()
-            '    End If
-            'End Try
-
-        End Function
-
-        Public Sub crearAjustecPagar(ajustecpagar As Modelo.ajustescpagar)
+        Public Sub Crear(ajustecpagar As Modelo.ajustescpagar)
 
             'Valida
             'If Me.BindingContext(Me.DsAjustePagar, "Ajustescpagar.AjustescpagarDetalle_AjustescPagar").Count = 0 Then
@@ -85,7 +59,7 @@
 
         End Sub
 
-        Public Sub anularAjustecpagar()
+        Public Sub Anular()
 
 
             '        Function Registrar_Anulacion_Ajuste() As Boolean

@@ -2,7 +2,7 @@
     Public Class NoMAG
 
 
-        Public Function cargarNoMAG() As List(Of NoMAG)
+        Public Function Buscar() As List(Of NoMAG)
 
             'Private Sub CargarDatos()
             '    Try
@@ -16,7 +16,7 @@
 
         End Function
 
-        Public Function crearNoMAG(nomag As Modelo.nomag)
+        Public Function Crear(nomag As Modelo.nomag)
 
             'Private Sub btnAgregarCliente_Click(sender As Object, e As EventArgs) Handles btnAgregarCliente.Click
             '    Try
@@ -33,7 +33,7 @@
 
         End Function
 
-        Public Sub eliminarNoMAG(id As Integer)
+        Public Sub Eliminar(id As Integer)
 
             'Private Sub viewDatos_KeyDown(sender As Object, e As KeyEventArgs) Handles viewDatos.KeyDown
             '    If e.KeyCode = Keys.Delete Then

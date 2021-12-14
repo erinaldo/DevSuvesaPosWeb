@@ -1,27 +1,27 @@
 ﻿Public Class Perfil
 
-    Public Function obtenerPerfil() As List(Of Modelo.perfil)
+    Public Function Buscar() As List(Of Modelo.perfil)
 
         'Me.AdapterPerfil.Fill(Me.DataSetPerfilUsuario1.Perfil)
 
     End Function
 
 
-    Public Sub crearPerfil()
+    Public Sub Crear()
 
         'Me.BindingContext(Me.DataSetPerfilUsuario1, "Perfil").EndCurrentEdit()
         'Me.AdapterPerfil.Update(Me.DataSetPerfilUsuario1, "Perfil")
 
     End Sub
 
-    Public Sub editarPerfil()
+    Public Sub Editar()
 
         'Me.BindingContext(Me.DataSetPerfilUsuario1, "Perfil").EndCurrentEdit()
         'Me.AdapterPerfil.Update(Me.DataSetPerfilUsuario1, "Perfil")
 
     End Sub
 
-    Public Sub eliminarPerfil()
+    Public Sub Eliminar()
 
         'Public Sub EliminarDatos(ByRef Adaptador As System.Data.SqlClient.SqlDataAdapter, ByRef DataSet As DataSet, ByRef Tabla As String, Optional ByVal RecargarAdatador As Boolean = True)
         '    Dim resp As Integer

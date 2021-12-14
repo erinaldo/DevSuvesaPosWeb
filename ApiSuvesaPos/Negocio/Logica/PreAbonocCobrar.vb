@@ -6,7 +6,7 @@
         Public Property Moneda As New Logica.Monedas
         Public Property Clientes As New Logica.Clientes
 
-        Public Sub crearPreAbonoccobrar(abonoccobrar As Modelo.preabonoccobrar)
+        Public Sub Crear(abonoccobrar As Modelo.preabonoccobrar)
 
             'BindingContext(DsRecibos1, "abonoccobrar").EndCurrentEdit()
             'BindingContext(DsRecibos1, "abonoccobrar.abonoccobrardetalle_abonoccobrar").EndCurrentEdit()

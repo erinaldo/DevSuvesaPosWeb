@@ -16,6 +16,7 @@
 
         End Function
 
+
         Public Function SolicitarToken(idusuario As String, codigo As Integer)
 
             'Private Sub SolicitarPermisoVentaNegativo()

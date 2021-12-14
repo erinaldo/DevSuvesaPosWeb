@@ -3,7 +3,7 @@
 
         Public Property Inventario As New Logica.Inventario
 
-        Public Function cargarCambioInventario() As List(Of Modelo.cambioinventario)
+        Public Function Buscar() As List(Of Modelo.cambioinventario)
 
             'Dim strSQL As String = "select * from viewCambiosInventario Where aplicado = 0"
             'Dim dt As New DataTable
@@ -12,7 +12,7 @@
 
         End Function
 
-        Public Sub crearCambioInventario(cambioinventario As Modelo.cambioinventario)
+        Public Sub Crear(cambioinventario As Modelo.cambioinventario)
 
             'Public Sub GuardarCambio()
             '    'guarda el cambio
@@ -31,7 +31,7 @@
 
         End Sub
 
-        Public Sub aplicarCambiosInventario(cambios As List(Of Modelo.cambioinventario))
+        Public Sub Aplicar(cambios As List(Of Modelo.cambioinventario))
 
             'Private Sub btnAceptar_Click(sender As Object, e As EventArgs) Handles btnAceptar.Click
             '    Dim db As New OBSoluciones.SQL.Sentencias(CadenaConexionSeePOS)
@@ -46,7 +46,7 @@
 
         End Sub
 
-        Public Sub eliminarCambiosInventario(id As Integer)
+        Public Sub Anular(id As Integer)
 
 
 

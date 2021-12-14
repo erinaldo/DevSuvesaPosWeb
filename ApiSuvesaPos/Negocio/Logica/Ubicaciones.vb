@@ -2,25 +2,13 @@
 Namespace Logica
     Public Class Ubicaciones
 
-        Public Function buscarUbicacion(descripcion As String) As List(Of Modelo.ubicaciones)
-            Dim ubicacion As New List(Of Modelo.ubicaciones)
-            'Me.daubicaciones.Fill(Me.DataSet_Ubicaciones1, "ubicaciones")
-            Return ubicacion
-        End Function
-
-        Public Function cargarUbicacion() As List(Of Modelo.ubicaciones)
+        Public Function Buscar() As List(Of Modelo.ubicaciones)
             Dim ubicacion As New List(Of Modelo.ubicaciones)
             'cx.Llenar_Tabla_Generico("Select * from familia", Me.DataSetFamilia1.Familia1, Me.SqlConnection1.ConnectionString)
             Return ubicacion
         End Function
 
-        Public Function cargarSubUbicacion(codigoUbicacion As Integer) As List(Of Modelo.subUbicacion)
-            Dim subUbicacion As New List(Of Modelo.subUbicacion)
-            'Me.dasububicacion.Fill(Me.DataSet_Ubicaciones1, "SubUbicacion")
-            Return subUbicacion
-        End Function
-
-        Public Sub crearUbicacion(ubicacion As Modelo.ubicaciones)
+        Public Sub Crear(ubicacion As Modelo.ubicaciones)
             If estaVacio(ubicacion.Descripcion) Then
                 'no pasa validacion datos vacios
 
@@ -31,7 +19,7 @@ Namespace Logica
             'Trans.Commit()
         End Sub
 
-        Public Sub editarUbicacion(ubicacion As Modelo.ubicaciones)
+        Public Sub Editar(ubicacion As Modelo.ubicaciones)
             If estaVacio(ubicacion.Descripcion) Then
                 'no pasa validacion datos vacios
 
@@ -42,7 +30,7 @@ Namespace Logica
             'Trans.Commit()
         End Sub
 
-        Public Sub eliminarUbicacion(ubicacion As Modelo.ubicaciones)
+        Public Sub Eliminar(ubicacion As Modelo.ubicaciones)
             'valida que no exista productos relacionados
 
             'Me.BindingContext(Me.DataSet_Ubicaciones1, "Ubicaciones").RemoveAt(Me.BindingContext(Me.DataSet_Ubicaciones1, "Ubicaciones").Position)

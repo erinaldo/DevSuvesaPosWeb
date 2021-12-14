@@ -3,7 +3,7 @@
 
         'solo para consultas, no crea ni edita ni elimina
 
-        Public Function obtenerCondicionImpuesto() As List(Of Modelo.condicionimpuesto)
+        Public Function Buscar() As List(Of Modelo.condicionimpuesto)
 
             'Private Sub CargarCondiciones()
             '    Dim dt As New DataTable

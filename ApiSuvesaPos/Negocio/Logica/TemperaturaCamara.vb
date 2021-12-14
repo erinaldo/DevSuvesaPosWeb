@@ -3,7 +3,7 @@
 
 
 
-        Public Function cargarTemperaturaCamara(entreFechas As Boolean,
+        Public Function Buscar(entreFechas As Boolean,
                                                 desde As Date,
                                                 hasta As Date)
 
@@ -20,7 +20,7 @@
 
         End Function
 
-        Public Sub crearTermperaturaCamara(temperaturacamara As Modelo.temperaturacamara)
+        Public Sub Crear(temperaturacamara As Modelo.temperaturacamara)
 
             'Private Sub AgregarNuevoRegistro()
             '    Dim Fecha As Date
@@ -44,7 +44,7 @@
 
         End Sub
 
-        Public Sub editarTermperaturaCamara(temperaturacamara As Modelo.temperaturacamara)
+        Public Sub Editar(temperaturacamara As Modelo.temperaturacamara)
 
             'Private Sub AgregarNuevoRegistro()
             '    Dim Fecha As Date

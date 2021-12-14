@@ -1,22 +1,7 @@
 ﻿Namespace Logica
     Public Class Bodega
 
-        'Public Function obtenerConsecutivo() As Integer
-        '    '******esta columna sera autoincremental
-        '    'no se usa este metodo.
-        '    Dim consecutivo As Integer = 0
-        '    'ConexionX.SlqExecuteScalar(ConexionX.Conectar, "SELECT isnull(MAX(ID_Bodega + 1),1) AS Ident FROM Bodegas")
-        '    Return consecutivo
-        'End Function
-
-        'Public Function cargarMoneda() As DataTable
-        '    '******esta funcion no se usa en esta clase.
-        '    Dim dt As New DataTable
-        '    'X = Me.SqlDataAdapterMoneda.Fill(Me.DataSetBodegas, "Moneda")
-        '    Return dt
-        'End Function
-
-        Public Function cargarBodegas() As List(Of Modelo.bodega)
+        Public Function Buscar() As List(Of Modelo.bodega)
             Dim bodega As New List(Of Modelo.bodega)
             'X = Me.SqlDataAdapterBodegas.Fill(Me.DataSetBodegas, "Bodegas")
             Return bodega
@@ -28,7 +13,7 @@
             Return inventario
         End Function
 
-        Public Sub crearBodega(bodega As Modelo.bodega)
+        Public Sub Crear(bodega As Modelo.bodega)
             'Try
             '    BindingContext(DataSet, Tabla).EndCurrentEdit()
             '    Adaptador.Update(DataSet, Tabla)
@@ -40,7 +25,7 @@
             'End Try
         End Sub
 
-        Public Sub editarBodega(bodega As Modelo.bodega)
+        Public Sub Editar(bodega As Modelo.bodega)
             'Try
             '    BindingContext(DataSet, Tabla).EndCurrentEdit()
             '    Adaptador.Update(DataSet, Tabla)
@@ -52,7 +37,7 @@
             'End Try
         End Sub
 
-        Public Sub eliminarBodega(bodega As Modelo.bodega)
+        Public Sub Eliminar(bodega As Modelo.bodega)
             'valida que no exista productos relacionados
 
             'BindingContext(DataSet, Tabla).RemoveAt(BindingContext(DataSet, Tabla).Position)

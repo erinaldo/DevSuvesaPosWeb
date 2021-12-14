@@ -1,7 +1,7 @@
 ﻿Namespace Logica
     Public Class Perfil_x_Modulo
 
-        Public Sub crearPerfil_x_modulo()
+        Public Sub Crea()
 
             'Me.BindingContext(Me.DataSetPerfilUsuario1, "Perfil.PerfilPerfil_x_Modulo").EndCurrentEdit()
 
@@ -11,7 +11,7 @@
 
         End Sub
 
-        Public Sub editarPerfil_x_modulo()
+        Public Sub Edita()
 
             'Me.BindingContext(Me.DataSetPerfilUsuario1, "Perfil.PerfilPerfil_x_Modulo").EndCurrentEdit()
 
@@ -21,7 +21,7 @@
 
         End Sub
 
-        Public Sub eliminarPerfil_x_Modulo()
+        Public Sub Elimina()
 
             'Public Sub EliminarDatos(ByRef Adaptador As System.Data.SqlClient.SqlDataAdapter, ByRef DataSet As DataSet, ByRef Tabla As String, Optional ByVal RecargarAdatador As Boolean = True)
             '    Dim resp As Integer

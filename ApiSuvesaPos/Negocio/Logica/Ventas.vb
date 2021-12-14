@@ -12,7 +12,7 @@
         Public Property Inventario As New Logica.Inventario
         Public Property Cotizaciones As New Logica.Cotizaciones
 
-        Public Function obtenerVentas(id As Integer) As Modelo.ventas
+        Public Function Obtener(id As Integer) As Modelo.ventas
             'Public Function Obtener_Factura(_IdFactura As String) As DataTable
             '    Dim dt As New DataTable
             '    Dim db As New OBSoluciones.SQL.Sentencias(CadenaConexionSeguridad)
@@ -32,7 +32,7 @@
             'End Function
         End Function
 
-        Public Function buscarFactura(porNombre As Bodega,
+        Public Function Buscar(porNombre As Bodega,
                                       porNumFactura As Boolean,
                                       filtro As String,
                                       entreFechas As Boolean,
@@ -66,7 +66,7 @@
 
         End Function
 
-        Public Sub crearVentas(ventas As Modelo.ventas)
+        Public Sub Crear(ventas As Modelo.ventas)
 
 
             'If Me.txtcodigo.Text <> "0" And (Me.txtNombre.Text.ToLower = "cliente de contado" Or Me.txtNombre.Text = "" Or Me.txtNombre.Text.ToLower = "cliente contado") Then
@@ -513,7 +513,7 @@
 
         End Function
 
-        Public Function facturasPendientes(cod_Cliente As Integer) As List(Of Modelo.ventas)
+        Public Function FacturasPendientes(cod_Cliente As Integer) As List(Of Modelo.ventas)
             'Public Shared Function BuscarFacturas(ByVal CodigoCliente As String, Optional ByVal FiltrarIncobrables As Boolean = False) As DataTable
 
             '    Dim dt As New DataTable

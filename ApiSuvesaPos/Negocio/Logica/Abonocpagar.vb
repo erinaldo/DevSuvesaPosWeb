@@ -4,7 +4,7 @@
         Public Property Moneda As Logica.Monedas
         Public Property Bancos As Logica.Bancos
 
-        Public Sub crearAbonocpagar(abonocpagar As Modelo.abonocpagar)
+        Public Sub Crear(abonocpagar As Modelo.abonocpagar)
 
             '********************
             'validacion
@@ -142,12 +142,13 @@
             'End Try
         End Sub
 
-        Public Function buscarAbonocpagar(porProveedor As Boolean,
-                                          porCheque As Boolean,
-                                          filtro As String,
-                                          porFecha As Boolean,
-                                          desde As Date,
-                                          hasta As Date) As List(Of Modelo.abonocpagar)
+        Public Function Busar(porProveedor As Boolean,
+                                porCheque As Boolean,
+                                porId As Boolean,
+                                filtro As String,
+                                porFecha As Boolean,
+                                desde As Date,
+                                hasta As Date) As List(Of Modelo.abonocpagar)
             'identificador = CDbl(Fx.Buscar_X_Descripcion_Fecha("SELECT abonocpagar.Id_Abonocpagar AS Consecutivo, cast(abonocpagar.Recibo as varchar) as Recibo, ISNULL(Proveedores.Nombre, 'Proveedor Eliminado') AS Proveedor, abonocpagar.Fecha, cast(abonocpagar.Documento as varchar ) as Cheque FROM abonocpagar LEFT OUTER JOIN Proveedores ON abonocpagar.Cod_Proveedor = Proveedores.CodigoProv ORDER BY abonocpagar.Fecha DESC", "Proveedor", "Fecha", "Buscar Pagos a Proveedor", SqlConnection1.ConnectionString))
             'buscando = True
             'If identificador = 0.0 Then ' si se dio en el boton de cancelar
@@ -156,34 +157,7 @@
             'End If
         End Function
 
-        Public Function obtenerAbonocpagar(id_Abonocpagar As String) As Modelo.abonocpagar
-
-
-            ''CARGA EL ABONO SELECCIONADO
-            'Fx.Cargar_Tabla_Generico(Me.adAbonos, "Select * from abonocpagar where Id_Abonocpagar =" & Id, SqlConnection1.ConnectionString)
-            'Me.adAbonos.Fill(Me.DataSetAbonosProveedor.abonocpagar)
-
-            'Dim ii As Integer
-            'For ii = 0 To Me.DataSetAbonosProveedor.abonocpagar.Count - 1
-            '    If Me.BindingContext(Me.DataSetAbonosProveedor.abonocpagar).Current("Anulado") = True Then
-            '        Me.CheckBox2.Checked = True
-            '    End If
-            'Next
-
-            'Fx.Cargar_Tabla_Generico(Me.daDetalle_Abono, "SELECT * FROM detalle_abonocpagar WHERE Id_Abonocpagar = " & Id, SqlConnection1.ConnectionString)
-            'Me.daDetalle_Abono.Fill(Me.DataSetAbonosProveedor, "detalle_abonocpagar")
-
-            'Fx.Cargar_Tabla_Generico(Me.Adapter_Proveedor, "SELECT * from proveedores where codigoProv  =" & BindingContext(DataSetAbonosProveedor, "abonocpagar").Current("Cod_Proveedor"), SqlConnection1.ConnectionString)
-            'Me.Adapter_Proveedor.Fill(Me.DataSetAbonosProveedor, "Proveedores")
-            'txtNombre.Text = BindingContext(DataSetAbonosProveedor, "Proveedores").Current("Nombre")
-
-            'Fx.Cargar_Tabla_Generico(Me.Adapter_Cuenta_Proveedor, "SELECT * FROM Cuentas_Bancarias_Proveedor WHERE CodigoProv = " & BindingContext(DataSetAbonosProveedor, "abonocpagar").Current("Cod_Proveedor"), SqlConnection1.ConnectionString)
-            'Me.Adapter_Cuenta_Proveedor.Fill(Me.DataSetAbonosProveedor, "Cuentas_Bancarias_Proveedor")
-            'ComboBoxCuentaBancariaDestino.SelectedValue = BindingContext(DataSetAbonosProveedor, "abonocpagar").Current("CuentaDestino")
-
-        End Function
-
-        Public Sub anulaAbonocpagar(id_Abonocpagar As String, eliminaCheque As Boolean)
+        Public Sub Anular(id_Abonocpagar As String, eliminaCheque As Boolean)
 
             '    Function Registrar_Anulacion_Venta() As Boolean
             '    Dim i As Long

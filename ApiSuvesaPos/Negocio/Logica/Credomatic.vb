@@ -1,7 +1,7 @@
 ﻿Namespace Logica
     Public Class Credomatic
 
-        Public Function obtenerCredomatic() As Modelo.credomatic
+        Public Function Buscar() As Modelo.credomatic
 
             'Public Function FacturaRapido() As Decimal
             '    Dim dt As New System.Data.DataTable

@@ -6,7 +6,10 @@
         Public Property Moneda As New Logica.Monedas
         Public Property Denominacion_Moneda As New Logica.Denominacion_Moneda
 
-        Public Function buscarArqueoCajas() As List(Of Modelo.arqueocajas)
+        Public Function Buscar(porNombre As Boolean,
+                               porApertura As Boolean,
+                               porIdArqueo As Boolean,
+                               Filtro As String) As List(Of Modelo.arqueocajas)
 
             'Dim cFunciones As New cFunciones
             'Dim Id_ArqueoCaja As String = cFunciones.Buscar_X_Descripcion_Fecha("select cast(Id as varchar) as Arqueo, Cajero,Fecha from ArqueoCajas Order by Id Desc", "Cajero", "Fecha", "Arqueo Caja ....")
@@ -15,10 +18,6 @@
 
             'Else
             '    Cargar(Id_ArqueoCaja)
-
-        End Function
-        Public Function cargarArqueoCajas(idarqueo As Integer) As Modelo.arqueocajas
-
             'Function Cargar(ByVal IdArqueo As String)
             '    Try
             '        Dim cFunciones As New cFunciones
@@ -39,7 +38,7 @@
             'End Function
 
         End Function
-        Public Sub crearArqueoCajas(arqueocajas As Modelo.arqueocajas)
+        Public Sub Crear(arqueocajas As Modelo.arqueocajas)
 
             'Function ValidarApertura(ByVal IdArqueo As String) As Boolean
             '    Try
@@ -157,7 +156,7 @@
             'End Function
 
         End Sub
-        Public Sub editarArqueoCajas(arqueocajas As Modelo.arqueocajas)
+        Public Sub Editar(arqueocajas As Modelo.arqueocajas)
 
             'Function ValidarApertura(ByVal IdArqueo As String) As Boolean
             '    Try
@@ -275,7 +274,7 @@
             'End Function
 
         End Sub
-        Public Sub anularArqueoCajas(idarqueo As Integer)
+        Public Sub Anular(idarqueo As Integer)
 
             'Function Anular()
             '    Try
