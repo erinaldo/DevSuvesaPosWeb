@@ -3,7 +3,7 @@
     public class prestamo
     {
         public int ID { get; set; }
-        public DateTime fecha { get; set; }
+        //public DateTime fecha { get; set; }
         public bool estado { get; set; }
         public bool anulado { get; set; }
         public bool Entrada { get; set; }
@@ -17,6 +17,6 @@
         public string transportista { get; set; }
         public string Id_UsuariCreo { get; set; }
         public string BoletaProveedor { get; set; }
-        public List<detalle_prestamo> Detalle_Prestamo { get; set; } = new List<detalle_prestamo>();
+        //public List<detalle_prestamo> Detalle_Prestamo { get; set; } = new List<detalle_prestamo>();
     }
 }

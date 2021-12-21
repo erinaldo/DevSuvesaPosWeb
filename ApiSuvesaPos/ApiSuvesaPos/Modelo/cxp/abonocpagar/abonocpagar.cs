@@ -10,7 +10,7 @@
         public decimal Saldo_Cuenta { get; set; }
         public decimal Monto { get; set; }
         public decimal Saldo_Actual { get; set; }
-        public DateTime Fecha { get; set; }
+        //public DateTime Fecha { get; set; }
         public bool Contabilizado { get; set; }
         public string Recibo { get; set; }
         public string Cedula_Usuario { get; set; }
@@ -20,7 +20,7 @@
         public decimal TipoCambio { get; set; }
         public string MontoLetras { get; set; }
         public long CuentaDestino { get; set; }
-        public DateTime FechaEntrada { get; set; }
+        //public DateTime FechaEntrada { get; set; }
         public string Observaciones { get; set; }
     }
 }

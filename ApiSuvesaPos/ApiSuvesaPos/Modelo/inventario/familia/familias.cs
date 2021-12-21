@@ -11,6 +11,6 @@
         public string DescripcionExe { get; set; }
         public string CuentaCosto { get; set; }
         public string DescripcionCosto { get; set; }
-        public List<subFamilias> SubFamilias { get; set; }
+        //public List<subFamilias> SubFamilias { get; set; }
     }
 }

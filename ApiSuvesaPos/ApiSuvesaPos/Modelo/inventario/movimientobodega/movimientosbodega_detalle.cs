@@ -13,7 +13,7 @@
         public string Numero { get; set; }
         public decimal ExistenciaForzada { get; set; }
         public decimal ExistVeteForzada { get; set; }
-        public List<serie> Serie { get; set; } = new List<serie>(); // las series que salen o que entran
+        //public List<serie> Serie { get; set; } = new List<serie>(); // las series que salen o que entran
     }
 }
 

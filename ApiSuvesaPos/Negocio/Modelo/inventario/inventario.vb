@@ -66,7 +66,7 @@
         Public Property orden As Boolean
         Public Property bonificado As Boolean
         Public Property encargado As String
-        Public Property serie As Integer
+        'Public Property serie As Integer
         Public Property armamento As Boolean
         Public Property tienda As Boolean
         Public Property prestamo As Decimal

@@ -27,3 +27,43 @@ C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\ApiSu
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\ref\ApiSuvesaPos.dll
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\ApiSuvesaPos.pdb
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\ApiSuvesaPos.genruntimeconfig.cache
+C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\ApiSuvesaPos.csproj.AssemblyReference.cache
+C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\ApiSuvesaPos.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\ApiSuvesaPos.AssemblyInfoInputs.cache
+C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\ApiSuvesaPos.AssemblyInfo.cs
+C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\ApiSuvesaPos.csproj.CoreCompileInputs.cache
+C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\ApiSuvesaPos.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\ApiSuvesaPos.dll
+C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\ref\ApiSuvesaPos.dll
+C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\ApiSuvesaPos.pdb
+C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\appsettings.Development.json
+C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\appsettings.json
+C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\ApiSuvesaPos.exe
+C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\ApiSuvesaPos.deps.json
+C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\ApiSuvesaPos.runtimeconfig.json
+C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\ApiSuvesaPos.runtimeconfig.dev.json
+C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\ApiSuvesaPos.dll
+C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\ref\ApiSuvesaPos.dll
+C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\ApiSuvesaPos.pdb
+C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\Microsoft.OpenApi.dll
+C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\Datos.dll
+C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\Negocio.dll
+C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\Negocio.pdb
+C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\Datos.pdb
+C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\staticwebassets\ApiSuvesaPos.StaticWebAssets.Manifest.cache
+C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\staticwebassets\ApiSuvesaPos.StaticWebAssets.xml
+C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\scopedcss\bundle\ApiSuvesaPos.styles.css
+C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\ApiSuvesaPos.RazorTargetAssemblyInfo.cache
+C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\ApiSuvesaPos.csproj.CopyComplete
+C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\ApiSuvesaPos.genruntimeconfig.cache
+C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\Humanizer.dll
+C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\ApiSuvesaPos.MvcApplicationPartsAssemblyInfo.cs

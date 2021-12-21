@@ -7,7 +7,7 @@ namespace Modelo
         public int Id_Recibo { get; set; }
         public decimal Factura { get; set; }
         public string Tipo { get; set; }
-        public DateTime Fecha { get; set; }
+        //public DateTime Fecha { get; set; }
         public decimal Monto { get; set; }
         public decimal Saldo_Ant { get; set; }
         public decimal Intereses { get; set; }
