@@ -51,7 +51,7 @@ namespace DatosFE.Class
 
         }
 
-        public List<ActividadEmpresa> ObtenerActividades(string cedula) //obtener id cliente apartir de la cedula
+        public List<ActividadEmpresa> ObtenerActividades() //obtener lista actividades 
         {
             try
             {
