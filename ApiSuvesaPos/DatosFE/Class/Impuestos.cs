@@ -7,20 +7,20 @@ using DatosFE.Models;
 
 namespace DatosFE.Class
 {
-   public  class Compras
+    public class Impuestos
     {
         private FEContext entities;
 
-        public Compras()
+        public Impuestos()
         {
             entities = new FEContext();
         }
 
-        public int CrearCompra(Compra compra) // crear Compra apartir de objeto de creacion
+        public int CrearImpuestos(Impuesto impuesto) // crear impuestos apartir de objeto de creacion
         {
             try
             {
-                entities.Compras.Add(compra);
+                entities.Impuestos.Add(impuesto);
                 return entities.SaveChanges();
 
             }
@@ -32,13 +32,13 @@ namespace DatosFE.Class
 
         }
 
-        public int BorrarCompra(int id) // borrar Compra apartir del id Compra
+        public int BorrarImpuestos(int id) // borrar impuestos apartir del id Actividad
 
 
         {
             try
             {
-                var p = entities.Compras.Find(id);
+                var p = entities.Impuestos.Find(id);
                 entities.Remove(p);
                 return entities.SaveChanges();
 
@@ -51,14 +51,14 @@ namespace DatosFE.Class
 
         }
 
-        public List<Compra> ObtenerCompras() //obtener lista Compras 
+        public List<Impuesto> ObtenerArticulosDevueltos() //obtener lista Impuestos
         {
             try
             {
-                var temp = from c in entities.Compras
+                var temp = from c in entities.Impuestos
 
                            select c;
-                List<Compra> result = temp.ToList<Compra>();
+                List<Impuesto> result = temp.ToList<Impuesto>();
 
                 if (result.Count > 0)
                 {
@@ -76,7 +76,5 @@ namespace DatosFE.Class
                 throw ex;
             }
         }
-
-
     }
 }

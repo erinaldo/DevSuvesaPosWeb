@@ -7,20 +7,20 @@ using DatosFE.Models;
 
 namespace DatosFE.Class
 {
-   public  class Compras
+    class IdentificacionTipos
     {
         private FEContext entities;
 
-        public Compras()
+        public IdentificacionTipos()
         {
             entities = new FEContext();
         }
 
-        public int CrearCompra(Compra compra) // crear Compra apartir de objeto de creacion
+        public int CrearTipoIdentificacion(TiposIdentificacion id) // crear Tipos identificacion apartir de objeto de creacion
         {
             try
             {
-                entities.Compras.Add(compra);
+                entities.TiposIdentificacions.Add(id);
                 return entities.SaveChanges();
 
             }
@@ -32,13 +32,13 @@ namespace DatosFE.Class
 
         }
 
-        public int BorrarCompra(int id) // borrar Compra apartir del id Compra
+        public int BorrarTipoIdentificacion(int id) // borrar Tipo Identificacion apartir del id Actividad
 
 
         {
             try
             {
-                var p = entities.Compras.Find(id);
+                var p = entities.TiposIdentificacions.Find(id);
                 entities.Remove(p);
                 return entities.SaveChanges();
 
@@ -51,14 +51,14 @@ namespace DatosFE.Class
 
         }
 
-        public List<Compra> ObtenerCompras() //obtener lista Compras 
+        public List<TiposIdentificacion> ObtenerTiposIdentificacion() //obtener lista Tipos Identificacion 
         {
             try
             {
-                var temp = from c in entities.Compras
+                var temp = from c in entities.TiposIdentificacions
 
                            select c;
-                List<Compra> result = temp.ToList<Compra>();
+                List<TiposIdentificacion> result = temp.ToList<TiposIdentificacion>();
 
                 if (result.Count > 0)
                 {
@@ -76,7 +76,5 @@ namespace DatosFE.Class
                 throw ex;
             }
         }
-
-
     }
 }

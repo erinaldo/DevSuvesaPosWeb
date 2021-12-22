@@ -16,7 +16,7 @@ namespace DatosFE.Class
             entities = new FEContext();
         }
 
-        public int CrearArticulosComprados(DevolucionesVenta articulo) // crear Devoluciones Ventas apartir de objeto de creacion
+        public int CrearDevolucionesVentas(DevolucionesVenta articulo) // crear Devoluciones Ventas apartir de objeto de creacion
         {
             try
             {
@@ -32,7 +32,7 @@ namespace DatosFE.Class
 
         }
 
-        public int BorrarArticulosDevueltos(int id) // borrar Devoluciones Ventas apartir del id Actividad
+        public int BorrarDevolucionesVenta(int id) // borrar Devoluciones Ventas apartir del id Actividad
 
 
         {
@@ -51,7 +51,7 @@ namespace DatosFE.Class
 
         }
 
-        public List<DevolucionesVenta> ObtenerArticulosDevueltos() //obtener lista Articulos devueltos
+        public List<DevolucionesVenta> ObtenerDevolucionesVenta() //obtener lista Articulos devueltos
         {
             try
             {

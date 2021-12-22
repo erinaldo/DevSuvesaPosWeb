@@ -7,20 +7,20 @@ using DatosFE.Models;
 
 namespace DatosFE.Class
 {
-   public  class Compras
+    class Proveedores
     {
         private FEContext entities;
 
-        public Compras()
+        public Proveedores()
         {
             entities = new FEContext();
         }
 
-        public int CrearCompra(Compra compra) // crear Compra apartir de objeto de creacion
+        public int CrearProveedor(Proveedore proveedor) // crear Proveedor apartir de objeto de creacion
         {
             try
             {
-                entities.Compras.Add(compra);
+                entities.Proveedores.Add(proveedor);
                 return entities.SaveChanges();
 
             }
@@ -32,13 +32,13 @@ namespace DatosFE.Class
 
         }
 
-        public int BorrarCompra(int id) // borrar Compra apartir del id Compra
+        public int BorrarProveedor(int id) // borrar Proveedor apartir del id Actividad
 
 
         {
             try
             {
-                var p = entities.Compras.Find(id);
+                var p = entities.Proveedores.Find(id);
                 entities.Remove(p);
                 return entities.SaveChanges();
 
@@ -51,14 +51,14 @@ namespace DatosFE.Class
 
         }
 
-        public List<Compra> ObtenerCompras() //obtener lista Compras 
+        public List<Proveedore> ObtenerProvedores() //obtener lista Proveedores 
         {
             try
             {
-                var temp = from c in entities.Compras
+                var temp = from c in entities.Proveedores
 
                            select c;
-                List<Compra> result = temp.ToList<Compra>();
+                List<Proveedore> result = temp.ToList<Proveedore>();
 
                 if (result.Count > 0)
                 {
@@ -76,7 +76,5 @@ namespace DatosFE.Class
                 throw ex;
             }
         }
-
-
     }
 }

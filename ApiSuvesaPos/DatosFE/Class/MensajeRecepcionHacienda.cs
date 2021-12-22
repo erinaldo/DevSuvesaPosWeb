@@ -7,20 +7,20 @@ using DatosFE.Models;
 
 namespace DatosFE.Class
 {
-   public  class Compras
+    class MensajeRecepcionHacienda
     {
         private FEContext entities;
 
-        public Compras()
+        public MensajeRecepcionHacienda()
         {
             entities = new FEContext();
         }
 
-        public int CrearCompra(Compra compra) // crear Compra apartir de objeto de creacion
+        public int CrearMensajeReceptor(MensajeReceptor mensaje) // crear Mensaje Receptor apartir de objeto de creacion
         {
             try
             {
-                entities.Compras.Add(compra);
+                entities.MensajeReceptors.Add(mensaje);
                 return entities.SaveChanges();
 
             }
@@ -32,13 +32,13 @@ namespace DatosFE.Class
 
         }
 
-        public int BorrarCompra(int id) // borrar Compra apartir del id Compra
+        public int BorrarMensajeReceptor(int id) // borrar Mensaje Receptor apartir del id Actividad
 
 
         {
             try
             {
-                var p = entities.Compras.Find(id);
+                var p = entities.MensajeReceptors.Find(id);
                 entities.Remove(p);
                 return entities.SaveChanges();
 
@@ -51,14 +51,14 @@ namespace DatosFE.Class
 
         }
 
-        public List<Compra> ObtenerCompras() //obtener lista Compras 
+        public List<MensajeReceptor> ObtenerMensajeReceptor() //obtener lista actividades 
         {
             try
             {
-                var temp = from c in entities.Compras
+                var temp = from c in entities.MensajeReceptors
 
                            select c;
-                List<Compra> result = temp.ToList<Compra>();
+                List<MensajeReceptor> result = temp.ToList<MensajeReceptor>();
 
                 if (result.Count > 0)
                 {
@@ -76,7 +76,5 @@ namespace DatosFE.Class
                 throw ex;
             }
         }
-
-
     }
 }
