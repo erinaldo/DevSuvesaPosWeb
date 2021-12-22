@@ -5,23 +5,22 @@ using System.Text;
 using System.Threading.Tasks;
 using DatosFE.Models;
 
-
 namespace DatosFE.Class
 {
-    public class VentasDevueltas
+   public  class Compras
     {
         private FEContext entities;
 
-        public VentasDevueltas()
+        public Compras()
         {
             entities = new FEContext();
         }
 
-        public int CrearVentasDevueltas(ArticulosVentasDevuelto articulo) // crear Articulos duvueltos apartir de objeto de creacion
+        public int CrearCompra(Compra compra) // crear Compra apartir de objeto de creacion
         {
             try
             {
-                entities.ArticulosVentasDevueltos.Add(articulo);
+                entities.Compras.Add(compra);
                 return entities.SaveChanges();
 
             }
@@ -33,13 +32,13 @@ namespace DatosFE.Class
 
         }
 
-        public int BorrarVentasDevueltas(int id) // borrar Articulos devueltos apartir del id Actividad
+        public int BorrarActividad(int id) // borrar Compra apartir del id Compra
 
 
         {
             try
             {
-                var p = entities.ArticulosVentasDevueltos.Find(id);
+                var p = entities.Compras.Find(id);
                 entities.Remove(p);
                 return entities.SaveChanges();
 
@@ -52,14 +51,14 @@ namespace DatosFE.Class
 
         }
 
-        public List<ArticulosVentasDevuelto> ObtenerVentasDevueltas() //obtener lista Articulos devueltos
+        public List<Compra> ObtenerActividades() //obtener lista Compras 
         {
             try
             {
-                var temp = from c in entities.ArticulosVentasDevueltos
+                var temp = from c in entities.Compras
 
                            select c;
-                List<ArticulosVentasDevuelto> result = temp.ToList<ArticulosVentasDevuelto>();
+                List<Compra> result = temp.ToList<Compra>();
 
                 if (result.Count > 0)
                 {
@@ -77,5 +76,7 @@ namespace DatosFE.Class
                 throw ex;
             }
         }
+
+
     }
 }

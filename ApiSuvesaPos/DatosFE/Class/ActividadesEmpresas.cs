@@ -5,23 +5,22 @@ using System.Text;
 using System.Threading.Tasks;
 using DatosFE.Models;
 
-
 namespace DatosFE.Class
 {
-    public class VentasDevueltas
+    class ActividadesEmpresas
     {
         private FEContext entities;
 
-        public VentasDevueltas()
+        public ActividadesEmpresas()
         {
             entities = new FEContext();
         }
 
-        public int CrearVentasDevueltas(ArticulosVentasDevuelto articulo) // crear Articulos duvueltos apartir de objeto de creacion
+        public int CrearArticulosComprados(EmpresaActividade empresa) // crear Actividades Empresas apartir de objeto de creacion
         {
             try
             {
-                entities.ArticulosVentasDevueltos.Add(articulo);
+                entities.EmpresaActividades.Add(empresa);
                 return entities.SaveChanges();
 
             }
@@ -33,13 +32,13 @@ namespace DatosFE.Class
 
         }
 
-        public int BorrarVentasDevueltas(int id) // borrar Articulos devueltos apartir del id Actividad
+        public int BorrarArticulosDevueltos(int id) // borrar Empresa Actividades apartir del id Actividad
 
 
         {
             try
             {
-                var p = entities.ArticulosVentasDevueltos.Find(id);
+                var p = entities.EmpresaActividades.Find(id);
                 entities.Remove(p);
                 return entities.SaveChanges();
 
@@ -52,14 +51,14 @@ namespace DatosFE.Class
 
         }
 
-        public List<ArticulosVentasDevuelto> ObtenerVentasDevueltas() //obtener lista Articulos devueltos
+        public List<EmpresaActividade> ObtenerArticulosDevueltos() //obtener lista Empresa Actividad
         {
             try
             {
-                var temp = from c in entities.ArticulosVentasDevueltos
+                var temp = from c in entities.EmpresaActividades
 
                            select c;
-                List<ArticulosVentasDevuelto> result = temp.ToList<ArticulosVentasDevuelto>();
+                List<EmpresaActividade> result = temp.ToList<EmpresaActividade>();
 
                 if (result.Count > 0)
                 {

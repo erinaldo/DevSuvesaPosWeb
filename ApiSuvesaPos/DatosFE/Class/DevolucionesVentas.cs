@@ -5,23 +5,22 @@ using System.Text;
 using System.Threading.Tasks;
 using DatosFE.Models;
 
-
 namespace DatosFE.Class
 {
-    public class VentasDevueltas
+    class DevolucionesVentas
     {
         private FEContext entities;
 
-        public VentasDevueltas()
+        public DevolucionesVentas()
         {
             entities = new FEContext();
         }
 
-        public int CrearVentasDevueltas(ArticulosVentasDevuelto articulo) // crear Articulos duvueltos apartir de objeto de creacion
+        public int CrearArticulosComprados(DevolucionesVenta articulo) // crear Devoluciones Ventas apartir de objeto de creacion
         {
             try
             {
-                entities.ArticulosVentasDevueltos.Add(articulo);
+                entities.DevolucionesVentas.Add(articulo);
                 return entities.SaveChanges();
 
             }
@@ -33,13 +32,13 @@ namespace DatosFE.Class
 
         }
 
-        public int BorrarVentasDevueltas(int id) // borrar Articulos devueltos apartir del id Actividad
+        public int BorrarArticulosDevueltos(int id) // borrar Devoluciones Ventas apartir del id Actividad
 
 
         {
             try
             {
-                var p = entities.ArticulosVentasDevueltos.Find(id);
+                var p = entities.DevolucionesVentas.Find(id);
                 entities.Remove(p);
                 return entities.SaveChanges();
 
@@ -52,14 +51,14 @@ namespace DatosFE.Class
 
         }
 
-        public List<ArticulosVentasDevuelto> ObtenerVentasDevueltas() //obtener lista Articulos devueltos
+        public List<DevolucionesVenta> ObtenerArticulosDevueltos() //obtener lista Articulos devueltos
         {
             try
             {
-                var temp = from c in entities.ArticulosVentasDevueltos
+                var temp = from c in entities.DevolucionesVentas
 
                            select c;
-                List<ArticulosVentasDevuelto> result = temp.ToList<ArticulosVentasDevuelto>();
+                List<DevolucionesVenta> result = temp.ToList<DevolucionesVenta>();
 
                 if (result.Count > 0)
                 {

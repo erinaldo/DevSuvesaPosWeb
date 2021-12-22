@@ -5,23 +5,22 @@ using System.Text;
 using System.Threading.Tasks;
 using DatosFE.Models;
 
-
 namespace DatosFE.Class
 {
-    public class VentasDevueltas
+    class Emisores
     {
         private FEContext entities;
 
-        public VentasDevueltas()
+        public Emisores()
         {
             entities = new FEContext();
         }
 
-        public int CrearVentasDevueltas(ArticulosVentasDevuelto articulo) // crear Articulos duvueltos apartir de objeto de creacion
+        public int CrearEmisores(Emisor emisor) // crear emisores s apartir de objeto de creacion
         {
             try
             {
-                entities.ArticulosVentasDevueltos.Add(articulo);
+                entities.Emisors.Add(emisor);
                 return entities.SaveChanges();
 
             }
@@ -33,13 +32,13 @@ namespace DatosFE.Class
 
         }
 
-        public int BorrarVentasDevueltas(int id) // borrar Articulos devueltos apartir del id Actividad
+        public int BorrarEmisores(int id) // borrar Emisores apartir del id Actividad
 
 
         {
             try
             {
-                var p = entities.ArticulosVentasDevueltos.Find(id);
+                var p = entities.Emisors.Find(id);
                 entities.Remove(p);
                 return entities.SaveChanges();
 
@@ -52,14 +51,14 @@ namespace DatosFE.Class
 
         }
 
-        public List<ArticulosVentasDevuelto> ObtenerVentasDevueltas() //obtener lista Articulos devueltos
+        public List<Emisor> ObtenerEmisores() //obtener lista Emisores
         {
             try
             {
-                var temp = from c in entities.ArticulosVentasDevueltos
+                var temp = from c in entities.Emisors
 
                            select c;
-                List<ArticulosVentasDevuelto> result = temp.ToList<ArticulosVentasDevuelto>();
+                List<Emisor> result = temp.ToList<Emisor>();
 
                 if (result.Count > 0)
                 {
