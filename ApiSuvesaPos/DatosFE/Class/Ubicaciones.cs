@@ -16,7 +16,7 @@ namespace DatosFE.Class
             entities = new FEContext();
         }
 
-        public int CrearActividad(Ubicacion ubicacion) // crear Ubicacion apartir de objeto de creacion
+        public int CrearUbicacion(Ubicacion ubicacion) // crear Ubicacion apartir de objeto de creacion
         {
             try
             {
@@ -32,7 +32,7 @@ namespace DatosFE.Class
 
         }
 
-        public int BorrarActividad(int id) // borrar Ubicacion apartir del id Actividad
+        public int BorrarUbicacion(int id) // borrar Ubicacion apartir del id Actividad
 
 
         {
@@ -51,7 +51,7 @@ namespace DatosFE.Class
 
         }
 
-        public List<Ubicacion> ObtenerActividades() //obtener lista actividades 
+        public List<Ubicacion> ObtenerUbicaciones() //obtener lista actividades 
         {
             try
             {
@@ -76,6 +76,114 @@ namespace DatosFE.Class
                 throw ex;
             }
         }
+
+        public List<Provincia> ObtenerProvincia()
+        {
+            Ubicaciones ubi = new Ubicaciones();
+            try
+            {
+                List<Provincia> listaP = new List<Provincia>();
+                List<Ubicacion> lista = ubi.ObtenerUbicaciones();
+
+                if (lista.Count > 0)
+                {
+                    foreach (Ubicacion temp in lista)
+                    {
+                        Provincia provincia = new Provincia();
+
+                        provincia.id = temp.IdProvincia;
+                        provincia.provincia = temp.Provincia;
+
+                        listaP.Add(provincia);
+
+                    }
+
+                    return listaP;
+
+                }
+                else
+                {
+                    return listaP;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }// obtener provincias
+
+        public List<Canton> ObtenerCanton()
+        {
+            Ubicaciones ubi = new Ubicaciones();
+            try
+            {
+                List<Canton> listaP = new List<Canton>();
+                List<Ubicacion> lista = ubi.ObtenerUbicaciones();
+
+                if (lista.Count > 0)
+                {
+                    foreach (Ubicacion temp in lista)
+                    {
+                        Canton canton = new Canton();
+
+                        canton.id = temp.IdCanton;
+                        canton.canton = temp.Canton;
+
+                        listaP.Add(canton);
+
+                    }
+
+                    return listaP;
+
+                }
+                else
+                {
+                    return listaP;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }// obtener Cantones
+
+        public List<Distrito> ObtenerDistrito()
+        {
+            Ubicaciones ubi = new Ubicaciones();
+            try
+            {
+                List<Distrito> listaP = new List<Distrito>();
+                List<Ubicacion> lista = ubi.ObtenerUbicaciones();
+
+                if (lista.Count > 0)
+                {
+                    foreach (Ubicacion temp in lista)
+                    {
+                        Distrito Distrito = new Distrito();
+
+                        Distrito.id = temp.IdDistrito;
+                        Distrito.provincia = temp.Distrito;
+
+                        listaP.Add(Distrito);
+
+                    }
+
+                    return listaP;
+
+                }
+                else
+                {
+                    return listaP;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }// obtener Distrito
 
     }
 }
