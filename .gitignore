@@ -2,3 +2,9 @@ ApiSuvesaPos\.vs\ApiSuvesaPos\v16\
 ApiSuvesaPos\APIFacturacionElectronica\appsettings.json
 ApiSuvesaPos\ApiSuvesaPos\appsettings.json
 
+ApiSuvesaPos\APIFacturacionElectronica\obj\
+ApiSuvesaPos\ApiSuvesaPos\obj\
+ApiSuvesaPos\Datos\obj\
+ApiSuvesaPos\DatosFE\obj\
+ApiSuvesaPos\Negocio\obj\
+ApiSuvesaPos\NegocioFE\obj\
