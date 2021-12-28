@@ -59,7 +59,7 @@ Public Class Comunicacion
     ''' </summary>
     ''' <param name="TK">Token que generó Hacienda</param>
     ''' <param name="objRecepcion">Objeto que contiene todos las variables de comunicación</param>
-    Public Function EnvioDatos(TK As String, ByVal objRecepcion As Recepcion) As Boolean
+    Public Function EnvioDatos(TK As String, ByVal objRecepcion As DatosFE.FE.Recepcion) As Boolean
         Try
             Dim URL_RECEPCION As String = Me.UrlApi
 
@@ -136,7 +136,7 @@ Public Class Comunicacion
 
             jsonRespuesta = res.ToString
 
-            Dim RH As RespuestaHacienda = Newtonsoft.Json.JsonConvert.DeserializeObject(Of RespuestaHacienda)(res)
+            Dim RH As DatosFE.FE.RespuestaHacienda = Newtonsoft.Json.JsonConvert.DeserializeObject(Of DatosFE.FE.RespuestaHacienda)(res)
 
 
             If RH.respuesta_xml <> "" Then
@@ -182,7 +182,7 @@ Public Class Comunicacion
 
             jsonRespuesta = res.ToString
 
-            Dim RH As RespuestaHacienda = Newtonsoft.Json.JsonConvert.DeserializeObject(Of RespuestaHacienda)(res)
+            Dim RH As DatosFE.FE.RespuestaHacienda = Newtonsoft.Json.JsonConvert.DeserializeObject(Of DatosFE.FE.RespuestaHacienda)(res)
 
             If RH.respuesta_xml <> "" Then
                 xmlRespuesta = Funciones.DecodeBase64ToXML(RH.respuesta_xml)
