@@ -20,6 +20,7 @@ namespace DatosFE.Models
         public virtual DbSet<ActividadEmpresa> ActividadEmpresas { get; set; }
         public virtual DbSet<ArticulosComprado> ArticulosComprados { get; set; }
         public virtual DbSet<ArticulosVentasDevuelto> ArticulosVentasDevueltos { get; set; }
+        public virtual DbSet<CartaExoneracion> CartaExoneracions { get; set; }
         public virtual DbSet<Cliente> Clientes { get; set; }
         public virtual DbSet<Compra> Compras { get; set; }
         public virtual DbSet<Configuracione> Configuraciones { get; set; }
@@ -178,6 +179,29 @@ namespace DatosFE.Models
                     .WithMany(p => p.ArticulosVentasDevueltos)
                     .HasForeignKey(d => d.Devolucion)
                     .HasConstraintName("FK_articulos_ventas_devueltos_devoluciones_ventas");
+            });
+
+            modelBuilder.Entity<CartaExoneracion>(entity =>
+            {
+                entity.ToTable("CartaExoneracion");
+
+                entity.Property(e => e.Id)
+                    .HasColumnType("numeric(18, 0)")
+                    .ValueGeneratedOnAdd();
+
+                entity.Property(e => e.FechaEmision).HasColumnType("datetime");
+
+                entity.Property(e => e.FechaVence).HasColumnType("datetime");
+
+                entity.Property(e => e.Nota)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .HasDefaultValueSql("('')");
+
+                entity.Property(e => e.NumeroDocumento)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<Cliente>(entity =>
