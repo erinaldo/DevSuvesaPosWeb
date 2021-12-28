@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DatosFE.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace DatosFE.Class
 {
@@ -73,6 +74,33 @@ namespace DatosFE.Class
             }
             catch (Exception ex)
             {
+                throw ex;
+            }
+        }
+
+        public int EditarCarta(int id, CartaExoneracion Carta)
+        {
+            try
+            {
+                var p = entities.CartaExoneracions.Find(id);
+                CartaExoneracion viejo = p;
+                viejo.Identificacion = Carta.Identificacion;
+                viejo.IdTipoExoneracion = Carta.IdTipoExoneracion;
+                viejo.Impuesto = Carta.Impuesto;
+                viejo.Nota = Carta.Nota;
+                viejo.NumeroDocumento = Carta.NumeroDocumento;
+                viejo.PorcentajeCompra = Carta.PorcentajeCompra;
+                viejo.FechaEmision = Carta.FechaEmision;
+                viejo.FechaVence = Carta.FechaVence;
+
+                entities.Entry(viejo).State = EntityState.Modified;
+
+                return entities.SaveChanges();
+
+            }
+            catch (Exception ex)
+            {
+
                 throw ex;
             }
         }

@@ -7,20 +7,20 @@ using DatosFE.Models;
 
 namespace DatosFE.Class
 {
-    class DetalleVentas
+    public class TiposExoneracion
     {
         private FEContext entities;
 
-        public DetalleVentas()
+        public TiposExoneracion()
         {
             entities = new FEContext();
         }
 
-        public int CrearDetalleVentas(VentasDetalle Venta) // crear Detalle ventas apartir de objeto de creacion
+        public int CrearTipoExoneracion(TipoExoneracion Tipo) // crear Tipo Exoneracion apartir de objeto de creacion
         {
             try
             {
-                entities.VentasDetalles.Add(Venta);
+                entities.TipoExoneracions.Add(Tipo);
                 return entities.SaveChanges();
 
             }
@@ -32,13 +32,13 @@ namespace DatosFE.Class
 
         }
 
-        public int BorrarDetalleVenta(int id) // borrar Detalle Venta apartir del id Actividad
+        public int BorrarTipoExoneracion(int id) // borrar TipoExoneracion apartir del id Actividad
 
 
         {
             try
             {
-                var p = entities.VentasDetalles.Find(id);
+                var p = entities.TipoExoneracions.Find(id);
                 entities.Remove(p);
                 return entities.SaveChanges();
 
@@ -51,14 +51,14 @@ namespace DatosFE.Class
 
         }
 
-        public List<VentasDetalle> ObtenerDetalleVentas() //obtener lista Ventas detalle 
+        public List<TipoExoneracion> ObtenerTiposExoneracion() //obtener lista actividades 
         {
             try
             {
-                var temp = from c in entities.VentasDetalles
+                var temp = from c in entities.TipoExoneracions
 
                            select c;
-                List<VentasDetalle> result = temp.ToList<VentasDetalle>();
+                List<TipoExoneracion> result = temp.ToList<TipoExoneracion>();
 
                 if (result.Count > 0)
                 {
@@ -76,7 +76,5 @@ namespace DatosFE.Class
                 throw ex;
             }
         }
-
-        
     }
 }

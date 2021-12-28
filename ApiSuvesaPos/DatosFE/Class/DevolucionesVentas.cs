@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DatosFE.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace DatosFE.Class
 {
@@ -68,6 +69,78 @@ namespace DatosFE.Class
                 {
                     return result = null;
                 }
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public string ObtenerClaveDevolucion(int id) // Retorna la clave de devolucion
+        {
+            try
+            {
+                var p = entities.DevolucionesVentas.Find(id);
+                DevolucionesVenta viejo = p;
+
+                if (viejo != null)
+                {
+                    string clave = viejo.Clavedgt;
+                    return clave;
+                }
+                else
+                {
+                    return "No existe Devolucion Venta";
+                }
+
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public string ObtenerNumeroConsecutivoDevolucion(int id) // Retorna la Numero Consecutivo de venta
+        {
+            try
+            {
+                var p = entities.DevolucionesVentas.Find(id);
+                DevolucionesVenta viejo = p;
+
+                if (viejo != null)
+                {
+                    string consecutivo = viejo.Consecutivodgt;
+                    return consecutivo;
+                }
+                else
+                {
+                    return "No existe devolucion de venta";
+                }
+
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public int EditarEstadoDevolucionVenta(int id, string estado) // editar estado de Hacienda devolucion de venta
+        {
+            try
+            {
+                var p = entities.DevolucionesVentas.Find(id);
+                DevolucionesVenta viejo = p;
+                viejo.Estadodgt = estado;
+
+                entities.Entry(viejo).State = EntityState.Modified;
+
+                return entities.SaveChanges();
 
 
             }

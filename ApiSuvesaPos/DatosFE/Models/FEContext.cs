@@ -27,11 +27,18 @@ namespace DatosFE.Models
         public virtual DbSet<DevolucionesVenta> DevolucionesVentas { get; set; }
         public virtual DbSet<Emisor> Emisors { get; set; }
         public virtual DbSet<EmpresaActividade> EmpresaActividades { get; set; }
+        public virtual DbSet<GetMensajeXId> GetMensajeXIds { get; set; }
+        public virtual DbSet<GetMensajeXml43> GetMensajeXml43s { get; set; }
         public virtual DbSet<Impuesto> Impuestos { get; set; }
         public virtual DbSet<Inventario> Inventarios { get; set; }
         public virtual DbSet<MensajeReceptor> MensajeReceptors { get; set; }
+        public virtual DbSet<ObtenerDetalleFactura43> ObtenerDetalleFactura43s { get; set; }
+        public virtual DbSet<ObtenerDetallesDevolucion43> ObtenerDetallesDevolucion43s { get; set; }
+        public virtual DbSet<ObtenerDevolucion43> ObtenerDevolucion43s { get; set; }
+        public virtual DbSet<ObtenerFacturas43> ObtenerFacturas43s { get; set; }
         public virtual DbSet<Presentacione> Presentaciones { get; set; }
         public virtual DbSet<Proveedore> Proveedores { get; set; }
+        public virtual DbSet<TipoExoneracion> TipoExoneracions { get; set; }
         public virtual DbSet<TiposIdentificacion> TiposIdentificacions { get; set; }
         public virtual DbSet<Ubicacion> Ubicacions { get; set; }
         public virtual DbSet<Venta> Ventas { get; set; }
@@ -692,6 +699,89 @@ namespace DatosFE.Models
                     .HasConstraintName("FK_EmpresaActividades_Emisor");
             });
 
+            modelBuilder.Entity<GetMensajeXId>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("GET_MENSAJE_x_ID");
+
+                entity.Property(e => e.Clave)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Consecutivo)
+                    .HasMaxLength(4000)
+                    .HasColumnName("CONSECUTIVO");
+
+                entity.Property(e => e.Estado)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.FechaEmisionDoc).HasColumnType("datetime");
+
+                entity.Property(e => e.Id).HasColumnType("numeric(18, 0)");
+
+                entity.Property(e => e.Mensaje)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.NumeroCedulaEmisor)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<GetMensajeXml43>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("GET_MENSAJE_XML43");
+
+                entity.Property(e => e.Clave)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.CodigoActividad)
+                    .IsRequired()
+                    .HasMaxLength(1)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.CondicionImpuesto)
+                    .IsRequired()
+                    .HasMaxLength(1)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.DetalleMensaje)
+                    .IsRequired()
+                    .HasMaxLength(255);
+
+                entity.Property(e => e.Estado)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.FechaEmisionDoc)
+                    .HasMaxLength(8000)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Id).HasColumnType("numeric(18, 0)");
+
+                entity.Property(e => e.NumeroCedulaEmisor)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.NumeroCedulaReceptor)
+                    .IsRequired()
+                    .HasMaxLength(255);
+
+                entity.Property(e => e.NumeroConsecutivoReceptor).HasMaxLength(4000);
+            });
+
             modelBuilder.Entity<Impuesto>(entity =>
             {
                 entity.HasKey(e => e.IdImpuesto);
@@ -992,6 +1082,462 @@ namespace DatosFE.Models
                     .HasConstraintName("FK_MensajeReceptor_Emisor");
             });
 
+            modelBuilder.Entity<ObtenerDetalleFactura43>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("ObtenerDetalleFactura43");
+
+                entity.Property(e => e.Cabys)
+                    .IsRequired()
+                    .HasMaxLength(30);
+
+                entity.Property(e => e.CodigoImpuesto)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .HasColumnName("Codigo_Impuesto");
+
+                entity.Property(e => e.CodigoTarifa)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.Detalle)
+                    .IsRequired()
+                    .HasMaxLength(250)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.FechaEmisionExoneracion)
+                    .HasMaxLength(8000)
+                    .IsUnicode(false)
+                    .HasColumnName("FechaEmision_Exoneracion");
+
+                entity.Property(e => e.MontoImpuesto).HasColumnName("Monto_Impuesto");
+
+                entity.Property(e => e.MontoImpuestoExoneracion).HasColumnName("MontoImpuesto_Exoneracion");
+
+                entity.Property(e => e.NaturalezaDescuento)
+                    .IsRequired()
+                    .HasMaxLength(250)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.NombreInstitucionExoneracion)
+                    .IsRequired()
+                    .HasMaxLength(29)
+                    .IsUnicode(false)
+                    .HasColumnName("NombreInstitucion_Exoneracion");
+
+                entity.Property(e => e.NumeroDocumentoExoneracion)
+                    .IsRequired()
+                    .HasMaxLength(100)
+                    .IsUnicode(false)
+                    .HasColumnName("NumeroDocumento_Exoneracion");
+
+                entity.Property(e => e.PorcentajeCompraExoneracion).HasColumnName("PorcentajeCompra_Exoneracion");
+
+                entity.Property(e => e.TarifaImpuesto).HasColumnName("Tarifa_Impuesto");
+
+                entity.Property(e => e.Tipo)
+                    .IsRequired()
+                    .HasMaxLength(2)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.TipoDocumentoExoneracion)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .HasColumnName("TipoDocumento_Exoneracion");
+
+                entity.Property(e => e.UnidadMedida)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<ObtenerDetallesDevolucion43>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("ObtenerDetallesDevolucion43");
+
+                entity.Property(e => e.Cabys)
+                    .IsRequired()
+                    .HasMaxLength(30);
+
+                entity.Property(e => e.CodigoImpuesto)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .HasColumnName("Codigo_Impuesto");
+
+                entity.Property(e => e.CodigoTarifa)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.Detalle)
+                    .IsRequired()
+                    .HasMaxLength(250)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.FechaEmisionExoneracion)
+                    .HasMaxLength(8000)
+                    .IsUnicode(false)
+                    .HasColumnName("FechaEmision_Exoneracion");
+
+                entity.Property(e => e.MontoImpuesto).HasColumnName("Monto_Impuesto");
+
+                entity.Property(e => e.MontoImpuestoExoneracion).HasColumnName("MontoImpuesto_Exoneracion");
+
+                entity.Property(e => e.NaturalezaDescuento)
+                    .IsRequired()
+                    .HasMaxLength(250)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.NombreInstitucionExoneracion)
+                    .IsRequired()
+                    .HasMaxLength(29)
+                    .IsUnicode(false)
+                    .HasColumnName("NombreInstitucion_Exoneracion");
+
+                entity.Property(e => e.NumeroDocumentoExoneracion)
+                    .IsRequired()
+                    .HasMaxLength(100)
+                    .IsUnicode(false)
+                    .HasColumnName("NumeroDocumento_Exoneracion");
+
+                entity.Property(e => e.PorcentajeCompraExoneracion).HasColumnName("PorcentajeCompra_Exoneracion");
+
+                entity.Property(e => e.TarifaImpuesto).HasColumnName("Tarifa_Impuesto");
+
+                entity.Property(e => e.Tipo)
+                    .IsRequired()
+                    .HasMaxLength(2)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.TipoDocumentoExoneracion)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .HasColumnName("TipoDocumento_Exoneracion");
+
+                entity.Property(e => e.UnidadMedida)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<ObtenerDevolucion43>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("ObtenerDevolucion43");
+
+                entity.Property(e => e.BasedeDatos)
+                    .IsRequired()
+                    .HasMaxLength(6)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.CantonEmisor)
+                    .HasMaxLength(8000)
+                    .IsUnicode(false)
+                    .HasColumnName("Canton_Emisor");
+
+                entity.Property(e => e.Clave)
+                    .IsRequired()
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.CodigoActividad)
+                    .IsRequired()
+                    .HasMaxLength(6)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.CodigoMoneda)
+                    .IsRequired()
+                    .HasMaxLength(3)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.CodigoPaisEmisor)
+                    .IsRequired()
+                    .HasMaxLength(3)
+                    .IsUnicode(false)
+                    .HasColumnName("CodigoPais_Emisor");
+
+                entity.Property(e => e.CodigoReferencia)
+                    .IsRequired()
+                    .HasMaxLength(2)
+                    .IsUnicode(false)
+                    .HasColumnName("Codigo_Referencia");
+
+                entity.Property(e => e.CondicionVenta)
+                    .IsRequired()
+                    .HasMaxLength(2)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Consecutivo).HasMaxLength(4000);
+
+                entity.Property(e => e.CorreoElectronicoEmisor)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .HasColumnName("CorreoElectronico_Emisor");
+
+                entity.Property(e => e.CorreoElectronicoReceptor)
+                    .IsRequired()
+                    .HasMaxLength(500)
+                    .HasColumnName("CorreoElectronico_Receptor");
+
+                entity.Property(e => e.DistritoEmisor)
+                    .HasMaxLength(8000)
+                    .IsUnicode(false)
+                    .HasColumnName("Distrito_Emisor");
+
+                entity.Property(e => e.Expr1).HasColumnType("datetime");
+
+                entity.Property(e => e.Fecha).HasColumnType("datetime");
+
+                entity.Property(e => e.FechaEmision)
+                    .HasMaxLength(8000)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.FechaEmisionReferencia)
+                    .HasMaxLength(8000)
+                    .IsUnicode(false)
+                    .HasColumnName("FechaEmision_Referencia");
+
+                entity.Property(e => e.FechaResolucion)
+                    .IsRequired()
+                    .HasMaxLength(255);
+
+                entity.Property(e => e.MedioPago)
+                    .IsRequired()
+                    .HasMaxLength(2)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.NombreEmisor)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .HasColumnName("Nombre_Emisor");
+
+                entity.Property(e => e.NombreReceptor)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false)
+                    .HasColumnName("Nombre_Receptor");
+
+                entity.Property(e => e.NumTelefonoEmisor)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .HasColumnName("NumTelefono_Emisor");
+
+                entity.Property(e => e.NumTelefonoReceptor)
+                    .IsRequired()
+                    .HasMaxLength(16)
+                    .IsUnicode(false)
+                    .HasColumnName("NumTelefono_Receptor");
+
+                entity.Property(e => e.NumeroEmisor)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .HasColumnName("Numero_Emisor");
+
+                entity.Property(e => e.NumeroReceptor)
+                    .HasMaxLength(30)
+                    .IsUnicode(false)
+                    .HasColumnName("Numero_Receptor");
+
+                entity.Property(e => e.NumeroReferencia)
+                    .IsRequired()
+                    .HasMaxLength(100)
+                    .IsUnicode(false)
+                    .HasColumnName("Numero_Referencia");
+
+                entity.Property(e => e.NumeroResolucion)
+                    .IsRequired()
+                    .HasMaxLength(255);
+
+                entity.Property(e => e.OtrasSenasEmisor)
+                    .IsRequired()
+                    .HasMaxLength(500)
+                    .HasColumnName("OtrasSenas_Emisor");
+
+                entity.Property(e => e.ProvinciaEmisor)
+                    .HasColumnType("numeric(18, 0)")
+                    .HasColumnName("Provincia_Emisor");
+
+                entity.Property(e => e.RazonReferencia)
+                    .IsRequired()
+                    .HasMaxLength(30)
+                    .IsUnicode(false)
+                    .HasColumnName("Razon_Referencia");
+
+                entity.Property(e => e.TipoDocReferencia)
+                    .IsRequired()
+                    .HasMaxLength(2)
+                    .IsUnicode(false)
+                    .HasColumnName("TipoDoc_Referencia");
+
+                entity.Property(e => e.TipoEmisor)
+                    .IsRequired()
+                    .HasMaxLength(2)
+                    .IsUnicode(false)
+                    .HasColumnName("Tipo_Emisor");
+
+                entity.Property(e => e.TipoFactura)
+                    .IsRequired()
+                    .HasMaxLength(3)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.TipoReceptor)
+                    .IsRequired()
+                    .HasMaxLength(2)
+                    .IsUnicode(false)
+                    .HasColumnName("Tipo_Receptor");
+            });
+
+            modelBuilder.Entity<ObtenerFacturas43>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("ObtenerFacturas43");
+
+                entity.Property(e => e.CantonEmisor)
+                    .HasMaxLength(8000)
+                    .IsUnicode(false)
+                    .HasColumnName("Canton_Emisor");
+
+                entity.Property(e => e.Clave)
+                    .IsRequired()
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.ClaveMh)
+                    .IsRequired()
+                    .HasMaxLength(100)
+                    .IsUnicode(false)
+                    .HasColumnName("ClaveMH");
+
+                entity.Property(e => e.CodigoActividad)
+                    .IsRequired()
+                    .HasMaxLength(6)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.CodigoMoneda)
+                    .IsRequired()
+                    .HasMaxLength(3)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.CodigoPaisEmisor)
+                    .IsRequired()
+                    .HasMaxLength(3)
+                    .IsUnicode(false)
+                    .HasColumnName("CodigoPais_Emisor");
+
+                entity.Property(e => e.CondicionVenta)
+                    .HasMaxLength(2)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Consecutivo)
+                    .IsRequired()
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.CorreoElectronicoEmisor)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .HasColumnName("CorreoElectronico_Emisor");
+
+                entity.Property(e => e.CorreoElectronicoReceptor)
+                    .IsRequired()
+                    .HasMaxLength(500)
+                    .HasColumnName("CorreoElectronico_Receptor");
+
+                entity.Property(e => e.DistritoEmisor)
+                    .HasMaxLength(8000)
+                    .IsUnicode(false)
+                    .HasColumnName("Distrito_Emisor");
+
+                entity.Property(e => e.Fecha)
+                    .HasColumnType("datetime")
+                    .HasColumnName("FECHA");
+
+                entity.Property(e => e.FechaEmision)
+                    .HasMaxLength(8000)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.FechaResolucion)
+                    .IsRequired()
+                    .HasMaxLength(255);
+
+                entity.Property(e => e.FechaVence).HasColumnType("smalldatetime");
+
+                entity.Property(e => e.MedioPago)
+                    .IsRequired()
+                    .HasMaxLength(2)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.NombreEmisor)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .HasColumnName("Nombre_Emisor");
+
+                entity.Property(e => e.NombreReceptor)
+                    .IsRequired()
+                    .HasMaxLength(250)
+                    .IsUnicode(false)
+                    .HasColumnName("Nombre_Receptor");
+
+                entity.Property(e => e.NumTelefonoEmisor)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .HasColumnName("NumTelefono_Emisor");
+
+                entity.Property(e => e.NumTelefonoReceptor)
+                    .IsRequired()
+                    .HasMaxLength(16)
+                    .IsUnicode(false)
+                    .HasColumnName("NumTelefono_Receptor");
+
+                entity.Property(e => e.NumeroConsecutivo)
+                    .IsRequired()
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.NumeroEmisor)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .HasColumnName("Numero_Emisor");
+
+                entity.Property(e => e.NumeroReceptor)
+                    .HasMaxLength(30)
+                    .IsUnicode(false)
+                    .HasColumnName("Numero_Receptor");
+
+                entity.Property(e => e.NumeroResolucion)
+                    .IsRequired()
+                    .HasMaxLength(255);
+
+                entity.Property(e => e.OrdenCompra)
+                    .IsRequired()
+                    .HasMaxLength(75)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.OtrasSenasEmisor)
+                    .IsRequired()
+                    .HasMaxLength(500)
+                    .HasColumnName("OtrasSenas_Emisor");
+
+                entity.Property(e => e.ProvinciaEmisor)
+                    .HasColumnType("numeric(18, 0)")
+                    .HasColumnName("Provincia_Emisor");
+
+                entity.Property(e => e.TipoEmisor)
+                    .IsRequired()
+                    .HasMaxLength(2)
+                    .IsUnicode(false)
+                    .HasColumnName("Tipo_Emisor");
+
+                entity.Property(e => e.TipoReceptor)
+                    .HasMaxLength(2)
+                    .IsUnicode(false)
+                    .HasColumnName("Tipo_Receptor");
+            });
+
             modelBuilder.Entity<Presentacione>(entity =>
             {
                 entity.HasKey(e => e.CodPres);
@@ -1127,6 +1673,24 @@ namespace DatosFE.Models
                 entity.Property(e => e.UtilidadFija).HasColumnName("Utilidad_Fija");
 
                 entity.Property(e => e.UtilidadInventario).HasColumnName("Utilidad_Inventario");
+            });
+
+            modelBuilder.Entity<TipoExoneracion>(entity =>
+            {
+                entity.HasKey(e => e.IdTipoExoneracion);
+
+                entity.ToTable("TipoExoneracion");
+
+                entity.Property(e => e.IdTipoExoneracion).HasColumnType("numeric(18, 0)");
+
+                entity.Property(e => e.Codigo)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.TipoExoneracion1)
+                    .IsRequired()
+                    .HasMaxLength(500)
+                    .HasColumnName("TipoExoneracion");
             });
 
             modelBuilder.Entity<TiposIdentificacion>(entity =>

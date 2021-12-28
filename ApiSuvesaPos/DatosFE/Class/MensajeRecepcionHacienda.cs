@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DatosFE.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace DatosFE.Class
 {
@@ -68,6 +69,47 @@ namespace DatosFE.Class
                 {
                     return result = null;
                 }
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public int EditarEstadoYConcecutivoMensajeReceptor(int id, string estado, string consecutivo) // editar estado de Hacienda mensaje receptor
+        {
+            try
+            {
+                var p = entities.MensajeReceptors.Find(id);
+                MensajeReceptor viejo = p;
+                viejo.Estado = estado;
+                viejo.Consecutivo = consecutivo;
+                
+                entities.Entry(viejo).State = EntityState.Modified;
+
+                return entities.SaveChanges();
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public int EditarEstadoMensajeReceptor(int id, string estado) // editar estado de Hacienda mensaje receptor
+        {
+            try
+            {
+                var p = entities.MensajeReceptors.Find(id);
+                MensajeReceptor viejo = p;
+                viejo.Estado = estado;
+                
+                entities.Entry(viejo).State = EntityState.Modified;
+
+                return entities.SaveChanges();
 
 
             }
