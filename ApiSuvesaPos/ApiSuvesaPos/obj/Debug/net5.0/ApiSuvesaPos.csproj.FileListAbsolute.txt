@@ -54,7 +54,6 @@ C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVES
 C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\Negocio.pdb
 C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\Datos.pdb
 C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\staticwebassets\ApiSuvesaPos.StaticWebAssets.Manifest.cache
-C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\staticwebassets\ApiSuvesaPos.StaticWebAssets.xml
 C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\scopedcss\bundle\ApiSuvesaPos.styles.css
 C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\ApiSuvesaPos.RazorTargetAssemblyInfo.cache
 C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\ApiSuvesaPos.csproj.CopyComplete
@@ -67,3 +66,4 @@ C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVES
 C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
 C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
 C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\ApiSuvesaPos.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\ApiSuvesaPos.StaticWebAssets.xml

@@ -1,4 +1,5 @@
 ﻿Imports System.IO
+Imports NegocioFE
 
 Public Class EnvioComprobantes
     Private Documentos As New GestionDatos.Factura

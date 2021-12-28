@@ -6,10 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Logica\Utilidades\QR.vb" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="iTextSharp" Version="5.5.13.2" />
   </ItemGroup>
 
