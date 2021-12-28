@@ -58,7 +58,6 @@ C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVES
 C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\obj\Debug\net5.0\APIFacturacionElectronica.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\obj\Debug\net5.0\APIFacturacionElectronica.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\obj\Debug\net5.0\staticwebassets\APIFacturacionElectronica.StaticWebAssets.Manifest.cache
-C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\obj\Debug\net5.0\staticwebassets\APIFacturacionElectronica.StaticWebAssets.xml
 C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\obj\Debug\net5.0\scopedcss\bundle\APIFacturacionElectronica.styles.css
 C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\obj\Debug\net5.0\APIFacturacionElectronica.RazorTargetAssemblyInfo.cache
 C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\obj\Debug\net5.0\APIFacturacionElectronica.csproj.CopyComplete
@@ -66,3 +65,6 @@ C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVES
 C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\obj\Debug\net5.0\ref\APIFacturacionElectronica.dll
 C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\obj\Debug\net5.0\APIFacturacionElectronica.pdb
 C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\obj\Debug\net5.0\APIFacturacionElectronica.genruntimeconfig.cache
+C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\bin\Debug\net5.0\BouncyCastle.Crypto.dll
+C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\bin\Debug\net5.0\itextsharp.dll
+C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\bin\Debug\net5.0\FirmaXadesNet.dll

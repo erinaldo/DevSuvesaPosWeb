@@ -155,18 +155,18 @@ Public Class EnvioComprobantes
                 Else
                     myReceptor.sinReceptor = True
                 End If
-                Dim myRecepcion As New Recepcion
-                myRecepcion.emisor = myEmisor
-                myRecepcion.receptor = myReceptor
-                myRecepcion.clave = Me.XMLClave
-                myRecepcion.consecutivoReceptor = Me.XMLConsecutivoReceptor
-                myRecepcion.fecha = Now.ToString("yyyy-MM-ddTHH:mm:sszzz")
-                myRecepcion.comprobanteXml = Funciones.EncodeStrToBase64(xmlElectronica.OuterXml)
+                'Dim myRecepcion As New Recepcion
+                'myRecepcion.emisor = myEmisor
+                'myRecepcion.receptor = myReceptor
+                'myRecepcion.clave = Me.XMLClave
+                'myRecepcion.consecutivoReceptor = Me.XMLConsecutivoReceptor
+                'myRecepcion.fecha = Now.ToString("yyyy-MM-ddTHH:mm:sszzz")
+                'myRecepcion.comprobanteXml = Funciones.EncodeStrToBase64(xmlElectronica.OuterXml)
                 xmlElectronica = Nothing
                 'Envia Informacion 
                 Dim Token As String = getToken()
                 Dim enviaFactura As New Comunicacion
-                enviaFactura.EnvioDatos(Token, myRecepcion)
+                'enviaFactura.EnvioDatos(Token, myRecepcion)
                 'Guarda el Json del envio
                 Dim jsonEnvio As String = enviaFactura.jsonEnvio
                 Dim jsonRespuesta As String = enviaFactura.jsonRespuesta
@@ -250,7 +250,7 @@ Public Class EnvioComprobantes
                 'Envia Informacion 
                 Dim Token As String = getToken()
                 Dim enviaFactura As New Comunicacion
-                enviaFactura.EnvioDatos(Token, myRecepcion)
+                'enviaFactura.EnvioDatos(Token, myRecepcion)
                 'Guarda el Json del envio
                 Dim jsonEnvio As String = enviaFactura.jsonEnvio
                 Dim jsonRespuesta As String = enviaFactura.jsonRespuesta
@@ -334,10 +334,10 @@ Public Class EnvioComprobantes
                 Dim Token As String = getToken()
                 If Token <> "" Then
                     Dim enviaFactura As New Comunicacion
-                    If enviaFactura.EnvioDatos(Token, myRecepcion) = True Then
+                    'If enviaFactura.EnvioDatos(Token, myRecepcion) = True Then
 
-                        'Guarda el Json del envio
-                        Dim jsonEnvio As String = enviaFactura.jsonEnvio
+                    'Guarda el Json del envio
+                    Dim jsonEnvio As String = enviaFactura.jsonEnvio
                         Dim jsonRespuesta As String = enviaFactura.jsonRespuesta
                         Dim outputFile As New IO.StreamWriter(DirectorioTemp & XMLConsecutivo & "_03_jsonEnvio.txt")
                         outputFile.Write(jsonEnvio)
@@ -467,7 +467,7 @@ Public Class EnvioComprobantes
                         End If
                     End If
                 End If
-            End If
+            'End If
         Catch ex As Exception
         End Try
 fin:

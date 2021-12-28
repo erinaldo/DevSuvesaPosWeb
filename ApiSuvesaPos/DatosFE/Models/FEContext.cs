@@ -32,6 +32,7 @@ namespace DatosFE.Models
         public virtual DbSet<Presentacione> Presentaciones { get; set; }
         public virtual DbSet<Proveedore> Proveedores { get; set; }
         public virtual DbSet<TiposIdentificacion> TiposIdentificacions { get; set; }
+        public virtual DbSet<Ubicacion> Ubicacions { get; set; }
         public virtual DbSet<Venta> Ventas { get; set; }
         public virtual DbSet<VentasDetalle> VentasDetalles { get; set; }
         public virtual DbSet<ViewFactura> ViewFacturas { get; set; }
@@ -1113,6 +1114,38 @@ namespace DatosFE.Models
                 entity.Property(e => e.Descripcion)
                     .IsRequired()
                     .HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<Ubicacion>(entity =>
+            {
+                entity.HasKey(e => new { e.IdProvincia, e.IdCanton, e.IdDistrito })
+                    .HasName("PK_Table_1");
+
+                entity.ToTable("Ubicacion");
+
+                entity.Property(e => e.IdProvincia)
+                    .HasColumnType("numeric(18, 0)")
+                    .HasColumnName("Id_Provincia");
+
+                entity.Property(e => e.IdCanton)
+                    .HasColumnType("numeric(18, 0)")
+                    .HasColumnName("Id_Canton");
+
+                entity.Property(e => e.IdDistrito)
+                    .HasColumnType("numeric(18, 0)")
+                    .HasColumnName("Id_Distrito");
+
+                entity.Property(e => e.Canton)
+                    .IsRequired()
+                    .HasMaxLength(255);
+
+                entity.Property(e => e.Distrito)
+                    .IsRequired()
+                    .HasMaxLength(255);
+
+                entity.Property(e => e.Provincia)
+                    .IsRequired()
+                    .HasMaxLength(255);
             });
 
             modelBuilder.Entity<Venta>(entity =>

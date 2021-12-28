@@ -66,4 +66,3 @@ C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVES
 C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
 C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
 C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\ApiSuvesaPos.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\ApiSuvesaPos.StaticWebAssets.xml

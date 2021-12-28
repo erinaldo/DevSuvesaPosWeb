@@ -8,10 +8,31 @@
     ".NETCoreApp,Version=v5.0": {
       "NegocioFE/1.0.0": {
         "dependencies": {
-          "DatosFE": "1.0.0"
+          "DatosFE": "1.0.0",
+          "iTextSharp": "5.5.13.2",
+          "FirmaXadesNet": "2.1.0.0"
         },
         "runtime": {
           "NegocioFE.dll": {}
+        }
+      },
+      "BouncyCastle/1.8.6.1": {
+        "runtime": {
+          "lib/BouncyCastle.Crypto.dll": {
+            "assemblyVersion": "1.8.6.0",
+            "fileVersion": "1.8.20052.1"
+          }
+        }
+      },
+      "iTextSharp/5.5.13.2": {
+        "dependencies": {
+          "BouncyCastle": "1.8.6.1"
+        },
+        "runtime": {
+          "lib/itextsharp.dll": {
+            "assemblyVersion": "5.5.13.2",
+            "fileVersion": "5.5.13.2"
+          }
         }
       },
       "Microsoft.CSharp/4.5.0": {},
@@ -1047,6 +1068,14 @@
         "runtime": {
           "DatosFE.dll": {}
         }
+      },
+      "FirmaXadesNet/2.1.0.0": {
+        "runtime": {
+          "FirmaXadesNet.dll": {
+            "assemblyVersion": "2.1.0.0",
+            "fileVersion": "2.1.0.0"
+          }
+        }
       }
     }
   },
@@ -1055,6 +1084,20 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "BouncyCastle/1.8.6.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-rkqpuKmJkdcfTMBkIj1b5nMdBAWKwAyh+I/BQYeqqSD2jkIlhwc9qBNKmSbnpmmm5c29qHZGLpvBSTNWvDLtQA==",
+      "path": "bouncycastle/1.8.6.1",
+      "hashPath": "bouncycastle.1.8.6.1.nupkg.sha512"
+    },
+    "iTextSharp/5.5.13.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-8m9oT1nh9F4Z1tzWUey/8lEzZtMGFCDXQY5+8/SSmPgUWAAAWniRo8pimKUZyteNqJr5vtFBxjAhRwLxG7Q0zQ==",
+      "path": "itextsharp/5.5.13.2",
+      "hashPath": "itextsharp.5.5.13.2.nupkg.sha512"
     },
     "Microsoft.CSharp/4.5.0": {
       "type": "package",
@@ -1716,6 +1759,11 @@
     },
     "DatosFE/1.0.0": {
       "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "FirmaXadesNet/2.1.0.0": {
+      "type": "reference",
       "serviceable": false,
       "sha512": ""
     }
