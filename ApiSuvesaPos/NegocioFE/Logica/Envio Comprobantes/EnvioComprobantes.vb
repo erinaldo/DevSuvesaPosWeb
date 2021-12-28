@@ -4,7 +4,7 @@ Imports NegocioFE
 Public Class EnvioComprobantes
     Private Documentos As New GestionDatos.Factura
     Private FTP As New OBSoluciones.Utilidades.Cliente_FTP
-    'Private QR As New OBSoluciones.Utilidades.QR
+    Private QR As New OBSoluciones.Utilidades.QR
     Private PDF As New OBSoluciones.Utilidades.PDF
     Public Archivos As New List(Of String)
     Public Event SubirFactura()
