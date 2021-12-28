@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DatosFE.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace DatosFE.Class
 {
@@ -76,5 +77,81 @@ namespace DatosFE.Class
                 throw ex;
             }
         }
+
+        public int EditarEstadoFactura (int id, string estado) // editar estado de Hacienda
+        {
+            try
+            {
+                var p = entities.Ventas.Find(id);
+                Venta viejo = p;
+                viejo.EstadoMh = estado;
+
+                entities.Entry(viejo).State = EntityState.Modified;
+
+                return entities.SaveChanges();
+
+
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public string ObtenerClaveFactura(int id) // Retorna la clave de venta
+        {
+            try
+            {
+                var p = entities.Ventas.Find(id);
+                Venta viejo = p;
+
+                if (viejo != null)
+                {
+                    string clave = viejo.ClaveMh;
+                    return clave;
+                }
+                else
+                {
+                    return "No existe venta";
+                }
+
+
+
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public string ObtenerNumeroConsecutivoFactura(int id) // Retorna la Numero Consecutivo de venta
+        {
+            try
+            {
+                var p = entities.Ventas.Find(id);
+                Venta viejo = p;
+
+                if (viejo != null)
+                {
+                    string consecutivo = viejo.ConsecutivoMh;
+                    return consecutivo;
+                }
+                else
+                {
+                    return "No existe venta";
+                }
+
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+
+
     }
 }
