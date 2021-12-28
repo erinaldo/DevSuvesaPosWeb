@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
@@ -20,8 +20,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DatosFE\DatosFE.csproj" />
-    <ProjectReference Include="..\Datos\Datos.csproj" />
     <ProjectReference Include="..\NegocioFE\NegocioFE.vbproj" />
   </ItemGroup>
 

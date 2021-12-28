@@ -9,11 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Datos", "Datos\Datos.csproj
 EndProject
 Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "Negocio", "Negocio\Negocio.vbproj", "{9640561B-BCC2-4B5C-BFAE-40247BD03E34}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatosFE", "DatosFE\DatosFE.csproj", "{DD021C85-6084-4565-81F3-79B2C38E63CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DatosFE", "DatosFE\DatosFE.csproj", "{DD021C85-6084-4565-81F3-79B2C38E63CE}"
 EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "NegocioFE", "NegocioFE\NegocioFE.vbproj", "{D75250E9-DB52-44DD-B69F-8938B95F305F}"
+Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "NegocioFE", "NegocioFE\NegocioFE.vbproj", "{D75250E9-DB52-44DD-B69F-8938B95F305F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APIFacturacionElectronica", "APIFacturacionElectronica\APIFacturacionElectronica.csproj", "{748CE82E-6546-4425-A3D1-E9040461C9E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "APIFacturacionElectronica", "APIFacturacionElectronica\APIFacturacionElectronica.csproj", "{748CE82E-6546-4425-A3D1-E9040461C9E8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

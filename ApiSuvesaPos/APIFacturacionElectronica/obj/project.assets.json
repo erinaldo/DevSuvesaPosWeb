@@ -1528,20 +1528,6 @@
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Datos/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v5.0",
-        "dependencies": {
-          "Microsoft.EntityFrameworkCore": "5.0.13",
-          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.13"
-        },
-        "compile": {
-          "bin/placeholder/Datos.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Datos.dll": {}
-        }
-      },
       "DatosFE/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
@@ -5734,11 +5720,6 @@
         "system.xml.xmlserializer.nuspec"
       ]
     },
-    "Datos/1.0.0": {
-      "type": "project",
-      "path": "../Datos/Datos.csproj",
-      "msbuildProject": "../Datos/Datos.csproj"
-    },
     "DatosFE/1.0.0": {
       "type": "project",
       "path": "../DatosFE/DatosFE.csproj",
@@ -5752,8 +5733,6 @@
   },
   "projectFileDependencyGroups": {
     "net5.0": [
-      "Datos >= 1.0.0",
-      "DatosFE >= 1.0.0",
       "Microsoft.AspNetCore.Mvc.NewtonsoftJson >= 5.0.13",
       "Microsoft.EntityFrameworkCore >= 5.0.13",
       "Microsoft.EntityFrameworkCore.Design >= 5.0.13",
@@ -5798,12 +5777,6 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\AlbertoMartínezQuesa\\OneDrive - Palantir S.A\\Documentos\\Personal\\SUVESA\\Programacion\\DevSuvesaPosWeb\\ApiSuvesaPos\\DatosFE\\DatosFE.csproj": {
-              "projectPath": "C:\\Users\\AlbertoMartínezQuesa\\OneDrive - Palantir S.A\\Documentos\\Personal\\SUVESA\\Programacion\\DevSuvesaPosWeb\\ApiSuvesaPos\\DatosFE\\DatosFE.csproj"
-            },
-            "C:\\Users\\AlbertoMartínezQuesa\\OneDrive - Palantir S.A\\Documentos\\Personal\\SUVESA\\Programacion\\DevSuvesaPosWeb\\ApiSuvesaPos\\Datos\\Datos.csproj": {
-              "projectPath": "C:\\Users\\AlbertoMartínezQuesa\\OneDrive - Palantir S.A\\Documentos\\Personal\\SUVESA\\Programacion\\DevSuvesaPosWeb\\ApiSuvesaPos\\Datos\\Datos.csproj"
-            },
             "C:\\Users\\AlbertoMartínezQuesa\\OneDrive - Palantir S.A\\Documentos\\Personal\\SUVESA\\Programacion\\DevSuvesaPosWeb\\ApiSuvesaPos\\NegocioFE\\NegocioFE.vbproj": {
               "projectPath": "C:\\Users\\AlbertoMartínezQuesa\\OneDrive - Palantir S.A\\Documentos\\Personal\\SUVESA\\Programacion\\DevSuvesaPosWeb\\ApiSuvesaPos\\NegocioFE\\NegocioFE.vbproj"
             }
