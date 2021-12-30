@@ -3,6 +3,11 @@ Imports NegocioFE
 
 Public Class EnvioComprobantes
     Private Documentos As New GestionDatos.Factura
+
+    Private Ventas As New DatosFE.Class.Ventas
+    Private Devoluciones As New DatosFE.Class.DevolucionesVentas
+    Private Mensaje As New DatosFE.Class.MensajeRecepcionHacienda
+
     Private FTP As New OBSoluciones.Utilidades.Cliente_FTP
     Private QR As New OBSoluciones.Utilidades.QR
     Private PDF As New OBSoluciones.Utilidades.PDF
@@ -188,10 +193,10 @@ Public Class EnvioComprobantes
 
                 If _TipoDocumento = "MENSAJERECEPTOR" Then
                     'Actualizar estados Factura
-                    'Select Case enviaFactura.estadoFactura
-                    'Case "aceptado" : Me.Documentos.MensajeAceptado(_IdDocumento, Me.XMLConsecutivo)
-                    'Case Else : Me.Documentos.RegistrarEstadoMensaje(_IdDocumento, Me.XMLConsecutivo, enviaFactura.estadoFactura)
-                    'End Select
+                    Select Case enviaFactura.estadoFactura
+                        Case "aceptado" : Me.Documentos.MensajeAceptado(_IdDocumento, Me.XMLConsecutivo)
+                        Case Else : Me.Documentos.RegistrarEstadoMensaje(_IdDocumento, Me.XMLConsecutivo, enviaFactura.estadoFactura)
+                    End Select
                     'Vuelve a consultar el estado de la factura
                     Token = getToken()
                     If Token <> "" Then
@@ -205,10 +210,10 @@ Public Class EnvioComprobantes
                                 enviaFactura.xmlRespuesta.Save(DirectorioTemp & XMLConsecutivo & "_07_RespuestaClave.xml")
                             End If
                             'Actualizar estados Factura
-                            'Select Case enviaFactura.estadoFactura
-                            'Case "aceptado" : Me.Documentos.CambiarEstadoMensaje_Aceptado(_IdDocumento)
-                            'Case Else : Me.Documentos.CambiarEstadoMensaje(_IdDocumento, enviaFactura.estadoFactura)
-                            'End Select
+                            Select Case enviaFactura.estadoFactura
+                                Case "aceptado" : Me.Documentos.CambiarEstadoMensaje_Aceptado(_IdDocumento)
+                                Case Else : Me.Documentos.CambiarEstadoMensaje(_IdDocumento, enviaFactura.estadoFactura)
+                            End Select
                         End If
                     End If
 
@@ -272,10 +277,10 @@ Public Class EnvioComprobantes
 
                 If _TipoDocumento = "FACTURACOMPRA" Then
                     'Actualizar estados Factura
-                    'Select Case enviaFactura.estadoFactura
-                    'Case "aceptado" : Me.Documentos.CompraAceptado(_IdDocumento, Me.XMLConsecutivo)
-                    'Case Else : Me.Documentos.RegistrarEstadoCompra(_IdDocumento, Me.XMLConsecutivo, enviaFactura.estadoFactura)
-                    'End Select
+                    Select Case enviaFactura.estadoFactura
+                        Case "aceptado" : Me.Documentos.CompraAceptado(_IdDocumento, Me.XMLConsecutivo)
+                        Case Else : Me.Documentos.RegistrarEstadoCompra(_IdDocumento, Me.XMLConsecutivo, enviaFactura.estadoFactura)
+                    End Select
                     'Vuelve a consultar el estado de la factura
                     Token = getToken()
                     If Token <> "" Then
@@ -289,10 +294,10 @@ Public Class EnvioComprobantes
                                 enviaFactura.xmlRespuesta.Save(DirectorioTemp & XMLConsecutivo & "_07_RespuestaClave.xml")
                             End If
                             'Actualizar estados Factura
-                            'Select Case enviaFactura.estadoFactura
-                            'Case "aceptado" : Me.Documentos.CambiarEstadoCompra_Aceptado(_IdDocumento)
-                            'Case Else : Me.Documentos.CambiarEstadoCompra(_IdDocumento, enviaFactura.estadoFactura)
-                            'End Select
+                            Select Case enviaFactura.estadoFactura
+                                Case "aceptado" : Me.Documentos.CambiarEstadoCompra_Aceptado(_IdDocumento)
+                                Case Else : Me.Documentos.CambiarEstadoCompra(_IdDocumento, enviaFactura.estadoFactura)
+                            End Select
                         End If
                     End If
                 End If
@@ -361,7 +366,7 @@ Public Class EnvioComprobantes
                             'Crear pdf con el codigo QR
                             Me.PDF.Autor = "OBSoluciones"
                             Me.PDF.Titulo = "Comprobantes Electronicos"
-                            Me.PDF.CrearFactura(Me.XMLClave, Me.xml.dtsEncabezado, Me.xml.dtsDetalle)
+                            Me.PDF.CrearFactura(Me.XMLClave, Me.xml.Fac, Me.xml.FacDet)
                             'Manda a subir los archivos al FTP
                             Me.Archivos.Clear()
                             Dim Archivo As String = ""
@@ -386,63 +391,63 @@ Public Class EnvioComprobantes
                             RaiseEvent SubirFactura()
                         End If
 
-                        If _TipoDocumento = "FACTURA" Or _TipoDocumento = "TIQUETE" Then
-                            'Actualizar estados Factura
-                            'Select Case enviaFactura.estadoFactura
-                            'Case "aceptado" : Me.Documentos.FacturaAceptada(_IdDocumento, Me.XMLClave, Me.XMLConsecutivo)
-                            'Case "rechazado"
-                            'Me.Documentos.RegistrarEstadoFactura(_IdDocumento, Me.XMLClave, Me.XMLConsecutivo, enviaFactura.estadoFactura)
-                            'If enviaFactura.MotiviRechazo.IndexOf("firma del comprobante electrónico no es válida") > 0 Then
-                            'Me.Documentos.CambiarEstadoComprobante(Me.XMLClave, "procesando")
-                            'Else
-                            '   Dim correo As New Correo
-                            'Correo.NotificarFacturaRechazada(_IdDocumento, "rolando.obando@gmail.com", enviaFactura.MotiviRechazo)
-                            'End If
-                            'Case Else : Me.Documentos.RegistrarEstadoFactura(_IdDocumento, Me.XMLClave, Me.XMLConsecutivo, enviaFactura.estadoFactura)
-                            'End Select
-                            'Vuelve a consultar el estado de la factura
-                            Token = getToken()
-                            If Token <> "" Then
-                                enviaFactura = New Comunicacion
-                                If enviaFactura.ConsultaEstatus(Token, Me.XMLClave) = True Then
-                                    jsonRespuesta = enviaFactura.jsonRespuesta
-                                    outputFile = New IO.StreamWriter(DirectorioTemp & XMLConsecutivo & "_06_jsonRespuestaClave.txt")
-                                    outputFile.Write(jsonRespuesta)
-                                    outputFile.Close()
-                                    If Not IsNothing(enviaFactura.xmlRespuesta) Then
-                                        enviaFactura.xmlRespuesta.Save(DirectorioTemp & XMLConsecutivo & "_07_RespuestaClave.xml")
-                                    End If
-                                    'Actualizar estados Factura
-                                    'Select Case enviaFactura.estadoFactura
-                                    '    Case "aceptado" : Me.Documentos.CambiarEstadoFactura_Aceptada(_IdDocumento)
-                                    '    Case "rechazado"
-                                    '        Me.Documentos.CambiarEstadoFactura(_IdDocumento, enviaFactura.estadoFactura)
-                                    '        If enviaFactura.MotiviRechazo.IndexOf("firma del comprobante electrónico no es válida") > 0 Then
-                                    '            Me.Documentos.CambiarEstadoComprobante(Me.XMLClave, "procesando")
-                                    '        End If
-                                    '    Case Else : Me.Documentos.CambiarEstadoFactura(_IdDocumento, enviaFactura.estadoFactura)
-                                    'End Select
+                    If _TipoDocumento = "FACTURA" Or _TipoDocumento = "TIQUETE" Then
+                        'Actualizar estados Factura
+                        Select Case enviaFactura.estadoFactura
+                            Case "rechazado"
+                                Me.Ventas.EditarEstadoFactura(_IdDocumento, enviaFactura.estadoFactura)
+                                If enviaFactura.MotiviRechazo.IndexOf("firma del comprobante electrónico no es válida") > 0 Then
+                                    Me.Ventas.EditarEstadoFactura(_IdDocumento, "procesando")
+                                Else
+                                    Dim correo As New Correo
+                                    correo.NotificarFacturaRechazada(_IdDocumento, "rolando.obando@gmail.com", enviaFactura.MotiviRechazo)
                                 End If
+                            Case Else : Me.Ventas.EditarEstadoFactura(_IdDocumento, enviaFactura.estadoFactura)
+                        End Select
+                        'Vuelve a consultar el estado de la factura
+                        Token = getToken()
+                        If Token <> "" Then
+                            enviaFactura = New Comunicacion
+                            If enviaFactura.ConsultaEstatus(Token, Me.XMLClave) = True Then
+                                jsonRespuesta = enviaFactura.jsonRespuesta
+                                outputFile = New IO.StreamWriter(DirectorioTemp & XMLConsecutivo & "_06_jsonRespuestaClave.txt")
+                                outputFile.Write(jsonRespuesta)
+                                outputFile.Close()
+                                If Not IsNothing(enviaFactura.xmlRespuesta) Then
+                                    enviaFactura.xmlRespuesta.Save(DirectorioTemp & XMLConsecutivo & "_07_RespuestaClave.xml")
+                                End If
+                                'Actualizar estados Factura
+                                Select Case enviaFactura.estadoFactura
+                                    Case "rechazado"
+                                        Me.Ventas.EditarEstadoFactura(_IdDocumento, enviaFactura.estadoFactura)
+                                        If enviaFactura.MotiviRechazo.IndexOf("firma del comprobante electrónico no es válida") > 0 Then
+                                            Me.Ventas.EditarEstadoFactura(_IdDocumento, "procesando")
+                                        Else
+                                            Dim correo As New Correo
+                                            correo.NotificarFacturaRechazada(_IdDocumento, "rolando.obando@gmail.com", enviaFactura.MotiviRechazo)
+                                        End If
+                                    Case Else : Me.Ventas.EditarEstadoFactura(_IdDocumento, enviaFactura.estadoFactura)
+                                End Select
                             End If
-
                         End If
-                        If _TipoDocumento = "DEVOLUCION" Then
+
+                    End If
+                    If _TipoDocumento = "DEVOLUCION" Then
                             Me.PDF.Autor = "OBSoluciones"
-                            Me.PDF.Titulo = "Comprobantes Electronicos"
-                            Me.PDF.CrearNotaCredito(Me.XMLClave, Me.xml.dtsEncabezado, Me.xml.dtsDetalle)
-                            'Actualizar estados Factura
-                            'Select Case enviaFactura.estadoFactura
-                            '    Case "aceptado" : Me.Documentos.DevolucionAceptada(_IdDocumento, Me.XMLClave, Me.XMLConsecutivo)
-                            '    Case "rechazado"
-                            '        Me.Documentos.RegistrarEstadoDevolucion(_IdDocumento, Me.XMLClave, Me.XMLConsecutivo, enviaFactura.estadoFactura)
-                            '        If enviaFactura.MotiviRechazo.IndexOf("firma del comprobante electrónico no es válida") > 0 Then
-                            '            Me.Documentos.CambiarEstadoComprobante(Me.XMLClave, "procesando")
-                            '        End If
-                            '    Case Else : Me.Documentos.RegistrarEstadoDevolucion(_IdDocumento, Me.XMLClave, Me.XMLConsecutivo, enviaFactura.estadoFactura)
-                            'End Select
-                            'Vuelve a consultar el estado de la factura
-                            Token = getToken()
-                            If Token <> "" Then
+                             Me.PDF.Titulo = "Comprobantes Electronicos"
+                            Me.PDF.CrearNotaCredito(Me.XMLClave, Me.xml.Fac, Me.xml.FacDet)
+                        'Actualizar estados Factura
+                        Select Case enviaFactura.estadoFactura
+                            Case "rechazado"
+                                Me.Devoluciones.EditarEstadoDevolucionVenta(_IdDocumento, enviaFactura.estadoFactura, Me.XMLClave, Me.XMLConsecutivo)
+                                If enviaFactura.MotiviRechazo.IndexOf("firma del comprobante electrónico no es válida") > 0 Then
+                                    Me.Devoluciones.EditarEstadoDevolucionVenta(_IdDocumento, "procesando", Me.XMLClave, Me.XMLConsecutivo)
+                                End If
+                            Case Else : Me.Devoluciones.EditarEstadoDevolucionVenta(_IdDocumento, enviaFactura.estadoFactura, Me.XMLClave, Me.XMLConsecutivo)
+                        End Select
+                        'Vuelve a consultar el estado de la factura
+                        Token = getToken()
+                        If Token <> "" Then
                                 enviaFactura = New Comunicacion
                                 If enviaFactura.ConsultaEstatus(Token, Me.XMLClave) = True Then
                                     jsonRespuesta = enviaFactura.jsonRespuesta
@@ -452,18 +457,18 @@ Public Class EnvioComprobantes
                                     If Not IsNothing(enviaFactura.xmlRespuesta) Then
                                         enviaFactura.xmlRespuesta.Save(DirectorioTemp & XMLConsecutivo & "_07_RespuestaClave.xml")
                                     End If
-                                    'Actualizar estados Factura
-                                    'Select Case enviaFactura.estadoFactura
-                                    '    Case "aceptado" : Me.Documentos.CambiarEstadoDevolucion_Aceptada(_IdDocumento)
-                                    '    Case "rechazado"
-                                    '        Me.Documentos.CambiarEstadoDevolucion(_IdDocumento, enviaFactura.estadoFactura)
-                                    '        If enviaFactura.MotiviRechazo.IndexOf("firma del comprobante electrónico no es válida") > 0 Then
-                                    '            Me.Documentos.CambiarEstadoComprobante(Me.XMLClave, "procesando")
-                                    '        End If
-                                    '    Case Else : Me.Documentos.CambiarEstadoDevolucion(_IdDocumento, enviaFactura.estadoFactura)
-                                    'End Select
-                                End If
+                                'Actualizar estados Factura
+                                Select Case enviaFactura.estadoFactura
+                                    Case "aceptado" : Me.Documentos.CambiarEstadoDevolucion_Aceptada(_IdDocumento)
+                                    Case "rechazado"
+                                        Me.Documentos.CambiarEstadoDevolucion(_IdDocumento, enviaFactura.estadoFactura)
+                                        If enviaFactura.MotiviRechazo.IndexOf("firma del comprobante electrónico no es válida") > 0 Then
+                                            Me.Documentos.CambiarEstadoComprobante(Me.XMLClave, "procesando")
+                                        End If
+                                    Case Else : Me.Documentos.CambiarEstadoDevolucion(_IdDocumento, enviaFactura.estadoFactura)
+                                End Select
                             End If
+                        End If
                         End If
                     End If
                 End If
@@ -475,8 +480,8 @@ fin:
     End Sub
 
     Public Sub ActualizarEstadoFactura(_IdFactura As String)
-        Dim ClaveMH As String '= Documentos.Obtener_ClaveFacturaMH(_IdFactura)
-        'Me.XMLConsecutivo = Documentos.Obtener_ConsecutivoFacturaMH(_IdFactura)
+        Dim ClaveMH As String = Documentos.Obtener_ClaveFacturaMH(_IdFactura)
+        Me.XMLConsecutivo = Documentos.Obtener_ConsecutivoFacturaMH(_IdFactura)
         Dim DirectorioTemp As String = Me.Directorio & Me.XMLConsecutivo & "/"
         If IO.Directory.Exists(DirectorioTemp) Then IO.Directory.CreateDirectory(DirectorioTemp)
 
@@ -495,22 +500,22 @@ fin:
                     enviaFactura.xmlRespuesta.Save(DirectorioTemp & XMLConsecutivo & "_07_RespuestaClave.xml")
                 End If
 
-                'Select Case enviaFactura.estadoFactura
-                '    Case "aceptado" : Me.Documentos.CambiarEstadoFactura_Aceptada(_IdFactura)
-                '    Case "rechazado"
-                '        Me.Documentos.CambiarEstadoFactura(_IdFactura, enviaFactura.estadoFactura)
-                '        If enviaFactura.MotiviRechazo.IndexOf("firma del comprobante electrónico no es válida") > 0 Then
-                '            Me.Documentos.CambiarEstadoComprobante(ClaveMH, "procesando")
-                '        End If
-                '    Case Else : Me.Documentos.CambiarEstadoFactura(_IdFactura, enviaFactura.estadoFactura)
-                'End Select
+                Select Case enviaFactura.estadoFactura
+                    Case "aceptado" : Me.Documentos.CambiarEstadoFactura_Aceptada(_IdFactura)
+                    Case "rechazado"
+                        Me.Documentos.CambiarEstadoFactura(_IdFactura, enviaFactura.estadoFactura)
+                        If enviaFactura.MotiviRechazo.IndexOf("firma del comprobante electrónico no es válida") > 0 Then
+                            Me.Documentos.CambiarEstadoComprobante(ClaveMH, "procesando")
+                        End If
+                    Case Else : Me.Documentos.CambiarEstadoFactura(_IdFactura, enviaFactura.estadoFactura)
+                End Select
             End If
         End If
     End Sub
 
     Public Sub ActualizarEstadoDevolucion(_IdDevolucion As String)
-        Dim ClaveMH As String '= Documentos.Obtener_ClaveDevolucionMH(_IdDevolucion)
-        'Me.XMLConsecutivo = Documentos.Obtener_ConsecutivoDevolucionMH(_IdDevolucion)
+        Dim ClaveMH As String = Documentos.Obtener_ClaveDevolucionMH(_IdDevolucion)
+        Me.XMLConsecutivo = Documentos.Obtener_ConsecutivoDevolucionMH(_IdDevolucion)
         Dim DirectorioTemp As String = Me.Directorio & Me.XMLConsecutivo & "/"
         Dim Token As String = getToken()
         If Token <> "" Then
@@ -524,15 +529,15 @@ fin:
                     enviaFactura.xmlRespuesta.Save(DirectorioTemp & XMLConsecutivo & "_07_RespuestaClave.xml")
                 End If
 
-                'Select Case enviaFactura.estadoFactura
-                'Case "aceptado" : Me.Documentos.CambiarEstadoDevolucion_Aceptada(_IdDevolucion)
-                'Case "rechazado"
-                'Me.Documentos.CambiarEstadoDevolucion(_IdDevolucion, enviaFactura.estadoFactura)
-                'If enviaFactura.MotiviRechazo.IndexOf("firma del comprobante electrónico no es válida") > 0 Then
-                'Me.Documentos.CambiarEstadoComprobante(ClaveMH, "procesando")
-                'End If
-                '   Case Else : Me.Documentos.CambiarEstadoDevolucion(_IdDevolucion, enviaFactura.estadoFactura)
-                '  End Select
+                Select Case enviaFactura.estadoFactura
+                    Case "aceptado" : Me.Documentos.CambiarEstadoDevolucion_Aceptada(_IdDevolucion)
+                    Case "rechazado"
+                        Me.Documentos.CambiarEstadoDevolucion(_IdDevolucion, enviaFactura.estadoFactura)
+                        If enviaFactura.MotiviRechazo.IndexOf("firma del comprobante electrónico no es válida") > 0 Then
+                            Me.Documentos.CambiarEstadoComprobante(ClaveMH, "procesando")
+                        End If
+                    Case Else : Me.Documentos.CambiarEstadoDevolucion(_IdDevolucion, enviaFactura.estadoFactura)
+                End Select
             End If
         End If
     End Sub
@@ -683,10 +688,10 @@ fin:
                         enviaComprobante.xmlRespuesta.Save(DirecionTemp & XMLConsecutivo & "_07_RespuestaClave.xml")
                     End If
 
-                    'Select Case enviaComprobante.estadoFactura
-                    'Case "aceptado" : Me.Documentos.CambiarEstadoMensaje_Aceptado(_IdCompra)
-                    'Case Else : Me.Documentos.CambiarEstadoMensaje(_IdCompra, enviaComprobante.estadoFactura)
-                    'E nd Select
+                    Select Case enviaComprobante.estadoFactura
+                        Case "aceptado" : Me.Documentos.CambiarEstadoMensaje_Aceptado(_IdCompra)
+                        Case Else : Me.Documentos.CambiarEstadoMensaje(_IdCompra, enviaComprobante.estadoFactura)
+                    End Select
                 End If
             End If
         End If
@@ -739,10 +744,10 @@ fin:
                         enviaComprobante.xmlRespuesta.Save(DirecionTemp & XMLConsecutivo & "_07_RespuestaClave.xml")
                     End If
 
-                    'Select Case enviaComprobante.estadoFactura
-                    'Case "aceptado" : Me.Documentos.CambiarEstadoMensaje_Aceptado(_IdMensaje)
-                    'Case Else : Me.Documentos.CambiarEstadoMensaje(_IdMensaje, enviaComprobante.estadoFactura)
-                    'End Select
+                    Select Case enviaComprobante.estadoFactura
+                        Case "aceptado" : Me.Documentos.CambiarEstadoMensaje_Aceptado(_IdMensaje)
+                        Case Else : Me.Documentos.CambiarEstadoMensaje(_IdMensaje, enviaComprobante.estadoFactura)
+                    End Select
                 End If
             End If
         End If

@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DatosFE.Class
 {
-    class Ventas
+  public  class Ventas
     {
         private FEContext entities;
 
@@ -85,6 +85,11 @@ namespace DatosFE.Class
                 var p = entities.Ventas.Find(id);
                 Venta viejo = p;
                 viejo.EstadoMh = estado;
+
+                if(estado == "aceptado")
+                {
+                    viejo.EnviadoMh = true;
+                }
 
                 entities.Entry(viejo).State = EntityState.Modified;
 

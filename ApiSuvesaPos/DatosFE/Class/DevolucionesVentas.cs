@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DatosFE.Class
 {
-    class DevolucionesVentas
+  public  class DevolucionesVentas
     {
         private FEContext entities;
 
@@ -130,13 +130,24 @@ namespace DatosFE.Class
             }
         }
 
-        public int EditarEstadoDevolucionVenta(int id, string estado) // editar estado de Hacienda devolucion de venta
+        public int EditarEstadoDevolucionVenta(int id, string estado, string xmlClave = "", string xmlConsecutivo = "") // editar estado de Hacienda devolucion de venta
         {
             try
             {
                 var p = entities.DevolucionesVentas.Find(id);
                 DevolucionesVenta viejo = p;
                 viejo.Estadodgt = estado;
+
+                if (xmlClave != "" && xmlConsecutivo != ""){
+                    viejo.Clavedgt = xmlClave;
+                    viejo.Consecutivodgt = xmlConsecutivo;
+                }
+
+
+                if(estado == "aceptado")
+                {
+                    viejo.Enviadodgt = true;
+                }
 
                 entities.Entry(viejo).State = EntityState.Modified;
 

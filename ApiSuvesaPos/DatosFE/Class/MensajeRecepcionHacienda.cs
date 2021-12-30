@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DatosFE.Class
 {
-    class MensajeRecepcionHacienda
+   public class MensajeRecepcionHacienda
     {
         private FEContext entities;
 
