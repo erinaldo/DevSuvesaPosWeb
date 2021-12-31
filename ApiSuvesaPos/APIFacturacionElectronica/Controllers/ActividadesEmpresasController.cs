@@ -22,7 +22,7 @@ namespace APIFacturacionElectronica.Controllers
                 {
                     return CreatedAtRoute("DefaultApi", new {Actividad = evidencia.Actividad }, evidencia);
                 }
-                else if (resp.Equals("La persona no existe"))
+                else if (resp.Equals("La actividad no existe"))
                 {
                     return NotFound();
                 }
