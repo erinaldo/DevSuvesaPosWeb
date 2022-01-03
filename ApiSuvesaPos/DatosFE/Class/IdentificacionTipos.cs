@@ -7,7 +7,7 @@ using DatosFE.Models;
 
 namespace DatosFE.Class
 {
-    class IdentificacionTipos
+   public class IdentificacionTipos
     {
         private FEContext entities;
 
@@ -67,6 +67,38 @@ namespace DatosFE.Class
                 else
                 {
                     return result = null;
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public int ObtenerIdTipoIdentificacion( string tipo) //obtener lista Tipos Identificacion 
+        {
+            try
+            {
+                var temp = from c in entities.TiposIdentificacions
+                           where c.Descripcion == tipo
+                           select c;
+                List<TiposIdentificacion> result = temp.ToList<TiposIdentificacion>();
+                int respuesta = 0;
+                if (result.Count > 0)
+                {
+                  
+                    foreach (TiposIdentificacion tempTipo in result)
+                    {
+                        respuesta = tempTipo.Id;
+                        
+                    }
+                    return respuesta;
+                }
+                else
+                {
+                    return respuesta;
                 }
 
 

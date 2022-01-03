@@ -52,12 +52,12 @@ namespace DatosFE.Class
 
         }
 
-        public List<CartaExoneracion> ObtenerCartaExoneracion() //obtener lista CartasdeExoneracion 
+        public List<CartaExoneracion> ObtenerCartaExoneracion(long identificacion) //obtener lista CartasdeExoneracion 
         {
             try
             {
                 var temp = from c in entities.CartaExoneracions
-
+                           where c.Identificacion == identificacion
                            select c;
                 List<CartaExoneracion> result = temp.ToList<CartaExoneracion>();
 
