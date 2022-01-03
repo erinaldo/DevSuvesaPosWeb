@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Web;
 using Newtonsoft.Json;
 using APIFacturacionElectronica.Models;
-using NegocioFE;
+using NegocioFE.Logica;
 
 namespace APIFacturacionElectronica.Controllers
 {
@@ -15,7 +15,7 @@ namespace APIFacturacionElectronica.Controllers
 
        private NegocioFE.Logica.CartaExoneracion  db = new NegocioFE.Logica.CartaExoneracion();
 
-        private bool Transformar(ref DatosFE.Models.CartaExoneracion NuevaCarta, CartaExoneracion carta)
+        private bool Transformar(ref DatosFE.Models.CartaExoneracion NuevaCarta, Models.CartaExoneracion carta)
         {
             //Transforma de un modelo al otro
             try
@@ -46,7 +46,7 @@ namespace APIFacturacionElectronica.Controllers
         }
 
         [HttpPost]
-        public IActionResult PostCartaExoneracion(CartaExoneracion carta)
+        public IActionResult PostCartaExoneracion(Models.CartaExoneracion carta)
         {
             try
             {
@@ -78,19 +78,19 @@ namespace APIFacturacionElectronica.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult PutCartaExoneracion(int id, CartaExoneracion carta)
+        public IActionResult PutCartaExoneracion(int id, Models.CartaExoneracion carta)
         {
             try
             {
                 DatosFE.Models.CartaExoneracion NuevaCarta = new DatosFE.Models.CartaExoneracion();
                if (this.Transformar(ref NuevaCarta, carta) == true)
                 {
-                    string resp = db.Editar(id,NuevaCarta);
+                    string resp = db.Editar(id,NuevaCarta);// te modifique el metodo para que hagarre la info de respuesta
                     if (resp.Equals("1"))
                     {
                         return CreatedAtRoute("DefaultApi", new { NuevaCarta.Id }, NuevaCarta);
                     }
-                    else if (resp.Equals("La actividad no existe"))//hay que modificar datosfe para que devuleva el texto.
+                    else if (resp.Equals("No existe el valor"))//hay que modificar datosfe para que devuleva el texto.
                     {
                         return NotFound();
                     }
