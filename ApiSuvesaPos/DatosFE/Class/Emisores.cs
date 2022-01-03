@@ -7,7 +7,7 @@ using DatosFE.Models;
 
 namespace DatosFE.Class
 {
-    class Emisores
+  public   class Emisores
     {
         private FEContext entities;
 

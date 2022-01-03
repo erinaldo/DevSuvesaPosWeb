@@ -113,10 +113,10 @@ Namespace OBSoluciones
                 End Try
             End Sub
 
-            Public Sub CrearNotaCredito(_Clave As String, _dtsEncabezado As DataTable, _dtsDetalle As DataTable)
+            Public Sub CrearNotaCredito(_Clave As String, _Dev As DatosFE.Models.ObtenerDevolucion43, _DevDet As List(Of DatosFE.Models.ObtenerDetallesDevolucion43))
 
                 Dim Clave As String = _Clave
-                Dim Consecutivo As String = _dtsEncabezado.Rows(0).Item("Consecutivo")
+                Dim Consecutivo As String = _Dev.Consecutivo
 
                 If Directory.Exists("C:\Facturas\" & Consecutivo) = False Then
                     Directory.CreateDirectory("C:\Facturas\" & Consecutivo)
@@ -126,7 +126,7 @@ Namespace OBSoluciones
 
                 Me.Crear_Tabla(2)
                 Me.Agregar_Celda("Nota de Credito N° " & Consecutivo & " Ver.: 4.3", Element.ALIGN_LEFT)
-                Me.Agregar_Celda("Fecha Emision : " & _dtsEncabezado.Rows(0).Item("FechaEmision"), Element.ALIGN_RIGHT)
+                Me.Agregar_Celda("Fecha Emision : " & _Dev.FechaEmision, Element.ALIGN_RIGHT)
                 Me.Termina_Tabla()
                 Me.Crear_Tabla(1)
                 Me.Agregar_Celda("Clave Numérica " & Clave, Element.ALIGN_LEFT)
@@ -137,20 +137,20 @@ Namespace OBSoluciones
 
                 Me.Crear_Tabla(3)
                 Me.Agregar_Celda(Me.GetImagen("C:\Facturas\Logo.png"))
-                Me.Agregar_Celda(_dtsEncabezado.Rows(0).Item("Nombre_Emisor") & vbCrLf _
-                                 & "Cédula : " & _dtsEncabezado.Rows(0).Item("Numero_Emisor"), Element.ALIGN_CENTER)
-                Me.Agregar_Celda("Telefono : " & _dtsEncabezado.Rows(0).Item("NumTelefono_Emisor") & vbCrLf _
+                Me.Agregar_Celda(_Dev.NombreEmisor & vbCrLf _
+                                 & "Cédula : " & _Dev.NumeroEmisor, Element.ALIGN_CENTER)
+                Me.Agregar_Celda("Telefono : " & _Dev.NumTelefonoEmisor & vbCrLf _
                                  & "" & vbCrLf _
-                                 & "Correo : " & _dtsEncabezado.Rows(0).Item("CorreoElectronico_Emisor") & vbCrLf _
+                                 & "Correo : " & _Dev.CorreoElectronicoEmisor & vbCrLf _
                                  & "" & vbCrLf _
-                                 & "Direccion : " & _dtsEncabezado.Rows(0).Item("OtrasSenas_Emisor"), Element.ALIGN_LEFT, 0, 7)
+                                 & "Direccion : " & _Dev.OtrasSenasEmisor, Element.ALIGN_LEFT, 0, 7)
                 Me.Agregar_Celda(" ", Element.ALIGN_CENTER, 0.75F, 1)
                 Me.Agregar_Celda(" ", Element.ALIGN_CENTER, 0.75F, 1)
                 Me.Agregar_Celda(" ", Element.ALIGN_CENTER, 0.75F, 1)
                 Me.Termina_Tabla()
 
-                Dim TipoDocumento As String = _dtsEncabezado.Rows(0).Item("TipoFactura")
-                Dim NumeroDocumento As String = _dtsEncabezado.Rows(0).Item("Numero_Referencia")
+                Dim TipoDocumento As String = _Dev.TipoFactura
+                Dim NumeroDocumento As String = _Dev.NumeroReferencia
 
                 Select Case TipoDocumento
                     Case "PVE" : TipoDocumento = "Tiquete Electronico"
@@ -167,13 +167,13 @@ Namespace OBSoluciones
 
 
                 Me.Crear_Tabla(2)
-                Me.Agregar_Celda("Receptor: " & _dtsEncabezado.Rows(0).Item("Nombre_Receptor"), Element.ALIGN_LEFT, 0, 8)
+                Me.Agregar_Celda("Receptor: " & _Dev.NombreReceptor, Element.ALIGN_LEFT, 0, 8)
                 Me.Agregar_Celda("Tipo Documento Referencia: " & TipoDocumento, Element.ALIGN_LEFT, 0, 8)
-                Me.Agregar_Celda("Cédula : " & _dtsEncabezado.Rows(0).Item("Numero_Receptor"), Element.ALIGN_LEFT, 0, 8)
+                Me.Agregar_Celda("Cédula : " & _Dev.NumeroReceptor, Element.ALIGN_LEFT, 0, 8)
                 Me.Agregar_Celda("Numero Documento Referencia: " & NumeroDocumento, Element.ALIGN_LEFT, 0, 8)
-                Me.Agregar_Celda("Teléfono: " & _dtsEncabezado.Rows(0).Item("NumTelefono_Receptor"), Element.ALIGN_LEFT, 0, 8)
+                Me.Agregar_Celda("Teléfono: " & _Dev.NumTelefonoReceptor, Element.ALIGN_LEFT, 0, 8)
                 Me.Agregar_Celda("", Element.ALIGN_LEFT, 0, 8)
-                Me.Agregar_Celda("Correo: " & _dtsEncabezado.Rows(0).Item("CorreoElectronico_Receptor"), Element.ALIGN_LEFT, 0, 8)
+                Me.Agregar_Celda("Correo: " & _Dev.CorreoElectronicoReceptor, Element.ALIGN_LEFT, 0, 8)
                 Me.Agregar_Celda("", Element.ALIGN_LEFT, 0, 8)
                 Me.Agregar_Celda(" ", Element.ALIGN_CENTER, 0.75F, 1)
                 Me.Agregar_Celda(" ", Element.ALIGN_CENTER, 0.75F, 1)
@@ -193,14 +193,14 @@ Namespace OBSoluciones
                 Me.Agregar_Celda("% IVA", Element.ALIGN_RIGHT, 0.75F)
                 Me.Agregar_Celda("Monto", Element.ALIGN_RIGHT, 0.75F)
 
-                For Each r As DataRow In _dtsDetalle.Rows
-                    Me.Agregar_Celda(r.Item("cantidad"), Element.ALIGN_RIGHT, 0, 8)
-                    Me.Agregar_Celda(r.Item("Codigo"), Element.ALIGN_CENTER, 0, 8)
-                    Me.Agregar_Celda(r.Item("Detalle"), Element.ALIGN_LEFT, 0, 8)
-                    Me.Agregar_Celda(Format(CDec(r.Item("PrecioUnitario")), "N2"), Element.ALIGN_RIGHT, 0, 8)
-                    Me.Agregar_Celda(Format(CDec(r.Item("Descuento")), "N2"), Element.ALIGN_RIGHT, 0, 8)
-                    Me.Agregar_Celda(Format(CDec(r.Item("Tarifa_Impuesto")), "N2"), Element.ALIGN_RIGHT, 0, 8)
-                    Me.Agregar_Celda(Format(CDec(r.Item("MontoTotal")), "N2"), Element.ALIGN_RIGHT, 0, 8)
+                For Each r As DatosFE.Models.ObtenerDetallesDevolucion43 In _DevDet
+                    Me.Agregar_Celda(r.cantidad, Element.ALIGN_RIGHT, 0, 8)
+                    Me.Agregar_Celda(r.Codigo, Element.ALIGN_CENTER, 0, 8)
+                    Me.Agregar_Celda(r.Detalle, Element.ALIGN_LEFT, 0, 8)
+                    Me.Agregar_Celda(Format(CDec(r.PrecioUnitario), "N2"), Element.ALIGN_RIGHT, 0, 8)
+                    Me.Agregar_Celda(Format(CDec(r.Descuento), "N2"), Element.ALIGN_RIGHT, 0, 8)
+                    Me.Agregar_Celda(Format(CDec(r.TarifaImpuesto), "N2"), Element.ALIGN_RIGHT, 0, 8)
+                    Me.Agregar_Celda(Format(CDec(r.MontoTotal), "N2"), Element.ALIGN_RIGHT, 0, 8)
                 Next
 
                 Me.Termina_Tabla()
@@ -213,23 +213,23 @@ Namespace OBSoluciones
                 Dim _tamanio2() As Single = {40, 30}
                 Me.Crear_Tabla(2, _tamanio2, 40, Element.ALIGN_RIGHT)
                 Me.Agregar_Celda("GRAVADO", Element.ALIGN_LEFT, 0, 8)
-                Me.Agregar_Celda(Format(CDec(_dtsEncabezado.Rows(0).Item("TotalGravado")), "N2"), Element.ALIGN_RIGHT, 0, 8)
+                Me.Agregar_Celda(Format(CDec(_Dev.TotalGravado), "N2"), Element.ALIGN_RIGHT, 0, 8)
                 Me.Agregar_Celda("EXENTO", Element.ALIGN_LEFT, 0, 8)
-                Me.Agregar_Celda(Format(CDec(_dtsEncabezado.Rows(0).Item("TotalExento")), "N2"), Element.ALIGN_RIGHT, 0, 8)
+                Me.Agregar_Celda(Format(CDec(_Dev.TotalExento), "N2"), Element.ALIGN_RIGHT, 0, 8)
 
                 Me.Agregar_Celda("DESCUENTO", Element.ALIGN_LEFT, 0, 8)
-                Me.Agregar_Celda(Format(CDec(_dtsEncabezado.Rows(0).Item("TotalDescuentos")), "N2"), Element.ALIGN_RIGHT, 0, 8)
+                Me.Agregar_Celda(Format(CDec(_Dev.TotalDescuentos), "N2"), Element.ALIGN_RIGHT, 0, 8)
                 Me.Agregar_Celda("SUBTOTAL NETO", Element.ALIGN_LEFT, 0, 8)
-                Me.Agregar_Celda(Format(CDec(_dtsEncabezado.Rows(0).Item("TotalVentaNeta")), "N2"), Element.ALIGN_RIGHT, 0, 8)
+                Me.Agregar_Celda(Format(CDec(_Dev.TotalVentaNeta), "N2"), Element.ALIGN_RIGHT, 0, 8)
                 Me.Agregar_Celda("IVA", Element.ALIGN_LEFT, 0, 8)
-                Me.Agregar_Celda(Format(CDec(_dtsEncabezado.Rows(0).Item("TotalImpuesto")), "N2"), Element.ALIGN_RIGHT, 0, 8)
+                Me.Agregar_Celda(Format(CDec(_Dev.TotalImpuesto), "N2"), Element.ALIGN_RIGHT, 0, 8)
                 Me.Agregar_Celda("TOTAL", Element.ALIGN_LEFT, 0, 8)
-                Me.Agregar_Celda(Format(CDec(_dtsEncabezado.Rows(0).Item("TotalComprobante")), "N2"), Element.ALIGN_RIGHT, 0, 8)
+                Me.Agregar_Celda(Format(CDec(_Dev.TotalComprobante), "N2"), Element.ALIGN_RIGHT, 0, 8)
 
                 Me.Agregar_Celda("MONEDA", Element.ALIGN_LEFT, 0, 8)
-                Me.Agregar_Celda(_dtsEncabezado.Rows(0).Item("CodigoMoneda"), Element.ALIGN_RIGHT, 0, 8)
+                Me.Agregar_Celda(_Dev.CodigoMoneda, Element.ALIGN_RIGHT, 0, 8)
                 Me.Agregar_Celda("TIPO DE CAMBIO", Element.ALIGN_LEFT, 0, 8)
-                Me.Agregar_Celda(_dtsEncabezado.Rows(0).Item("TipoCambio"), Element.ALIGN_RIGHT, 0, 8)
+                Me.Agregar_Celda(_Dev.TipoCambio, Element.ALIGN_RIGHT, 0, 8)
 
                 Me.Termina_Tabla()
 
@@ -239,17 +239,17 @@ Namespace OBSoluciones
                 'Me.Agregar_Imagen("C:\Facturas\" & Consecutivo & "\" & Clave & ".png")
 
                 Me.Crear_Tabla(1)
-                Me.Agregar_Celda(_dtsEncabezado.Rows(0).Item("NumeroResolucion"), Element.ALIGN_CENTER, 0, 7)
+                Me.Agregar_Celda(_Dev.NumeroResolucion, Element.ALIGN_CENTER, 0, 7)
                 Me.Agregar_Celda("", Element.ALIGN_LEFT, 0.75F, 1)
                 Me.Termina_Tabla()
 
                 Me.Terminar_Documento()
             End Sub
 
-            Public Sub CrearFactura(_Clave As String, _dtsEncabezado As DataTable, _dtsDetalle As DataTable)
+            Public Sub CrearFactura(_Clave As String, _Fac As DatosFE.Models.ObtenerFacturas43, _FacDet As List(Of DatosFE.Models.ObtenerDetalleFactura43))
 
                 Dim Clave As String = _Clave
-                Dim Consecutivo As String = _dtsEncabezado.Rows(0).Item("Consecutivo")
+                Dim Consecutivo As String = _Fac.Consecutivo
 
                 If Directory.Exists("C:\Facturas\" & Consecutivo) = False Then
                     Directory.CreateDirectory("C:\Facturas\" & Consecutivo)
@@ -259,7 +259,7 @@ Namespace OBSoluciones
 
                 Me.Crear_Tabla(2)
                 Me.Agregar_Celda("Factura Electrónica N° " & Consecutivo & " Ver.: 4.3", Element.ALIGN_LEFT)
-                Me.Agregar_Celda("Fecha Emision : " & _dtsEncabezado.Rows(0).Item("FechaEmision"), Element.ALIGN_RIGHT)
+                Me.Agregar_Celda("Fecha Emision : " & _Fac.FechaEmision, Element.ALIGN_RIGHT)
                 Me.Termina_Tabla()
                 Me.Crear_Tabla(1)
                 Me.Agregar_Celda("Clave Numérica " & Clave, Element.ALIGN_LEFT)
@@ -268,30 +268,30 @@ Namespace OBSoluciones
 
                 Me.EscribirTexto(" ", Element.ALIGN_LEFT, 3)
 
-                Dim CedulaEmisor As String = _dtsEncabezado.Rows(0).Item("Numero_Emisor")
+                Dim CedulaEmisor As String = _Fac.NumeroEmisor
                 Me.Crear_Tabla(3)
                 Me.Agregar_Celda(Me.GetImagen("C:\Facturas\Logo.png"))
-                Me.Agregar_Celda(_dtsEncabezado.Rows(0).Item("Nombre_Emisor") & vbCrLf _
+                Me.Agregar_Celda(_Fac.NombreEmisor & vbCrLf _
                                  & "Cédula : " & CedulaEmisor, Element.ALIGN_CENTER)
-                Me.Agregar_Celda("Telefono : " & _dtsEncabezado.Rows(0).Item("NumTelefono_Emisor") & vbCrLf _
+                Me.Agregar_Celda("Telefono : " & _Fac.NumTelefonoEmisor & vbCrLf _
                                  & "" & vbCrLf _
-                                 & "Correo : " & _dtsEncabezado.Rows(0).Item("CorreoElectronico_Emisor") & vbCrLf _
+                                 & "Correo : " & _Fac.CorreoElectronicoEmisor & vbCrLf _
                                  & "" & vbCrLf _
-                                 & "Direccion : " & _dtsEncabezado.Rows(0).Item("OtrasSenas_Emisor"), Element.ALIGN_LEFT, 0, 7)
+                                 & "Direccion :  " & _Fac.OtrasSenasEmisor, Element.ALIGN_LEFT, 0, 7)
                 Me.Agregar_Celda(" ", Element.ALIGN_CENTER, 0.75F, 1)
                 Me.Agregar_Celda(" ", Element.ALIGN_CENTER, 0.75F, 1)
                 Me.Agregar_Celda(" ", Element.ALIGN_CENTER, 0.75F, 1)
                 Me.Termina_Tabla()
 
-                Dim TipoVenta As String = IIf(_dtsEncabezado.Rows(0).Item("CondicionVenta") = "01", "CONTADO", "CREDITO")
+                Dim TipoVenta As String = IIf(_Fac.CondicionVenta = "01", "CONTADO", "CREDITO")
                 Me.Crear_Tabla(2)
-                Me.Agregar_Celda("Receptor: " & _dtsEncabezado.Rows(0).Item("Nombre_Receptor"), Element.ALIGN_LEFT, 0, 8)
+                Me.Agregar_Celda("Receptor: " & _Fac.NombreReceptor, Element.ALIGN_LEFT, 0, 8)
                 Me.Agregar_Celda("Condicion Venta: " & TipoVenta, Element.ALIGN_LEFT, 0, 8)
-                Me.Agregar_Celda("Cédula : " & _dtsEncabezado.Rows(0).Item("Numero_Receptor"), Element.ALIGN_LEFT, 0, 8)
-                Me.Agregar_Celda(IIf(_dtsEncabezado.Rows(0).Item("CondicionVenta") = "01", "", "Vence: " & CDate(_dtsEncabezado.Rows(0).Item("FechaVence")).ToShortDateString), Element.ALIGN_LEFT, 0, 8)
-                Me.Agregar_Celda("Teléfono: " & _dtsEncabezado.Rows(0).Item("NumTelefono_Receptor"), Element.ALIGN_LEFT, 0, 8)
-                Me.Agregar_Celda("Orden Compra: " & _dtsEncabezado.Rows(0).Item("OrdenCompra"), Element.ALIGN_LEFT, 0, 8)
-                Me.Agregar_Celda("Correo: " & _dtsEncabezado.Rows(0).Item("CorreoElectronico_Receptor"), Element.ALIGN_LEFT, 0, 8)
+                Me.Agregar_Celda("Cédula : " & _Fac.NumeroReceptor, Element.ALIGN_LEFT, 0, 8)
+                Me.Agregar_Celda(IIf(_Fac.CondicionVenta = "01", "", "Vence: " & CDate(_Fac.FechaVence).ToShortDateString), Element.ALIGN_LEFT, 0, 8)
+                Me.Agregar_Celda("Teléfono: " & _Fac.NumTelefonoReceptor, Element.ALIGN_LEFT, 0, 8)
+                Me.Agregar_Celda("Orden Compra: " & _Fac.OrdenCompra, Element.ALIGN_LEFT, 0, 8)
+                Me.Agregar_Celda("Correo: " & _Fac.CorreoElectronicoReceptor, Element.ALIGN_LEFT, 0, 8)
                 Me.Agregar_Celda("", Element.ALIGN_LEFT, 0, 8)
                 Me.Agregar_Celda(" ", Element.ALIGN_CENTER, 0.75F, 1)
                 Me.Agregar_Celda(" ", Element.ALIGN_CENTER, 0.75F, 1)
@@ -311,20 +311,20 @@ Namespace OBSoluciones
                 Me.Agregar_Celda("% IVA", Element.ALIGN_RIGHT, 0.75F)
                 Me.Agregar_Celda("Monto", Element.ALIGN_RIGHT, 0.75F)
 
-                For Each r As DataRow In _dtsDetalle.Rows
-                    Me.Agregar_Celda(r.Item("cantidad"), Element.ALIGN_RIGHT, 0, 8)
-                    Me.Agregar_Celda(r.Item("Codigo"), Element.ALIGN_CENTER, 0, 8)
-                    Me.Agregar_Celda(r.Item("Detalle"), Element.ALIGN_LEFT, 0, 8)
-                    Me.Agregar_Celda(Format(CDec(r.Item("PrecioUnitario")), "N2"), Element.ALIGN_RIGHT, 0, 8)
-                    Me.Agregar_Celda(Format(CDec(r.Item("Descuento")), "N2"), Element.ALIGN_RIGHT, 0, 8)
+                For Each r As DatosFE.Models.ObtenerDetalleFactura43 In _FacDet
+                    Me.Agregar_Celda(r.Cantidad, Element.ALIGN_RIGHT, 0, 8)
+                    Me.Agregar_Celda(r.Codigo, Element.ALIGN_CENTER, 0, 8)
+                    Me.Agregar_Celda(r.Detalle, Element.ALIGN_LEFT, 0, 8)
+                    Me.Agregar_Celda(Format(CDec(r.PrecioUnitario), "N2"), Element.ALIGN_RIGHT, 0, 8)
+                    Me.Agregar_Celda(Format(CDec(r.Descuento), "N2"), Element.ALIGN_RIGHT, 0, 8)
 
-                    If r.Item("PorcentajeCompra_Exoneracion") > 0 Then
-                        Me.Agregar_Celda(Format(CDec(r.Item("ImpuestoNeto")), "N2"), Element.ALIGN_RIGHT, 0, 8)
+                    If r.PorcentajeCompraExoneracion > 0 Then
+                        Me.Agregar_Celda(Format(CDec(r.ImpuestoNeto), "N2"), Element.ALIGN_RIGHT, 0, 8)
                     Else
-                        Me.Agregar_Celda(Format(CDec(r.Item("Tarifa_Impuesto")), "N2"), Element.ALIGN_RIGHT, 0, 8)
+                        Me.Agregar_Celda(Format(CDec(r.TarifaImpuesto), "N2"), Element.ALIGN_RIGHT, 0, 8)
                     End If
 
-                    Me.Agregar_Celda(Format(CDec(r.Item("MontoTotal")), "N2"), Element.ALIGN_RIGHT, 0, 8)
+                    Me.Agregar_Celda(Format(CDec(r.MontoTotal), "N2"), Element.ALIGN_RIGHT, 0, 8)
                 Next
 
                 Me.Termina_Tabla()
@@ -337,26 +337,26 @@ Namespace OBSoluciones
                 Dim _tamanio2() As Single = {40, 30}
                 Me.Crear_Tabla(2, _tamanio2, 40, Element.ALIGN_RIGHT)
                 Me.Agregar_Celda("GRAVADO", Element.ALIGN_LEFT, 0, 8)
-                Me.Agregar_Celda(Format(CDec(_dtsEncabezado.Rows(0).Item("TotalGravado")), "N2"), Element.ALIGN_RIGHT, 0, 8)
+                Me.Agregar_Celda(Format(CDec(_Fac.TotalGravado), "N2"), Element.ALIGN_RIGHT, 0, 8)
                 Me.Agregar_Celda("EXENTO", Element.ALIGN_LEFT, 0, 8)
-                Me.Agregar_Celda(Format(CDec(_dtsEncabezado.Rows(0).Item("TotalExento")), "N2"), Element.ALIGN_RIGHT, 0, 8)
+                Me.Agregar_Celda(Format(CDec(_Fac.TotalExento), "N2"), Element.ALIGN_RIGHT, 0, 8)
 
                 Me.Agregar_Celda("EXONERADO", Element.ALIGN_LEFT, 0, 8)
-                Me.Agregar_Celda(Format(CDec(_dtsEncabezado.Rows(0).Item("TotalExonerado")), "N2"), Element.ALIGN_RIGHT, 0, 8)
+                Me.Agregar_Celda(Format(CDec(_Fac.TotalExonerado), "N2"), Element.ALIGN_RIGHT, 0, 8)
 
                 Me.Agregar_Celda("DESCUENTO", Element.ALIGN_LEFT, 0, 8)
-                Me.Agregar_Celda(Format(CDec(_dtsEncabezado.Rows(0).Item("TotalDescuentos")), "N2"), Element.ALIGN_RIGHT, 0, 8)
+                Me.Agregar_Celda(Format(CDec(_Fac.TotalDescuentos), "N2"), Element.ALIGN_RIGHT, 0, 8)
                 Me.Agregar_Celda("SUBTOTAL NETO", Element.ALIGN_LEFT, 0, 8)
-                Me.Agregar_Celda(Format(CDec(_dtsEncabezado.Rows(0).Item("TotalVentaNeta")), "N2"), Element.ALIGN_RIGHT, 0, 8)
+                Me.Agregar_Celda(Format(CDec(_Fac.TotalVentaNeta), "N2"), Element.ALIGN_RIGHT, 0, 8)
                 Me.Agregar_Celda("IVA", Element.ALIGN_LEFT, 0, 8)
-                Me.Agregar_Celda(Format(CDec(_dtsEncabezado.Rows(0).Item("TotalImpuesto")), "N2"), Element.ALIGN_RIGHT, 0, 8)
+                Me.Agregar_Celda(Format(CDec(_Fac.TotalImpuesto), "N2"), Element.ALIGN_RIGHT, 0, 8)
                 Me.Agregar_Celda("TOTAL", Element.ALIGN_LEFT, 0, 8)
-                Me.Agregar_Celda(Format(CDec(_dtsEncabezado.Rows(0).Item("TotalComprobante")), "N2"), Element.ALIGN_RIGHT, 0, 8)
+                Me.Agregar_Celda(Format(CDec(_Fac.TotalComprobante), "N2"), Element.ALIGN_RIGHT, 0, 8)
 
                 Me.Agregar_Celda("MONEDA", Element.ALIGN_LEFT, 0, 8)
-                Me.Agregar_Celda(_dtsEncabezado.Rows(0).Item("CodigoMoneda"), Element.ALIGN_RIGHT, 0, 8)
+                Me.Agregar_Celda(_Fac.CodigoMoneda, Element.ALIGN_RIGHT, 0, 8)
                 Me.Agregar_Celda("TIPO DE CAMBIO", Element.ALIGN_LEFT, 0, 8)
-                Me.Agregar_Celda(_dtsEncabezado.Rows(0).Item("TipoCambio"), Element.ALIGN_RIGHT, 0, 8)
+                Me.Agregar_Celda(_Fac.TipoCambio, Element.ALIGN_RIGHT, 0, 8)
 
                 Me.Termina_Tabla()
 
@@ -366,7 +366,7 @@ Namespace OBSoluciones
                 'Me.Agregar_Imagen("C:\Facturas\" & Consecutivo & "\" & Clave & ".png")
 
                 Me.Crear_Tabla(1)
-                Me.Agregar_Celda(_dtsEncabezado.Rows(0).Item("NumeroResolucion"), Element.ALIGN_CENTER, 0, 7)
+                Me.Agregar_Celda(_Fac.NumeroResolucion, Element.ALIGN_CENTER, 0, 7)
                 Me.Agregar_Celda("", Element.ALIGN_LEFT, 0.75F, 1)
                 Me.Termina_Tabla()
 
@@ -433,7 +433,7 @@ Namespace OBSoluciones
                             Me.Agregar_Celda("Esta factura devenga intereses mensuales despues de su vencimiento.", Element.ALIGN_LEFT, 0, 9)
                             Me.Termina_Tabla()
                     End Select
-                    
+
                 End If
 
                 Me.Terminar_Documento()

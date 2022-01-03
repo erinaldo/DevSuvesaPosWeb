@@ -40,7 +40,7 @@ Public Class TokenHacienda
 
             Dim response As HttpResponseMessage = http.PostAsync(IDP_URI, content).Result
             Dim res As String = response.Content.ReadAsStringAsync.Result
-            Dim tk As Token = Newtonsoft.Json.JsonConvert.DeserializeObject(Of Token)(res)
+            Dim tk As DatosFE.FE.Token = Newtonsoft.Json.JsonConvert.DeserializeObject(Of DatosFE.FE.Token)(res)
 
             If response.StatusCode = Net.HttpStatusCode.OK Then
                 Me.AccesoConcedido = True

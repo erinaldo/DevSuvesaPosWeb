@@ -63,9 +63,10 @@ Public Class Correo
     End Sub
 
     Private Function GetEmisor() As String
-        Dim cls As New GestionDatos.Emisor
-        cls.Obtener_Datos()
-        Return cls.nombre
+        Dim cls As New DatosFE.Class.Emisores
+        Dim emisor As New DatosFE.Models.Emisor
+        emisor = cls.ObtenerEmisores.FirstOrDefault
+        Return emisor.Nombre
     End Function
 
     Public Sub NotificarFacturaRechazada(_IdFactura As String, _Correo As String, _Observaciones As String)

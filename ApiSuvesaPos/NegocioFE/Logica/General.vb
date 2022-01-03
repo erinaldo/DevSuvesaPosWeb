@@ -3,15 +3,15 @@
     'Public sql As New SQL.Sentencias(GetSetting("SeeSOFT", "Seguridad", "Conexion"))
     Public BasedeDatos As String = ""
 
-    Public Function TipoConexion() As TipoConexion
-        'debe de validar a que servidor se ba a conectar
-        Return TipoConexion.SQL
-    End Function
+    'Public Function TipoConexion() As TipoConexion
+    '    'debe de validar a que servidor se ba a conectar
+    '    Return TipoConexion.SQL
+    'End Function
 
 
 End Module
 
-Public Enum TipoConexion
-    SQL
-    MYSQL
-End Enum
+'Public Enum TipoConexion
+'    SQL
+'    MYSQL
+'End Enum
