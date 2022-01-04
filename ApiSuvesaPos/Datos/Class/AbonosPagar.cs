@@ -8,20 +8,20 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Datos.Class
 {
-    public class AbonosApartados
+   public  class AbonosPagar
     {
         SeePOSContext entities;
 
-        public AbonosApartados()
+        public AbonosPagar()
         {
             entities = new SeePOSContext();
         }
 
-        public int CrearAbonoApartado(AbonoApartado Abono)
+        public int CrearAbonoPagar(Abonocpagar Abono)
         {
             try
             {
-                entities.AbonoApartados.Add(Abono);
+                entities.Abonocpagars.Add(Abono);
                 return entities.SaveChanges();
 
             }
@@ -32,13 +32,13 @@ namespace Datos.Class
             }
         }
 
-        public int BorrarAbonoApartado(int id) 
+        public int BorrarAbonoPagar(int id)
 
 
         {
             try
             {
-                var p = entities.AbonoApartados.Find(id);
+                var p = entities.Abonocpagars.Find(id);
                 entities.Remove(p);
                 return entities.SaveChanges();
 
@@ -51,14 +51,14 @@ namespace Datos.Class
 
         }
 
-        public List<AbonoApartado> ObtenerAbonoApartado()  
+        public List<Abonocpagar> ObtenerAbonoApartado()
         {
             try
             {
-                var temp = from c in entities.AbonoApartados
+                var temp = from c in entities.Abonocpagars
 
                            select c;
-                List<AbonoApartado> result = temp.ToList<AbonoApartado>();
+                List<Abonocpagar> result = temp.ToList<Abonocpagar>();
 
                 if (result.Count > 0)
                 {
@@ -77,14 +77,14 @@ namespace Datos.Class
             }
         }
 
-        public List<AbonoApartado> ObtenerAbonoApartado(int id)  
+        public List<Abonocpagar> ObtenerAbonoApartado(int id)
         {
             try
             {
-                var temp = from c in entities.AbonoApartados
-                           where c.IdAbonoapartado == id
+                var temp = from c in entities.Abonocpagars
+                           where c.IdAbonocpagar == id
                            select c;
-                List<AbonoApartado> result = temp.ToList<AbonoApartado>();
+                List<Abonocpagar> result = temp.ToList<Abonocpagar>();
 
                 if (result.Count > 0)
                 {
@@ -103,23 +103,19 @@ namespace Datos.Class
             }
         }
 
-        public int EditarAbonoApartado(int id, AbonoApartado abono) 
+        public int EditarAbonoPagar(int id, Abonocpagar abono)
         {
             try
             {
                 var p = entities.AbonoApartados.Find(id);
-                AbonoApartado Nuevo = p;
-                Nuevo.CodCliente = abono.CodCliente;
-                Nuevo.NombreCliente = abono.NombreCliente;
+                Abonocpagar Nuevo = p;
+              
                 Nuevo.SaldoCuenta = abono.SaldoCuenta;
                 Nuevo.Monto = abono.Monto;
                 Nuevo.SaldoActual = abono.SaldoActual;
                 Nuevo.Fecha = abono.Fecha;
                 Nuevo.Observaciones = abono.Observaciones;
-                Nuevo.Anula = abono.Anula;
-                Nuevo.CedUsuario = abono.CedUsuario;
-                Nuevo.CodMoneda = abono.CodMoneda;
-                Nuevo.NumRecibo = abono.NumRecibo;
+               
                 Nuevo.IdSucursal = abono.IdSucursal;
                 //Nuevo.AbonoApartadosdetalles = abono.AbonoApartadosdetalle;
 
@@ -134,7 +130,5 @@ namespace Datos.Class
                 throw ex;
             }
         }
-
-
     }
 }
