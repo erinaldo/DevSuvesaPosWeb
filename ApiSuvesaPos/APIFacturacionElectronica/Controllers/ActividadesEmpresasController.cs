@@ -11,12 +11,15 @@ namespace APIFacturacionElectronica.Controllers
 {
     public class ActividadesEmpresasController : Controller
     {
+
+        NegocioFE.Logica.ActividadEmpresa db = new NegocioFE.Logica.ActividadEmpresa();
+
         [HttpPost]
         public IActionResult PostActividadesEmpresas( ActividadesEmpresas evidencia)
         {
             try
             {
-                string resp = "Aqui va la parte de negocio"; //db.CrearEvidencia(evidencia); como este ejemplo
+                string resp = "";//db.CrearEvidencia(evidencia); //como este ejemplo
 
                 if (resp.Equals("1"))
                 {

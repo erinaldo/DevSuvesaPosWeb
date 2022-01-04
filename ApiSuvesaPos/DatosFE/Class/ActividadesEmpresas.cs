@@ -7,7 +7,7 @@ using DatosFE.Models;
 
 namespace DatosFE.Class
 {
-    class ActividadesEmpresas
+  public  class ActividadesEmpresas
     {
         private FEContext entities;
 
@@ -16,7 +16,7 @@ namespace DatosFE.Class
             entities = new FEContext();
         }
 
-        public int CrearArticulosComprados(EmpresaActividade empresa) // crear Actividades Empresas apartir de objeto de creacion
+        public int CrearActividadesEmpresas(EmpresaActividade empresa) // crear Actividades Empresas apartir de objeto de creacion
         {
             try
             {
@@ -32,7 +32,7 @@ namespace DatosFE.Class
 
         }
 
-        public int BorrarArticulosDevueltos(int id) // borrar Empresa Actividades apartir del id Actividad
+        public int BorrarActividadesEmpresas(int id) // borrar Empresa Actividades apartir del id Actividad
 
 
         {
@@ -51,7 +51,7 @@ namespace DatosFE.Class
 
         }
 
-        public List<EmpresaActividade> ObtenerArticulosDevueltos() //obtener lista Empresa Actividad
+        public List<EmpresaActividade> ObtenerActividadesEmpresas() //obtener lista Empresa Actividad
         {
             try
             {

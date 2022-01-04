@@ -10,10 +10,13 @@ using NegocioFE.Logica;
 
 namespace APIFacturacionElectronica.Controllers
 {
+    [ApiController]
+    [Route("[controller]")]
     public class CartasExoneracionesController : Controller
     {
+        
 
-       private NegocioFE.Logica.CartaExoneracion  db = new NegocioFE.Logica.CartaExoneracion();
+        private NegocioFE.Logica.CartaExoneracion  db = new NegocioFE.Logica.CartaExoneracion();
 
         private bool Transformar(ref DatosFE.Models.CartaExoneracion NuevaCarta, Models.CartaExoneracion carta)
         {
@@ -111,8 +114,9 @@ namespace APIFacturacionElectronica.Controllers
             }
         }
 
-        [HttpGet("{id}")]
-        public IActionResult GetObtenerCartaExoneracion(long Identificacion)
+        // [HttpGet("{Identificacion}")]
+        [HttpGet]
+         public IActionResult GetObtenerCartaExoneracion(long Identificacion)
         {
 
             var result = this.db.ObtenerCartaExoneracion(Identificacion);

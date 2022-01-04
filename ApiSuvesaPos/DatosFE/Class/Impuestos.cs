@@ -56,7 +56,7 @@ namespace DatosFE.Class
             try
             {
                 var temp = from c in entities.Impuestos
-
+                           where c.Inactivo == false
                            select c;
                 List<Impuesto> result = temp.ToList<Impuesto>();
 

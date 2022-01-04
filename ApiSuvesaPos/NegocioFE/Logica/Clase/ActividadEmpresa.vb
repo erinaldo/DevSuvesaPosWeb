@@ -1,19 +1,18 @@
 ﻿Namespace Logica
     Public Class ActividadEmpresa
 
-        Public Function Buscar() As List(Of DatosFE.Models.ActividadEmpresa)
+        Private db As New DatosFE.Class.ActividadesEmpresas
 
-            'Private Sub CargarActividades()
-            '    Dim dt As New DataTable
-            '    cFunciones.Llenar_Tabla_Generico("select Actividad from actividadEmpresa", dt, CadenaConexionSeePOS)
-            '    For Each r As DataRow In dt.Rows
-            '        If Me.PrimeraActividad = "" Then
-            '            Me.PrimeraActividad = r.Item("Actividad")
-            '        End If
-            '        Me.cCodigoActividad.Items.Add(r.Item("Actividad"))
-            '    Next
-            'End Sub
+        Public Function Buscar() As List(Of DatosFE.Models.EmpresaActividade)
+            Return db.ObtenerActividadesEmpresas
+        End Function
 
+        Public Function Crear(actividad As DatosFE.Models.EmpresaActividade) As String
+            Return Me.db.CrearActividadesEmpresas(actividad)
+        End Function
+
+        Public Function Borrar(id As Integer) As String
+            Return Me.db.BorrarActividadesEmpresas(id)
         End Function
 
     End Class

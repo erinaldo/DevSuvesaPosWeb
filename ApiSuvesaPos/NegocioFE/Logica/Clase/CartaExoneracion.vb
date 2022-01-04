@@ -15,9 +15,6 @@
             Else
                 Return "No existe el valor"
             End If
-
-
-
         End Function
 
         Public Function Eliminar(ByRef id As Integer) As String
