@@ -7,20 +7,20 @@ using DatosFE.Models;
 
 namespace DatosFE.Class
 {
-    public class Impuestos
+    public class CondicionImpuestos
     {
-        private FEContext entities;
-
-        public Impuestos()
+        FEContext entities;
+        
+        public CondicionImpuestos()
         {
             entities = new FEContext();
         }
 
-        public int CrearImpuestos(Impuesto impuesto) // crear impuestos apartir de objeto de creacion
+        public int CrearCondicionImpuesto(CondicionImpuesto impuesto) // crear condicion impuestos apartir de objeto de creacion
         {
             try
             {
-                entities.Impuestos.Add(impuesto);
+                entities.CondicionImpuestos.Add(impuesto);
                 return entities.SaveChanges();
 
             }
@@ -32,13 +32,13 @@ namespace DatosFE.Class
 
         }
 
-        public int BorrarImpuestos(int id) // borrar impuestos apartir del id Actividad
+        public int BorrarCondicionImpuestos(int id) // borrar condicion impuestos apartir del id Actividad
 
 
         {
             try
             {
-                var p = entities.Impuestos.Find(id);
+                var p = entities.CondicionImpuestos.Find(id);
                 entities.Remove(p);
                 return entities.SaveChanges();
 
@@ -51,14 +51,14 @@ namespace DatosFE.Class
 
         }
 
-        public List<Impuesto> ObtenerImpuestos() //obtener lista Impuestos
+        public List<CondicionImpuesto> ObtenerCondicionImpuestos() //obtener lista condicion Impuestos
         {
             try
             {
-                var temp = from c in entities.Impuestos
+                var temp = from c in entities.CondicionImpuestos
 
                            select c;
-                List<Impuesto> result = temp.ToList<Impuesto>();
+                List<CondicionImpuesto> result = temp.ToList<CondicionImpuesto>();
 
                 if (result.Count > 0)
                 {

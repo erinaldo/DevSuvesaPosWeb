@@ -127,3 +127,4 @@ C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\Datos
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\Negocio.dll
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\Datos.pdb
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\Negocio.pdb
+C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\ApiSuvesaPos.StaticWebAssets.xml

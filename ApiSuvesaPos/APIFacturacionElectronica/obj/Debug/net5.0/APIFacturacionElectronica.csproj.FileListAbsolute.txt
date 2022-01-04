@@ -141,3 +141,4 @@ C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\obj\Debug
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\obj\Debug\net5.0\APIFacturacionElectronica.RazorTargetAssemblyInfo.cache
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\obj\Debug\net5.0\APIFacturacionElectronica.csproj.CopyComplete
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\obj\Debug\net5.0\APIFacturacionElectronica.genruntimeconfig.cache
+C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\bin\Debug\net5.0\APIFacturacionElectronica.StaticWebAssets.xml

@@ -23,6 +23,7 @@ namespace DatosFE.Models
         public virtual DbSet<CartaExoneracion> CartaExoneracions { get; set; }
         public virtual DbSet<Cliente> Clientes { get; set; }
         public virtual DbSet<Compra> Compras { get; set; }
+        public virtual DbSet<CondicionImpuesto> CondicionImpuestos { get; set; }
         public virtual DbSet<Configuracione> Configuraciones { get; set; }
         public virtual DbSet<DevolucionesVenta> DevolucionesVentas { get; set; }
         public virtual DbSet<Emisor> Emisors { get; set; }
@@ -450,6 +451,21 @@ namespace DatosFE.Models
                     .HasForeignKey(d => d.CodigoProv)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_compras_Proveedores");
+            });
+
+            modelBuilder.Entity<CondicionImpuesto>(entity =>
+            {
+                entity.HasKey(e => e.IdCondicion);
+
+                entity.ToTable("CondicionImpuesto");
+
+                entity.Property(e => e.IdCondicion)
+                    .HasColumnType("numeric(18, 0)")
+                    .ValueGeneratedOnAdd();
+
+                entity.Property(e => e.Condicion)
+                    .IsRequired()
+                    .HasMaxLength(255);
             });
 
             modelBuilder.Entity<Configuracione>(entity =>

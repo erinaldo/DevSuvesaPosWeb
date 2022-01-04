@@ -5,7 +5,6 @@ using System.Collections.Generic;
 
 namespace DatosFE.Models
 {
-
     public partial class ObtenerFacturas43
     {
         public string CodigoActividad { get; set; }
