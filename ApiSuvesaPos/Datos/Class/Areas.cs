@@ -8,20 +8,20 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Datos.Class
 {
-    public class AperturasTotalesTopes
+   public class Areas
     {
         SeePOSContext entities;
 
-        public AperturasTotalesTopes()
+        public Areas()
         {
             entities = new SeePOSContext();
         }
 
-        public int CrearAperturasTotalesTopes(AperturaTotalTope tope)
+        public int CrearAreas(Area area)
         {
             try
             {
-                entities.AperturaTotalTopes.Add(tope);
+                entities.Areas.Add(area);
                 return entities.SaveChanges();
 
             }
@@ -32,13 +32,13 @@ namespace Datos.Class
             }
         }
 
-        public int BorrarAperturasTotalesTopes(int id)
+        public int BorrarAreas(int id)
 
 
         {
             try
             {
-                var p = entities.AperturaTotalTopes.Find(id);
+                var p = entities.Areas.Find(id);
                 entities.Remove(p);
                 return entities.SaveChanges();
 
@@ -51,14 +51,14 @@ namespace Datos.Class
 
         }
 
-        public List<AperturaTotalTope> ObtenerAperturasTotalesTopes()
+        public List<Area> ObtenerAreas()
         {
             try
             {
-                var temp = from c in entities.AperturaTotalTopes
+                var temp = from c in entities.Areas
 
                            select c;
-                List<AperturaTotalTope> result = temp.ToList<AperturaTotalTope>();
+                List<Area> result = temp.ToList<Area>();
 
                 if (result.Count > 0)
                 {
@@ -77,14 +77,14 @@ namespace Datos.Class
             }
         }
 
-        public List<AperturaTotalTope> ObtenerAperturasTotalesTopes(int id)
+        public List<Area> ObtenerAreas(int id)
         {
             try
             {
-                var temp = from c in entities.AperturaTotalTopes
-                           where c.IdTotalTope == id
+                var temp = from c in entities.Areas
+                           where c.IdArea == id
                            select c;
-                List<AperturaTotalTope> result = temp.ToList<AperturaTotalTope>();
+                List<Area> result = temp.ToList<Area>();
 
                 if (result.Count > 0)
                 {
@@ -103,13 +103,15 @@ namespace Datos.Class
             }
         }
 
-        public int EditarAperturasTotalesTopes(int id, AperturaTotalTope abono)
+        public int EditarAreas(int id, Area abono)
         {
             try
             {
-                var p = entities.AperturaTotalTopes.Find(id);
-                AperturaTotalTope Nuevo = p;               
-                Nuevo.CodMoneda = abono.CodMoneda;
+                var p = entities.Areas.Find(id);
+                Area Nuevo = p;                
+                Nuevo.IdSucursal = abono.IdSucursal;
+                //Nuevo.AbonoApartadosdetalles = abono.AbonoApartadosdetalle;
+
                 entities.Entry(Nuevo).State = EntityState.Modified;
 
                 return entities.SaveChanges();
