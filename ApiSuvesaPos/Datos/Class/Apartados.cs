@@ -1,0 +1,131 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Datos.Models;
+using Microsoft.EntityFrameworkCore;
+
+namespace Datos.Class
+{
+    public class Apartados
+    {
+        SeePOSContext entities;
+
+        public Apartados()
+        {
+            entities = new SeePOSContext();
+        }
+
+        public int CrearApartados(Apartado ajuste)
+        {
+            try
+            {
+                entities.Apartados.Add(ajuste);
+                return entities.SaveChanges();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public int BorrarApartados(int id)
+
+
+        {
+            try
+            {
+                var p = entities.Apartados.Find(id);
+                entities.Remove(p);
+                return entities.SaveChanges();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+
+        public List<Apartado> ObtenerApartados()
+        {
+            try
+            {
+                var temp = from c in entities.Apartados
+
+                           select c;
+                List<Apartado> result = temp.ToList<Apartado>();
+
+                if (result.Count > 0)
+                {
+                    return result;
+                }
+                else
+                {
+                    return result = null;
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<Apartado> ObtenerApartados(int id)
+        {
+            try
+            {
+                var temp = from c in entities.Apartados
+                           where c.IdApartado == id
+                           select c;
+                List<Apartado> result = temp.ToList<Apartado>();
+
+                if (result.Count > 0)
+                {
+                    return result;
+                }
+                else
+                {
+                    return result = null;
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public int EditarApartados(int id, Apartado abono)
+        {
+            try
+            {
+                var p = entities.Apartados.Find(id);
+                Apartado Nuevo = p;                
+                Nuevo.Monto = abono.Monto;                
+                Nuevo.Fecha = abono.Fecha;
+                Nuevo.Observaciones = abono.Observaciones;                
+                Nuevo.CodMoneda = abono.CodMoneda;                
+                Nuevo.IdSucursal = abono.IdSucursal;
+                //Nuevo.AbonoApartadosdetalles = abono.AbonoApartadosdetalle;
+
+                entities.Entry(Nuevo).State = EntityState.Modified;
+
+                return entities.SaveChanges();
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+    }
+}
