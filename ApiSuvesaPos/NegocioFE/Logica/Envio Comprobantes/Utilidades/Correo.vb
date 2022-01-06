@@ -65,7 +65,11 @@ Public Class Correo
     Private Function GetEmisor() As String
         Dim cls As New DatosFE.Class.Emisores
         Dim emisor As New DatosFE.Models.Emisor
-        emisor = cls.ObtenerEmisores.FirstOrDefault
+        '***************************************OJO***************************************
+        'WMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMMWMWMWMWMWMWMWMWMWMWM
+        emisor = cls.ObtenerEmisores(0)
+        '***************************************OJO***************************************
+        'WMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMMWMWMWMWMWMWMWMWMWMWM
         Return emisor.Nombre
     End Function
 

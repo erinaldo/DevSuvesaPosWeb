@@ -33,7 +33,7 @@ namespace DatosFE.Class
 
         }
 
-        public int BorrarDevolucionesVenta(int id) // borrar Devoluciones Ventas apartir del id Actividad
+        public int BorrarDevolucionesVenta(long id) // borrar Devoluciones Ventas apartir del id Actividad
 
 
         {
@@ -78,7 +78,7 @@ namespace DatosFE.Class
             }
         }
 
-        public string ObtenerClaveDevolucion(int id) // Retorna la clave de devolucion
+        public string ObtenerClaveDevolucion(long id) // Retorna la clave de devolucion
         {
             try
             {
@@ -104,7 +104,7 @@ namespace DatosFE.Class
             }
         }
 
-        public string ObtenerNumeroConsecutivoDevolucion(int id) // Retorna la Numero Consecutivo de venta
+        public string ObtenerNumeroConsecutivoDevolucion(long id) // Retorna la Numero Consecutivo de venta
         {
             try
             {
@@ -130,7 +130,7 @@ namespace DatosFE.Class
             }
         }
 
-        public int EditarEstadoDevolucionVenta(int id, string estado, string xmlClave = "", string xmlConsecutivo = "") // editar estado de Hacienda devolucion de venta
+        public int EditarEstadoDevolucionVenta(long id, string estado, string xmlClave = "", string xmlConsecutivo = "") // editar estado de Hacienda devolucion de venta
         {
             try
             {

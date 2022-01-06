@@ -33,7 +33,7 @@ namespace DatosFE.Class
 
         }
 
-        public int BorrarVenta(int id) // borrar Venta apartir del id Actividad
+        public int BorrarVenta(long id) // borrar Venta apartir del id Actividad
 
 
         {
@@ -78,7 +78,7 @@ namespace DatosFE.Class
             }
         }
 
-        public int EditarEstadoFactura (int id, string estado) // editar estado de Hacienda
+        public int EditarEstadoFactura (long id, string estado) // editar estado de Hacienda
         {
             try
             {
@@ -103,7 +103,7 @@ namespace DatosFE.Class
             }
         }
 
-        public string ObtenerClaveFactura(int id) // Retorna la clave de venta
+        public string ObtenerClaveFactura(long id) // Retorna la clave de venta
         {
             try
             {
@@ -129,7 +129,7 @@ namespace DatosFE.Class
             }
         }
 
-        public string ObtenerNumeroConsecutivoFactura(int id) // Retorna la Numero Consecutivo de venta
+        public string ObtenerNumeroConsecutivoFactura(long id) // Retorna la Numero Consecutivo de venta
         {
             try
             {

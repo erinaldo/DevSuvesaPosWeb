@@ -9,7 +9,7 @@ using APIFacturacionElectronica.Models;
 
 namespace APIFacturacionElectronica.Controllers
 {
-    public class ActividadesEmpresasController : Controller
+    public class actividadempresaController : Controller
     {
 
         NegocioFE.Logica.ActividadEmpresa db = new NegocioFE.Logica.ActividadEmpresa();

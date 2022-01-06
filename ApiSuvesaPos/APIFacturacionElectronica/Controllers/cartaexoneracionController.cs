@@ -12,10 +12,9 @@ namespace APIFacturacionElectronica.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class CartasExoneracionesController : Controller
+    public class cartaexoneracionController : Controller
     {
         
-
         private NegocioFE.Logica.CartaExoneracion  db = new NegocioFE.Logica.CartaExoneracion();
 
         private bool Transformar(ref DatosFE.Models.CartaExoneracion NuevaCarta, Models.CartaExoneracion carta)
@@ -60,7 +59,7 @@ namespace APIFacturacionElectronica.Controllers
 
                     if (resp.Equals("1"))
                     {
-                        return CreatedAtRoute("DefaultApi", new { NuevaCarta.Id }, NuevaCarta);
+                        return Ok(NuevaCarta);
                     }
                     else
                     {
@@ -80,7 +79,7 @@ namespace APIFacturacionElectronica.Controllers
             }
         }
 
-        [HttpPut("{id}")]
+        [HttpPut]
         public IActionResult PutCartaExoneracion(int id, Models.CartaExoneracion carta)
         {
             try
@@ -91,7 +90,7 @@ namespace APIFacturacionElectronica.Controllers
                     string resp = db.Editar(id,NuevaCarta);// te modifique el metodo para que hagarre la info de respuesta
                     if (resp.Equals("1"))
                     {
-                        return CreatedAtRoute("DefaultApi", new { NuevaCarta.Id }, NuevaCarta);
+                        return Ok(NuevaCarta);
                     }
                     else if (resp.Equals("No existe el valor"))//hay que modificar datosfe para que devuleva el texto.
                     {
@@ -114,7 +113,6 @@ namespace APIFacturacionElectronica.Controllers
             }
         }
 
-        // [HttpGet("{Identificacion}")]
         [HttpGet]
          public IActionResult GetObtenerCartaExoneracion(long Identificacion)
         {

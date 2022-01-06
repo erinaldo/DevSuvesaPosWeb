@@ -78,24 +78,35 @@ namespace DatosFE.Class
             }
         }
 
-        public int EditarCarta(int id, CartaExoneracion Carta)
+        public int EditarCarta(decimal id, CartaExoneracion Carta)
         {
             try
             {
                 var p = entities.CartaExoneracions.Find(id);
                 CartaExoneracion viejo = p;
-                viejo.Identificacion = Carta.Identificacion;
-                viejo.IdTipoExoneracion = Carta.IdTipoExoneracion;
-                viejo.Impuesto = Carta.Impuesto;
-                viejo.Nota = Carta.Nota;
-                viejo.NumeroDocumento = Carta.NumeroDocumento;
-                viejo.PorcentajeCompra = Carta.PorcentajeCompra;
-                viejo.FechaEmision = Carta.FechaEmision;
-                viejo.FechaVence = Carta.FechaVence;
 
-                entities.Entry(viejo).State = EntityState.Modified;
+                if (viejo != null)
+                {
+                    viejo.Identificacion = Carta.Identificacion;
+                    viejo.IdTipoExoneracion = Carta.IdTipoExoneracion;
+                    viejo.Impuesto = Carta.Impuesto;
+                    viejo.Nota = Carta.Nota;
+                    viejo.NumeroDocumento = Carta.NumeroDocumento;
+                    viejo.PorcentajeCompra = Carta.PorcentajeCompra;
+                    viejo.FechaEmision = Carta.FechaEmision;
+                    viejo.FechaVence = Carta.FechaVence;
 
-                return entities.SaveChanges();
+                    entities.Entry(viejo).State = EntityState.Modified;
+
+                    return entities.SaveChanges();
+                }
+                else
+                {
+                    return 0;// no se encotro el registro solicitado.
+                }
+
+
+                
 
             }
             catch (Exception ex)

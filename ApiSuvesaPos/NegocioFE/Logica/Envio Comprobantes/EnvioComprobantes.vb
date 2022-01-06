@@ -18,7 +18,12 @@ Public Class EnvioComprobantes
 
     Sub New()
         Dim cls As New DatosFE.Class.Emisores
-        Me.clsEmisor = cls.ObtenerEmisores.FirstOrDefault
+        '***************************************OJO***************************************
+        'WMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMMWMWMWMWMWMWMWMWMWMWM
+        'debo solucionar este problema: cuales el id
+        Me.clsEmisor = cls.ObtenerEmisores(0)
+        '***************************************OJO***************************************
+        'WMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMMWMWMWMWMWMWMWMWMWMWM
     End Sub
 
     Public Function EnviarDevolucion(_Id As String, _Internet As Boolean) As Boolean

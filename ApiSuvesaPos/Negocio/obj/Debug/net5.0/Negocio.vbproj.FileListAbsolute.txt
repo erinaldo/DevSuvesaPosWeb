@@ -27,3 +27,4 @@ C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\Negocio\obj\Debug\net5.0\Negocio.vb
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\Negocio\obj\Debug\net5.0\Negocio.dll
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\Negocio\obj\Debug\net5.0\ref\Negocio.dll
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\Negocio\obj\Debug\net5.0\Negocio.pdb
+C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\Negocio\obj\Debug\net5.0\Negocio.vbproj.CopyComplete

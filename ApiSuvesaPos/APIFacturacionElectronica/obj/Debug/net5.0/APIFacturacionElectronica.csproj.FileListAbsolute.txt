@@ -69,16 +69,7 @@ C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVES
 C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\bin\Debug\net5.0\itextsharp.dll
 C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\bin\Debug\net5.0\FirmaXadesNet.dll
 C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\bin\Debug\net5.0\libman.json
-C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\obj\Debug\net5.0\APIFacturacionElectronica.csproj.AssemblyReference.cache
-C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\obj\Debug\net5.0\APIFacturacionElectronica.GeneratedMSBuildEditorConfig.editorconfig
-C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\obj\Debug\net5.0\APIFacturacionElectronica.AssemblyInfoInputs.cache
-C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\obj\Debug\net5.0\APIFacturacionElectronica.AssemblyInfo.cs
-C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\obj\Debug\net5.0\APIFacturacionElectronica.csproj.CoreCompileInputs.cache
-C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\obj\Debug\net5.0\APIFacturacionElectronica.MvcApplicationPartsAssemblyInfo.cs
-C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\obj\Debug\net5.0\APIFacturacionElectronica.MvcApplicationPartsAssemblyInfo.cache
-C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\obj\Debug\net5.0\APIFacturacionElectronica.dll
-C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\obj\Debug\net5.0\ref\APIFacturacionElectronica.dll
-C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\obj\Debug\net5.0\APIFacturacionElectronica.pdb
+C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\bin\Debug\net5.0\APIFacturacionElectronica.StaticWebAssets.xml
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\bin\Debug\net5.0\appsettings.Development.json
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\bin\Debug\net5.0\appsettings.json
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\bin\Debug\net5.0\libman.json
@@ -135,10 +126,18 @@ C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\bin\Debug
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\bin\Debug\net5.0\FirmaXadesNet.dll
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\bin\Debug\net5.0\NegocioFE.pdb
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\bin\Debug\net5.0\DatosFE.pdb
+C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\obj\Debug\net5.0\APIFacturacionElectronica.csproj.AssemblyReference.cache
+C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\obj\Debug\net5.0\APIFacturacionElectronica.GeneratedMSBuildEditorConfig.editorconfig
+C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\obj\Debug\net5.0\APIFacturacionElectronica.AssemblyInfoInputs.cache
+C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\obj\Debug\net5.0\APIFacturacionElectronica.AssemblyInfo.cs
+C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\obj\Debug\net5.0\APIFacturacionElectronica.csproj.CoreCompileInputs.cache
+C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\obj\Debug\net5.0\APIFacturacionElectronica.MvcApplicationPartsAssemblyInfo.cs
+C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\obj\Debug\net5.0\APIFacturacionElectronica.MvcApplicationPartsAssemblyInfo.cache
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\obj\Debug\net5.0\staticwebassets\APIFacturacionElectronica.StaticWebAssets.Manifest.cache
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\obj\Debug\net5.0\staticwebassets\APIFacturacionElectronica.StaticWebAssets.xml
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\obj\Debug\net5.0\scopedcss\bundle\APIFacturacionElectronica.styles.css
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\obj\Debug\net5.0\APIFacturacionElectronica.RazorTargetAssemblyInfo.cache
+C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\obj\Debug\net5.0\APIFacturacionElectronica.dll
+C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\obj\Debug\net5.0\ref\APIFacturacionElectronica.dll
+C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\obj\Debug\net5.0\APIFacturacionElectronica.pdb
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\obj\Debug\net5.0\APIFacturacionElectronica.genruntimeconfig.cache
-C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\bin\Debug\net5.0\APIFacturacionElectronica.StaticWebAssets.xml
-C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\obj\Debug\net5.0\APIFacturacionElectronica.csproj.CopyComplete
