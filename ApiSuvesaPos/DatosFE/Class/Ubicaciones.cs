@@ -89,13 +89,18 @@ namespace DatosFE.Class
                 {
                     foreach (Ubicacion temp in lista)
                     {
-                        Provincia provincia = new Provincia();
+                        Provincia x = (from c in listaP
+                                where c.id == temp.IdProvincia
+                                select c).FirstOrDefault();
 
-                        provincia.id = temp.IdProvincia;
-                        provincia.provincia = temp.Provincia;
+                        if (x == null)
+                        {
+                            Provincia provincia = new Provincia();
 
-                        listaP.Add(provincia);
-
+                            provincia.id = temp.IdProvincia;
+                            provincia.provincia = temp.Provincia;
+                            listaP.Add(provincia);
+                        }                        
                     }
 
                     return listaP;
@@ -113,7 +118,7 @@ namespace DatosFE.Class
             }
         }// obtener provincias
 
-        public List<Canton> ObtenerCanton()
+        public List<Canton> ObtenerCanton(decimal provincia)
         {
             Ubicaciones ubi = new Ubicaciones();
             try
@@ -125,13 +130,25 @@ namespace DatosFE.Class
                 {
                     foreach (Ubicacion temp in lista)
                     {
-                        Canton canton = new Canton();
+                        if (temp.IdProvincia == provincia)
+                        {
 
-                        canton.id = temp.IdCanton;
-                        canton.canton = temp.Canton;
+                            Canton x = (from c in listaP
+                                           where c.id == temp.IdCanton
+                                           select c).FirstOrDefault();
 
-                        listaP.Add(canton);
+                            if (x == null)
+                            {
+                                Canton canton = new Canton();
 
+                                canton.id = temp.IdCanton;
+                                canton.canton = temp.Canton;
+
+                                listaP.Add(canton);
+                            }
+
+                               
+                        }                        
                     }
 
                     return listaP;
@@ -149,7 +166,7 @@ namespace DatosFE.Class
             }
         }// obtener Cantones
 
-        public List<Distrito> ObtenerDistrito()
+        public List<Distrito> ObtenerDistrito(decimal canton, decimal provincia )
         {
             Ubicaciones ubi = new Ubicaciones();
             try
@@ -161,13 +178,24 @@ namespace DatosFE.Class
                 {
                     foreach (Ubicacion temp in lista)
                     {
-                        Distrito Distrito = new Distrito();
 
-                        Distrito.id = temp.IdDistrito;
-                        Distrito.provincia = temp.Distrito;
+                        if(temp.IdCanton == canton && temp.IdProvincia == provincia)
+                        {
 
-                        listaP.Add(Distrito);
+                            Distrito x = (from c in listaP
+                                        where c.id == temp.IdDistrito
+                                        select c).FirstOrDefault();
 
+                            if (x == null)
+                            {
+                                Distrito Distrito = new Distrito();
+
+                                Distrito.id = temp.IdDistrito;
+                                Distrito.provincia = temp.Distrito;
+
+                                listaP.Add(Distrito);
+                            }                                
+                        }                        
                     }
 
                     return listaP;

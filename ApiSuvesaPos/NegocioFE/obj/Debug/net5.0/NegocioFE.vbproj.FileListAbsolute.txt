@@ -26,7 +26,6 @@ C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\NegocioFE\obj\Debug\net5.0\NegocioF
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\NegocioFE\obj\Debug\net5.0\NegocioFE.AssemblyInfoInputs.cache
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\NegocioFE\obj\Debug\net5.0\NegocioFE.AssemblyInfo.vb
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\NegocioFE\obj\Debug\net5.0\NegocioFE.vbproj.CoreCompileInputs.cache
-C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\NegocioFE\obj\Debug\net5.0\NegocioFE.vbproj.CopyComplete
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\NegocioFE\obj\Debug\net5.0\NegocioFE.dll
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\NegocioFE\obj\Debug\net5.0\ref\NegocioFE.dll
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\NegocioFE\obj\Debug\net5.0\NegocioFE.pdb
