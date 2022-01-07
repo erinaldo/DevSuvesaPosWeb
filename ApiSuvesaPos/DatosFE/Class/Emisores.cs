@@ -38,28 +38,38 @@ namespace DatosFE.Class
             try
             {
                 var p = entities.Emisors.Find(id);
-                Emisor viejo = p;
-                viejo.TipoIdentificacion = emisor.TipoIdentificacion;
-                viejo.Identificacion = emisor.Identificacion;
-                viejo.Nombre = emisor.Nombre;
-                viejo.Correo = emisor.Correo;
-                viejo.Telefono = emisor.Telefono;
-                viejo.Sucursal = emisor.Sucursal;
-                viejo.Provincia = emisor.Provincia;
-                viejo.Canton = emisor.Canton;
-                viejo.Distrito = emisor.Distrito;
-                viejo.OtrasSeñas = emisor.OtrasSeñas;
-                viejo.Usuario = emisor.Usuario;
-                viejo.Clave = emisor.Clave;
-                viejo.Certificado = emisor.Certificado;
-                viejo.NumeroResolucion = emisor.NumeroResolucion;
-                viejo.FechaResolucion = emisor.FechaResolucion;
-                viejo.IdTipoIdentificacion = emisor.IdTipoIdentificacion;
-                viejo.VenceCertificado = emisor.VenceCertificado;           
 
-                entities.Entry(viejo).State = EntityState.Modified;
+                if (p != null)
+                {
+                    Emisor viejo = p;
+                    viejo.TipoIdentificacion = emisor.TipoIdentificacion;
+                    viejo.Identificacion = emisor.Identificacion;
+                    viejo.Nombre = emisor.Nombre;
+                    viejo.Correo = emisor.Correo;
+                    viejo.Telefono = emisor.Telefono;
+                    viejo.Sucursal = emisor.Sucursal;
+                    viejo.Provincia = emisor.Provincia;
+                    viejo.Canton = emisor.Canton;
+                    viejo.Distrito = emisor.Distrito;
+                    viejo.OtrasSeñas = emisor.OtrasSeñas;
+                    viejo.Usuario = emisor.Usuario;
+                    viejo.Clave = emisor.Clave;
+                    viejo.Certificado = emisor.Certificado;
+                    viejo.NumeroResolucion = emisor.NumeroResolucion;
+                    viejo.FechaResolucion = emisor.FechaResolucion;
+                    viejo.IdTipoIdentificacion = emisor.IdTipoIdentificacion;
+                    viejo.VenceCertificado = emisor.VenceCertificado;
+                    entities.Entry(viejo).State = EntityState.Modified;
 
-                return entities.SaveChanges();
+                    return entities.SaveChanges();
+                }
+                else
+                {
+                    return 0;
+                }
+                       
+
+                
 
             }
             catch (Exception ex)
