@@ -52,7 +52,7 @@ namespace DatosFE.Class
 
         }
 
-        public List<MensajeReceptor> ObtenerMensajeReceptor(bool porEstado, string estados, bool porFechas, DateTime desde, DateTime hasta) //obtener lista actividades 
+        public List<MensajeReceptor> ObtenerMensajeReceptor(bool porestado, string estados, bool porfecha, DateTime desde, DateTime hasta) //obtener lista actividades 
         {
             try
             {
@@ -60,40 +60,47 @@ namespace DatosFE.Class
                 var temp = from c in entities.MensajeReceptors
                            select c;
 
-                string[] estadosHacienda = estados.Split(',');
+                string[] estadosHacienda = estados.ToLower().Split(',');
+
              
 
-                if (porFechas == true && porEstado == true && estadosHacienda[0].Equals("Aceptado") )
+                if (porfecha == true && porestado == true && estadosHacienda.Count() == 1 && estadosHacienda[0].Equals("aceptado") )
                 {
                     temp = from c in entities.MensajeReceptors
-                           where c.FechaEmisionDoc >= desde || c.FechaEmisionDoc <= hasta || c.Estado.Equals(estadosHacienda[0])
+                           where c.FechaEmisionDoc >= desde && c.FechaEmisionDoc <= hasta && c.Estado.ToLower().Equals("aceptado")
                            select c;
-                }else if (porFechas == true && porEstado == true && estadosHacienda[1].Equals("Rechazado"))
+                }else if (porfecha == true && porestado == true && estadosHacienda.Count() == 1 && estadosHacienda[0].Equals("rechazado"))
                 {
                     temp = from c in entities.MensajeReceptors
-                           where c.FechaEmisionDoc >= desde || c.FechaEmisionDoc <= hasta || c.Estado.Equals(estadosHacienda[1])
+                           where c.FechaEmisionDoc >= desde && c.FechaEmisionDoc <= hasta && c.Estado.ToLower().Equals("rechazado")
+                           select c;
+                
+            }else if (porfecha == true && porestado == true && estadosHacienda.Count() > 1 )
+            {
+                temp = from c in entities.MensajeReceptors
+                       where c.FechaEmisionDoc >= desde && c.FechaEmisionDoc <= hasta 
+                       select c;
+            }
+            else if (porfecha == false && porestado == false) 
+                {
+                    temp = from c in entities.MensajeReceptors
                            select c;
                 }
-                else if (porFechas == false || porEstado == false) 
-                {
-                    temp = from c in entities.MensajeReceptors
-                           select c;
-                }
-                else if (porFechas == false || porEstado == true)
+                else if (porfecha == false && porestado == true)
                 {
                      temp = from c in entities.MensajeReceptors
                                where c.Estado.Equals(estados)
                                select c;
                 }
-                else if (porFechas == false || porEstado == false) 
+                else if (porfecha == false && porestado == false) 
                 {
                     temp = from c in entities.MensajeReceptors
                            select c;
                 }
-                else if (porFechas == true || porEstado == false)
+                else if (porfecha == true && porestado == false)
                 {
                      temp = from c in entities.MensajeReceptors 
-                               where c.FechaEmisionDoc >= desde || c.FechaEmisionDoc <= hasta select c;
+                               where c.FechaEmisionDoc >= desde && c.FechaEmisionDoc <= hasta select c;
                 }
 
 

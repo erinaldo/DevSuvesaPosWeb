@@ -26,7 +26,7 @@ namespace APIFacturacionElectronica.Controllers
                 string resp = db.CambiarEstado(id, estado);// te modifique el metodo para que hagarre la info de respuesta
                 if (resp.Equals("1"))
                 {
-                    return CreatedAtRoute("DefaultApi", new { id }, estado);
+                    return Ok(estado);
                 }               
                 else
                 {

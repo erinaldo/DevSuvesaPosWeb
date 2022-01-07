@@ -27,7 +27,7 @@ namespace APIFacturacionElectronica.Controllers
                 string resp = db.Crear(Estado);
                 if (resp.Equals("1"))
                 {
-                    return CreatedAtRoute("DefaultApi", new { Estado }, Estado);
+                    return Ok("OK");
                 }
                 else
                 {
@@ -42,10 +42,10 @@ namespace APIFacturacionElectronica.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetObtenerMensejeReceptor(bool entreFechas, DateTime Desde, DateTime Hasta, bool porEstado, string estado)
+        public IActionResult GetObtenerMensejeReceptor(bool porfecha, DateTime desde, DateTime hasta, bool porestado, string estado)
         {
 
-            var result = this.db.Buscar(entreFechas, porEstado, estado, Desde, Hasta);
+            var result = this.db.Buscar( porfecha, porestado, estado, desde, hasta);
             if (result != null)
             {
                 return Ok(result);

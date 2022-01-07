@@ -63,7 +63,7 @@ namespace APIFacturacionElectronica.Controllers
 
                     if (resp.Equals("1"))
                     {
-                        return CreatedAtRoute("DefaultApi", new { NuevoEmisor.Id }, NuevoEmisor);
+                        return Ok(NuevoEmisor);
                     }
                     else
                     {
@@ -94,7 +94,7 @@ namespace APIFacturacionElectronica.Controllers
                     string resp = db.Modificar(id, NuevoEmisor);// te modifique el metodo para que hagarre la info de respuesta
                     if (resp.Equals("1"))
                     {
-                        return CreatedAtRoute("DefaultApi", new { NuevoEmisor.Id }, NuevoEmisor);
+                        return Ok(NuevoEmisor);
                     }
                     else if (resp.Equals("No existe el valor"))//hay que modificar datosfe para que devuleva el texto.
                     {
