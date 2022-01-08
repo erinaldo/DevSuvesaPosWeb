@@ -8,20 +8,20 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Datos.Class
 {
-    public class AreasArticulos
+   public  class AreasEncargados
     {
         SeePOSContext entities;
 
-        public AreasArticulos()
+        public AreasEncargados()
         {
             entities = new SeePOSContext();
         }
 
-        public int CrearAreasArticulos(AreaArticulo area)
+        public int CrearAreasEncargado(AreaEncargado area)
         {
             try
             {
-                entities.AreaArticulos.Add(area);
+                entities.AreaEncargados.Add(area);
                 return entities.SaveChanges();
 
             }
@@ -32,13 +32,13 @@ namespace Datos.Class
             }
         }
 
-        public int BorrarAreasArticulos(int id)
+        public int BorrarAreasEncargado(int id)
 
 
         {
             try
             {
-                var p = entities.AreaArticulos.Find(id);
+                var p = entities.AreaEncargados.Find(id);
                 entities.Remove(p);
                 return entities.SaveChanges();
 
@@ -51,14 +51,14 @@ namespace Datos.Class
 
         }
 
-        public List<AreaArticulo> ObtenerAreasArticulos()
+        public List<AreaEncargado> ObtenerAreasEncargados()
         {
             try
             {
-                var temp = from c in entities.AreaArticulos
+                var temp = from c in entities.AreaEncargados
 
                            select c;
-                List<AreaArticulo> result = temp.ToList<AreaArticulo>();
+                List<AreaEncargado> result = temp.ToList<AreaEncargado>();
 
                 if (result.Count > 0)
                 {
@@ -77,14 +77,14 @@ namespace Datos.Class
             }
         }
 
-        public List<AreaArticulo> ObtenerAreasArticulos(int id)
+        public List<AreaEncargado> ObtenerAreasEncargados(int id)
         {
             try
             {
-                var temp = from c in entities.AreaArticulos
-                           where c.IdAreaArticulo == id
+                var temp = from c in entities.AreaEncargados
+                           where c.IdArea == id
                            select c;
-                List<AreaArticulo> result = temp.ToList<AreaArticulo>();
+                List<AreaEncargado> result = temp.ToList<AreaEncargado>();
 
                 if (result.Count > 0)
                 {
@@ -103,13 +103,13 @@ namespace Datos.Class
             }
         }
 
-        public int EditarAreas(int id, AreaArticulo abono)
+        public int EditarAreasEncargado(int id, AreaEncargado abono)
         {
             try
             {
-                var p = entities.AreaArticulos.Find(id);
-                AreaArticulo Nuevo = p;
-                Nuevo.IdAreaArticulo = abono.IdAreaArticulo;
+                var p = entities.AreaEncargados.Find(id);
+                AreaEncargado Nuevo = p;
+                Nuevo.IdArea = abono.IdArea;
                 //Nuevo.AbonoApartadosdetalles = abono.AbonoApartadosdetalle;
 
                 entities.Entry(Nuevo).State = EntityState.Modified;
