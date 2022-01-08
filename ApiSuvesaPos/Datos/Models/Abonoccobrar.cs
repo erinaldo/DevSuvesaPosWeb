@@ -31,8 +31,9 @@ namespace Datos.Models
         public string Banco { get; set; }
         public decimal NumApertura { get; set; }
         public string EstadoEnvio { get; set; }
-        public long IdSucursal { get; set; }
+        public int IdSucursal { get; set; }
 
+        public virtual Sucursale IdSucursalNavigation { get; set; }
         public virtual ICollection<DetalleAbonoccobrar> DetalleAbonoccobrars { get; set; }
     }
 }

@@ -16,6 +16,5 @@ namespace Datos.Models
         public double Cantidad { get; set; }
         public double Actual { get; set; }
         public bool ImpresoGeneral { get; set; }
-        public int? IdSucursal { get; set; }
     }
 }

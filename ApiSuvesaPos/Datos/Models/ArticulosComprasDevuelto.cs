@@ -24,7 +24,9 @@ namespace Datos.Models
         public double SubTotalExcento { get; set; }
         public double SubTotal { get; set; }
         public string Numero { get; set; }
+        public int IdSucursal { get; set; }
 
         public virtual DevolucionesCompra DevolucionNavigation { get; set; }
+        public virtual Sucursale IdSucursalNavigation { get; set; }
     }
 }

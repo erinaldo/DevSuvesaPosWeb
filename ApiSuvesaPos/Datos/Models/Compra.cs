@@ -50,9 +50,11 @@ namespace Datos.Models
         public bool Trans { get; set; }
         public string NumTrans { get; set; }
         public bool Prepagada { get; set; }
-        public int? IdSucursal { get; set; }
+        public double PreAbono { get; set; }
+        public int IdSucursal { get; set; }
 
         public virtual Proveedore CodigoProvNavigation { get; set; }
+        public virtual Sucursale IdSucursalNavigation { get; set; }
         public virtual ICollection<ArticulosComprado> ArticulosComprados { get; set; }
         public virtual ICollection<ArticulosGasto> ArticulosGastos { get; set; }
     }

@@ -19,6 +19,8 @@ namespace Datos.Models
         public string Estado { get; set; }
         public string Observaciones { get; set; }
         public string TrabajoSolicitados { get; set; }
-        public long IdSucursal { get; set; }
+        public int IdSucursal { get; set; }
+
+        public virtual Sucursale IdSucursalNavigation { get; set; }
     }
 }

@@ -32,9 +32,10 @@ namespace Datos.Models
         public long CuentaDestino { get; set; }
         public DateTime FechaEntrada { get; set; }
         public string Observaciones { get; set; }
-        public long IdSucursal { get; set; }
+        public int IdSucursal { get; set; }
 
         public virtual Proveedore CodProveedorNavigation { get; set; }
+        public virtual Sucursale IdSucursalNavigation { get; set; }
         public virtual ICollection<DetalleAbonocpagar> DetalleAbonocpagars { get; set; }
     }
 }

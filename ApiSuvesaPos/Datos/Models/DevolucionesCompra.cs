@@ -30,8 +30,9 @@ namespace Datos.Models
         public bool ContaInventario { get; set; }
         public double AsientoInventario { get; set; }
         public DateTime FechaEntrada { get; set; }
-        public int? IdSucusarl { get; set; }
+        public int IdSucursal { get; set; }
 
+        public virtual Sucursale IdSucursalNavigation { get; set; }
         public virtual ICollection<ArticulosComprasDevuelto> ArticulosComprasDevueltos { get; set; }
     }
 }

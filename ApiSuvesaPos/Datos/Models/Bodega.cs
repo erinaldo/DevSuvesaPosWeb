@@ -16,8 +16,9 @@ namespace Datos.Models
         public string NombreBodega { get; set; }
         public string Observaciones { get; set; }
         public bool? Bloqueada { get; set; }
-        public long IdSucursal { get; set; }
+        public int IdSucursal { get; set; }
 
+        public virtual Sucursale IdSucursalNavigation { get; set; }
         public virtual ICollection<MovimientosBodega> MovimientosBodegas { get; set; }
     }
 }

@@ -11,6 +11,5 @@ namespace Datos.Models
         public string Empresa1 { get; set; }
         public bool Actual { get; set; }
         public string Cedula { get; set; }
-        public int? IdSucursal { get; set; }
     }
 }

@@ -12,5 +12,8 @@ namespace Datos.Models
         public string Nombre { get; set; }
         public DateTime Fecha { get; set; }
         public string Pc { get; set; }
+        public int IdSucursal { get; set; }
+
+        public virtual Sucursale IdSucursalNavigation { get; set; }
     }
 }

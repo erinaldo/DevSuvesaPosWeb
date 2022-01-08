@@ -14,6 +14,5 @@ namespace Datos.Models
         public double Descuento1 { get; set; }
         public bool Confirmado { get; set; }
         public string ContactoConfirmo { get; set; }
-        public int? IdSucursal { get; set; }
     }
 }

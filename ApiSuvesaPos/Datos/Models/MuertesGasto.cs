@@ -16,6 +16,8 @@ namespace Datos.Models
         public double SaldoAjuste { get; set; }
         public double? Asiento { get; set; }
         public bool? Contabilizado { get; set; }
-        public long IdSucursal { get; set; }
+        public int IdSucursal { get; set; }
+
+        public virtual Sucursale IdSucursalNavigation { get; set; }
     }
 }

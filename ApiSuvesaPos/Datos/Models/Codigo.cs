@@ -16,6 +16,8 @@ namespace Datos.Models
         public decimal Codigo2 { get; set; }
         public string CodAlterno2 { get; set; }
         public string Descripcion2 { get; set; }
-        public int? IdSucursal { get; set; }
+        public int IdSucursal { get; set; }
+
+        public virtual Sucursale IdSucursalNavigation { get; set; }
     }
 }

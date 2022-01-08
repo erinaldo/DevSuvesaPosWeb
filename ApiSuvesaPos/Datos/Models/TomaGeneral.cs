@@ -12,6 +12,8 @@ namespace Datos.Models
         public bool Anulado { get; set; }
         public bool Ajustado { get; set; }
         public decimal NumeroAjuste { get; set; }
-        public int? IdSucursal { get; set; }
+        public int IdSucursal { get; set; }
+
+        public virtual Sucursale IdSucursalNavigation { get; set; }
     }
 }

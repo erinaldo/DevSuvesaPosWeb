@@ -39,8 +39,10 @@ namespace Datos.Models
         public decimal NumApertura { get; set; }
         public string UsuarioRecibio { get; set; }
         public string NotasDevolucion { get; set; }
-        public int? IdSucursal { get; set; }
+        public int IdSucursal { get; set; }
 
+        public virtual Venta IdFacturaNavigation { get; set; }
+        public virtual Sucursale IdSucursalNavigation { get; set; }
         public virtual ICollection<ArticulosVentasDevuelto> ArticulosVentasDevueltos { get; set; }
     }
 }

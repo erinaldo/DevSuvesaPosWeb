@@ -9,6 +9,7 @@ namespace Datos.Models
     {
         public Venta()
         {
+            DevolucionesVenta = new HashSet<DevolucionesVenta>();
             VentasDetalles = new HashSet<VentasDetalle>();
         }
 
@@ -72,8 +73,13 @@ namespace Datos.Models
         public bool Renta { get; set; }
         public decimal Etapa { get; set; }
         public DateTime? FechaEtapa { get; set; }
-        public long IdSucursal { get; set; }
+        public bool? EnProcesoIncobrable { get; set; }
+        public int? IdEmpresa { get; set; }
+        public int? IdSucursal { get; set; }
 
+        public virtual Cliente CodClienteNavigation { get; set; }
+        public virtual Sucursale IdSucursalNavigation { get; set; }
+        public virtual ICollection<DevolucionesVenta> DevolucionesVenta { get; set; }
         public virtual ICollection<VentasDetalle> VentasDetalles { get; set; }
     }
 }

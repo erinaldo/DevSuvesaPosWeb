@@ -20,7 +20,6 @@ namespace Datos.Models
         public string Usuario { get; set; }
         public bool Anulado { get; set; }
         public string Cliente { get; set; }
-        public long IdSucursal { get; set; }
 
         public virtual Bodega BodegaNavigation { get; set; }
         public virtual ICollection<MovimientosBodegaDetalle> MovimientosBodegaDetalles { get; set; }

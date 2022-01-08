@@ -69,7 +69,6 @@ C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVES
 C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\bin\Debug\net5.0\itextsharp.dll
 C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\bin\Debug\net5.0\FirmaXadesNet.dll
 C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\bin\Debug\net5.0\libman.json
-C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\bin\Debug\net5.0\APIFacturacionElectronica.StaticWebAssets.xml
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\bin\Debug\net5.0\appsettings.Development.json
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\bin\Debug\net5.0\appsettings.json
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\bin\Debug\net5.0\libman.json
@@ -142,3 +141,4 @@ C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\obj\Debug
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\obj\Debug\net5.0\APIFacturacionElectronica.pdb
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\obj\Debug\net5.0\APIFacturacionElectronica.genruntimeconfig.cache
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\obj\Debug\net5.0\APIFacturacionElectronica.csproj.CopyComplete
+C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\obj\Debug\net5.0\staticwebassets\APIFacturacionElectronica.StaticWebAssets.xml

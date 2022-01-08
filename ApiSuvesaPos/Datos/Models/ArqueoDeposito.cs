@@ -8,7 +8,7 @@ namespace Datos.Models
     public partial class ArqueoDeposito
     {
         public decimal Id { get; set; }
-        public decimal IdArqueo { get; set; }
+        public int IdArqueo { get; set; }
         public string Banco { get; set; }
         public string Cuenta { get; set; }
         public string Moneda { get; set; }
@@ -16,5 +16,7 @@ namespace Datos.Models
         public double Monto { get; set; }
         public decimal IdApertura { get; set; }
         public string Tipo { get; set; }
+
+        public virtual ArqueoCaja IdArqueoNavigation { get; set; }
     }
 }

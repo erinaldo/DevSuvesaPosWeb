@@ -16,6 +16,8 @@ namespace Datos.Models
         public bool? Activo { get; set; }
         public bool? Anulado { get; set; }
         public decimal TipoPrecio { get; set; }
-        public long IdSucursal { get; set; }
+        public int IdSucursal { get; set; }
+
+        public virtual Sucursale IdSucursalNavigation { get; set; }
     }
 }

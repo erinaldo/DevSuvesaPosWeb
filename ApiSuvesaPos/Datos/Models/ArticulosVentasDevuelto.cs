@@ -31,7 +31,10 @@ namespace Datos.Models
         public bool? Devuelto { get; set; }
         public bool Empaquetado { get; set; }
         public bool Recibido { get; set; }
+        public int IdSucursal { get; set; }
 
+        public virtual Inventario CodigoNavigation { get; set; }
         public virtual DevolucionesVenta DevolucionNavigation { get; set; }
+        public virtual Sucursale IdSucursalNavigation { get; set; }
     }
 }

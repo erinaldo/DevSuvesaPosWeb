@@ -32,8 +32,9 @@ namespace Datos.Models
         public double SubTotalExento { get; set; }
         public double SubTotal { get; set; }
         public bool Anulado { get; set; }
-        public long IdSucursal { get; set; }
+        public int IdSucursal { get; set; }
 
+        public virtual Sucursale IdSucursalNavigation { get; set; }
         public virtual ICollection<DetalleOrdencompra> DetalleOrdencompras { get; set; }
     }
 }

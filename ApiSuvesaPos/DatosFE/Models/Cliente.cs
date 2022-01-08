@@ -49,6 +49,7 @@ namespace DatosFE.Models
         public bool Mag { get; set; }
         public bool EnviarRecibo { get; set; }
         public string CorreoRecibo { get; set; }
+        public bool Fallecido { get; set; }
         public bool UsoInterno { get; set; }
 
         public virtual ICollection<Venta> Venta { get; set; }

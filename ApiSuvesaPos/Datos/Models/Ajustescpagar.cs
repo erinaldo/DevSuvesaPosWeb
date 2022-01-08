@@ -28,9 +28,10 @@ namespace Datos.Models
         public int? CodMoneda { get; set; }
         public long? Asiento { get; set; }
         public DateTime FechaEntrada { get; set; }
-        public long IdSucursal { get; set; }
+        public int IdSucursal { get; set; }
 
         public virtual Proveedore CodProveedorNavigation { get; set; }
+        public virtual Sucursale IdSucursalNavigation { get; set; }
         public virtual ICollection<DetalleAjustescPagar> DetalleAjustescPagars { get; set; }
     }
 }

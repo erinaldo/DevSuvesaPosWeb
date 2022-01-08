@@ -72,8 +72,9 @@ namespace DatosFE.Models
         public decimal IdFacturaRemplaza { get; set; }
         public bool Renta { get; set; }
         public decimal Etapa { get; set; }
-        public int? IdEmpresa { get; set; }
         public DateTime? FechaEtapa { get; set; }
+        public bool EnProcesoIncobrable { get; set; }
+        public int? IdEmpresa { get; set; }
 
         public virtual Cliente CodClienteNavigation { get; set; }
         public virtual Emisor IdEmpresaNavigation { get; set; }

@@ -14,7 +14,7 @@ namespace Datos.Models
         }
 
         public long IdApartado { get; set; }
-        public int IdCliente { get; set; }
+        public long IdCliente { get; set; }
         public string Nombrecliente { get; set; }
         public string Cedulausuario { get; set; }
         public double SubTotal { get; set; }
@@ -31,8 +31,9 @@ namespace Datos.Models
         public double Descuento { get; set; }
         public double TipoCambio { get; set; }
         public int CodMoneda { get; set; }
-        public long IdSucursal { get; set; }
+        public int IdSucursal { get; set; }
 
+        public virtual Sucursale IdSucursalNavigation { get; set; }
         public virtual ICollection<AbonoApartadosdetalle> AbonoApartadosdetalles { get; set; }
         public virtual ICollection<ApartadoDetalle> ApartadoDetalles { get; set; }
     }

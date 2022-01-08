@@ -14,6 +14,5 @@ namespace Datos.Models
         public double? Cantidad { get; set; }
         public double? Actual { get; set; }
         public DateTime? Fecha { get; set; }
-        public long IdSucursal { get; set; }
     }
 }

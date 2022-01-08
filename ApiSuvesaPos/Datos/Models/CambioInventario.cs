@@ -16,6 +16,8 @@ namespace Datos.Models
         public double CantidadEntregado { get; set; }
         public double Diferencia { get; set; }
         public bool Aplicado { get; set; }
-        public int? IdSucursal { get; set; }
+        public int IdSucursal { get; set; }
+
+        public virtual Sucursale IdSucursalNavigation { get; set; }
     }
 }

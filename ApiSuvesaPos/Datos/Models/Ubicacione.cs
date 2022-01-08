@@ -16,7 +16,9 @@ namespace Datos.Models
         public string Descripcion { get; set; }
         public string Observaciones { get; set; }
         public bool? Activa { get; set; }
+        public int IdSucursal { get; set; }
 
+        public virtual Sucursale IdSucursalNavigation { get; set; }
         public virtual ICollection<SubUbicacion> SubUbicacions { get; set; }
     }
 }

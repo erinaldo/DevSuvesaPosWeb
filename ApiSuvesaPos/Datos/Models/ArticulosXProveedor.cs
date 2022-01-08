@@ -13,5 +13,8 @@ namespace Datos.Models
         public double UltimoCosto { get; set; }
         public int Moneda { get; set; }
         public bool ProveedorActual { get; set; }
+        public int IdSucursal { get; set; }
+
+        public virtual Sucursale IdSucursalNavigation { get; set; }
     }
 }

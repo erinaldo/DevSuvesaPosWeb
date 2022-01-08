@@ -12,6 +12,7 @@ namespace Datos.Models
             Encargadocompras = new HashSet<Encargadocompra>();
             Referenciabancaria = new HashSet<Referenciabancarium>();
             Referenciacomercials = new HashSet<Referenciacomercial>();
+            Venta = new HashSet<Venta>();
         }
 
         public long Identificacion { get; set; }
@@ -52,9 +53,13 @@ namespace Datos.Models
         public bool EnviarRecibo { get; set; }
         public string CorreoRecibo { get; set; }
         public bool UsoInterno { get; set; }
+        public bool Fallecido { get; set; }
+        public int IdSucursal { get; set; }
 
+        public virtual Sucursale IdSucursalNavigation { get; set; }
         public virtual ICollection<Encargadocompra> Encargadocompras { get; set; }
         public virtual ICollection<Referenciabancarium> Referenciabancaria { get; set; }
         public virtual ICollection<Referenciacomercial> Referenciacomercials { get; set; }
+        public virtual ICollection<Venta> Venta { get; set; }
     }
 }

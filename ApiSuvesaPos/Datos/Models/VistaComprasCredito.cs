@@ -44,5 +44,6 @@ namespace Datos.Models
         public bool Trans { get; set; }
         public string NumTrans { get; set; }
         public bool Prepagada { get; set; }
+        public double PreAbono { get; set; }
     }
 }

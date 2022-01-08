@@ -46,6 +46,11 @@ namespace Datos.Models
         public bool SoloPve { get; set; }
         public bool ModoCaja { get; set; }
         public bool AplicaTemperatura { get; set; }
+        public int IdEmisor { get; set; }
         public bool ImprimeContadoPve { get; set; }
+        public bool TokenNegativo { get; set; }
+        public int IdSucursal { get; set; }
+
+        public virtual Sucursale IdSucursalNavigation { get; set; }
     }
 }

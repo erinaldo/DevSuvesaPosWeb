@@ -13,7 +13,9 @@ namespace Datos.Models
         public string Cuenta { get; set; }
         public DateTime Fecha { get; set; }
         public long Id { get; set; }
+        public int IdSucursal { get; set; }
 
         public virtual Cliente ClienteNavigation { get; set; }
+        public virtual Sucursale IdSucursalNavigation { get; set; }
     }
 }

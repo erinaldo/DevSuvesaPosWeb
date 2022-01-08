@@ -9,9 +9,11 @@ namespace Datos.Models
     {
         public Inventario()
         {
-            AdelantoVentasDetalles = new HashSet<AdelantoVentasDetalle>();
             AjusteInventarioDetalles = new HashSet<AjusteInventarioDetalle>();
+            ArticulosComprados = new HashSet<ArticulosComprado>();
+            ArticulosVentasDevueltos = new HashSet<ArticulosVentasDevuelto>();
             CotizacionDetalles = new HashSet<CotizacionDetalle>();
+            Lotes = new HashSet<Lote>();
             VentasDetalles = new HashSet<VentasDetalle>();
         }
 
@@ -93,7 +95,7 @@ namespace Datos.Models
         public bool ValidaExistencia { get; set; }
         public bool Actualizado { get; set; }
         public DateTime? FechaActualizacion { get; set; }
-        public decimal IdImpuesto { get; set; }
+        public int IdImpuesto { get; set; }
         public bool ActivarBodega2 { get; set; }
         public double ExistenciaBodega2 { get; set; }
         public bool EnToma { get; set; }
@@ -108,11 +110,14 @@ namespace Datos.Models
         public bool? Muestra { get; set; }
         public bool Web { get; set; }
         public bool SoloUsoInterno { get; set; }
-        public int? IdSucursal { get; set; }
+        public int IdSucursal { get; set; }
 
-        public virtual ICollection<AdelantoVentasDetalle> AdelantoVentasDetalles { get; set; }
+        public virtual Presentacione CodPresentacionNavigation { get; set; }
         public virtual ICollection<AjusteInventarioDetalle> AjusteInventarioDetalles { get; set; }
+        public virtual ICollection<ArticulosComprado> ArticulosComprados { get; set; }
+        public virtual ICollection<ArticulosVentasDevuelto> ArticulosVentasDevueltos { get; set; }
         public virtual ICollection<CotizacionDetalle> CotizacionDetalles { get; set; }
+        public virtual ICollection<Lote> Lotes { get; set; }
         public virtual ICollection<VentasDetalle> VentasDetalles { get; set; }
     }
 }

@@ -13,5 +13,8 @@ namespace Datos.Models
         public string Usuario { get; set; }
         public bool Inactivo { get; set; }
         public string Motivo { get; set; }
+        public int IdSucursal { get; set; }
+
+        public virtual Sucursale IdSucursalNavigation { get; set; }
     }
 }

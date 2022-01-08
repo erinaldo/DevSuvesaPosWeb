@@ -33,8 +33,9 @@ namespace Datos.Models
         public double ChequeDol { get; set; }
         public double DepositosCol { get; set; }
         public double DepositosDol { get; set; }
-        public int? IdSucursal { get; set; }
+        public int IdSucursal { get; set; }
 
+        public virtual Sucursale IdSucursalNavigation { get; set; }
         public virtual ICollection<CierreCajaDetMon> CierreCajaDetMons { get; set; }
         public virtual ICollection<CierreCajaDetTarj> CierreCajaDetTarjs { get; set; }
     }

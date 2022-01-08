@@ -22,23 +22,17 @@ namespace Datos.Models
         public virtual DbSet<Abonoccobrar> Abonoccobrars { get; set; }
         public virtual DbSet<Abonocpagar> Abonocpagars { get; set; }
         public virtual DbSet<Abonoreintegro> Abonoreintegros { get; set; }
-        public virtual DbSet<Abtemporal> Abtemporals { get; set; }
-        public virtual DbSet<Accion> Accions { get; set; }
-        public virtual DbSet<ActividadEmpresa> ActividadEmpresas { get; set; }
-        public virtual DbSet<Actividade> Actividades { get; set; }
-        public virtual DbSet<AdelantoVenta> AdelantoVentas { get; set; }
-        public virtual DbSet<AdelantoVentasDetalle> AdelantoVentasDetalles { get; set; }
         public virtual DbSet<AgenteVenta> AgenteVentas { get; set; }
         public virtual DbSet<AjusteInventario> AjusteInventarios { get; set; }
         public virtual DbSet<AjusteInventarioDetalle> AjusteInventarioDetalles { get; set; }
         public virtual DbSet<Ajustesccobrar> Ajustesccobrars { get; set; }
         public virtual DbSet<Ajustescpagar> Ajustescpagars { get; set; }
-        public virtual DbSet<Allcaby> Allcabys { get; set; }
         public virtual DbSet<Apartado> Apartados { get; set; }
         public virtual DbSet<ApartadoDetalle> ApartadoDetalles { get; set; }
         public virtual DbSet<AperturaDenominacione> AperturaDenominaciones { get; set; }
         public virtual DbSet<AperturaTotalTope> AperturaTotalTopes { get; set; }
         public virtual DbSet<Aperturacaja> Aperturacajas { get; set; }
+        public virtual DbSet<AperturasDenominacione> AperturasDenominaciones { get; set; }
         public virtual DbSet<Area> Areas { get; set; }
         public virtual DbSet<AreaArticulo> AreaArticulos { get; set; }
         public virtual DbSet<AreaEncargado> AreaEncargados { get; set; }
@@ -54,7 +48,6 @@ namespace Datos.Models
         public virtual DbSet<ArticulosVentasDevuelto> ArticulosVentasDevueltos { get; set; }
         public virtual DbSet<ArticulosXProveedor> ArticulosXProveedors { get; set; }
         public virtual DbSet<ArticulosXUltimoProveedor> ArticulosXUltimoProveedors { get; set; }
-        public virtual DbSet<AutorizacionAdelanto> AutorizacionAdelantos { get; set; }
         public virtual DbSet<AutorizacionVentum> AutorizacionVenta { get; set; }
         public virtual DbSet<Bitacora> Bitacoras { get; set; }
         public virtual DbSet<BitacoraBloqueo> BitacoraBloqueos { get; set; }
@@ -63,12 +56,11 @@ namespace Datos.Models
         public virtual DbSet<BitacoraReimpresione> BitacoraReimpresiones { get; set; }
         public virtual DbSet<BitacoraVersion> BitacoraVersions { get; set; }
         public virtual DbSet<Bodega> Bodegas { get; set; }
-        public virtual DbSet<CabysProveedore> CabysProveedores { get; set; }
-        public virtual DbSet<Cabystemp> Cabystemps { get; set; }
         public virtual DbSet<CajasCantidad> CajasCantidads { get; set; }
         public virtual DbSet<CambioInventario> CambioInventarios { get; set; }
         public virtual DbSet<CartaExoneracion> CartaExoneracions { get; set; }
-        public virtual DbSet<CategoriaAccion> CategoriaAccions { get; set; }
+        public virtual DbSet<CatalogoInventario> CatalogoInventarios { get; set; }
+        public virtual DbSet<CatalogoInventario2> CatalogoInventario2s { get; set; }
         public virtual DbSet<Cheque> Cheques { get; set; }
         public virtual DbSet<ChequesDetalle> ChequesDetalles { get; set; }
         public virtual DbSet<CierreCajaDetMon> CierreCajaDetMons { get; set; }
@@ -77,25 +69,33 @@ namespace Datos.Models
         public virtual DbSet<Cierrecaja> Cierrecajas { get; set; }
         public virtual DbSet<Cliente> Clientes { get; set; }
         public virtual DbSet<ClienteCApartado> ClienteCApartados { get; set; }
-        public virtual DbSet<ClientesApp> ClientesApps { get; set; }
         public virtual DbSet<ClientesFrecuente> ClientesFrecuentes { get; set; }
         public virtual DbSet<Codigo> Codigos { get; set; }
+        public virtual DbSet<Comisione> Comisiones { get; set; }
+        public virtual DbSet<ComisionesVenta> ComisionesVentas { get; set; }
+        public virtual DbSet<ComisionesVentas1> ComisionesVentas1s { get; set; }
+        public virtual DbSet<ComisionesVentasDevuelta> ComisionesVentasDevueltas { get; set; }
+        public virtual DbSet<ComisionesVentasDevueltas1> ComisionesVentasDevueltas1s { get; set; }
+        public virtual DbSet<ComisionesVentasRecuperacion> ComisionesVentasRecuperacions { get; set; }
+        public virtual DbSet<ComisionesVentasTransporte> ComisionesVentasTransportes { get; set; }
+        public virtual DbSet<ComisionesVentasTransporte1> ComisionesVentasTransporte1s { get; set; }
+        public virtual DbSet<ComisionesVentasTransporteDevuelto> ComisionesVentasTransporteDevueltos { get; set; }
+        public virtual DbSet<ComisionesVentasTransporteDevuelto1> ComisionesVentasTransporteDevuelto1s { get; set; }
         public virtual DbSet<Compra> Compras { get; set; }
-        public virtual DbSet<CondicionImpuesto> CondicionImpuestos { get; set; }
         public virtual DbSet<Configuracione> Configuraciones { get; set; }
         public virtual DbSet<Consecutivo> Consecutivos { get; set; }
         public virtual DbSet<ConsecutivoReciboReintegro> ConsecutivoReciboReintegros { get; set; }
+        public virtual DbSet<ConsultaInventario> ConsultaInventarios { get; set; }
         public virtual DbSet<ControlLote> ControlLotes { get; set; }
-        public virtual DbSet<Correo> Correos { get; set; }
         public virtual DbSet<CostoDevolucione> CostoDevoluciones { get; set; }
         public virtual DbSet<CostoFactura> CostoFacturas { get; set; }
         public virtual DbSet<Cotizacion> Cotizacions { get; set; }
         public virtual DbSet<CotizacionDetalle> CotizacionDetalles { get; set; }
         public virtual DbSet<Credomatic> Credomatics { get; set; }
         public virtual DbSet<CuentasBancariasProveedor> CuentasBancariasProveedors { get; set; }
+        public virtual DbSet<CuentasContableMovimimiento> CuentasContableMovimimientos { get; set; }
         public virtual DbSet<Cupon> Cupons { get; set; }
         public virtual DbSet<CuponDetalle> CuponDetalles { get; set; }
-        public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<DenominacionMonedum> DenominacionMoneda { get; set; }
         public virtual DbSet<Descuento> Descuentos { get; set; }
         public virtual DbSet<DescuentoProgramado> DescuentoProgramados { get; set; }
@@ -104,18 +104,17 @@ namespace Datos.Models
         public virtual DbSet<DetalleAjustescPagar> DetalleAjustescPagars { get; set; }
         public virtual DbSet<DetalleAjustesccobrar> DetalleAjustesccobrars { get; set; }
         public virtual DbSet<DetalleCierrecaja> DetalleCierrecajas { get; set; }
-        public virtual DbSet<DetalleDetalle> DetalleDetalles { get; set; }
         public virtual DbSet<DetalleEmpaquetado> DetalleEmpaquetados { get; set; }
         public virtual DbSet<DetalleOrdencompra> DetalleOrdencompras { get; set; }
-        public virtual DbSet<DetallePagoCaja> DetallePagoCajas { get; set; }
         public virtual DbSet<DetallePreAbonocCobrar> DetallePreAbonocCobrars { get; set; }
         public virtual DbSet<DetallePrestamo> DetallePrestamos { get; set; }
         public virtual DbSet<DevolucionPrestamo> DevolucionPrestamos { get; set; }
         public virtual DbSet<DevolucionesCompra> DevolucionesCompras { get; set; }
+        public virtual DbSet<DevolucionesGeneralCliente> DevolucionesGeneralClientes { get; set; }
+        public virtual DbSet<DevolucionesGeneralClienteTransporte> DevolucionesGeneralClienteTransportes { get; set; }
         public virtual DbSet<DevolucionesVenta> DevolucionesVentas { get; set; }
-        public virtual DbSet<Emisor> Emisors { get; set; }
+        public virtual DbSet<DevolucionesVenta1> DevolucionesVentas1 { get; set; }
         public virtual DbSet<Empaquetado> Empaquetados { get; set; }
-        public virtual DbSet<Empleado> Empleados { get; set; }
         public virtual DbSet<Empresa> Empresas { get; set; }
         public virtual DbSet<Encargadocompra> Encargadocompras { get; set; }
         public virtual DbSet<EstadoCotizacion> EstadoCotizacions { get; set; }
@@ -124,14 +123,11 @@ namespace Datos.Models
         public virtual DbSet<FechaMovimientoOpcionesPago> FechaMovimientoOpcionesPagos { get; set; }
         public virtual DbSet<FichasxUsuario> FichasxUsuarios { get; set; }
         public virtual DbSet<FormatoDeCompra> FormatoDeCompras { get; set; }
-        public virtual DbSet<Gasto> Gastos { get; set; }
-        public virtual DbSet<Gasto1> Gastos1 { get; set; }
+        public virtual DbSet<Ganancia> Ganancias { get; set; }
         public virtual DbSet<GestionCobroBitacora> GestionCobroBitacoras { get; set; }
         public virtual DbSet<HistorialPrestamo> HistorialPrestamos { get; set; }
         public virtual DbSet<HistoricoSerie> HistoricoSeries { get; set; }
-        public virtual DbSet<HojaCxC> HojaCxCs { get; set; }
         public virtual DbSet<Holiday> Holidays { get; set; }
-        public virtual DbSet<Impuesto> Impuestos { get; set; }
         public virtual DbSet<Inven> Invens { get; set; }
         public virtual DbSet<Inventario> Inventarios { get; set; }
         public virtual DbSet<InventarioGeneral> InventarioGenerals { get; set; }
@@ -151,9 +147,10 @@ namespace Datos.Models
         public virtual DbSet<Kventa> Kventas { get; set; }
         public virtual DbSet<ListadoProducto> ListadoProductos { get; set; }
         public virtual DbSet<Log> Logs { get; set; }
+        public virtual DbSet<Lote> Lotes { get; set; }
         public virtual DbSet<Marca> Marcas { get; set; }
-        public virtual DbSet<MensajeReceptor> MensajeReceptors { get; set; }
-        public virtual DbSet<MigrationHistory> MigrationHistories { get; set; }
+        public virtual DbSet<Moneda> Monedas { get; set; }
+        public virtual DbSet<Monedum> Moneda { get; set; }
         public virtual DbSet<MovimientoArticuloVenta> MovimientoArticuloVentas { get; set; }
         public virtual DbSet<MovimientoArticulosCompra> MovimientoArticulosCompras { get; set; }
         public virtual DbSet<MovimientoCaja> MovimientoCajas { get; set; }
@@ -187,39 +184,38 @@ namespace Datos.Models
         public virtual DbSet<Presentacione> Presentaciones { get; set; }
         public virtual DbSet<Prestamo> Prestamos { get; set; }
         public virtual DbSet<ProdEmpaquetado> ProdEmpaquetados { get; set; }
-        public virtual DbSet<ProductosWeb> ProductosWebs { get; set; }
+        public virtual DbSet<ProveedorMetum> ProveedorMeta { get; set; }
         public virtual DbSet<Proveedore> Proveedores { get; set; }
+        public virtual DbSet<PuntodeVentum> PuntodeVenta { get; set; }
         public virtual DbSet<Referenciabancarium> Referenciabancaria { get; set; }
         public virtual DbSet<Referenciacomercial> Referenciacomercials { get; set; }
         public virtual DbSet<RegistroAnulacione> RegistroAnulaciones { get; set; }
         public virtual DbSet<RegistroPermisoAjuste> RegistroPermisoAjustes { get; set; }
         public virtual DbSet<RegistroPermisohabilitar> RegistroPermisohabilitars { get; set; }
+        public virtual DbSet<ReporteApartado> ReporteApartados { get; set; }
         public virtual DbSet<ReporteDescuento> ReporteDescuentos { get; set; }
         public virtual DbSet<ReporteFacturaVentum> ReporteFacturaVenta { get; set; }
         public virtual DbSet<ReporteGerencialInventario> ReporteGerencialInventarios { get; set; }
-        public virtual DbSet<ReporteGerencialInventario1> ReporteGerencialInventarios1 { get; set; }
+        public virtual DbSet<ReporteInventario> ReporteInventarios { get; set; }
+        public virtual DbSet<ReporteInventarioXProveedor> ReporteInventarioXProveedors { get; set; }
         public virtual DbSet<ReporteMovimientosXFecha> ReporteMovimientosXFechas { get; set; }
         public virtual DbSet<ReporteVentasD1512016> ReporteVentasD1512016s { get; set; }
         public virtual DbSet<ResumenPunto> ResumenPuntos { get; set; }
         public virtual DbSet<Rifa> Rifas { get; set; }
         public virtual DbSet<RifaDetalle> RifaDetalles { get; set; }
         public virtual DbSet<SaldoApartado> SaldoApartados { get; set; }
+        public virtual DbSet<SeguimientoEmpleadoDevolucione> SeguimientoEmpleadoDevoluciones { get; set; }
+        public virtual DbSet<SeguimientoEmpleadoTransporte> SeguimientoEmpleadoTransportes { get; set; }
+        public virtual DbSet<SeguimientoEmpleadoTransporteDevolucione> SeguimientoEmpleadoTransporteDevoluciones { get; set; }
+        public virtual DbSet<SeguimientoEmpleadoVenta> SeguimientoEmpleadoVentas { get; set; }
         public virtual DbSet<Serie> Series { get; set; }
-        public virtual DbSet<ServidorFtp> ServidorFtps { get; set; }
-        public virtual DbSet<Solicitud> Solicituds { get; set; }
-        public virtual DbSet<Solicituddetalle> Solicituddetalles { get; set; }
-        public virtual DbSet<Sprestamo> Sprestamos { get; set; }
         public virtual DbSet<SubFamilia> SubFamilias { get; set; }
         public virtual DbSet<SubUbicacion> SubUbicacions { get; set; }
         public virtual DbSet<Sucursale> Sucursales { get; set; }
-        public virtual DbSet<TemBodega> TemBodegas { get; set; }
-        public virtual DbSet<TemBodegasConsignada> TemBodegasConsignadas { get; set; }
         public virtual DbSet<Temp1> Temp1s { get; set; }
-        public virtual DbSet<Tempcaby> Tempcabys { get; set; }
         public virtual DbSet<TemperaturaCamara> TemperaturaCamaras { get; set; }
-        public virtual DbSet<TipoExoneracion> TipoExoneracions { get; set; }
         public virtual DbSet<TipoTarjetum> TipoTarjeta { get; set; }
-        public virtual DbSet<Toma1> Toma1s { get; set; }
+        public virtual DbSet<TokenPermisoNegativo> TokenPermisoNegativos { get; set; }
         public virtual DbSet<TomaGeneral> TomaGenerals { get; set; }
         public virtual DbSet<TomaGeneralDetalle> TomaGeneralDetalles { get; set; }
         public virtual DbSet<TomaProveedor> TomaProveedors { get; set; }
@@ -229,6 +225,8 @@ namespace Datos.Models
         public virtual DbSet<Ubicacione> Ubicaciones { get; set; }
         public virtual DbSet<UltimoAbonoapartado> UltimoAbonoapartados { get; set; }
         public virtual DbSet<UltimoRecibo> UltimoRecibos { get; set; }
+        public virtual DbSet<Unido> Unidos { get; set; }
+        public virtual DbSet<Usuario> Usuarios { get; set; }
         public virtual DbSet<ValidaFirmadocontado> ValidaFirmadocontados { get; set; }
         public virtual DbSet<Variable> Variables { get; set; }
         public virtual DbSet<Venta> Ventas { get; set; }
@@ -239,39 +237,44 @@ namespace Datos.Models
         public virtual DbSet<VentasFiscale> VentasFiscales { get; set; }
         public virtual DbSet<VentasRangoFactura> VentasRangoFacturas { get; set; }
         public virtual DbSet<VentasTaller> VentasTallers { get; set; }
-        public virtual DbSet<ViewAdelantosAutorizado> ViewAdelantosAutorizados { get; set; }
+        public virtual DbSet<ViewAbonosIncobrable> ViewAbonosIncobrables { get; set; }
         public virtual DbSet<ViewApartadosActivo> ViewApartadosActivos { get; set; }
         public virtual DbSet<ViewArea> ViewAreas { get; set; }
+        public virtual DbSet<ViewAreasEncargado> ViewAreasEncargados { get; set; }
+        public virtual DbSet<ViewArticulosCaby> ViewArticulosCabys { get; set; }
         public virtual DbSet<ViewArticulosDescuento> ViewArticulosDescuentos { get; set; }
         public virtual DbSet<ViewArticulosPromocion> ViewArticulosPromocions { get; set; }
         public virtual DbSet<ViewCajasBloqueada> ViewCajasBloqueadas { get; set; }
-        public virtual DbSet<ViewCartaExoneracion> ViewCartaExoneracions { get; set; }
+        public virtual DbSet<ViewCambiosInventario> ViewCambiosInventarios { get; set; }
         public virtual DbSet<ViewComprasDevolucionesAnuale> ViewComprasDevolucionesAnuales { get; set; }
         public virtual DbSet<ViewControlLote> ViewControlLotes { get; set; }
         public virtual DbSet<ViewCostoArticulo> ViewCostoArticulos { get; set; }
         public virtual DbSet<ViewDepositosCaja> ViewDepositosCajas { get; set; }
         public virtual DbSet<ViewDescuento> ViewDescuentos { get; set; }
         public virtual DbSet<ViewDevolucione> ViewDevoluciones { get; set; }
+        public virtual DbSet<ViewDevolucionesDetallada> ViewDevolucionesDetalladas { get; set; }
         public virtual DbSet<ViewEmpresasInterna> ViewEmpresasInternas { get; set; }
         public virtual DbSet<ViewEstadoCotizacion> ViewEstadoCotizacions { get; set; }
         public virtual DbSet<ViewFacturaCredito> ViewFacturaCreditos { get; set; }
+        public virtual DbSet<ViewFacturasArchivada> ViewFacturasArchivadas { get; set; }
         public virtual DbSet<ViewFacturasPendientesPagada> ViewFacturasPendientesPagadas { get; set; }
         public virtual DbSet<ViewFacturasRepetida> ViewFacturasRepetidas { get; set; }
         public virtual DbSet<ViewImpresoGeneralLote> ViewImpresoGeneralLotes { get; set; }
-        public virtual DbSet<ViewImpuesto> ViewImpuestos { get; set; }
         public virtual DbSet<ViewListaMag> ViewListaMags { get; set; }
-        public virtual DbSet<ViewMensajeReceptor> ViewMensajeReceptors { get; set; }
+        public virtual DbSet<ViewMovimientoSerie> ViewMovimientoSeries { get; set; }
+        public virtual DbSet<ViewPedidosBodega> ViewPedidosBodegas { get; set; }
+        public virtual DbSet<ViewPreTomaProveedor> ViewPreTomaProveedors { get; set; }
         public virtual DbSet<ViewPrestamo> ViewPrestamos { get; set; }
         public virtual DbSet<ViewProductosPunto> ViewProductosPuntos { get; set; }
         public virtual DbSet<ViewReporteDevolucione> ViewReporteDevoluciones { get; set; }
         public virtual DbSet<ViewSaldosCero> ViewSaldosCeros { get; set; }
         public virtual DbSet<ViewSeriesDisponible> ViewSeriesDisponibles { get; set; }
-        public virtual DbSet<ViewSubtotalDetalle> ViewSubtotalDetalles { get; set; }
-        public virtual DbSet<ViewSubtotalesDevolucione> ViewSubtotalesDevoluciones { get; set; }
-        public virtual DbSet<ViewSubtotalesDevoluciones43> ViewSubtotalesDevoluciones43s { get; set; }
-        public virtual DbSet<ViewSubtotalesFactura> ViewSubtotalesFacturas { get; set; }
-        public virtual DbSet<ViewSubtotalesFactura43> ViewSubtotalesFactura43s { get; set; }
+        public virtual DbSet<ViewSeriesVendida> ViewSeriesVendidas { get; set; }
+        public virtual DbSet<ViewTemperaturaCamara> ViewTemperaturaCamaras { get; set; }
+        public virtual DbSet<ViewTokenSolicitado> ViewTokenSolicitados { get; set; }
         public virtual DbSet<ViewTomaGeneral> ViewTomaGenerals { get; set; }
+        public virtual DbSet<ViewTomaProveedor> ViewTomaProveedors { get; set; }
+        public virtual DbSet<ViewTrasladoPuntoVentum> ViewTrasladoPuntoVenta { get; set; }
         public virtual DbSet<ViewUltimaCompra> ViewUltimaCompras { get; set; }
         public virtual DbSet<ViewUtilidadArticulo> ViewUtilidadArticulos { get; set; }
         public virtual DbSet<ViewVentasAgente> ViewVentasAgentes { get; set; }
@@ -279,8 +282,12 @@ namespace Datos.Models
         public virtual DbSet<ViewVentasHora> ViewVentasHoras { get; set; }
         public virtual DbSet<ViewVentasHuber> ViewVentasHubers { get; set; }
         public virtual DbSet<VistaAbono> VistaAbonos { get; set; }
+        public virtual DbSet<VistaAnulado> VistaAnulados { get; set; }
         public virtual DbSet<VistaArmamento> VistaArmamentos { get; set; }
+        public virtual DbSet<VistaCajerosDisponiblesAbrirCaja> VistaCajerosDisponiblesAbrirCajas { get; set; }
+        public virtual DbSet<VistaCodigoBarraDuplicado> VistaCodigoBarraDuplicados { get; set; }
         public virtual DbSet<VistaComprasCredito> VistaComprasCreditos { get; set; }
+        public virtual DbSet<VistaEntrega> VistaEntregas { get; set; }
         public virtual DbSet<VistaFactura> VistaFacturas { get; set; }
         public virtual DbSet<VistaGeneradorBarra> VistaGeneradorBarras { get; set; }
         public virtual DbSet<VistaInventarioCostoReal> VistaInventarioCostoReals { get; set; }
@@ -300,6 +307,7 @@ namespace Datos.Models
         public virtual DbSet<VistaVentasPece> VistaVentasPeces { get; set; }
         public virtual DbSet<VistaVentasTaller> VistaVentasTallers { get; set; }
         public virtual DbSet<Vistasiningresar> Vistasiningresars { get; set; }
+        public virtual DbSet<VwRegistroAjustesInventario> VwRegistroAjustesInventarios { get; set; }
         public virtual DbSet<VwReporteLote> VwReporteLotes { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -338,8 +346,6 @@ namespace Datos.Models
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
 
-                entity.Property(e => e.IdSucursal).HasColumnName("idSucursal");
-
                 entity.Property(e => e.NombreCliente)
                     .IsRequired()
                     .HasMaxLength(250)
@@ -358,6 +364,12 @@ namespace Datos.Models
                 entity.Property(e => e.SaldoActual).HasColumnName("Saldo_Actual");
 
                 entity.Property(e => e.SaldoCuenta).HasColumnName("Saldo_Cuenta");
+
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany(p => p.AbonoApartados)
+                    .HasForeignKey(d => d.IdSucursal)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Abono_Apartados_Sucursales");
             });
 
             modelBuilder.Entity<AbonoApartadosdetalle>(entity =>
@@ -449,6 +461,12 @@ namespace Datos.Models
                 entity.Property(e => e.SaldoActual).HasColumnName("Saldo_Actual");
 
                 entity.Property(e => e.SaldoCuenta).HasColumnName("Saldo_Cuenta");
+
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany(p => p.Abonoccobrars)
+                    .HasForeignKey(d => d.IdSucursal)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_abonoccobrar_Sucursales");
             });
 
             modelBuilder.Entity<Abonocpagar>(entity =>
@@ -525,6 +543,12 @@ namespace Datos.Models
                     .HasForeignKey(d => d.CodProveedor)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_abonocpagar_Proveedores");
+
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany(p => p.Abonocpagars)
+                    .HasForeignKey(d => d.IdSucursal)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_abonocpagar_Sucursales");
             });
 
             modelBuilder.Entity<Abonoreintegro>(entity =>
@@ -548,305 +572,12 @@ namespace Datos.Models
                 entity.Property(e => e.NumApertura).HasColumnType("numeric(18, 0)");
 
                 entity.Property(e => e.Recibo).HasColumnType("numeric(18, 0)");
-            });
 
-            modelBuilder.Entity<Abtemporal>(entity =>
-            {
-                entity.HasNoKey();
-
-                entity.ToTable("abtemporal");
-
-                entity.Property(e => e.Barras)
-                    .HasMaxLength(255)
-                    .HasColumnName("barras");
-
-                entity.Property(e => e.Cabys)
-                    .HasMaxLength(255)
-                    .HasColumnName("cabys");
-            });
-
-            modelBuilder.Entity<Accion>(entity =>
-            {
-                entity.ToTable("accion");
-
-                entity.Property(e => e.Id).HasColumnName("id");
-
-                entity.Property(e => e.Anulada).HasColumnName("anulada");
-
-                entity.Property(e => e.FechaFin)
-                    .HasColumnType("date")
-                    .HasColumnName("fecha_fin");
-
-                entity.Property(e => e.FechaInicio)
-                    .HasColumnType("date")
-                    .HasColumnName("fecha_inicio");
-
-                entity.Property(e => e.IdCategoria).HasColumnName("id_categoria");
-
-                entity.Property(e => e.IdEmpleado).HasColumnName("id_empleado");
-
-                entity.Property(e => e.IdSucursal).HasColumnName("idSucursal");
-
-                entity.Property(e => e.Nombre)
-                    .IsRequired()
-                    .HasMaxLength(150)
-                    .HasColumnName("nombre");
-
-                entity.Property(e => e.Observacion)
-                    .IsRequired()
-                    .HasMaxLength(150)
-                    .HasColumnName("observacion");
-            });
-
-            modelBuilder.Entity<ActividadEmpresa>(entity =>
-            {
-                entity.ToTable("ActividadEmpresa");
-
-                entity.Property(e => e.Id).HasColumnName("id");
-
-                entity.Property(e => e.Actividad)
-                    .IsRequired()
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.IdActividad).HasColumnType("numeric(18, 0)");
-            });
-
-            modelBuilder.Entity<Actividade>(entity =>
-            {
-                entity.ToTable("actividades");
-
-                entity.Property(e => e.Id).HasColumnName("id");
-
-                entity.Property(e => e.Actividad)
-                    .IsRequired()
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.Codigo)
-                    .IsRequired()
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.Descripcion)
-                    .IsRequired()
-                    .HasMaxLength(2000);
-            });
-
-            modelBuilder.Entity<AdelantoVenta>(entity =>
-            {
-                entity.HasKey(e => e.Id)
-                    .IsClustered(false);
-
-                entity.HasIndex(e => new { e.NumFactura, e.Tipo, e.NumCaja }, "IX_AdelantoVentas")
-                    .IsUnique()
-                    .IsClustered();
-
-                entity.Property(e => e.Agente).HasColumnName("agente");
-
-                entity.Property(e => e.Apartado).HasColumnName("apartado");
-
-                entity.Property(e => e.Cedula)
-                    .HasMaxLength(100)
-                    .IsUnicode(false)
-                    .HasDefaultValueSql("('000000000')");
-
-                entity.Property(e => e.CedulaUsuario)
-                    .IsRequired()
-                    .HasMaxLength(75)
-                    .IsUnicode(false)
-                    .HasColumnName("Cedula_Usuario");
-
-                entity.Property(e => e.ClaveMh)
-                    .IsRequired()
-                    .HasMaxLength(100)
-                    .IsUnicode(false)
-                    .HasColumnName("ClaveMH")
-                    .HasDefaultValueSql("('')");
-
-                entity.Property(e => e.CodAgente).HasColumnName("cod_agente");
-
-                entity.Property(e => e.CodCliente).HasColumnName("Cod_Cliente");
-
-                entity.Property(e => e.CodEncargadoCompra)
-                    .IsRequired()
-                    .HasMaxLength(75)
-                    .IsUnicode(false)
-                    .HasColumnName("Cod_Encargado_Compra");
-
-                entity.Property(e => e.CodMoneda).HasColumnName("Cod_Moneda");
-
-                entity.Property(e => e.ConsecutivoMh)
-                    .IsRequired()
-                    .HasMaxLength(100)
-                    .IsUnicode(false)
-                    .HasColumnName("ConsecutivoMH")
-                    .HasDefaultValueSql("('')");
-
-                entity.Property(e => e.ContabilizadoCventa).HasColumnName("ContabilizadoCVenta");
-
-                entity.Property(e => e.Direccion)
-                    .IsRequired()
-                    .HasMaxLength(250)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.EnviadoMh).HasColumnName("EnviadoMH");
-
-                entity.Property(e => e.EstadoMh)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .HasColumnName("EstadoMH")
-                    .HasDefaultValueSql("('pendiente')");
-
-                entity.Property(e => e.ExcluirCxC).HasColumnName("excluirCxC");
-
-                entity.Property(e => e.Fecha).HasColumnType("datetime");
-
-                entity.Property(e => e.IdSucursal).HasColumnName("idSucursal");
-
-                entity.Property(e => e.ImpVenta).HasColumnName("Imp_Venta");
-
-                entity.Property(e => e.MonedaNombre)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("Moneda_Nombre");
-
-                entity.Property(e => e.NombreCliente)
-                    .IsRequired()
-                    .HasMaxLength(250)
-                    .IsUnicode(false)
-                    .HasColumnName("Nombre_Cliente");
-
-                entity.Property(e => e.NumApertura).HasColumnName("Num_Apertura");
-
-                entity.Property(e => e.NumCaja)
-                    .HasColumnName("Num_Caja")
-                    .HasDefaultValueSql("((1))");
-
-                entity.Property(e => e.NumFactura).HasColumnName("Num_Factura");
-
-                entity.Property(e => e.Observaciones)
-                    .HasMaxLength(500)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Orden)
-                    .IsRequired()
-                    .HasMaxLength(75)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.PagoComision).HasColumnName("Pago_Comision");
-
-                entity.Property(e => e.Telefono)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Tipo)
-                    .IsRequired()
-                    .HasMaxLength(3)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.TipoCambio).HasColumnName("Tipo_Cambio");
-
-                entity.Property(e => e.TipoCedula)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasDefaultValueSql("('FISICA')");
-
-                entity.Property(e => e.Vence).HasColumnType("smalldatetime");
-            });
-
-            modelBuilder.Entity<AdelantoVentasDetalle>(entity =>
-            {
-                entity.HasKey(e => e.IdVentaDetalle);
-
-                entity.ToTable("AdelantoVentas_Detalle");
-
-                entity.Property(e => e.IdVentaDetalle).HasColumnName("id_venta_detalle");
-
-                entity.Property(e => e.CodArticulo)
-                    .IsRequired()
-                    .HasMaxLength(250)
-                    .IsUnicode(false)
-                    .HasDefaultValueSql("((0))");
-
-                entity.Property(e => e.CodMonedaVenta)
-                    .HasColumnName("Cod_MonedaVenta")
-                    .HasDefaultValueSql("((500))");
-
-                entity.Property(e => e.Descripcion)
-                    .IsRequired()
-                    .HasMaxLength(250)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Disminuye).HasDefaultValueSql("((0))");
-
-                entity.Property(e => e.Empaquetado).HasColumnName("empaquetado");
-
-                entity.Property(e => e.FechaEmision).HasColumnType("datetime");
-
-                entity.Property(e => e.IdBodega)
-                    .HasColumnName("id_bodega")
-                    .HasDefaultValueSql("((0))");
-
-                entity.Property(e => e.IdFactura).HasColumnName("Id_Factura");
-
-                entity.Property(e => e.IdTipoExoneracion).HasColumnType("numeric(18, 0)");
-
-                entity.Property(e => e.Lote)
-                    .IsRequired()
-                    .HasMaxLength(250)
-                    .IsUnicode(false)
-                    .HasDefaultValueSql("((0))");
-
-                entity.Property(e => e.MaxDescuento).HasColumnName("Max_Descuento");
-
-                entity.Property(e => e.MontoDescuento).HasColumnName("Monto_Descuento");
-
-                entity.Property(e => e.MontoImpuesto).HasColumnName("Monto_Impuesto");
-
-                entity.Property(e => e.NotaPantalla)
-                    .HasMaxLength(250)
-                    .IsUnicode(false)
-                    .HasColumnName("nota_pantalla")
-                    .HasDefaultValueSql("('-')");
-
-                entity.Property(e => e.NumeroDocumento)
-                    .IsRequired()
-                    .HasMaxLength(100)
-                    .IsUnicode(false)
-                    .HasDefaultValueSql("('')");
-
-                entity.Property(e => e.NumeroEntrega).HasColumnName("Numero_Entrega");
-
-                entity.Property(e => e.PorcentajeCompra).HasColumnType("numeric(18, 0)");
-
-                entity.Property(e => e.PrecioBase).HasColumnName("Precio_Base");
-
-                entity.Property(e => e.PrecioCosto).HasColumnName("Precio_Costo");
-
-                entity.Property(e => e.PrecioFlete).HasColumnName("Precio_Flete");
-
-                entity.Property(e => e.PrecioOtros).HasColumnName("Precio_Otros");
-
-                entity.Property(e => e.PrecioUnit).HasColumnName("Precio_Unit");
-
-                entity.Property(e => e.Regalias)
-                    .HasColumnName("regalias")
-                    .HasDefaultValueSql("((0))");
-
-                entity.Property(e => e.TipoCambioValorCompra)
-                    .HasColumnName("Tipo_Cambio_ValorCompra")
-                    .HasDefaultValueSql("((1))");
-
-                entity.HasOne(d => d.CodigoNavigation)
-                    .WithMany(p => p.AdelantoVentasDetalles)
-                    .HasForeignKey(d => d.Codigo)
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany(p => p.Abonoreintegros)
+                    .HasForeignKey(d => d.IdSucursal)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_AdelantoVentas_Detalle_Inventario");
-
-                entity.HasOne(d => d.IdFacturaNavigation)
-                    .WithMany(p => p.AdelantoVentasDetalles)
-                    .HasForeignKey(d => d.IdFactura)
-                    .HasConstraintName("FK_AdelantoVentas_Detalle_Ventas");
+                    .HasConstraintName("FK_abonoreintegro_Sucursales");
             });
 
             modelBuilder.Entity<AgenteVenta>(entity =>
@@ -875,8 +606,6 @@ namespace Datos.Models
                     .IsUnicode(false)
                     .HasColumnName("direccion");
 
-                entity.Property(e => e.IdSucursal).HasColumnName("idSucursal");
-
                 entity.Property(e => e.Nombre)
                     .IsRequired()
                     .HasMaxLength(150)
@@ -892,6 +621,12 @@ namespace Datos.Models
                 entity.Property(e => e.TipoPrecio)
                     .HasColumnType("numeric(18, 0)")
                     .HasDefaultValueSql("((1))");
+
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany(p => p.AgenteVenta)
+                    .HasForeignKey(d => d.IdSucursal)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_agente_ventas_Sucursales");
             });
 
             modelBuilder.Entity<AjusteInventario>(entity =>
@@ -915,6 +650,12 @@ namespace Datos.Models
                     .HasDefaultValueSql("(getdate())");
 
                 entity.Property(e => e.IdSucursal).HasColumnName("idSucursal");
+
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany(p => p.AjusteInventarios)
+                    .HasForeignKey(d => d.IdSucursal)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_AjusteInventario_Sucursales");
             });
 
             modelBuilder.Entity<AjusteInventarioDetalle>(entity =>
@@ -1030,6 +771,12 @@ namespace Datos.Models
                     .HasMaxLength(3)
                     .IsUnicode(false)
                     .IsFixedLength(true);
+
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany(p => p.Ajustesccobrars)
+                    .HasForeignKey(d => d.IdSucursal)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_ajustesccobrar_Sucursales");
             });
 
             modelBuilder.Entity<Ajustescpagar>(entity =>
@@ -1055,8 +802,6 @@ namespace Datos.Models
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
 
-                entity.Property(e => e.IdSucursal).HasColumnName("idSucursal");
-
                 entity.Property(e => e.NombreProveedor)
                     .HasMaxLength(50)
                     .IsUnicode(false)
@@ -1079,23 +824,12 @@ namespace Datos.Models
                     .WithMany(p => p.Ajustescpagars)
                     .HasForeignKey(d => d.CodProveedor)
                     .HasConstraintName("FK_Ajustescpagar_Proveedores");
-            });
 
-            modelBuilder.Entity<Allcaby>(entity =>
-            {
-                entity.ToTable("allcabys");
-
-                entity.Property(e => e.Id).HasColumnName("id");
-
-                entity.Property(e => e.Barras)
-                    .HasMaxLength(255)
-                    .HasColumnName("barras");
-
-                entity.Property(e => e.Cabys).HasColumnName("cabys");
-
-                entity.Property(e => e.Descripcion)
-                    .HasMaxLength(255)
-                    .HasColumnName("descripcion");
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany(p => p.Ajustescpagars)
+                    .HasForeignKey(d => d.IdSucursal)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Ajustescpagar_Sucursales");
             });
 
             modelBuilder.Entity<Apartado>(entity =>
@@ -1120,8 +854,6 @@ namespace Datos.Models
 
                 entity.Property(e => e.IdCliente).HasColumnName("Id_Cliente");
 
-                entity.Property(e => e.IdSucursal).HasColumnName("idSucursal");
-
                 entity.Property(e => e.ImpVenta).HasColumnName("Imp_Venta");
 
                 entity.Property(e => e.Nombrecliente)
@@ -1141,6 +873,12 @@ namespace Datos.Models
                 entity.Property(e => e.Vence)
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
+
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany(p => p.Apartados)
+                    .HasForeignKey(d => d.IdSucursal)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Apartados_Sucursales");
             });
 
             modelBuilder.Entity<ApartadoDetalle>(entity =>
@@ -1203,6 +941,12 @@ namespace Datos.Models
                 entity.Property(e => e.IdApertura).HasColumnName("Id_Apertura");
 
                 entity.Property(e => e.IdDenominacion).HasColumnName("Id_Denominacion");
+
+                entity.HasOne(d => d.IdAperturaNavigation)
+                    .WithMany(p => p.AperturaDenominaciones)
+                    .HasForeignKey(d => d.IdApertura)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Apertura_Denominaciones_aperturacaja");
             });
 
             modelBuilder.Entity<AperturaTotalTope>(entity =>
@@ -1262,6 +1006,31 @@ namespace Datos.Models
                     .IsRequired()
                     .HasMaxLength(255)
                     .IsUnicode(false);
+
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany(p => p.Aperturacajas)
+                    .HasForeignKey(d => d.IdSucursal)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_aperturacaja_Sucursales");
+            });
+
+            modelBuilder.Entity<AperturasDenominacione>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("AperturasDenominaciones");
+
+                entity.Property(e => e.IdApertura).HasColumnName("Id_Apertura");
+
+                entity.Property(e => e.MonedaNombre)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Tipo)
+                    .IsRequired()
+                    .HasMaxLength(20)
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<Area>(entity =>
@@ -1279,12 +1048,16 @@ namespace Datos.Models
                     .HasMaxLength(255)
                     .HasDefaultValueSql("('')");
 
-                entity.Property(e => e.IdSucursal).HasColumnName("idSucursal");
-
                 entity.Property(e => e.Observaciones)
                     .IsRequired()
                     .HasMaxLength(255)
                     .HasDefaultValueSql("('')");
+
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany(p => p.Areas)
+                    .HasForeignKey(d => d.IdSucursal)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Area_Sucursales");
             });
 
             modelBuilder.Entity<AreaArticulo>(entity =>
@@ -1332,8 +1105,6 @@ namespace Datos.Models
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
 
-                entity.Property(e => e.IdSucursal).HasColumnName("idSucursal");
-
                 entity.Property(e => e.Observaciones)
                     .HasMaxLength(250)
                     .IsUnicode(false)
@@ -1360,8 +1131,6 @@ namespace Datos.Models
 
                 entity.Property(e => e.IdApertura).HasColumnType("numeric(18, 0)");
 
-                entity.Property(e => e.IdArqueo).HasColumnType("numeric(18, 0)");
-
                 entity.Property(e => e.Moneda)
                     .IsRequired()
                     .HasMaxLength(50)
@@ -1376,6 +1145,12 @@ namespace Datos.Models
                     .IsRequired()
                     .HasMaxLength(50)
                     .HasDefaultValueSql("('Deposito')");
+
+                entity.HasOne(d => d.IdArqueoNavigation)
+                    .WithMany(p => p.ArqueoDepositos)
+                    .HasForeignKey(d => d.IdArqueo)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_ArqueoDeposito_ArqueoCajas");
             });
 
             modelBuilder.Entity<ArqueoEfectivo>(entity =>
@@ -1385,6 +1160,12 @@ namespace Datos.Models
                 entity.Property(e => e.IdArqueo).HasColumnName("Id_Arqueo");
 
                 entity.Property(e => e.IdDenominacion).HasColumnName("Id_Denominacion");
+
+                entity.HasOne(d => d.IdArqueoNavigation)
+                    .WithMany(p => p.ArqueoEfectivos)
+                    .HasForeignKey(d => d.IdArqueo)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_ArqueoEfectivo_ArqueoCajas");
             });
 
             modelBuilder.Entity<ArqueoTarjetum>(entity =>
@@ -1392,6 +1173,17 @@ namespace Datos.Models
                 entity.Property(e => e.IdArqueo).HasColumnName("Id_Arqueo");
 
                 entity.Property(e => e.IdTarjeta).HasColumnName("Id_Tarjeta");
+
+                entity.HasOne(d => d.IdArqueoNavigation)
+                    .WithMany(p => p.ArqueoTarjeta)
+                    .HasForeignKey(d => d.IdArqueo)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_ArqueoTarjeta_ArqueoCajas");
+
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany(p => p.ArqueoTarjeta)
+                    .HasForeignKey(d => d.IdSucursal)
+                    .HasConstraintName("FK_ArqueoTarjeta_Sucursales");
             });
 
             modelBuilder.Entity<ArticulosComprado>(entity =>
@@ -1427,6 +1219,8 @@ namespace Datos.Models
 
                 entity.Property(e => e.DescuentoP).HasColumnName("Descuento_P");
 
+                entity.Property(e => e.IdSucursal).HasColumnName("idSucursal");
+
                 entity.Property(e => e.ImpuestoP).HasColumnName("Impuesto_P");
 
                 entity.Property(e => e.Lote)
@@ -1445,10 +1239,22 @@ namespace Datos.Models
 
                 entity.Property(e => e.PrecioD).HasColumnName("Precio_D");
 
+                entity.HasOne(d => d.CodigoNavigation)
+                    .WithMany(p => p.ArticulosComprados)
+                    .HasForeignKey(d => d.Codigo)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_articulos_comprados_Inventario");
+
                 entity.HasOne(d => d.IdCompraNavigation)
                     .WithMany(p => p.ArticulosComprados)
                     .HasForeignKey(d => d.IdCompra)
                     .HasConstraintName("FK_articulos_comprados_compras");
+
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany(p => p.ArticulosComprados)
+                    .HasForeignKey(d => d.IdSucursal)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_articulos_comprados_Sucursales");
             });
 
             modelBuilder.Entity<ArticulosComprasDevuelto>(entity =>
@@ -1461,6 +1267,8 @@ namespace Datos.Models
                     .IsRequired()
                     .HasMaxLength(250)
                     .IsUnicode(false);
+
+                entity.Property(e => e.IdSucursal).HasColumnName("idSucursal");
 
                 entity.Property(e => e.MontoDescuento).HasColumnName("Monto_Descuento");
 
@@ -1484,6 +1292,12 @@ namespace Datos.Models
                     .WithMany(p => p.ArticulosComprasDevueltos)
                     .HasForeignKey(d => d.Devolucion)
                     .HasConstraintName("FK_articulos_Compras_devueltos_devoluciones_Compras");
+
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany(p => p.ArticulosComprasDevueltos)
+                    .HasForeignKey(d => d.IdSucursal)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_articulos_Compras_devueltos_Sucursales");
             });
 
             modelBuilder.Entity<ArticulosGasto>(entity =>
@@ -1512,6 +1326,8 @@ namespace Datos.Models
 
                 entity.Property(e => e.DescuentoP).HasColumnName("Descuento_P");
 
+                entity.Property(e => e.Devoluciones).HasComment("");
+
                 entity.Property(e => e.ImpuestoP).HasColumnName("Impuesto_P");
 
                 entity.Property(e => e.MontoFlete).HasColumnName("Monto_Flete");
@@ -1520,6 +1336,12 @@ namespace Datos.Models
                     .WithMany(p => p.ArticulosGastos)
                     .HasForeignKey(d => d.IdCompra)
                     .HasConstraintName("FK_Articulos_Gastos_compras");
+
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany(p => p.ArticulosGastos)
+                    .HasForeignKey(d => d.IdSucursal)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Articulos_Gastos_Sucursales");
             });
 
             modelBuilder.Entity<ArticulosProveedor>(entity =>
@@ -1551,6 +1373,12 @@ namespace Datos.Models
                 entity.Property(e => e.IdArticulo)
                     .HasColumnType("numeric(18, 0)")
                     .HasColumnName("ID_ARTICULO");
+
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany(p => p.ArticulosProveedors)
+                    .HasForeignKey(d => d.IdSucursal)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_articulos_proveedor_Sucursales");
             });
 
             modelBuilder.Entity<ArticulosRelacionado>(entity =>
@@ -1570,6 +1398,14 @@ namespace Datos.Models
                 entity.Property(e => e.Descripcion)
                     .IsRequired()
                     .HasMaxLength(250);
+
+                entity.Property(e => e.IdSucursal).HasColumnName("idSucursal");
+
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany(p => p.ArticulosRelacionados)
+                    .HasForeignKey(d => d.IdSucursal)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_ArticulosRelacionados_Sucursales");
             });
 
             modelBuilder.Entity<ArticulosVentasDevuelto>(entity =>
@@ -1596,6 +1432,8 @@ namespace Datos.Models
                     .HasColumnName("id_articulo_V")
                     .HasDefaultValueSql("((0))");
 
+                entity.Property(e => e.IdSucursal).HasColumnName("idSucursal");
+
                 entity.Property(e => e.MontoDescuento).HasColumnName("Monto_Descuento");
 
                 entity.Property(e => e.MontoImpuesto).HasColumnName("Monto_Impuesto");
@@ -1612,10 +1450,22 @@ namespace Datos.Models
 
                 entity.Property(e => e.Recibido).HasColumnName("recibido");
 
+                entity.HasOne(d => d.CodigoNavigation)
+                    .WithMany(p => p.ArticulosVentasDevueltos)
+                    .HasForeignKey(d => d.Codigo)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_articulos_ventas_devueltos_Inventario");
+
                 entity.HasOne(d => d.DevolucionNavigation)
                     .WithMany(p => p.ArticulosVentasDevueltos)
                     .HasForeignKey(d => d.Devolucion)
                     .HasConstraintName("FK_articulos_ventas_devueltos_devoluciones_ventas");
+
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany(p => p.ArticulosVentasDevueltos)
+                    .HasForeignKey(d => d.IdSucursal)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_articulos_ventas_devueltos_Sucursales");
             });
 
             modelBuilder.Entity<ArticulosXProveedor>(entity =>
@@ -1627,6 +1477,14 @@ namespace Datos.Models
                 entity.Property(e => e.FechaUltimaCompra)
                     .HasColumnType("smalldatetime")
                     .HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.IdSucursal).HasColumnName("idSucursal");
+
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany(p => p.ArticulosXProveedors)
+                    .HasForeignKey(d => d.IdSucursal)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Articulos x Proveedor_Sucursales");
             });
 
             modelBuilder.Entity<ArticulosXUltimoProveedor>(entity =>
@@ -1639,43 +1497,6 @@ namespace Datos.Models
                     .IsRequired()
                     .HasMaxLength(255)
                     .IsUnicode(false);
-            });
-
-            modelBuilder.Entity<AutorizacionAdelanto>(entity =>
-            {
-                entity.ToTable("AutorizacionAdelanto");
-
-                entity.Property(e => e.Id)
-                    .HasColumnType("numeric(18, 0)")
-                    .ValueGeneratedOnAdd();
-
-                entity.Property(e => e.CedulaRetira)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .HasColumnName("Cedula_Retira");
-
-                entity.Property(e => e.FechaFacturacion).HasColumnType("datetime");
-
-                entity.Property(e => e.IdAdelanto)
-                    .HasColumnType("numeric(18, 0)")
-                    .HasColumnName("Id_Adelanto");
-
-                entity.Property(e => e.IdAdmin)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .HasColumnName("Id_Admin");
-
-                entity.Property(e => e.IdCajero)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .HasColumnName("Id_Cajero");
-
-                entity.Property(e => e.IdSucursal).HasColumnName("idSucursal");
-
-                entity.Property(e => e.NombreRetira)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .HasColumnName("Nombre_Retira");
             });
 
             modelBuilder.Entity<AutorizacionVentum>(entity =>
@@ -1706,8 +1527,6 @@ namespace Datos.Models
                 entity.Property(e => e.IdFactura)
                     .HasColumnType("numeric(18, 0)")
                     .HasColumnName("Id_Factura");
-
-                entity.Property(e => e.IdSucursal).HasColumnName("idSucursal");
 
                 entity.Property(e => e.NombreRetira)
                     .IsRequired()
@@ -1753,7 +1572,7 @@ namespace Datos.Models
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
 
-                entity.Property(e => e.InSucursal).HasColumnName("inSucursal");
+                entity.Property(e => e.IdSucursal).HasColumnName("idSucursal");
 
                 entity.Property(e => e.Tabla)
                     .IsRequired()
@@ -1766,6 +1585,12 @@ namespace Datos.Models
                     .HasMaxLength(150)
                     .IsUnicode(false)
                     .HasDefaultValueSql("('')");
+
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany(p => p.Bitacoras)
+                    .HasForeignKey(d => d.IdSucursal)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Bitacora_Sucursales");
             });
 
             modelBuilder.Entity<BitacoraBloqueo>(entity =>
@@ -1776,6 +1601,8 @@ namespace Datos.Models
                     .HasColumnType("numeric(18, 0)")
                     .ValueGeneratedOnAdd()
                     .HasColumnName("id");
+
+                entity.Property(e => e.IdSucursal).HasColumnName("idSucursal");
 
                 entity.Property(e => e.Ini)
                     .HasColumnType("datetime")
@@ -1790,6 +1617,12 @@ namespace Datos.Models
                     .HasMaxLength(100)
                     .IsUnicode(false)
                     .HasColumnName("usuario");
+
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany(p => p.BitacoraBloqueos)
+                    .HasForeignKey(d => d.IdSucursal)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_bitacora_bloqueos_Sucursales");
             });
 
             modelBuilder.Entity<BitacoraEstadoCotizacion>(entity =>
@@ -1817,6 +1650,12 @@ namespace Datos.Models
                 entity.Property(e => e.Observaciones)
                     .IsRequired()
                     .HasMaxLength(1000);
+
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany()
+                    .HasForeignKey(d => d.IdSucursal)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_BitacoraEstadoCotizacion_Sucursales");
             });
 
             modelBuilder.Entity<BitacoraInactivarCliente>(entity =>
@@ -1840,6 +1679,12 @@ namespace Datos.Models
                 entity.Property(e => e.Usuario)
                     .IsRequired()
                     .HasMaxLength(200);
+
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany(p => p.BitacoraInactivarClientes)
+                    .HasForeignKey(d => d.IdSucursal)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_BitacoraInactivarCliente_Sucursales");
             });
 
             modelBuilder.Entity<BitacoraReimpresione>(entity =>
@@ -1860,6 +1705,8 @@ namespace Datos.Models
                     .HasColumnType("datetime")
                     .HasColumnName("fecha");
 
+                entity.Property(e => e.IdSucursal).HasColumnName("idSucursal");
+
                 entity.Property(e => e.Motivo)
                     .IsRequired()
                     .HasMaxLength(250)
@@ -1871,6 +1718,12 @@ namespace Datos.Models
                     .HasMaxLength(150)
                     .IsUnicode(false)
                     .HasColumnName("usuario");
+
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany(p => p.BitacoraReimpresiones)
+                    .HasForeignKey(d => d.IdSucursal)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Bitacora_reimpresiones_Sucursales");
             });
 
             modelBuilder.Entity<BitacoraVersion>(entity =>
@@ -1895,19 +1748,25 @@ namespace Datos.Models
                     .IsRequired()
                     .HasMaxLength(255)
                     .HasColumnName("PC");
+
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany(p => p.BitacoraVersions)
+                    .HasForeignKey(d => d.IdSucursal)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_BitacoraVersion_Sucursales");
             });
 
             modelBuilder.Entity<Bodega>(entity =>
             {
                 entity.HasKey(e => e.IdBodega);
 
-                entity.Property(e => e.IdBodega).HasColumnName("ID_Bodega");
+                entity.Property(e => e.IdBodega)
+                    .ValueGeneratedNever()
+                    .HasColumnName("ID_Bodega");
 
                 entity.Property(e => e.Bloqueada)
                     .HasColumnName("bloqueada")
                     .HasDefaultValueSql("((0))");
-
-                entity.Property(e => e.IdSucursal).HasColumnName("idSucursal");
 
                 entity.Property(e => e.NombreBodega)
                     .IsRequired()
@@ -1921,56 +1780,12 @@ namespace Datos.Models
                     .HasMaxLength(255)
                     .IsUnicode(false)
                     .HasDefaultValueSql("('')");
-            });
 
-            modelBuilder.Entity<CabysProveedore>(entity =>
-            {
-                entity.Property(e => e.Id)
-                    .HasColumnType("numeric(18, 0)")
-                    .ValueGeneratedOnAdd();
-
-                entity.Property(e => e.Cabys)
-                    .IsRequired()
-                    .HasMaxLength(100);
-
-                entity.Property(e => e.Cedula)
-                    .IsRequired()
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.Clave)
-                    .IsRequired()
-                    .HasMaxLength(100);
-
-                entity.Property(e => e.Consecutivo)
-                    .IsRequired()
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.Descripcion)
-                    .IsRequired()
-                    .HasMaxLength(200);
-
-                entity.Property(e => e.Proveedor)
-                    .IsRequired()
-                    .HasMaxLength(300);
-            });
-
-            modelBuilder.Entity<Cabystemp>(entity =>
-            {
-                entity.HasNoKey();
-
-                entity.ToTable("cabystemp");
-
-                entity.Property(e => e.Barra)
-                    .HasMaxLength(50)
-                    .HasColumnName("barra");
-
-                entity.Property(e => e.Cabys)
-                    .HasMaxLength(50)
-                    .HasColumnName("cabys");
-
-                entity.Property(e => e.Descripcion)
-                    .HasMaxLength(50)
-                    .HasColumnName("descripcion");
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany(p => p.Bodegas)
+                    .HasForeignKey(d => d.IdSucursal)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Bodegas_Sucursales");
             });
 
             modelBuilder.Entity<CajasCantidad>(entity =>
@@ -1980,8 +1795,6 @@ namespace Datos.Models
                 entity.ToTable("Cajas_Cantidad");
 
                 entity.Property(e => e.IdCaja).HasColumnName("id_Caja");
-
-                entity.Property(e => e.IdSucursal).HasColumnName("idSucursal");
 
                 entity.Property(e => e.NumApertura).HasColumnName("Num_Apertura");
 
@@ -2007,6 +1820,12 @@ namespace Datos.Models
                 entity.Property(e => e.IdUsuario)
                     .IsRequired()
                     .HasMaxLength(50);
+
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany(p => p.CambioInventarios)
+                    .HasForeignKey(d => d.IdSucursal)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_CambioInventario_Sucursales");
             });
 
             modelBuilder.Entity<CartaExoneracion>(entity =>
@@ -2032,16 +1851,119 @@ namespace Datos.Models
                     .IsUnicode(false);
             });
 
-            modelBuilder.Entity<CategoriaAccion>(entity =>
+            modelBuilder.Entity<CatalogoInventario>(entity =>
             {
-                entity.ToTable("categoria_accion");
+                entity.HasNoKey();
 
-                entity.Property(e => e.Id).HasColumnName("id");
+                entity.ToView("CatalogoInventario");
 
-                entity.Property(e => e.Categoria)
+                entity.Property(e => e.Barras)
                     .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Barras2)
+                    .HasMaxLength(255)
+                    .IsUnicode(false)
+                    .HasColumnName("barras2");
+
+                entity.Property(e => e.Barras3)
+                    .HasMaxLength(255)
+                    .IsUnicode(false)
+                    .HasColumnName("barras3");
+
+                entity.Property(e => e.CodArticulo)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false)
+                    .HasColumnName("Cod_Articulo");
+
+                entity.Property(e => e.Codcabys)
+                    .IsRequired()
+                    .HasMaxLength(30)
+                    .HasColumnName("CODCABYS");
+
+                entity.Property(e => e.Descripcion)
+                    .HasMaxLength(341)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Idbodega).HasColumnName("idbodega");
+
+                entity.Property(e => e.Mag).HasColumnName("MAG");
+
+                entity.Property(e => e.Marca)
                     .HasMaxLength(50)
-                    .HasColumnName("categoria");
+                    .IsUnicode(false);
+
+                entity.Property(e => e.PrecioA).HasColumnName("Precio_A");
+
+                entity.Property(e => e.PrecioFinalMag).HasColumnName("PrecioFinalMAG");
+
+                entity.Property(e => e.Prestamo).HasColumnName("prestamo");
+
+                entity.Property(e => e.Receta).HasColumnName("receta");
+
+                entity.Property(e => e.Simbolo)
+                    .IsRequired()
+                    .HasMaxLength(2)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Ubicacion)
+                    .HasMaxLength(150)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<CatalogoInventario2>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("CatalogoInventario2");
+
+                entity.Property(e => e.Barras)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Barras2)
+                    .HasMaxLength(255)
+                    .IsUnicode(false)
+                    .HasColumnName("barras2");
+
+                entity.Property(e => e.Barras3)
+                    .HasMaxLength(255)
+                    .IsUnicode(false)
+                    .HasColumnName("barras3");
+
+                entity.Property(e => e.CodArticulo)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false)
+                    .HasColumnName("Cod_Articulo");
+
+                entity.Property(e => e.Descripcion)
+                    .HasMaxLength(341)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Idbodega).HasColumnName("idbodega");
+
+                entity.Property(e => e.Marca)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.PrecioA).HasColumnName("Precio_A");
+
+                entity.Property(e => e.Prestamo).HasColumnName("prestamo");
+
+                entity.Property(e => e.Receta).HasColumnName("receta");
+
+                entity.Property(e => e.Simbolo)
+                    .IsRequired()
+                    .HasMaxLength(2)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Ubicacion)
+                    .HasMaxLength(150)
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<Cheque>(entity =>
@@ -2189,6 +2111,12 @@ namespace Datos.Models
                     .HasMaxLength(255)
                     .IsUnicode(false)
                     .HasDefaultValueSql("('')");
+
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany(p => p.Cierrecajas)
+                    .HasForeignKey(d => d.IdSucursal)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_cierrecaja_Sucursales");
             });
 
             modelBuilder.Entity<Cliente>(entity =>
@@ -2221,7 +2149,9 @@ namespace Datos.Models
                     .HasColumnName("cedula")
                     .HasDefaultValueSql("('')");
 
-                entity.Property(e => e.ClienteMoroso).HasColumnName("Cliente_Moroso");
+                entity.Property(e => e.ClienteMoroso)
+                    .HasColumnName("Cliente_Moroso")
+                    .HasComment("");
 
                 entity.Property(e => e.CodMonedaCredito).HasDefaultValueSql("((1))");
 
@@ -2272,6 +2202,8 @@ namespace Datos.Models
                     .IsUnicode(false)
                     .HasColumnName("fax_02")
                     .HasDefaultValueSql("('')");
+
+                entity.Property(e => e.IdSucursal).HasColumnName("idSucursal");
 
                 entity.Property(e => e.IdTipoExoneracion)
                     .HasColumnType("numeric(18, 0)")
@@ -2347,6 +2279,12 @@ namespace Datos.Models
                     .IsUnicode(false)
                     .HasColumnName("usuario")
                     .HasDefaultValueSql("('')");
+
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany(p => p.Clientes)
+                    .HasForeignKey(d => d.IdSucursal)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Clientes_Sucursales");
             });
 
             modelBuilder.Entity<ClienteCApartado>(entity =>
@@ -2368,35 +2306,6 @@ namespace Datos.Models
                     .HasMaxLength(255)
                     .IsUnicode(false)
                     .HasColumnName("nombre");
-            });
-
-            modelBuilder.Entity<ClientesApp>(entity =>
-            {
-                entity.ToTable("ClientesApp");
-
-                entity.Property(e => e.Id)
-                    .HasColumnType("numeric(18, 0)")
-                    .ValueGeneratedOnAdd();
-
-                entity.Property(e => e.Clave)
-                    .IsRequired()
-                    .HasMaxLength(900)
-                    .HasDefaultValueSql("('')");
-
-                entity.Property(e => e.Correo)
-                    .IsRequired()
-                    .HasMaxLength(100)
-                    .HasDefaultValueSql("('')");
-
-                entity.Property(e => e.Img)
-                    .IsRequired()
-                    .HasMaxLength(200)
-                    .HasDefaultValueSql("('')");
-
-                entity.Property(e => e.Nombre)
-                    .IsRequired()
-                    .HasMaxLength(100)
-                    .HasDefaultValueSql("('')");
             });
 
             modelBuilder.Entity<ClientesFrecuente>(entity =>
@@ -2519,6 +2428,520 @@ namespace Datos.Models
                 entity.Property(e => e.IdPuntoVenta2).HasColumnType("numeric(18, 0)");
 
                 entity.Property(e => e.IdSucursal).HasColumnName("idSucursal");
+
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany(p => p.Codigos)
+                    .HasForeignKey(d => d.IdSucursal)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Codigos_Sucursales");
+            });
+
+            modelBuilder.Entity<Comisione>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("Comisiones");
+
+                entity.Property(e => e.Agente)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.CodMoneda).HasColumnName("Cod_Moneda");
+
+                entity.Property(e => e.Comision).HasColumnName("%Comision");
+
+                entity.Property(e => e.Descripcion)
+                    .IsRequired()
+                    .HasMaxLength(250)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Empleado)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Fecha).HasColumnType("datetime");
+
+                entity.Property(e => e.NumFactura).HasColumnName("Num_Factura");
+
+                entity.Property(e => e.PrecioUnit).HasColumnName("Precio_Unit");
+
+                entity.Property(e => e.Tipo)
+                    .HasMaxLength(3)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<ComisionesVenta>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("ComisionesVentas");
+
+                entity.Property(e => e.Agente)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.CodMoneda).HasColumnName("Cod_Moneda");
+
+                entity.Property(e => e.Descripcion)
+                    .IsRequired()
+                    .HasMaxLength(250)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Empleado)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Fecha).HasColumnType("datetime");
+
+                entity.Property(e => e.IdDetFac).HasColumnName("Id_DetFac");
+
+                entity.Property(e => e.IdFac).HasColumnName("Id_Fac");
+
+                entity.Property(e => e.MaxComision).HasColumnName("Max_Comision");
+
+                entity.Property(e => e.NombreCliente)
+                    .HasMaxLength(250)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.NumDoc).HasColumnName("Num_Doc");
+
+                entity.Property(e => e.TipoDoc)
+                    .IsRequired()
+                    .HasMaxLength(5)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.TipoFac)
+                    .HasMaxLength(3)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<ComisionesVentas1>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("ComisionesVentas1");
+
+                entity.Property(e => e.Agente)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.CodMoneda).HasColumnName("Cod_Moneda");
+
+                entity.Property(e => e.Descripcion)
+                    .IsRequired()
+                    .HasMaxLength(250)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.DevolucionesImpuesto).HasColumnName("Devoluciones_Impuesto");
+
+                entity.Property(e => e.Empleado)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Fecha).HasColumnType("datetime");
+
+                entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.IdDetFac).HasColumnName("Id_DetFac");
+
+                entity.Property(e => e.IdFac).HasColumnName("Id_Fac");
+
+                entity.Property(e => e.MaxComision).HasColumnName("Max_Comision");
+
+                entity.Property(e => e.MontoImpuesto).HasColumnName("Monto_Impuesto");
+
+                entity.Property(e => e.NombreCliente)
+                    .HasMaxLength(250)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.NumCaja).HasColumnName("Num_Caja");
+
+                entity.Property(e => e.NumDoc).HasColumnName("Num_Doc");
+
+                entity.Property(e => e.TipoDoc)
+                    .IsRequired()
+                    .HasMaxLength(5)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.TipoFac)
+                    .HasMaxLength(3)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<ComisionesVentasDevuelta>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("ComisionesVentasDevueltas");
+
+                entity.Property(e => e.Agente)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.CodMoneda).HasColumnName("Cod_Moneda");
+
+                entity.Property(e => e.ComisionDevolucion).HasColumnName("Comision_Devolucion");
+
+                entity.Property(e => e.Descripcion)
+                    .HasMaxLength(250)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Empleado)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Fecha).HasColumnType("datetime");
+
+                entity.Property(e => e.IdDetFac).HasColumnName("Id_DetFac");
+
+                entity.Property(e => e.IdFac).HasColumnName("Id_Fac");
+
+                entity.Property(e => e.MaxComision).HasColumnName("Max_Comision");
+
+                entity.Property(e => e.NombreCliente)
+                    .HasMaxLength(250)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.NumDoc).HasColumnName("Num_Doc");
+
+                entity.Property(e => e.TipoDoc)
+                    .IsRequired()
+                    .HasMaxLength(10)
+                    .IsUnicode(false)
+                    .HasColumnName("Tipo_Doc");
+
+                entity.Property(e => e.TipoFac)
+                    .HasMaxLength(3)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<ComisionesVentasDevueltas1>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("ComisionesVentasDevueltas1");
+
+                entity.Property(e => e.Agente)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.CodMoneda).HasColumnName("Cod_Moneda");
+
+                entity.Property(e => e.ComisionDevolucion).HasColumnName("Comision_Devolucion");
+
+                entity.Property(e => e.Descripcion)
+                    .HasMaxLength(250)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.DevolucionesImpuesto).HasColumnName("Devoluciones_Impuesto");
+
+                entity.Property(e => e.Empleado)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Fecha).HasColumnType("datetime");
+
+                entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.IdDetFac).HasColumnName("Id_DetFac");
+
+                entity.Property(e => e.IdFac).HasColumnName("Id_Fac");
+
+                entity.Property(e => e.MaxComision).HasColumnName("Max_Comision");
+
+                entity.Property(e => e.MontoImpuesto).HasColumnName("Monto_Impuesto");
+
+                entity.Property(e => e.NombreCliente)
+                    .HasMaxLength(250)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.NumCaja)
+                    .HasColumnType("numeric(18, 0)")
+                    .HasColumnName("Num_Caja");
+
+                entity.Property(e => e.NumDoc).HasColumnName("Num_Doc");
+
+                entity.Property(e => e.TipoDoc)
+                    .IsRequired()
+                    .HasMaxLength(10)
+                    .IsUnicode(false)
+                    .HasColumnName("Tipo_Doc");
+
+                entity.Property(e => e.TipoFac)
+                    .HasMaxLength(3)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<ComisionesVentasRecuperacion>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("ComisionesVentas_Recuperacion");
+
+                entity.Property(e => e.Agente)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.CodMoneda).HasColumnName("Cod_Moneda");
+
+                entity.Property(e => e.Descripcion)
+                    .IsRequired()
+                    .HasMaxLength(250)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Empleado)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Fecha).HasColumnType("datetime");
+
+                entity.Property(e => e.IdDetFac).HasColumnName("Id_DetFac");
+
+                entity.Property(e => e.IdFac).HasColumnName("Id_Fac");
+
+                entity.Property(e => e.MaxComision).HasColumnName("Max_Comision");
+
+                entity.Property(e => e.NombreCliente)
+                    .HasMaxLength(250)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.NumDoc).HasColumnName("Num_Doc");
+
+                entity.Property(e => e.TipoDoc)
+                    .HasMaxLength(34)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.TipoFac)
+                    .HasMaxLength(3)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<ComisionesVentasTransporte>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("ComisionesVentasTransporte");
+
+                entity.Property(e => e.Agente)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.CodMoneda).HasColumnName("Cod_Moneda");
+
+                entity.Property(e => e.Descripcion)
+                    .IsRequired()
+                    .HasMaxLength(1)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Empleado)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Fecha).HasColumnType("datetime");
+
+                entity.Property(e => e.IdDetFac).HasColumnName("Id_DetFac");
+
+                entity.Property(e => e.IdFac).HasColumnName("Id_Fac");
+
+                entity.Property(e => e.MaxComision).HasColumnName("Max_Comision");
+
+                entity.Property(e => e.NombreCliente)
+                    .IsRequired()
+                    .HasMaxLength(250)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.NumDoc).HasColumnName("Num_Doc");
+
+                entity.Property(e => e.TipoDoc)
+                    .IsRequired()
+                    .HasMaxLength(10)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.TipoFac)
+                    .IsRequired()
+                    .HasMaxLength(3)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<ComisionesVentasTransporte1>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("ComisionesVentasTransporte1");
+
+                entity.Property(e => e.Agente)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.CodMoneda).HasColumnName("Cod_Moneda");
+
+                entity.Property(e => e.Descripcion)
+                    .IsRequired()
+                    .HasMaxLength(1)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.DevolucionesImpuesto).HasColumnName("Devoluciones_Impuesto");
+
+                entity.Property(e => e.Empleado)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Fecha).HasColumnType("datetime");
+
+                entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.IdDetFac).HasColumnName("Id_DetFac");
+
+                entity.Property(e => e.IdFac).HasColumnName("Id_Fac");
+
+                entity.Property(e => e.MaxComision).HasColumnName("Max_Comision");
+
+                entity.Property(e => e.MontoImpuesto).HasColumnName("Monto_Impuesto");
+
+                entity.Property(e => e.NombreCliente)
+                    .IsRequired()
+                    .HasMaxLength(250)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.NumCaja).HasColumnName("Num_Caja");
+
+                entity.Property(e => e.NumDoc).HasColumnName("Num_Doc");
+
+                entity.Property(e => e.TipoDoc)
+                    .IsRequired()
+                    .HasMaxLength(10)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.TipoFac)
+                    .IsRequired()
+                    .HasMaxLength(3)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<ComisionesVentasTransporteDevuelto>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("ComisionesVentasTransporteDevuelto");
+
+                entity.Property(e => e.Agente)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.CodMoneda).HasColumnName("Cod_Moneda");
+
+                entity.Property(e => e.ComisionDevolucion).HasColumnName("Comision_Devolucion");
+
+                entity.Property(e => e.Descripcion)
+                    .IsRequired()
+                    .HasMaxLength(1)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Empleado)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Fecha).HasColumnType("datetime");
+
+                entity.Property(e => e.IdDetFac).HasColumnName("Id_DetFac");
+
+                entity.Property(e => e.IdFac).HasColumnName("Id_Fac");
+
+                entity.Property(e => e.MaxComision).HasColumnName("Max_Comision");
+
+                entity.Property(e => e.NombreCliente)
+                    .HasMaxLength(250)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.NumDoc).HasColumnName("Num_Doc");
+
+                entity.Property(e => e.TipoDoc)
+                    .IsRequired()
+                    .HasMaxLength(21)
+                    .IsUnicode(false)
+                    .HasColumnName("Tipo_Doc");
+
+                entity.Property(e => e.TipoFac)
+                    .HasMaxLength(3)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<ComisionesVentasTransporteDevuelto1>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("ComisionesVentasTransporteDevuelto1");
+
+                entity.Property(e => e.Agente)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.CodMoneda).HasColumnName("Cod_Moneda");
+
+                entity.Property(e => e.ComisionDevolucion).HasColumnName("Comision_Devolucion");
+
+                entity.Property(e => e.Descripcion)
+                    .IsRequired()
+                    .HasMaxLength(1)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.DevolucionesImpuesto).HasColumnName("Devoluciones_Impuesto");
+
+                entity.Property(e => e.Empleado)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Fecha).HasColumnType("datetime");
+
+                entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.IdDetFac).HasColumnName("Id_DetFac");
+
+                entity.Property(e => e.IdFac).HasColumnName("Id_Fac");
+
+                entity.Property(e => e.MaxComision).HasColumnName("Max_Comision");
+
+                entity.Property(e => e.MontoImpuesto).HasColumnName("Monto_Impuesto");
+
+                entity.Property(e => e.NombreCliente)
+                    .HasMaxLength(250)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.NumCaja)
+                    .HasColumnType("numeric(18, 0)")
+                    .HasColumnName("Num_Caja");
+
+                entity.Property(e => e.NumDoc).HasColumnName("Num_Doc");
+
+                entity.Property(e => e.TipoDoc)
+                    .IsRequired()
+                    .HasMaxLength(21)
+                    .IsUnicode(false)
+                    .HasColumnName("Tipo_Doc");
+
+                entity.Property(e => e.TipoFac)
+                    .HasMaxLength(3)
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<Compra>(entity =>
@@ -2602,21 +3025,12 @@ namespace Datos.Models
                     .HasForeignKey(d => d.CodigoProv)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_compras_Proveedores");
-            });
 
-            modelBuilder.Entity<CondicionImpuesto>(entity =>
-            {
-                entity.HasKey(e => e.IdCondicion);
-
-                entity.ToTable("CondicionImpuesto");
-
-                entity.Property(e => e.IdCondicion)
-                    .HasColumnType("numeric(18, 0)")
-                    .ValueGeneratedOnAdd();
-
-                entity.Property(e => e.Condicion)
-                    .IsRequired()
-                    .HasMaxLength(255);
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany(p => p.Compras)
+                    .HasForeignKey(d => d.IdSucursal)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_compras_Sucursales");
             });
 
             modelBuilder.Entity<Configuracione>(entity =>
@@ -2675,6 +3089,8 @@ namespace Datos.Models
                     .IsUnicode(false)
                     .HasDefaultValueSql("('')");
 
+                entity.Property(e => e.IdEmisor).HasColumnName("idEmisor");
+
                 entity.Property(e => e.ImpVenta).HasColumnName("Imp_Venta");
 
                 entity.Property(e => e.ImprimeContadoPve).HasColumnName("ImprimeContadoPVE");
@@ -2700,6 +3116,12 @@ namespace Datos.Models
                     .IsUnicode(false)
                     .HasColumnName("Tel_02")
                     .HasDefaultValueSql("('')");
+
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany(p => p.Configuraciones)
+                    .HasForeignKey(d => d.IdSucursal)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_configuraciones_Sucursales");
             });
 
             modelBuilder.Entity<Consecutivo>(entity =>
@@ -2709,6 +3131,14 @@ namespace Datos.Models
                 entity.Property(e => e.Consecutivo1)
                     .HasColumnType("numeric(18, 0)")
                     .HasColumnName("Consecutivo");
+
+                entity.Property(e => e.IdSucursal).HasColumnName("idSucursal");
+
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany(p => p.Consecutivos)
+                    .HasForeignKey(d => d.IdSucursal)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Consecutivos_Sucursales");
             });
 
             modelBuilder.Entity<ConsecutivoReciboReintegro>(entity =>
@@ -2721,6 +3151,47 @@ namespace Datos.Models
                     .HasMaxLength(10)
                     .HasDefaultValueSql("((0))")
                     .IsFixedLength(true);
+
+                entity.Property(e => e.IdSucursal).HasColumnName("idSucursal");
+
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany(p => p.ConsecutivoReciboReintegros)
+                    .HasForeignKey(d => d.IdSucursal)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_ConsecutivoReciboReintegro_Sucursales");
+            });
+
+            modelBuilder.Entity<ConsultaInventario>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("ConsultaInventario");
+
+                entity.Property(e => e.CodArticulo)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false)
+                    .HasColumnName("Cod_Articulo");
+
+                entity.Property(e => e.DescSubFamilia)
+                    .IsRequired()
+                    .HasMaxLength(150)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Descripcion)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Familia)
+                    .IsRequired()
+                    .HasMaxLength(150)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Ubicacion)
+                    .IsRequired()
+                    .HasMaxLength(250)
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<ControlLote>(entity =>
@@ -2734,43 +3205,11 @@ namespace Datos.Models
                     .HasMaxLength(100)
                     .HasDefaultValueSql("('')");
 
-                entity.Property(e => e.IdSucursal).HasColumnName("idSucursal");
-
                 entity.Property(e => e.Lote)
                     .IsRequired()
                     .HasMaxLength(255);
 
                 entity.Property(e => e.Vence).HasColumnType("datetime");
-            });
-
-            modelBuilder.Entity<Correo>(entity =>
-            {
-                entity.HasKey(e => e.DireccionCorreo);
-
-                entity.ToTable("correo");
-
-                entity.Property(e => e.DireccionCorreo)
-                    .HasMaxLength(150)
-                    .IsUnicode(false)
-                    .HasColumnName("direccion_correo");
-
-                entity.Property(e => e.Asunto)
-                    .IsRequired()
-                    .HasMaxLength(150)
-                    .IsUnicode(false)
-                    .HasColumnName("asunto");
-
-                entity.Property(e => e.Clave)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("clave");
-
-                entity.Property(e => e.Mensaje)
-                    .IsRequired()
-                    .HasMaxLength(150)
-                    .IsUnicode(false)
-                    .HasColumnName("mensaje");
             });
 
             modelBuilder.Entity<CostoDevolucione>(entity =>
@@ -2834,11 +3273,6 @@ namespace Datos.Models
                     .HasColumnType("numeric(18, 0)")
                     .HasColumnName("Id_Factura");
 
-                entity.Property(e => e.IdSucursal)
-                    .HasMaxLength(10)
-                    .HasColumnName("idSucursal")
-                    .IsFixedLength(true);
-
                 entity.Property(e => e.ImpVenta).HasColumnName("Imp_Venta");
 
                 entity.Property(e => e.MonedaNombre)
@@ -2875,6 +3309,12 @@ namespace Datos.Models
                     .IsRequired()
                     .HasMaxLength(50)
                     .HasDefaultValueSql("('')");
+
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany(p => p.Cotizacions)
+                    .HasForeignKey(d => d.IdSucursal)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Cotizacion_Sucursales");
             });
 
             modelBuilder.Entity<CotizacionDetalle>(entity =>
@@ -2977,6 +3417,23 @@ namespace Datos.Models
                     .HasConstraintName("FK_Cuentas_Bancarias_Proveedor_Proveedores");
             });
 
+            modelBuilder.Entity<CuentasContableMovimimiento>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("CuentasContableMovimimiento");
+
+                entity.Property(e => e.CuentaContable)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Descripcion)
+                    .IsRequired()
+                    .HasMaxLength(250)
+                    .IsUnicode(false);
+            });
+
             modelBuilder.Entity<Cupon>(entity =>
             {
                 entity.HasKey(e => e.IdCupon);
@@ -2995,7 +3452,10 @@ namespace Datos.Models
 
                 entity.Property(e => e.Hasta).HasColumnType("datetime");
 
-                entity.Property(e => e.IdSucursal).HasColumnName("idSucursal");
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany(p => p.Cupons)
+                    .HasForeignKey(d => d.IdSucursal)
+                    .HasConstraintName("FK_Cupon_Sucursales");
             });
 
             modelBuilder.Entity<CuponDetalle>(entity =>
@@ -3018,44 +3478,6 @@ namespace Datos.Models
                 entity.Property(e => e.IdFactura)
                     .HasColumnType("numeric(18, 0)")
                     .HasColumnName("Id_Factura");
-            });
-
-            modelBuilder.Entity<Customer>(entity =>
-            {
-                entity.HasNoKey();
-
-                entity.ToTable("customer");
-
-                entity.Property(e => e.Address)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .IsFixedLength(true);
-
-                entity.Property(e => e.BirthDate)
-                    .HasColumnType("datetime")
-                    .HasColumnName("Birth_Date");
-
-                entity.Property(e => e.City)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .IsFixedLength(true);
-
-                entity.Property(e => e.Country)
-                    .HasMaxLength(25)
-                    .IsUnicode(false)
-                    .IsFixedLength(true);
-
-                entity.Property(e => e.FirstName)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("First_Name")
-                    .IsFixedLength(true);
-
-                entity.Property(e => e.LastName)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("Last_Name")
-                    .IsFixedLength(true);
             });
 
             modelBuilder.Entity<DenominacionMonedum>(entity =>
@@ -3088,8 +3510,6 @@ namespace Datos.Models
                 entity.Property(e => e.Hasta).HasColumnType("datetime");
 
                 entity.Property(e => e.IdProveedor).HasColumnType("numeric(18, 0)");
-
-                entity.Property(e => e.IdSucursal).HasColumnName("idSucursal");
             });
 
             modelBuilder.Entity<DescuentoProgramado>(entity =>
@@ -3263,26 +3683,6 @@ namespace Datos.Models
                 entity.Property(e => e.NumCierre).HasColumnName("Num_cierre");
             });
 
-            modelBuilder.Entity<DetalleDetalle>(entity =>
-            {
-                entity.ToTable("DetalleDetalle");
-
-                entity.Property(e => e.Id)
-                    .HasColumnType("numeric(18, 0)")
-                    .ValueGeneratedOnAdd();
-
-                entity.Property(e => e.Codigo).HasColumnType("numeric(18, 0)");
-
-                entity.Property(e => e.Fecha).HasColumnType("datetime");
-
-                entity.Property(e => e.IdVentaDetalle).HasColumnType("numeric(18, 0)");
-
-                entity.Property(e => e.Tipo)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .HasDefaultValueSql("('')");
-            });
-
             modelBuilder.Entity<DetalleEmpaquetado>(entity =>
             {
                 entity.HasNoKey();
@@ -3340,50 +3740,6 @@ namespace Datos.Models
                     .WithMany(p => p.DetalleOrdencompras)
                     .HasForeignKey(d => d.Orden)
                     .HasConstraintName("FK_detalle_ordencompra_ordencompra");
-            });
-
-            modelBuilder.Entity<DetallePagoCaja>(entity =>
-            {
-                entity.ToTable("Detalle_pago_caja");
-
-                entity.Property(e => e.Documento)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.FormaPago)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.IdOdp).HasColumnName("Id_ODP");
-
-                entity.Property(e => e.Referencia)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.ReferenciaDoc)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasDefaultValueSql("('')");
-
-                entity.Property(e => e.ReferenciaTipo)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.TipoFactura)
-                    .IsRequired()
-                    .HasMaxLength(3)
-                    .IsUnicode(false)
-                    .IsFixedLength(true);
-
-                entity.HasOne(d => d.IdOdpNavigation)
-                    .WithMany(p => p.DetallePagoCajas)
-                    .HasForeignKey(d => d.IdOdp)
-                    .HasConstraintName("FK_Detalle_pago_caja_OpcionesDePago");
             });
 
             modelBuilder.Entity<DetallePreAbonocCobrar>(entity =>
@@ -3463,6 +3819,12 @@ namespace Datos.Models
                 entity.Property(e => e.IdPrestamo).HasColumnName("id_prestamo");
 
                 entity.Property(e => e.IdSucursal).HasColumnName("idSucursal");
+
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany(p => p.DevolucionPrestamos)
+                    .HasForeignKey(d => d.IdSucursal)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Devolucion_prestamo_Sucursales");
             });
 
             modelBuilder.Entity<DevolucionesCompra>(entity =>
@@ -3487,7 +3849,7 @@ namespace Datos.Models
 
                 entity.Property(e => e.IdFacturaCompra).HasColumnName("Id_Factura_Compra");
 
-                entity.Property(e => e.IdSucusarl).HasColumnName("idSucusarl");
+                entity.Property(e => e.IdSucursal).HasColumnName("idSucursal");
 
                 entity.Property(e => e.NombrePro)
                     .IsRequired()
@@ -3496,6 +3858,142 @@ namespace Datos.Models
                     .HasDefaultValueSql("('')");
 
                 entity.Property(e => e.SaldoAntFact).HasColumnName("SaldoAnt_Fact");
+
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany(p => p.DevolucionesCompras)
+                    .HasForeignKey(d => d.IdSucursal)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_devoluciones_Compras_Sucursales");
+            });
+
+            modelBuilder.Entity<DevolucionesGeneralCliente>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("DevolucionesGeneralCliente");
+
+                entity.Property(e => e.Agente)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Caja)
+                    .HasColumnType("numeric(18, 0)")
+                    .HasColumnName("caja");
+
+                entity.Property(e => e.CodMoneda).HasColumnName("Cod_Moneda");
+
+                entity.Property(e => e.DescuentoDevolucion).HasColumnName("Descuento_Devolucion");
+
+                entity.Property(e => e.DescuentoVentas).HasColumnName("Descuento_Ventas");
+
+                entity.Property(e => e.Empleado)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.ExcentoDevolucion).HasColumnName("Excento_Devolucion");
+
+                entity.Property(e => e.ExcentoVentas).HasColumnName("Excento_Ventas");
+
+                entity.Property(e => e.Fecha).HasColumnType("datetime");
+
+                entity.Property(e => e.IdFac).HasColumnName("Id_Fac");
+
+                entity.Property(e => e.ImpuestoDevolucion).HasColumnName("Impuesto_Devolucion");
+
+                entity.Property(e => e.ImpuestoVentas).HasColumnName("Impuesto_Ventas");
+
+                entity.Property(e => e.NombreCliente)
+                    .HasMaxLength(250)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.NumApertura)
+                    .HasColumnType("numeric(18, 0)")
+                    .HasColumnName("Num_Apertura");
+
+                entity.Property(e => e.NumDoc).HasColumnName("Num_Doc");
+
+                entity.Property(e => e.SubtotalGravadoDevolucion).HasColumnName("SubtotalGravado_Devolucion");
+
+                entity.Property(e => e.SubtotalGravadoVentas).HasColumnName("SubtotalGravado_Ventas");
+
+                entity.Property(e => e.TipoCambio).HasColumnName("Tipo_Cambio");
+
+                entity.Property(e => e.TipoDoc)
+                    .IsRequired()
+                    .HasMaxLength(10)
+                    .IsUnicode(false)
+                    .HasColumnName("Tipo_Doc");
+
+                entity.Property(e => e.TipoFac)
+                    .HasMaxLength(3)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<DevolucionesGeneralClienteTransporte>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("DevolucionesGeneralClienteTransporte");
+
+                entity.Property(e => e.Agente)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Caja)
+                    .HasColumnType("numeric(18, 0)")
+                    .HasColumnName("caja");
+
+                entity.Property(e => e.CodMoneda).HasColumnName("Cod_Moneda");
+
+                entity.Property(e => e.DescuentoDevolucion).HasColumnName("Descuento_Devolucion");
+
+                entity.Property(e => e.DescuentoVentas).HasColumnName("Descuento_Ventas");
+
+                entity.Property(e => e.Empleado)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.ExcentoDevolucion).HasColumnName("Excento_Devolucion");
+
+                entity.Property(e => e.ExcentoVentas).HasColumnName("Excento_Ventas");
+
+                entity.Property(e => e.Fecha).HasColumnType("datetime");
+
+                entity.Property(e => e.IdFac).HasColumnName("Id_Fac");
+
+                entity.Property(e => e.ImpuestoDevolucion).HasColumnName("Impuesto_Devolucion");
+
+                entity.Property(e => e.ImpuestoVentas).HasColumnName("Impuesto_Ventas");
+
+                entity.Property(e => e.NombreCliente)
+                    .HasMaxLength(250)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.NumApertura)
+                    .HasColumnType("numeric(18, 0)")
+                    .HasColumnName("Num_Apertura");
+
+                entity.Property(e => e.NumDoc).HasColumnName("Num_Doc");
+
+                entity.Property(e => e.SubtotalGravadoDevolucion).HasColumnName("SubtotalGravado_Devolucion");
+
+                entity.Property(e => e.SubtotalGravadoVentas).HasColumnName("SubtotalGravado_Ventas");
+
+                entity.Property(e => e.TipoCambio).HasColumnName("Tipo_Cambio");
+
+                entity.Property(e => e.TipoDoc)
+                    .IsRequired()
+                    .HasMaxLength(21)
+                    .IsUnicode(false)
+                    .HasColumnName("Tipo_Doc");
+
+                entity.Property(e => e.TipoFac)
+                    .HasMaxLength(3)
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<DevolucionesVenta>(entity =>
@@ -3545,8 +4043,6 @@ namespace Datos.Models
 
                 entity.Property(e => e.IdFactura).HasColumnName("Id_Factura");
 
-                entity.Property(e => e.IdSucursal).HasColumnName("idSucursal");
-
                 entity.Property(e => e.NotasDevolucion)
                     .HasMaxLength(500)
                     .HasDefaultValueSql("('')");
@@ -3561,67 +4057,79 @@ namespace Datos.Models
                     .IsRequired()
                     .HasMaxLength(255)
                     .HasDefaultValueSql("('')");
+
+                entity.HasOne(d => d.IdFacturaNavigation)
+                    .WithMany(p => p.DevolucionesVenta)
+                    .HasForeignKey(d => d.IdFactura)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_devoluciones_ventas_Ventas");
+
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany(p => p.DevolucionesVenta)
+                    .HasForeignKey(d => d.IdSucursal)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_devoluciones_ventas_Sucursales");
             });
 
-            modelBuilder.Entity<Emisor>(entity =>
+            modelBuilder.Entity<DevolucionesVenta1>(entity =>
             {
-                entity.HasKey(e => e.Identificacion);
+                entity.HasNoKey();
 
-                entity.ToTable("emisor");
+                entity.ToView("DevolucionesVentas");
 
-                entity.Property(e => e.Identificacion)
-                    .ValueGeneratedNever()
-                    .HasColumnName("identificacion");
+                entity.Property(e => e.Caja)
+                    .HasColumnType("numeric(18, 0)")
+                    .HasColumnName("caja");
 
-                entity.Property(e => e.Barrio)
+                entity.Property(e => e.Descripcion)
+                    .IsRequired()
+                    .HasMaxLength(250)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Fecha).HasColumnType("datetime");
+
+                entity.Property(e => e.FechaVenta).HasColumnType("datetime");
+
+                entity.Property(e => e.MonedaNombre)
+                    .IsRequired()
                     .HasMaxLength(50)
-                    .HasColumnName("barrio");
+                    .IsUnicode(false)
+                    .HasColumnName("Moneda_Nombre");
 
-                entity.Property(e => e.Canton)
-                    .HasMaxLength(50)
-                    .HasColumnName("canton");
-
-                entity.Property(e => e.CodigoPais)
-                    .HasMaxLength(10)
-                    .HasColumnName("codigo_pais")
-                    .IsFixedLength(true);
-
-                entity.Property(e => e.Distrito)
-                    .HasMaxLength(50)
-                    .HasColumnName("distrito");
-
-                entity.Property(e => e.Email)
-                    .HasMaxLength(50)
-                    .HasColumnName("email");
-
-                entity.Property(e => e.Fax)
-                    .HasMaxLength(10)
-                    .HasColumnName("fax")
-                    .IsFixedLength(true);
+                entity.Property(e => e.MontoImpuesto).HasColumnName("Monto_Impuesto");
 
                 entity.Property(e => e.Nombre)
-                    .HasMaxLength(150)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.NombreCliente)
+                    .IsRequired()
+                    .HasMaxLength(250)
                     .IsUnicode(false)
-                    .HasColumnName("nombre");
+                    .HasColumnName("Nombre_Cliente");
 
-                entity.Property(e => e.NombreComercial)
-                    .HasMaxLength(150)
-                    .HasColumnName("nombre_comercial");
+                entity.Property(e => e.NumFactura).HasColumnName("Num_Factura");
 
-                entity.Property(e => e.NumeroTelefono)
-                    .HasMaxLength(10)
-                    .HasColumnName("numero_telefono")
-                    .IsFixedLength(true);
+                entity.Property(e => e.PrecioUnit).HasColumnName("Precio_Unit");
 
-                entity.Property(e => e.Otrassenas)
-                    .HasMaxLength(50)
-                    .HasColumnName("otrassenas");
+                entity.Property(e => e.SaldoAntFact).HasColumnName("SaldoAnt_Fact");
 
-                entity.Property(e => e.Provincia)
-                    .HasMaxLength(50)
-                    .HasColumnName("provincia");
+                entity.Property(e => e.Simbolo)
+                    .IsRequired()
+                    .HasMaxLength(2)
+                    .IsUnicode(false);
 
-                entity.Property(e => e.Tipo).HasColumnName("tipo");
+                entity.Property(e => e.Tipo)
+                    .IsRequired()
+                    .HasMaxLength(3)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.TipoCambio).HasColumnName("Tipo_Cambio");
+
+                entity.Property(e => e.UsuarioRecibio)
+                    .IsRequired()
+                    .HasMaxLength(255);
             });
 
             modelBuilder.Entity<Empaquetado>(entity =>
@@ -3661,57 +4169,6 @@ namespace Datos.Models
                     .HasColumnName("tipo");
             });
 
-            modelBuilder.Entity<Empleado>(entity =>
-            {
-                entity.HasKey(e => e.Cedula);
-
-                entity.ToTable("empleado");
-
-                entity.Property(e => e.Cedula)
-                    .ValueGeneratedNever()
-                    .HasColumnName("cedula");
-
-                entity.Property(e => e.Activo).HasColumnName("activo");
-
-                entity.Property(e => e.Apellidos)
-                    .IsRequired()
-                    .HasMaxLength(150)
-                    .HasColumnName("apellidos");
-
-                entity.Property(e => e.Codigo)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .HasColumnName("codigo")
-                    .HasDefaultValueSql("((0))");
-
-                entity.Property(e => e.FechaIngreso)
-                    .HasColumnType("date")
-                    .HasColumnName("fecha_ingreso");
-
-                entity.Property(e => e.FechaSalida)
-                    .HasColumnType("date")
-                    .HasColumnName("fecha_salida");
-
-                entity.Property(e => e.IdSucursal).HasColumnName("idSucursal");
-
-                entity.Property(e => e.Nombre)
-                    .IsRequired()
-                    .HasMaxLength(150)
-                    .HasColumnName("nombre");
-
-                entity.Property(e => e.Puesto)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .HasColumnName("puesto");
-
-                entity.Property(e => e.Salario).HasColumnName("salario");
-
-                entity.Property(e => e.Telefono)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .HasColumnName("telefono");
-            });
-
             modelBuilder.Entity<Empresa>(entity =>
             {
                 entity.ToTable("empresa");
@@ -3730,8 +4187,6 @@ namespace Datos.Models
                     .IsRequired()
                     .HasMaxLength(50)
                     .HasColumnName("empresa");
-
-                entity.Property(e => e.IdSucursal).HasColumnName("idSucursal");
             });
 
             modelBuilder.Entity<Encargadocompra>(entity =>
@@ -3760,6 +4215,12 @@ namespace Datos.Models
                     .WithMany(p => p.Encargadocompras)
                     .HasForeignKey(d => d.Cliente)
                     .HasConstraintName("FK_encargadocompras_Clientes");
+
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany(p => p.Encargadocompras)
+                    .HasForeignKey(d => d.IdSucursal)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_encargadocompras_Sucursales");
             });
 
             modelBuilder.Entity<EstadoCotizacion>(entity =>
@@ -3871,6 +4332,8 @@ namespace Datos.Models
 
                 entity.Property(e => e.EnMostrador).HasColumnType("numeric(18, 0)");
 
+                entity.Property(e => e.IdSucursal).HasColumnName("idSucursal");
+
                 entity.Property(e => e.IdUsuario)
                     .IsRequired()
                     .HasMaxLength(50);
@@ -3878,6 +4341,12 @@ namespace Datos.Models
                 entity.Property(e => e.Usuario)
                     .IsRequired()
                     .HasMaxLength(50);
+
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany(p => p.FichasxUsuarios)
+                    .HasForeignKey(d => d.IdSucursal)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_FichasxUsuario_Sucursales");
             });
 
             modelBuilder.Entity<FormatoDeCompra>(entity =>
@@ -3897,69 +4366,33 @@ namespace Datos.Models
                     .IsUnicode(false);
             });
 
-            modelBuilder.Entity<Gasto>(entity =>
+            modelBuilder.Entity<Ganancia>(entity =>
             {
-                entity.ToTable("gasto");
+                entity.HasNoKey();
 
-                entity.Property(e => e.Id).HasColumnName("id");
+                entity.ToView("Ganancias");
+
+                entity.Property(e => e.Cliente)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.CodMoneda).HasColumnName("Cod_Moneda");
 
                 entity.Property(e => e.Descripcion)
-                    .HasMaxLength(150)
-                    .HasColumnName("descripcion");
-            });
-
-            modelBuilder.Entity<Gasto1>(entity =>
-            {
-                entity.ToTable("gastos");
-
-                entity.Property(e => e.Id).HasColumnName("ID");
-
-                entity.Property(e => e.Anulado).HasColumnName("anulado");
-
-                entity.Property(e => e.Cantidad).HasColumnName("cantidad");
-
-                entity.Property(e => e.Cedula)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .HasColumnName("cedula");
-
-                entity.Property(e => e.Codigo)
-                    .IsRequired()
-                    .HasMaxLength(10)
-                    .HasColumnName("codigo")
-                    .IsFixedLength(true);
-
-                entity.Property(e => e.CodigoArt)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .HasColumnName("codigo_art");
-
-                entity.Property(e => e.Costo).HasColumnName("costo");
-
-                entity.Property(e => e.Descripcion)
-                    .IsRequired()
-                    .HasMaxLength(150)
-                    .HasColumnName("descripcion");
-
-                entity.Property(e => e.Existencia).HasColumnName("existencia");
-
-                entity.Property(e => e.Fecha)
-                    .HasColumnType("datetime")
-                    .HasColumnName("fecha");
-
-                entity.Property(e => e.IdSucursal).HasColumnName("idSucursal");
-
-                entity.Property(e => e.Idbodega).HasColumnName("idbodega");
-
-                entity.Property(e => e.Observaciones)
                     .IsRequired()
                     .HasMaxLength(250)
-                    .HasColumnName("observaciones");
+                    .IsUnicode(false);
 
-                entity.Property(e => e.Tipo)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .HasColumnName("tipo");
+                entity.Property(e => e.Fecha).HasColumnType("datetime");
+
+                entity.Property(e => e.Ganancia1).HasColumnName("Ganancia");
+
+                entity.Property(e => e.NumFactura).HasColumnName("Num_Factura");
+
+                entity.Property(e => e.PrecioCosto).HasColumnName("Precio_Costo");
+
+                entity.Property(e => e.PrecioUnit).HasColumnName("Precio_Unit");
             });
 
             modelBuilder.Entity<GestionCobroBitacora>(entity =>
@@ -3978,6 +4411,8 @@ namespace Datos.Models
                     .HasColumnType("numeric(18, 0)")
                     .HasColumnName("Id_Factura");
 
+                entity.Property(e => e.IdSucursal).HasColumnName("idSucursal");
+
                 entity.Property(e => e.IdUsuario)
                     .IsRequired()
                     .HasMaxLength(50);
@@ -3986,9 +4421,21 @@ namespace Datos.Models
                     .IsRequired()
                     .HasMaxLength(500);
 
+                entity.Property(e => e.Pv)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .HasColumnName("PV")
+                    .HasDefaultValueSql("('SeePOS')");
+
                 entity.Property(e => e.Usuario)
                     .IsRequired()
                     .HasMaxLength(255);
+
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany(p => p.GestionCobroBitacoras)
+                    .HasForeignKey(d => d.IdSucursal)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_GestionCobro_Bitacora_Sucursales");
             });
 
             modelBuilder.Entity<HistorialPrestamo>(entity =>
@@ -4039,68 +4486,6 @@ namespace Datos.Models
                     .HasDefaultValueSql("('')");
             });
 
-            modelBuilder.Entity<HojaCxC>(entity =>
-            {
-                entity.HasNoKey();
-
-                entity.ToTable("HojaCxC");
-
-                entity.Property(e => e.CedulaUsuario).HasColumnName("Cedula_Usuario");
-
-                entity.Property(e => e.CodCliente).HasColumnName("Cod_Cliente");
-
-                entity.Property(e => e.CodEncargadoCompra)
-                    .HasMaxLength(255)
-                    .IsUnicode(false)
-                    .HasColumnName("Cod_Encargado_Compra");
-
-                entity.Property(e => e.CodMoneda).HasColumnName("Cod_Moneda");
-
-                entity.Property(e => e.ContabilizadoCventa).HasColumnName("ContabilizadoCVenta");
-
-                entity.Property(e => e.Direccion)
-                    .HasMaxLength(255)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Fecha).HasColumnType("datetime");
-
-                entity.Property(e => e.IdSucursal).HasColumnName("idSucursal");
-
-                entity.Property(e => e.ImpVenta).HasColumnName("Imp_Venta");
-
-                entity.Property(e => e.MonedaNombre)
-                    .HasMaxLength(255)
-                    .IsUnicode(false)
-                    .HasColumnName("Moneda_Nombre");
-
-                entity.Property(e => e.NombreCliente)
-                    .HasMaxLength(255)
-                    .IsUnicode(false)
-                    .HasColumnName("Nombre_Cliente");
-
-                entity.Property(e => e.NumApertura).HasColumnName("Num_Apertura");
-
-                entity.Property(e => e.NumFactura).HasColumnName("Num_Factura");
-
-                entity.Property(e => e.Observaciones)
-                    .HasMaxLength(255)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.PagoComision).HasColumnName("Pago_Comision");
-
-                entity.Property(e => e.Telefono)
-                    .HasMaxLength(255)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Tipo)
-                    .HasMaxLength(3)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.TipoCambio).HasColumnName("Tipo_Cambio");
-
-                entity.Property(e => e.Vence).HasColumnType("smalldatetime");
-            });
-
             modelBuilder.Entity<Holiday>(entity =>
             {
                 entity.HasNoKey();
@@ -4112,35 +4497,6 @@ namespace Datos.Models
                 entity.Property(e => e.Id).ValueGeneratedOnAdd();
 
                 entity.Property(e => e.Name).HasMaxLength(50);
-            });
-
-            modelBuilder.Entity<Impuesto>(entity =>
-            {
-                entity.HasKey(e => e.IdImpuesto);
-
-                entity.Property(e => e.IdImpuesto)
-                    .HasColumnType("numeric(18, 0)")
-                    .ValueGeneratedOnAdd()
-                    .HasColumnName("Id_Impuesto");
-
-                entity.Property(e => e.CodigoImpuesto)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .HasColumnName("Codigo_Impuesto");
-
-                entity.Property(e => e.CodigoTarifa)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .HasColumnName("Codigo_Tarifa");
-
-                entity.Property(e => e.Impuesto1)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .HasColumnName("Impuesto");
-
-                entity.Property(e => e.Simbolo)
-                    .IsRequired()
-                    .HasMaxLength(50);
             });
 
             modelBuilder.Entity<Inven>(entity =>
@@ -4160,10 +4516,6 @@ namespace Datos.Models
                 entity.HasKey(e => e.Codigo);
 
                 entity.ToTable("Inventario");
-
-                entity.HasIndex(e => e.Barras, "IX_Inventario");
-
-                entity.HasIndex(e => e.Descripcion, "nc_BuscarporDescripcion");
 
                 entity.Property(e => e.Codigo).ValueGeneratedNever();
 
@@ -4239,9 +4591,7 @@ namespace Datos.Models
 
                 entity.Property(e => e.IdBodega).HasColumnName("Id_Bodega");
 
-                entity.Property(e => e.IdImpuesto)
-                    .HasColumnType("numeric(18, 0)")
-                    .HasColumnName("Id_Impuesto");
+                entity.Property(e => e.IdImpuesto).HasColumnName("Id_Impuesto");
 
                 entity.Property(e => e.IdSucursal).HasColumnName("idSucursal");
 
@@ -4317,6 +4667,8 @@ namespace Datos.Models
                     .HasColumnName("Promo_Inicio")
                     .HasDefaultValueSql("(getdate())");
 
+                entity.Property(e => e.Proveedor).HasComment("Campo que me permitirá establecer el proveedor por defecto");
+
                 entity.Property(e => e.Receta).HasColumnName("receta");
 
                 entity.Property(e => e.Rifa).HasColumnName("rifa");
@@ -4339,6 +4691,12 @@ namespace Datos.Models
                 entity.Property(e => e.Taller).HasColumnName("taller");
 
                 entity.Property(e => e.Tienda).HasColumnName("tienda");
+
+                entity.HasOne(d => d.CodPresentacionNavigation)
+                    .WithMany(p => p.Inventarios)
+                    .HasForeignKey(d => d.CodPresentacion)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Inventario_Presentaciones");
             });
 
             modelBuilder.Entity<InventarioGeneral>(entity =>
@@ -4627,8 +4985,6 @@ namespace Datos.Models
                     .HasColumnName("fecha");
 
                 entity.Property(e => e.IdPrestamo).HasColumnName("id_prestamo");
-
-                entity.Property(e => e.IdSucursal).HasColumnName("idSucursal");
             });
 
             modelBuilder.Entity<KardexVario>(entity =>
@@ -5009,6 +5365,48 @@ namespace Datos.Models
                 entity.Property(e => e.TituloTag)
                     .IsRequired()
                     .HasMaxLength(50);
+
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany(p => p.Logs)
+                    .HasForeignKey(d => d.IdSucursal)
+                    .HasConstraintName("FK_Log_Sucursales");
+            });
+
+            modelBuilder.Entity<Lote>(entity =>
+            {
+                entity.Property(e => e.CantActual).HasColumnName("Cant_Actual");
+
+                entity.Property(e => e.CantInicial).HasColumnName("Cant_Inicial");
+
+                entity.Property(e => e.CodArticulo).HasColumnName("Cod_Articulo");
+
+                entity.Property(e => e.FechaEntrada)
+                    .HasColumnType("datetime")
+                    .HasColumnName("Fecha_Entrada")
+                    .HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.Numero)
+                    .IsRequired()
+                    .HasMaxLength(250)
+                    .IsUnicode(false)
+                    .HasDefaultValueSql("((0))");
+
+                entity.Property(e => e.Tipo)
+                    .IsRequired()
+                    .HasMaxLength(3)
+                    .IsUnicode(false)
+                    .HasDefaultValueSql("('--')")
+                    .IsFixedLength(true);
+
+                entity.Property(e => e.Vencimiento)
+                    .HasColumnType("datetime")
+                    .HasDefaultValueSql("(getdate())");
+
+                entity.HasOne(d => d.CodArticuloNavigation)
+                    .WithMany(p => p.Lotes)
+                    .HasForeignKey(d => d.CodArticulo)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Lotes_Inventario");
             });
 
             modelBuilder.Entity<Marca>(entity =>
@@ -5022,94 +5420,52 @@ namespace Datos.Models
                     .HasColumnName("Marca");
             });
 
-            modelBuilder.Entity<MensajeReceptor>(entity =>
+            modelBuilder.Entity<Moneda>(entity =>
             {
-                entity.ToTable("MensajeReceptor");
+                entity.HasNoKey();
 
-                entity.Property(e => e.Id)
-                    .HasColumnType("numeric(18, 0)")
-                    .ValueGeneratedOnAdd();
+                entity.ToView("Monedas");
 
-                entity.Property(e => e.Clave)
+                entity.Property(e => e.CuentaContable)
+                    .IsRequired()
+                    .HasMaxLength(75)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.MonedaNombre)
                     .IsRequired()
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-                entity.Property(e => e.CodigoActividad)
+                entity.Property(e => e.Simbolo)
                     .IsRequired()
-                    .HasMaxLength(255)
-                    .HasDefaultValueSql("('')");
-
-                entity.Property(e => e.CondicionImpuesto)
-                    .IsRequired()
-                    .HasMaxLength(255)
-                    .HasDefaultValueSql("('')");
-
-                entity.Property(e => e.Consecutivo)
-                    .IsRequired()
-                    .HasMaxLength(100)
-                    .IsUnicode(false)
-                    .HasDefaultValueSql("('')");
-
-                entity.Property(e => e.DetalleMensaje)
-                    .IsRequired()
-                    .HasMaxLength(255)
-                    .HasDefaultValueSql("('')");
-
-                entity.Property(e => e.Estado)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasDefaultValueSql("('pendiente')");
-
-                entity.Property(e => e.FechaComprobante).HasColumnType("datetime");
-
-                entity.Property(e => e.FechaEmisionDoc).HasColumnType("datetime");
-
-                entity.Property(e => e.Mensaje)
-                    .IsRequired()
-                    .HasMaxLength(50)
+                    .HasMaxLength(2)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Moneda)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .HasDefaultValueSql("(N'CRC')");
-
-                entity.Property(e => e.NumeroCedulaEmisor)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Pdf)
-                    .IsRequired()
-                    .HasMaxLength(500)
-                    .IsUnicode(false)
-                    .HasColumnName("PDF")
-                    .HasDefaultValueSql("('')");
-
-                entity.Property(e => e.Proveedor)
-                    .IsRequired()
-                    .HasMaxLength(1000)
-                    .HasDefaultValueSql("('')");
+                entity.Property(e => e.Tccompra).HasColumnName("TCCompra");
             });
 
-            modelBuilder.Entity<MigrationHistory>(entity =>
+            modelBuilder.Entity<Monedum>(entity =>
             {
-                entity.HasKey(e => new { e.MigrationId, e.ContextKey })
-                    .HasName("PK_dbo.__MigrationHistory");
+                entity.HasNoKey();
 
-                entity.ToTable("__MigrationHistory");
+                entity.ToView("Moneda");
 
-                entity.Property(e => e.MigrationId).HasMaxLength(150);
-
-                entity.Property(e => e.ContextKey).HasMaxLength(300);
-
-                entity.Property(e => e.Model).IsRequired();
-
-                entity.Property(e => e.ProductVersion)
+                entity.Property(e => e.CuentaContable)
                     .IsRequired()
-                    .HasMaxLength(32);
+                    .HasMaxLength(75)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.MonedaNombre)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Simbolo)
+                    .IsRequired()
+                    .HasMaxLength(2)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Tccompra).HasColumnName("TCCompra");
             });
 
             modelBuilder.Entity<MovimientoArticuloVenta>(entity =>
@@ -5177,11 +5533,15 @@ namespace Datos.Models
             {
                 entity.ToTable("Movimiento_Caja");
 
+                entity.Property(e => e.CodMoneda).HasComment("0");
+
                 entity.Property(e => e.Entrada)
                     .IsRequired()
                     .HasDefaultValueSql("('')");
 
-                entity.Property(e => e.Fecha).HasColumnType("datetime");
+                entity.Property(e => e.Fecha)
+                    .HasColumnType("datetime")
+                    .HasComment("getdate()");
 
                 entity.Property(e => e.IdSucursal).HasColumnName("idSucursal");
 
@@ -5196,6 +5556,12 @@ namespace Datos.Models
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasDefaultValueSql("('')");
+
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany(p => p.MovimientoCajas)
+                    .HasForeignKey(d => d.IdSucursal)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Movimiento_Caja_Sucursales");
             });
 
             modelBuilder.Entity<MovimientoClienteSaldo>(entity =>
@@ -5265,8 +5631,6 @@ namespace Datos.Models
                 entity.Property(e => e.FechaEntrada)
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
-
-                entity.Property(e => e.IdSucursal).HasColumnName("idSucursal");
 
                 entity.Property(e => e.Referencia)
                     .IsRequired()
@@ -5347,6 +5711,12 @@ namespace Datos.Models
                 entity.Property(e => e.Fecha).HasColumnType("datetime");
 
                 entity.Property(e => e.IdSucursal).HasColumnName("idSucursal");
+
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany(p => p.MuertesGastos)
+                    .HasForeignKey(d => d.IdSucursal)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_MuertesGastos_Sucursales");
             });
 
             modelBuilder.Entity<MuertesGastosDetalle>(entity =>
@@ -5424,8 +5794,6 @@ namespace Datos.Models
                     .IsRequired()
                     .HasMaxLength(50)
                     .IsUnicode(false);
-
-                entity.Property(e => e.IdSucursal).HasColumnName("idSucursal");
 
                 entity.Property(e => e.Nombre)
                     .IsRequired()
@@ -5679,6 +6047,12 @@ namespace Datos.Models
                 entity.Property(e => e.TrabajoSolicitados)
                     .IsRequired()
                     .HasMaxLength(1000);
+
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany(p => p.OrdenTrabajos)
+                    .HasForeignKey(d => d.IdSucursal)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_OrdenTrabajo_Sucursales");
             });
 
             modelBuilder.Entity<Ordencompra>(entity =>
@@ -5724,6 +6098,12 @@ namespace Datos.Models
                     .IsRequired()
                     .HasMaxLength(255)
                     .IsUnicode(false);
+
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany(p => p.Ordencompras)
+                    .HasForeignKey(d => d.IdSucursal)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_ordencompra_Sucursales");
             });
 
             modelBuilder.Entity<PagosDuplicado>(entity =>
@@ -5782,6 +6162,12 @@ namespace Datos.Models
                     .HasDefaultValueSql("('')");
 
                 entity.Property(e => e.Proveedor).HasColumnType("numeric(18, 0)");
+
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany(p => p.PedidoBodegas)
+                    .HasForeignKey(d => d.IdSucursal)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_PedidoBodega_Sucursales");
             });
 
             modelBuilder.Entity<Permiso>(entity =>
@@ -5840,6 +6226,8 @@ namespace Datos.Models
 
                 entity.Property(e => e.Fecha).HasColumnType("datetime");
 
+                entity.Property(e => e.IdSucursal).HasColumnName("idSucursal");
+
                 entity.Property(e => e.NombreCliente)
                     .IsRequired()
                     .HasMaxLength(250)
@@ -5859,6 +6247,12 @@ namespace Datos.Models
                 entity.Property(e => e.SaldoActual).HasColumnName("Saldo_Actual");
 
                 entity.Property(e => e.SaldoCuenta).HasColumnName("Saldo_Cuenta");
+
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany(p => p.PreAbonocCobrars)
+                    .HasForeignKey(d => d.IdSucursal)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_PreAbonocCobrar_Sucursales");
             });
 
             modelBuilder.Entity<PreTomaGeneral>(entity =>
@@ -5877,6 +6271,13 @@ namespace Datos.Models
                     .HasDefaultValueSql("('')");
 
                 entity.Property(e => e.Fecha).HasColumnType("datetime");
+
+                entity.Property(e => e.IdSucursal).HasColumnName("idSucursal");
+
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany(p => p.PreTomaGenerals)
+                    .HasForeignKey(d => d.IdSucursal)
+                    .HasConstraintName("FK_PreTomaGeneral_Sucursales");
             });
 
             modelBuilder.Entity<PreTomaGeneralDetalle>(entity =>
@@ -5917,10 +6318,18 @@ namespace Datos.Models
 
                 entity.Property(e => e.Fecha).HasColumnType("datetime");
 
+                entity.Property(e => e.IdSucursal).HasColumnName("idSucursal");
+
                 entity.Property(e => e.IdUsuarioCreo)
                     .IsRequired()
                     .HasMaxLength(50)
                     .HasColumnName("Id_UsuarioCreo");
+
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany(p => p.PreTomaProveedors)
+                    .HasForeignKey(d => d.IdSucursal)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_PreTomaProveedor_Sucursales");
             });
 
             modelBuilder.Entity<PreTomaProveedorDetalle>(entity =>
@@ -6024,8 +6433,6 @@ namespace Datos.Models
                     .HasColumnType("numeric(18, 0)")
                     .HasColumnName("Id_FacturaRemplaza");
 
-                entity.Property(e => e.IdSucursal).HasColumnName("idSucursal");
-
                 entity.Property(e => e.ImpVenta).HasColumnName("Imp_Venta");
 
                 entity.Property(e => e.MonedaNombre)
@@ -6077,6 +6484,12 @@ namespace Datos.Models
                     .HasDefaultValueSql("('FISICA')");
 
                 entity.Property(e => e.Vence).HasColumnType("smalldatetime");
+
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany(p => p.PreVenta)
+                    .HasForeignKey(d => d.IdSucursal)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_PreVentas_Sucursales");
             });
 
             modelBuilder.Entity<PreVentasDetalle>(entity =>
@@ -6192,6 +6605,12 @@ namespace Datos.Models
                     .IsRequired()
                     .HasMaxLength(50)
                     .IsUnicode(false);
+
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany(p => p.PrecioDiferenciados)
+                    .HasForeignKey(d => d.IdSucursal)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_PrecioDiferenciado_Sucursales");
             });
 
             modelBuilder.Entity<Presentacione>(entity =>
@@ -6268,6 +6687,12 @@ namespace Datos.Models
                     .HasMaxLength(10)
                     .HasColumnName("transportista")
                     .IsFixedLength(true);
+
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany(p => p.Prestamos)
+                    .HasForeignKey(d => d.IdSucursal)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Prestamo_Sucursales");
             });
 
             modelBuilder.Entity<ProdEmpaquetado>(entity =>
@@ -6305,51 +6730,36 @@ namespace Datos.Models
                     .HasColumnName("nombre");
             });
 
-            modelBuilder.Entity<ProductosWeb>(entity =>
+            modelBuilder.Entity<ProveedorMetum>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => e.IdProveedorMeta)
+                    .HasName("PK__PROVEEDO__EC0B299ED05327E7");
 
-                entity.ToView("ProductosWeb");
+                entity.ToTable("PROVEEDOR_META");
 
-                entity.Property(e => e.Categoria)
-                    .IsRequired()
-                    .HasMaxLength(150)
-                    .IsUnicode(false)
-                    .HasColumnName("categoria");
+                entity.Property(e => e.IdProveedorMeta)
+                    .HasColumnType("numeric(10, 0)")
+                    .HasColumnName("ID_PROVEEDOR_META");
 
-                entity.Property(e => e.CodigoCategoria).HasColumnName("codigoCategoria");
+                entity.Property(e => e.Anulado)
+                    .HasColumnType("numeric(10, 0)")
+                    .HasColumnName("ANULADO");
 
-                entity.Property(e => e.Descripcion)
-                    .HasMaxLength(340)
-                    .HasColumnName("descripcion");
+                entity.Property(e => e.Codigoprov)
+                    .HasColumnType("numeric(10, 0)")
+                    .HasColumnName("CODIGOPROV");
 
-                entity.Property(e => e.DescuentoPromo).HasColumnName("descuentoPromo");
+                entity.Property(e => e.Fecha)
+                    .HasColumnType("datetime")
+                    .HasColumnName("FECHA");
 
-                entity.Property(e => e.Espesificaciones)
-                    .IsRequired()
-                    .HasMaxLength(1)
-                    .IsUnicode(false)
-                    .HasColumnName("espesificaciones");
+                entity.Property(e => e.Mensual).HasColumnName("MENSUAL");
 
-                entity.Property(e => e.Existencia).HasColumnName("existencia");
-
-                entity.Property(e => e.Imagen)
-                    .IsRequired()
-                    .HasMaxLength(33)
-                    .IsUnicode(false)
-                    .HasColumnName("imagen");
-
-                entity.Property(e => e.Mag).HasColumnName("MAG");
-
-                entity.Property(e => e.PrecioIva).HasColumnName("precioIVA");
-
-                entity.Property(e => e.PrecioIvamag).HasColumnName("precioIVAMAG");
-
-                entity.Property(e => e.PrecioIvapromo).HasColumnName("precioIVAPromo");
-
-                entity.Property(e => e.PrecioIvapromoMag).HasColumnName("precioIVAPromoMAG");
-
-                entity.Property(e => e.Promo).HasColumnName("promo");
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany(p => p.ProveedorMeta)
+                    .HasForeignKey(d => d.IdSucursal)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_PROVEEDOR_META_Sucursales");
             });
 
             modelBuilder.Entity<Proveedore>(entity =>
@@ -6472,6 +6882,31 @@ namespace Datos.Models
                 entity.Property(e => e.UtilidadInventario).HasColumnName("Utilidad_Inventario");
             });
 
+            modelBuilder.Entity<PuntodeVentum>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("PuntodeVenta");
+
+                entity.Property(e => e.BasedeDatos)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Descripcion)
+                    .IsRequired()
+                    .HasMaxLength(255);
+
+                entity.Property(e => e.IdPuntoVenta).HasColumnType("numeric(18, 0)");
+
+                entity.Property(e => e.PuntoVenta)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Relacion).HasColumnType("numeric(18, 0)");
+            });
+
             modelBuilder.Entity<Referenciabancarium>(entity =>
             {
                 entity.ToTable("referenciabancaria");
@@ -6498,6 +6933,12 @@ namespace Datos.Models
                     .HasForeignKey(d => d.Cliente)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_referenciabancaria_Clientes");
+
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany(p => p.Referenciabancaria)
+                    .HasForeignKey(d => d.IdSucursal)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_referenciabancaria_Sucursales");
             });
 
             modelBuilder.Entity<Referenciacomercial>(entity =>
@@ -6518,6 +6959,12 @@ namespace Datos.Models
                     .WithMany(p => p.Referenciacomercials)
                     .HasForeignKey(d => d.Cliente)
                     .HasConstraintName("FK_referenciacomercial_Clientes");
+
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany(p => p.Referenciacomercials)
+                    .HasForeignKey(d => d.IdSucursal)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_referenciacomercial_Sucursales");
             });
 
             modelBuilder.Entity<RegistroAnulacione>(entity =>
@@ -6553,6 +7000,12 @@ namespace Datos.Models
                     .HasColumnName("id_factura");
 
                 entity.Property(e => e.Justificacion).HasColumnName("justificacion");
+
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany()
+                    .HasForeignKey(d => d.IdSucursal)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_registro_anulaciones_Sucursales");
             });
 
             modelBuilder.Entity<RegistroPermisoAjuste>(entity =>
@@ -6585,6 +7038,12 @@ namespace Datos.Models
                 entity.Property(e => e.IdMovimiento)
                     .HasColumnType("numeric(18, 0)")
                     .HasColumnName("id_Movimiento");
+
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany()
+                    .HasForeignKey(d => d.IdSucursal)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_registro_PermisoAjuste_Sucursales");
             });
 
             modelBuilder.Entity<RegistroPermisohabilitar>(entity =>
@@ -6617,6 +7076,35 @@ namespace Datos.Models
                 entity.Property(e => e.Fecha)
                     .HasColumnType("datetime")
                     .HasColumnName("fecha");
+
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany()
+                    .HasForeignKey(d => d.IdSucursal)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_registro_Permisohabilitar_Sucursales");
+            });
+
+            modelBuilder.Entity<ReporteApartado>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("ReporteApartados");
+
+                entity.Property(e => e.Fecha).HasColumnType("datetime");
+
+                entity.Property(e => e.IdApartado).HasColumnName("Id_Apartado");
+
+                entity.Property(e => e.Nombre)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Nombrecliente)
+                    .IsRequired()
+                    .HasMaxLength(200)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Vence).HasColumnType("datetime");
             });
 
             modelBuilder.Entity<ReporteDescuento>(entity =>
@@ -6730,6 +7218,8 @@ namespace Datos.Models
                 entity.Property(e => e.IdAdelanto)
                     .HasColumnType("numeric(18, 0)")
                     .HasColumnName("Id_Adelanto");
+
+                entity.Property(e => e.IdEmpresa).HasColumnName("idEmpresa");
 
                 entity.Property(e => e.IdFactura).HasColumnName("Id_Factura");
 
@@ -6848,40 +7338,82 @@ namespace Datos.Models
                     .IsUnicode(false);
             });
 
-            modelBuilder.Entity<ReporteGerencialInventario1>(entity =>
+            modelBuilder.Entity<ReporteInventario>(entity =>
             {
-                entity.HasKey(e => e.Codigo);
+                entity.HasNoKey();
 
-                entity.ToTable("ReporteGerencialInventario");
-
-                entity.Property(e => e.Codigo).ValueGeneratedNever();
+                entity.ToView("Reporte_Inventarios");
 
                 entity.Property(e => e.Descripcion)
-                    .IsRequired()
-                    .HasMaxLength(255)
+                    .HasMaxLength(309)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Presentacion)
+                entity.Property(e => e.Familia)
                     .IsRequired()
+                    .HasMaxLength(150)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Iventa).HasColumnName("IVenta");
+
+                entity.Property(e => e.Marca)
                     .HasMaxLength(50)
                     .IsUnicode(false);
+
+                entity.Property(e => e.PrecioA).HasColumnName("Precio_A");
+
+                entity.Property(e => e.SubFamilia)
+                    .IsRequired()
+                    .HasMaxLength(150)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.TcCompra).HasColumnName("TC_Compra");
+
+                entity.Property(e => e.TcVenta).HasColumnName("TC_Venta");
+
+                entity.Property(e => e.Ubicacion)
+                    .HasMaxLength(150)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<ReporteInventarioXProveedor>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("Reporte_Inventario_X_Proveedor");
+
+                entity.Property(e => e.Descripcion)
+                    .HasMaxLength(309)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Familia)
+                    .IsRequired()
+                    .HasMaxLength(150)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Iventa).HasColumnName("IVenta");
+
+                entity.Property(e => e.Marca)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.PrecioA).HasColumnName("Precio_A");
 
                 entity.Property(e => e.Proveedor)
                     .IsRequired()
-                    .HasMaxLength(50)
+                    .HasMaxLength(250)
                     .IsUnicode(false);
+
+                entity.Property(e => e.SubFamilia)
+                    .IsRequired()
+                    .HasMaxLength(150)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.TcCompra).HasColumnName("TC_Compra");
+
+                entity.Property(e => e.TcVenta).HasColumnName("TC_Venta");
 
                 entity.Property(e => e.Ubicacion)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.UltimaCompra)
-                    .HasMaxLength(30)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.UltimaVenta)
-                    .HasMaxLength(30)
+                    .HasMaxLength(150)
                     .IsUnicode(false);
             });
 
@@ -6987,6 +7519,8 @@ namespace Datos.Models
                     .HasColumnType("numeric(18, 0)")
                     .HasColumnName("Id_Factura");
 
+                entity.Property(e => e.IdSucursal).HasColumnName("idSucursal");
+
                 entity.Property(e => e.IdUsuario)
                     .IsRequired()
                     .HasMaxLength(255);
@@ -7009,6 +7543,12 @@ namespace Datos.Models
                 entity.Property(e => e.NumFactura)
                     .HasColumnType("numeric(18, 0)")
                     .HasColumnName("Num_Factura");
+
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany(p => p.ResumenPuntos)
+                    .HasForeignKey(d => d.IdSucursal)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_ResumenPuntos_Sucursales");
             });
 
             modelBuilder.Entity<Rifa>(entity =>
@@ -7037,6 +7577,12 @@ namespace Datos.Models
                 entity.Property(e => e.Finalizada).HasColumnName("finalizada");
 
                 entity.Property(e => e.IdSucursal).HasColumnName("idSucursal");
+
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany(p => p.Rifas)
+                    .HasForeignKey(d => d.IdSucursal)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_rifa_Sucursales");
             });
 
             modelBuilder.Entity<RifaDetalle>(entity =>
@@ -7071,6 +7617,236 @@ namespace Datos.Models
                 entity.Property(e => e.IdCliente).HasColumnName("Id_Cliente");
             });
 
+            modelBuilder.Entity<SeguimientoEmpleadoDevolucione>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("Seguimiento_Empleado_Devoluciones");
+
+                entity.Property(e => e.Agente)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.CodMoneda).HasColumnName("Cod_Moneda");
+
+                entity.Property(e => e.DescuentoDevolucion).HasColumnName("Descuento_Devolucion");
+
+                entity.Property(e => e.DescuentoVentas).HasColumnName("Descuento_Ventas");
+
+                entity.Property(e => e.Empleado)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.ExcentoDevolucion).HasColumnName("Excento_Devolucion");
+
+                entity.Property(e => e.ExcentoVentas).HasColumnName("Excento_Ventas");
+
+                entity.Property(e => e.Fecha).HasColumnType("datetime");
+
+                entity.Property(e => e.IdFac).HasColumnName("Id_Fac");
+
+                entity.Property(e => e.ImpuestoDevolucion).HasColumnName("Impuesto_Devolucion");
+
+                entity.Property(e => e.ImpuestoVentas).HasColumnName("Impuesto_Ventas");
+
+                entity.Property(e => e.NombreCliente)
+                    .HasMaxLength(250)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.NumDoc).HasColumnName("Num_Doc");
+
+                entity.Property(e => e.SubtotalGravadoDevolucion).HasColumnName("SubtotalGravado_Devolucion");
+
+                entity.Property(e => e.SubtotalGravadoVentas).HasColumnName("SubtotalGravado_Ventas");
+
+                entity.Property(e => e.TipoCambio).HasColumnName("Tipo_Cambio");
+
+                entity.Property(e => e.TipoDoc)
+                    .IsRequired()
+                    .HasMaxLength(10)
+                    .IsUnicode(false)
+                    .HasColumnName("Tipo_Doc");
+
+                entity.Property(e => e.TipoFac)
+                    .HasMaxLength(3)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<SeguimientoEmpleadoTransporte>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("Seguimiento_Empleado_Transporte");
+
+                entity.Property(e => e.Agente)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.CodMoneda).HasColumnName("Cod_Moneda");
+
+                entity.Property(e => e.DescuentoDevolucion).HasColumnName("Descuento_Devolucion");
+
+                entity.Property(e => e.DescuentoVentas).HasColumnName("Descuento_Ventas");
+
+                entity.Property(e => e.Empleado)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.ExcentoDevolucion).HasColumnName("Excento_Devolucion");
+
+                entity.Property(e => e.ExcentoVentas).HasColumnName("Excento_Ventas");
+
+                entity.Property(e => e.Fecha).HasColumnType("datetime");
+
+                entity.Property(e => e.IdFac).HasColumnName("Id_Fac");
+
+                entity.Property(e => e.ImpuestoDevolucion).HasColumnName("Impuesto_Devolucion");
+
+                entity.Property(e => e.ImpuestoVentas).HasColumnName("Impuesto_Ventas");
+
+                entity.Property(e => e.NombreCliente)
+                    .IsRequired()
+                    .HasMaxLength(250)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.NumDoc).HasColumnName("Num_Doc");
+
+                entity.Property(e => e.SubtotalGravadoDevolucion).HasColumnName("SubtotalGravado_Devolucion");
+
+                entity.Property(e => e.SubtotalGravadoVentas).HasColumnName("SubtotalGravado_Ventas");
+
+                entity.Property(e => e.TipoCambio).HasColumnName("Tipo_Cambio");
+
+                entity.Property(e => e.TipoDoc)
+                    .IsRequired()
+                    .HasMaxLength(10)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.TipoFac)
+                    .IsRequired()
+                    .HasMaxLength(3)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<SeguimientoEmpleadoTransporteDevolucione>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("Seguimiento_Empleado_Transporte_Devoluciones");
+
+                entity.Property(e => e.Agente)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.CodMoneda).HasColumnName("Cod_Moneda");
+
+                entity.Property(e => e.DescuentoDevolucion).HasColumnName("Descuento_Devolucion");
+
+                entity.Property(e => e.DescuentoVentas).HasColumnName("Descuento_Ventas");
+
+                entity.Property(e => e.Empleado)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.ExcentoDevolucion).HasColumnName("Excento_Devolucion");
+
+                entity.Property(e => e.ExcentoVentas).HasColumnName("Excento_Ventas");
+
+                entity.Property(e => e.Fecha).HasColumnType("datetime");
+
+                entity.Property(e => e.IdFac).HasColumnName("Id_Fac");
+
+                entity.Property(e => e.ImpuestoDevolucion).HasColumnName("Impuesto_Devolucion");
+
+                entity.Property(e => e.ImpuestoVentas).HasColumnName("Impuesto_Ventas");
+
+                entity.Property(e => e.NombreCliente)
+                    .HasMaxLength(250)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.NumDoc).HasColumnName("Num_Doc");
+
+                entity.Property(e => e.SubtotalGravadoDevolucion).HasColumnName("SubtotalGravado_Devolucion");
+
+                entity.Property(e => e.SubtotalGravadoVentas).HasColumnName("SubtotalGravado_Ventas");
+
+                entity.Property(e => e.TipoCambio).HasColumnName("Tipo_Cambio");
+
+                entity.Property(e => e.TipoDoc)
+                    .IsRequired()
+                    .HasMaxLength(21)
+                    .IsUnicode(false)
+                    .HasColumnName("Tipo_Doc");
+
+                entity.Property(e => e.TipoFac)
+                    .HasMaxLength(3)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<SeguimientoEmpleadoVenta>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("Seguimiento_Empleado_Ventas");
+
+                entity.Property(e => e.Agente)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.CodMoneda).HasColumnName("Cod_Moneda");
+
+                entity.Property(e => e.DescuentoDevolucion).HasColumnName("Descuento_Devolucion");
+
+                entity.Property(e => e.DescuentoVentas).HasColumnName("Descuento_Ventas");
+
+                entity.Property(e => e.Empleado)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.ExcentoDevolucion).HasColumnName("Excento_Devolucion");
+
+                entity.Property(e => e.ExcentoVentas).HasColumnName("Excento_Ventas");
+
+                entity.Property(e => e.Fecha).HasColumnType("datetime");
+
+                entity.Property(e => e.IdFac).HasColumnName("Id_Fac");
+
+                entity.Property(e => e.ImpuestoDevolucion).HasColumnName("Impuesto_Devolucion");
+
+                entity.Property(e => e.ImpuestoVentas).HasColumnName("Impuesto_Ventas");
+
+                entity.Property(e => e.NombreCliente)
+                    .IsRequired()
+                    .HasMaxLength(250)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.NumDoc).HasColumnName("Num_Doc");
+
+                entity.Property(e => e.SubtotalGravadoDevolucion).HasColumnName("SubtotalGravado_Devolucion");
+
+                entity.Property(e => e.SubtotalGravadoVentas).HasColumnName("SubtotalGravado_Ventas");
+
+                entity.Property(e => e.TipoCambio).HasColumnName("Tipo_Cambio");
+
+                entity.Property(e => e.TipoDoc)
+                    .IsRequired()
+                    .HasMaxLength(5)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.TipoFac)
+                    .IsRequired()
+                    .HasMaxLength(3)
+                    .IsUnicode(false);
+            });
+
             modelBuilder.Entity<Serie>(entity =>
             {
                 entity.ToTable("Serie");
@@ -7088,6 +7864,8 @@ namespace Datos.Models
                     .HasColumnType("numeric(18, 0)")
                     .HasColumnName("factura");
 
+                entity.Property(e => e.IdSucursal).HasColumnName("idSucursal");
+
                 entity.Property(e => e.Serie1)
                     .IsRequired()
                     .HasMaxLength(255)
@@ -7095,167 +7873,12 @@ namespace Datos.Models
                     .HasDefaultValueSql("('')");
 
                 entity.Property(e => e.Vendido).HasColumnName("vendido");
-            });
 
-            modelBuilder.Entity<ServidorFtp>(entity =>
-            {
-                entity.ToTable("ServidorFTP");
-
-                entity.Property(e => e.Id).HasColumnType("numeric(18, 0)");
-
-                entity.Property(e => e.Clave)
-                    .IsRequired()
-                    .HasMaxLength(100)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.ClavePublica)
-                    .IsRequired()
-                    .HasMaxLength(100)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.LocalHost)
-                    .IsRequired()
-                    .HasMaxLength(100)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.TieneFtp).HasColumnName("TieneFTP");
-
-                entity.Property(e => e.Usuario)
-                    .IsRequired()
-                    .HasMaxLength(100)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.UsuarioPublico)
-                    .IsRequired()
-                    .HasMaxLength(100)
-                    .IsUnicode(false);
-            });
-
-            modelBuilder.Entity<Solicitud>(entity =>
-            {
-                entity.HasKey(e => e.Idsolicitud);
-
-                entity.ToTable("Solicitud");
-
-                entity.Property(e => e.Idsolicitud)
-                    .HasColumnType("numeric(18, 0)")
-                    .HasColumnName("idsolicitud");
-
-                entity.Property(e => e.Anulado).HasColumnName("anulado");
-
-                entity.Property(e => e.Descripcion)
-                    .IsRequired()
-                    .HasMaxLength(255)
-                    .HasColumnName("descripcion");
-
-                entity.Property(e => e.Fecha)
-                    .HasColumnType("datetime")
-                    .HasColumnName("fecha");
-
-                entity.Property(e => e.IdSucursal).HasColumnName("idSucursal");
-
-                entity.Property(e => e.IdUsuariocreo)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .HasColumnName("id_usuariocreo");
-            });
-
-            modelBuilder.Entity<Solicituddetalle>(entity =>
-            {
-                entity.HasKey(e => e.Idsolicituddetalle);
-
-                entity.ToTable("solicituddetalle");
-
-                entity.Property(e => e.Idsolicituddetalle)
-                    .HasColumnType("numeric(18, 0)")
-                    .ValueGeneratedOnAdd()
-                    .HasColumnName("idsolicituddetalle");
-
-                entity.Property(e => e.Cantidad).HasColumnName("cantidad");
-
-                entity.Property(e => e.CodArticulo)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .HasColumnName("cod_articulo");
-
-                entity.Property(e => e.Codigo)
-                    .HasColumnType("numeric(18, 0)")
-                    .HasColumnName("codigo");
-
-                entity.Property(e => e.Descripcion)
-                    .IsRequired()
-                    .HasMaxLength(255)
-                    .HasColumnName("descripcion");
-
-                entity.Property(e => e.Empaquetadoanulacion).HasColumnName("empaquetadoanulacion");
-
-                entity.Property(e => e.Empaquetadosolicitud).HasColumnName("empaquetadosolicitud");
-
-                entity.Property(e => e.Idsolicitud)
-                    .HasColumnType("numeric(18, 0)")
-                    .HasColumnName("idsolicitud");
-
-                entity.Property(e => e.Nota)
-                    .IsRequired()
-                    .HasMaxLength(255)
-                    .HasColumnName("nota");
-            });
-
-            modelBuilder.Entity<Sprestamo>(entity =>
-            {
-                entity.ToTable("SPrestamo");
-
-                entity.Property(e => e.Id).HasColumnName("ID");
-
-                entity.Property(e => e.Anulado).HasColumnName("anulado");
-
-                entity.Property(e => e.Boleta)
-                    .IsRequired()
-                    .HasMaxLength(10)
-                    .HasColumnName("boleta")
-                    .IsFixedLength(true);
-
-                entity.Property(e => e.BoletaProveedor)
-                    .IsRequired()
-                    .HasMaxLength(10)
-                    .HasDefaultValueSql("('')")
-                    .IsFixedLength(true);
-
-                entity.Property(e => e.Destinatario).HasColumnName("destinatario");
-
-                entity.Property(e => e.Destino).HasColumnName("destino");
-
-                entity.Property(e => e.Estado).HasColumnName("estado");
-
-                entity.Property(e => e.Fecha)
-                    .HasColumnType("datetime")
-                    .HasColumnName("fecha");
-
-                entity.Property(e => e.IdUsuariCreo)
-                    .IsRequired()
-                    .HasMaxLength(75)
-                    .HasColumnName("Id_UsuariCreo")
-                    .HasDefaultValueSql("('')");
-
-                entity.Property(e => e.NombreDestinatario)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .HasColumnName("nombre_destinatario");
-
-                entity.Property(e => e.NombreDestino)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .HasColumnName("nombre_destino");
-
-                entity.Property(e => e.Observacion)
-                    .HasMaxLength(350)
-                    .HasColumnName("observacion");
-
-                entity.Property(e => e.Transportista)
-                    .IsRequired()
-                    .HasMaxLength(10)
-                    .HasColumnName("transportista")
-                    .IsFixedLength(true);
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany(p => p.Series)
+                    .HasForeignKey(d => d.IdSucursal)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Serie_Sucursales");
             });
 
             modelBuilder.Entity<SubFamilia>(entity =>
@@ -7316,101 +7939,35 @@ namespace Datos.Models
 
             modelBuilder.Entity<Sucursale>(entity =>
             {
-                entity.Property(e => e.Id).HasColumnName("id");
+                entity.Property(e => e.Id).ValueGeneratedNever();
 
                 entity.Property(e => e.Alias)
                     .IsRequired()
-                    .HasMaxLength(50);
+                    .HasMaxLength(30);
 
-                entity.Property(e => e.Direccion).IsRequired();
+                entity.Property(e => e.Email)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .HasColumnName("email");
 
                 entity.Property(e => e.NombreComercial)
                     .IsRequired()
-                    .HasMaxLength(100);
+                    .HasMaxLength(100)
+                    .HasColumnName("Nombre Comercial");
 
                 entity.Property(e => e.NombreFiscal)
                     .IsRequired()
-                    .HasMaxLength(100);
+                    .HasMaxLength(100)
+                    .HasColumnName("Nombre Fiscal");
+
+                entity.Property(e => e.NumeroDocumento)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .HasColumnName("Numero Documento");
 
                 entity.Property(e => e.Telefono)
                     .IsRequired()
-                    .HasMaxLength(20);
-            });
-
-            modelBuilder.Entity<TemBodega>(entity =>
-            {
-                entity.HasNoKey();
-
-                entity.ToTable("Tem_Bodegas");
-
-                entity.Property(e => e.Address)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .IsFixedLength(true);
-
-                entity.Property(e => e.BirthDate)
-                    .HasColumnType("datetime")
-                    .HasColumnName("Birth_Date");
-
-                entity.Property(e => e.City)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .IsFixedLength(true);
-
-                entity.Property(e => e.Country)
-                    .HasMaxLength(25)
-                    .IsUnicode(false)
-                    .IsFixedLength(true);
-
-                entity.Property(e => e.FirstName)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("First_Name")
-                    .IsFixedLength(true);
-
-                entity.Property(e => e.LastName)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("Last_Name")
-                    .IsFixedLength(true);
-            });
-
-            modelBuilder.Entity<TemBodegasConsignada>(entity =>
-            {
-                entity.HasNoKey();
-
-                entity.ToTable("Tem_BodegasConsignadas");
-
-                entity.Property(e => e.Address)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .IsFixedLength(true);
-
-                entity.Property(e => e.BirthDate)
-                    .HasColumnType("datetime")
-                    .HasColumnName("Birth_Date");
-
-                entity.Property(e => e.City)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .IsFixedLength(true);
-
-                entity.Property(e => e.Country)
-                    .HasMaxLength(25)
-                    .IsUnicode(false)
-                    .IsFixedLength(true);
-
-                entity.Property(e => e.FirstName)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("First_Name")
-                    .IsFixedLength(true);
-
-                entity.Property(e => e.LastName)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("Last_Name")
-                    .IsFixedLength(true);
+                    .HasMaxLength(50);
             });
 
             modelBuilder.Entity<Temp1>(entity =>
@@ -7434,21 +7991,6 @@ namespace Datos.Models
                     .HasColumnName("Desc_Articulo");
 
                 entity.Property(e => e.Fecha).HasColumnType("datetime");
-            });
-
-            modelBuilder.Entity<Tempcaby>(entity =>
-            {
-                entity.HasNoKey();
-
-                entity.ToTable("tempcabys");
-
-                entity.Property(e => e.Barras)
-                    .HasMaxLength(50)
-                    .HasColumnName("barras");
-
-                entity.Property(e => e.Cabys)
-                    .HasMaxLength(50)
-                    .HasColumnName("cabys");
             });
 
             modelBuilder.Entity<TemperaturaCamara>(entity =>
@@ -7475,24 +8017,6 @@ namespace Datos.Models
                 entity.Property(e => e.Temperatura)
                     .IsRequired()
                     .HasMaxLength(50);
-            });
-
-            modelBuilder.Entity<TipoExoneracion>(entity =>
-            {
-                entity.HasKey(e => e.IdTipoExoneracion);
-
-                entity.ToTable("TipoExoneracion");
-
-                entity.Property(e => e.IdTipoExoneracion).HasColumnType("numeric(18, 0)");
-
-                entity.Property(e => e.Codigo)
-                    .IsRequired()
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.TipoExoneracion1)
-                    .IsRequired()
-                    .HasMaxLength(500)
-                    .HasColumnName("TipoExoneracion");
             });
 
             modelBuilder.Entity<TipoTarjetum>(entity =>
@@ -7564,19 +8088,25 @@ namespace Datos.Models
                     .HasDefaultValueSql("('--')");
             });
 
-            modelBuilder.Entity<Toma1>(entity =>
+            modelBuilder.Entity<TokenPermisoNegativo>(entity =>
             {
-                entity.HasNoKey();
+                entity.ToTable("TokenPermisoNegativo");
 
-                entity.ToTable("TOMA1");
+                entity.Property(e => e.Id)
+                    .HasColumnType("numeric(18, 0)")
+                    .ValueGeneratedOnAdd();
 
-                entity.Property(e => e.CodArticulo).HasColumnName("Cod_Articulo");
+                entity.Property(e => e.Codigo).HasColumnType("numeric(18, 0)");
 
-                entity.Property(e => e.CodArticulo1).HasColumnName("CodArticulo");
+                entity.Property(e => e.Fecha).HasColumnType("datetime");
 
-                entity.Property(e => e.DescArticulo)
-                    .HasMaxLength(255)
-                    .HasColumnName("Desc_Articulo");
+                entity.Property(e => e.IdUsuarioSolicita)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.Token)
+                    .IsRequired()
+                    .HasMaxLength(255);
             });
 
             modelBuilder.Entity<TomaGeneral>(entity =>
@@ -7591,9 +8121,13 @@ namespace Datos.Models
 
                 entity.Property(e => e.Fecha).HasColumnType("datetime");
 
-                entity.Property(e => e.IdSucursal).HasColumnName("idSucursal");
-
                 entity.Property(e => e.NumeroAjuste).HasColumnType("numeric(18, 0)");
+
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany(p => p.TomaGenerals)
+                    .HasForeignKey(d => d.IdSucursal)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_TomaGeneral_Sucursales");
             });
 
             modelBuilder.Entity<TomaGeneralDetalle>(entity =>
@@ -7634,12 +8168,16 @@ namespace Datos.Models
 
                 entity.Property(e => e.Fecha).HasColumnType("datetime");
 
-                entity.Property(e => e.IdSucursal).HasColumnName("idSucursal");
-
                 entity.Property(e => e.IdUsuarioCreo)
                     .IsRequired()
                     .HasMaxLength(50)
                     .HasColumnName("Id_UsuarioCreo");
+
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany(p => p.TomaProveedors)
+                    .HasForeignKey(d => d.IdSucursal)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_TomaProveedor_Sucursales");
             });
 
             modelBuilder.Entity<TomaProveedorDetalle>(entity =>
@@ -7711,6 +8249,12 @@ namespace Datos.Models
                     .IsRequired()
                     .HasMaxLength(500)
                     .IsUnicode(false);
+
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany(p => p.TrasladoPuntoVenta)
+                    .HasForeignKey(d => d.IdSucursal)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_TrasladoPuntoVenta_Sucursales");
             });
 
             modelBuilder.Entity<Ubicacione>(entity =>
@@ -7728,10 +8272,18 @@ namespace Datos.Models
                     .HasMaxLength(250)
                     .IsUnicode(false);
 
+                entity.Property(e => e.IdSucursal).HasColumnName("idSucursal");
+
                 entity.Property(e => e.Observaciones)
                     .IsRequired()
                     .HasMaxLength(250)
                     .IsUnicode(false);
+
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany(p => p.Ubicaciones)
+                    .HasForeignKey(d => d.IdSucursal)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Ubicaciones_Sucursales");
             });
 
             modelBuilder.Entity<UltimoAbonoapartado>(entity =>
@@ -7761,6 +8313,73 @@ namespace Datos.Models
                     .IsRequired()
                     .HasMaxLength(3)
                     .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<Unido>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToTable("unidos");
+
+                entity.Property(e => e.Codigo).HasColumnName("CODIGO");
+
+                entity.Property(e => e.Familia)
+                    .HasMaxLength(255)
+                    .HasColumnName("FAMILIA");
+
+                entity.Property(e => e.Ubicación)
+                    .HasMaxLength(255)
+                    .HasColumnName("UBICACIÓN");
+            });
+
+            modelBuilder.Entity<Usuario>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("Usuarios");
+
+                entity.Property(e => e.AplicarDesc).HasColumnName("Aplicar_Desc");
+
+                entity.Property(e => e.Cedula)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.ClaveEntrada)
+                    .IsRequired()
+                    .HasMaxLength(500)
+                    .IsUnicode(false)
+                    .HasColumnName("Clave_Entrada");
+
+                entity.Property(e => e.ClaveInterna)
+                    .IsRequired()
+                    .HasMaxLength(500)
+                    .IsUnicode(false)
+                    .HasColumnName("Clave_Interna");
+
+                entity.Property(e => e.ExistNegativa).HasColumnName("Exist_Negativa");
+
+                entity.Property(e => e.Foto).HasColumnType("image");
+
+                entity.Property(e => e.IdUsuario)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasColumnName("Id_Usuario");
+
+                entity.Property(e => e.Iniciales)
+                    .IsRequired()
+                    .HasMaxLength(4)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Nombre)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.PorcDesc).HasColumnName("Porc_Desc");
+
+                entity.Property(e => e.PorcPrecio).HasColumnName("Porc_Precio");
             });
 
             modelBuilder.Entity<ValidaFirmadocontado>(entity =>
@@ -7818,8 +8437,6 @@ namespace Datos.Models
                 entity.HasIndex(e => new { e.NumFactura, e.Tipo, e.NumCaja }, "IX_Ventas")
                     .IsUnique()
                     .IsClustered();
-
-                entity.HasIndex(e => new { e.Fecha, e.Tipo }, "indexviewfacturascredito");
 
                 entity.Property(e => e.Agente).HasColumnName("agente");
 
@@ -7879,6 +8496,8 @@ namespace Datos.Models
                     .HasMaxLength(250)
                     .IsUnicode(false);
 
+                entity.Property(e => e.EnProcesoIncobrable).HasDefaultValueSql("((0))");
+
                 entity.Property(e => e.EnviadoMh).HasColumnName("EnviadoMH");
 
                 entity.Property(e => e.EstadoMh)
@@ -7900,6 +8519,8 @@ namespace Datos.Models
                 entity.Property(e => e.IdAdelanto)
                     .HasColumnType("numeric(18, 0)")
                     .HasColumnName("Id_Adelanto");
+
+                entity.Property(e => e.IdEmpresa).HasColumnName("idEmpresa");
 
                 entity.Property(e => e.IdFacturaRemplaza)
                     .HasColumnType("numeric(18, 0)")
@@ -7965,6 +8586,17 @@ namespace Datos.Models
                     .HasDefaultValueSql("('')");
 
                 entity.Property(e => e.Vence).HasColumnType("smalldatetime");
+
+                entity.HasOne(d => d.CodClienteNavigation)
+                    .WithMany(p => p.Venta)
+                    .HasForeignKey(d => d.CodCliente)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Ventas_Clientes");
+
+                entity.HasOne(d => d.IdSucursalNavigation)
+                    .WithMany(p => p.Venta)
+                    .HasForeignKey(d => d.IdSucursal)
+                    .HasConstraintName("FK_Ventas_Sucursales");
             });
 
             modelBuilder.Entity<VentasContado>(entity =>
@@ -8036,10 +8668,6 @@ namespace Datos.Models
                 entity.HasKey(e => e.IdVentaDetalle);
 
                 entity.ToTable("Ventas_Detalle");
-
-                entity.HasIndex(e => e.Codigo, "ncBuscarporCodigo");
-
-                entity.HasIndex(e => e.IdFactura, "nc_BuscarxId_Factura");
 
                 entity.Property(e => e.IdVentaDetalle).HasColumnName("id_venta_detalle");
 
@@ -8132,7 +8760,7 @@ namespace Datos.Models
                     .WithMany(p => p.VentasDetalles)
                     .HasForeignKey(d => d.Codigo)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Ventas_Detalle_Inventario");
+                    .HasConstraintName("FK_Ventas_Detalle_Inventario1");
 
                 entity.HasOne(d => d.IdFacturaNavigation)
                     .WithMany(p => p.VentasDetalles)
@@ -8268,82 +8896,19 @@ namespace Datos.Models
                 entity.Property(e => e.TipoCambio).HasColumnName("Tipo_Cambio");
             });
 
-            modelBuilder.Entity<ViewAdelantosAutorizado>(entity =>
+            modelBuilder.Entity<ViewAbonosIncobrable>(entity =>
             {
                 entity.HasNoKey();
 
-                entity.ToView("viewAdelantosAutorizados");
+                entity.ToView("viewAbonosIncobrables");
 
-                entity.Property(e => e.Agente).HasColumnName("agente");
-
-                entity.Property(e => e.Apartado).HasColumnName("apartado");
-
-                entity.Property(e => e.BasedeDatos)
+                entity.Property(e => e.Db)
                     .IsRequired()
-                    .HasMaxLength(7)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Cedula)
-                    .HasMaxLength(100)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.CedulaUsuario)
-                    .IsRequired()
-                    .HasMaxLength(75)
+                    .HasMaxLength(6)
                     .IsUnicode(false)
-                    .HasColumnName("Cedula_Usuario");
+                    .HasColumnName("db");
 
-                entity.Property(e => e.ClaveMh)
-                    .IsRequired()
-                    .HasMaxLength(100)
-                    .IsUnicode(false)
-                    .HasColumnName("ClaveMH");
-
-                entity.Property(e => e.CodAgente).HasColumnName("cod_agente");
-
-                entity.Property(e => e.CodCliente).HasColumnName("Cod_Cliente");
-
-                entity.Property(e => e.CodEncargadoCompra)
-                    .IsRequired()
-                    .HasMaxLength(75)
-                    .IsUnicode(false)
-                    .HasColumnName("Cod_Encargado_Compra");
-
-                entity.Property(e => e.CodMoneda).HasColumnName("Cod_Moneda");
-
-                entity.Property(e => e.ConsecutivoMh)
-                    .IsRequired()
-                    .HasMaxLength(100)
-                    .IsUnicode(false)
-                    .HasColumnName("ConsecutivoMH");
-
-                entity.Property(e => e.ContabilizadoCventa).HasColumnName("ContabilizadoCVenta");
-
-                entity.Property(e => e.Direccion)
-                    .IsRequired()
-                    .HasMaxLength(250)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.EnviadoMh).HasColumnName("EnviadoMH");
-
-                entity.Property(e => e.EstadoMh)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .HasColumnName("EstadoMH");
-
-                entity.Property(e => e.ExcluirCxC).HasColumnName("excluirCxC");
-
-                entity.Property(e => e.Fecha).HasColumnType("datetime");
-
-                entity.Property(e => e.Id).ValueGeneratedOnAdd();
-
-                entity.Property(e => e.ImpVenta).HasColumnName("Imp_Venta");
-
-                entity.Property(e => e.MonedaNombre)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("Moneda_Nombre");
+                entity.Property(e => e.FechaRecibo).HasColumnType("datetime");
 
                 entity.Property(e => e.NombreCliente)
                     .IsRequired()
@@ -8351,40 +8916,14 @@ namespace Datos.Models
                     .IsUnicode(false)
                     .HasColumnName("Nombre_Cliente");
 
-                entity.Property(e => e.NumApertura).HasColumnName("Num_Apertura");
-
-                entity.Property(e => e.NumCaja).HasColumnName("Num_Caja");
-
-                entity.Property(e => e.NumFactura).HasColumnName("Num_Factura");
+                entity.Property(e => e.NumRecibo).HasColumnName("Num_Recibo");
 
                 entity.Property(e => e.Observaciones)
-                    .HasMaxLength(500)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Orden)
                     .IsRequired()
-                    .HasMaxLength(75)
+                    .HasMaxLength(255)
                     .IsUnicode(false);
 
-                entity.Property(e => e.PagoComision).HasColumnName("Pago_Comision");
-
-                entity.Property(e => e.Telefono)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Tipo)
-                    .IsRequired()
-                    .HasMaxLength(3)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.TipoCambio).HasColumnName("Tipo_Cambio");
-
-                entity.Property(e => e.TipoCedula)
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Vence).HasColumnType("smalldatetime");
+                entity.Property(e => e.SaldoAnt).HasColumnName("Saldo_Ant");
             });
 
             modelBuilder.Entity<ViewApartadosActivo>(entity =>
@@ -8438,6 +8977,55 @@ namespace Datos.Models
                 entity.Property(e => e.Observaciones)
                     .IsRequired()
                     .HasMaxLength(255);
+            });
+
+            modelBuilder.Entity<ViewAreasEncargado>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("viewAreasEncargados");
+
+                entity.Property(e => e.Cedula)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.IdArea).HasColumnType("numeric(18, 0)");
+
+                entity.Property(e => e.Nombre)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<ViewArticulosCaby>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("viewArticulosCabys");
+
+                entity.Property(e => e.Barras)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.BienoServicio).HasMaxLength(255);
+
+                entity.Property(e => e.CodArticulo)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false)
+                    .HasColumnName("Cod_Articulo");
+
+                entity.Property(e => e.Codcabys)
+                    .IsRequired()
+                    .HasMaxLength(30)
+                    .HasColumnName("CODCABYS");
+
+                entity.Property(e => e.Descripcion)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<ViewArticulosDescuento>(entity =>
@@ -8514,36 +9102,46 @@ namespace Datos.Models
                 entity.Property(e => e.NumCaja).HasColumnName("Num_Caja");
             });
 
-            modelBuilder.Entity<ViewCartaExoneracion>(entity =>
+            modelBuilder.Entity<ViewCambiosInventario>(entity =>
             {
                 entity.HasNoKey();
 
-                entity.ToView("viewCartaExoneracion");
+                entity.ToView("viewCambiosInventario");
 
-                entity.Property(e => e.FechaEmision).HasColumnType("datetime");
-
-                entity.Property(e => e.FechaVence).HasColumnType("datetime");
-
-                entity.Property(e => e.Id).HasColumnType("numeric(18, 0)");
-
-                entity.Property(e => e.Nombre)
+                entity.Property(e => e.CodArticuloE)
                     .IsRequired()
                     .HasMaxLength(255)
                     .IsUnicode(false)
-                    .HasColumnName("nombre");
+                    .HasColumnName("Cod_ArticuloE");
 
-                entity.Property(e => e.Nota)
+                entity.Property(e => e.CodArticulof)
                     .IsRequired()
-                    .HasMaxLength(255);
+                    .HasMaxLength(255)
+                    .IsUnicode(false)
+                    .HasColumnName("Cod_Articulof");
 
-                entity.Property(e => e.NumeroDocumento)
+                entity.Property(e => e.DescripcionE)
                     .IsRequired()
                     .HasMaxLength(255)
                     .IsUnicode(false);
 
-                entity.Property(e => e.TipoExoneracion)
+                entity.Property(e => e.Descripcionf)
                     .IsRequired()
-                    .HasMaxLength(500);
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Fecha).HasColumnType("datetime");
+
+                entity.Property(e => e.Id).HasColumnType("numeric(18, 0)");
+
+                entity.Property(e => e.IdUsuario)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.Usuario)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<ViewComprasDevolucionesAnuale>(entity =>
@@ -8656,6 +9254,45 @@ namespace Datos.Models
                 entity.ToView("viewDevoluciones");
 
                 entity.Property(e => e.IdFactura).HasColumnName("Id_Factura");
+            });
+
+            modelBuilder.Entity<ViewDevolucionesDetallada>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("viewDevolucionesDetalladas");
+
+                entity.Property(e => e.CajaDevolucion).HasColumnType("numeric(18, 0)");
+
+                entity.Property(e => e.Cliente)
+                    .IsRequired()
+                    .HasMaxLength(250)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.FechaDevolucion).HasColumnType("datetime");
+
+                entity.Property(e => e.FechaFactura).HasColumnType("datetime");
+
+                entity.Property(e => e.NotasDevolucion).HasMaxLength(500);
+
+                entity.Property(e => e.TipoFactura)
+                    .IsRequired()
+                    .HasMaxLength(3)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.UsuarioDevolvio)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.UsuarioFacturo)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.UsuarioRecibio)
+                    .IsRequired()
+                    .HasMaxLength(255);
             });
 
             modelBuilder.Entity<ViewEmpresasInterna>(entity =>
@@ -8968,6 +9605,40 @@ namespace Datos.Models
                 entity.Property(e => e.Vence).HasColumnType("smalldatetime");
             });
 
+            modelBuilder.Entity<ViewFacturasArchivada>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("viewFacturasArchivadas");
+
+                entity.Property(e => e.Fecha).HasColumnType("datetime");
+
+                entity.Property(e => e.FechaArchivo).HasColumnType("datetime");
+
+                entity.Property(e => e.NombreCliente)
+                    .IsRequired()
+                    .HasMaxLength(250)
+                    .IsUnicode(false)
+                    .HasColumnName("Nombre_Cliente");
+
+                entity.Property(e => e.NumFactura).HasColumnName("Num_Factura");
+
+                entity.Property(e => e.Tipo)
+                    .IsRequired()
+                    .HasMaxLength(3)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.UsuarioArchivo)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.UsuarioCreo)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+            });
+
             modelBuilder.Entity<ViewFacturasPendientesPagada>(entity =>
             {
                 entity.HasNoKey();
@@ -9044,36 +9715,6 @@ namespace Datos.Models
                 entity.Property(e => e.Vence).HasColumnType("datetime");
             });
 
-            modelBuilder.Entity<ViewImpuesto>(entity =>
-            {
-                entity.HasNoKey();
-
-                entity.ToView("viewImpuestos");
-
-                entity.Property(e => e.CodigoImpuesto)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .HasColumnName("Codigo_Impuesto");
-
-                entity.Property(e => e.CodigoTarifa)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .HasColumnName("Codigo_Tarifa");
-
-                entity.Property(e => e.IdImpuesto)
-                    .HasColumnType("numeric(18, 0)")
-                    .ValueGeneratedOnAdd()
-                    .HasColumnName("Id_Impuesto");
-
-                entity.Property(e => e.Impuesto)
-                    .IsRequired()
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.Simbolo)
-                    .IsRequired()
-                    .HasMaxLength(50);
-            });
-
             modelBuilder.Entity<ViewListaMag>(entity =>
             {
                 entity.HasNoKey();
@@ -9091,20 +9732,59 @@ namespace Datos.Models
                 entity.Property(e => e.Iventa).HasColumnName("IVenta");
             });
 
-            modelBuilder.Entity<ViewMensajeReceptor>(entity =>
+            modelBuilder.Entity<ViewMovimientoSerie>(entity =>
             {
                 entity.HasNoKey();
 
-                entity.ToView("viewMensajeReceptor");
+                entity.ToView("viewMovimientoSerie");
 
-                entity.Property(e => e.CedulaEmisor)
+                entity.Property(e => e.Boleta).HasColumnType("numeric(18, 0)");
+
+                entity.Property(e => e.Fecha).HasColumnType("datetime");
+
+                entity.Property(e => e.Id).HasColumnType("numeric(18, 0)");
+
+                entity.Property(e => e.IdSerie).HasColumnType("numeric(18, 0)");
+
+                entity.Property(e => e.IdUsuario)
                     .IsRequired()
-                    .HasMaxLength(50)
+                    .HasMaxLength(75);
+
+                entity.Property(e => e.Observacion)
+                    .IsRequired()
+                    .HasMaxLength(500);
+
+                entity.Property(e => e.Serie)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .HasColumnName("serie");
+
+                entity.Property(e => e.Usuario)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<ViewPedidosBodega>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("viewPedidosBodega");
+
+                entity.Property(e => e.CasaComercial)
+                    .IsRequired()
+                    .HasMaxLength(250)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Clave)
+                entity.Property(e => e.CodArticulo)
                     .IsRequired()
-                    .HasMaxLength(50)
+                    .HasMaxLength(255)
+                    .IsUnicode(false)
+                    .HasColumnName("Cod_Articulo");
+
+                entity.Property(e => e.Descripcion)
+                    .IsRequired()
+                    .HasMaxLength(255)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Estado)
@@ -9112,16 +9792,52 @@ namespace Datos.Models
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-                entity.Property(e => e.FechaEmision).HasColumnType("datetime");
+                entity.Property(e => e.FechaPedido).HasColumnType("datetime");
 
-                entity.Property(e => e.Mensaje)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
+                entity.Property(e => e.FechaSolicitud).HasColumnType("datetime");
 
-                entity.Property(e => e.NombreEmisor)
+                entity.Property(e => e.IdPedido).HasColumnType("numeric(18, 0)");
+
+                entity.Property(e => e.Observaciones)
                     .IsRequired()
                     .HasMaxLength(1000);
+
+                entity.Property(e => e.Proveedor)
+                    .HasMaxLength(250)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.UsuarioSolicito)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<ViewPreTomaProveedor>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("viewPreTomaProveedor");
+
+                entity.Property(e => e.CodigoProv).HasColumnType("numeric(18, 0)");
+
+                entity.Property(e => e.Fecha).HasColumnType("datetime");
+
+                entity.Property(e => e.Id).HasColumnType("numeric(18, 0)");
+
+                entity.Property(e => e.IdUsuarioCreo)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .HasColumnName("Id_UsuarioCreo");
+
+                entity.Property(e => e.Proveedor)
+                    .IsRequired()
+                    .HasMaxLength(250)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Usuario)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<ViewPrestamo>(entity =>
@@ -9263,45 +9979,111 @@ namespace Datos.Models
                 entity.Property(e => e.Series).HasMaxLength(255);
             });
 
-            modelBuilder.Entity<ViewSubtotalDetalle>(entity =>
+            modelBuilder.Entity<ViewSeriesVendida>(entity =>
             {
                 entity.HasNoKey();
 
-                entity.ToView("viewSubtotalDetalle");
+                entity.ToView("viewSeriesVendidas");
 
-                entity.Property(e => e.IdFactura).HasColumnName("Id_Factura");
+                entity.Property(e => e.CodArticulo)
+                    .IsRequired()
+                    .HasMaxLength(250)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Descripcion)
+                    .IsRequired()
+                    .HasMaxLength(250)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Fecha).HasColumnType("datetime");
+
+                entity.Property(e => e.Id)
+                    .HasColumnType("numeric(18, 0)")
+                    .HasColumnName("id");
+
+                entity.Property(e => e.NombreCliente)
+                    .IsRequired()
+                    .HasMaxLength(250)
+                    .IsUnicode(false)
+                    .HasColumnName("Nombre_Cliente");
+
+                entity.Property(e => e.NumFactura).HasColumnName("Num_Factura");
+
+                entity.Property(e => e.Serie)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .HasColumnName("serie");
+
+                entity.Property(e => e.Tipo)
+                    .IsRequired()
+                    .HasMaxLength(3)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Vendedor)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
             });
 
-            modelBuilder.Entity<ViewSubtotalesDevolucione>(entity =>
+            modelBuilder.Entity<ViewTemperaturaCamara>(entity =>
             {
                 entity.HasNoKey();
 
-                entity.ToView("viewSubtotalesDevoluciones");
+                entity.ToView("viewTemperaturaCamara");
+
+                entity.Property(e => e.Fecha).HasColumnType("datetime");
+
+                entity.Property(e => e.Horario)
+                    .IsRequired()
+                    .HasMaxLength(10)
+                    .IsFixedLength(true);
+
+                entity.Property(e => e.Id).HasColumnType("numeric(18, 0)");
+
+                entity.Property(e => e.IdUsuario)
+                    .IsRequired()
+                    .HasMaxLength(75)
+                    .HasColumnName("Id_Usuario");
+
+                entity.Property(e => e.Temperatura)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.Usuario)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
             });
 
-            modelBuilder.Entity<ViewSubtotalesDevoluciones43>(entity =>
+            modelBuilder.Entity<ViewTokenSolicitado>(entity =>
             {
                 entity.HasNoKey();
 
-                entity.ToView("viewSubtotalesDevoluciones43");
-            });
+                entity.ToView("viewTokenSolicitados");
 
-            modelBuilder.Entity<ViewSubtotalesFactura>(entity =>
-            {
-                entity.HasNoKey();
+                entity.Property(e => e.Codigo).HasColumnType("numeric(18, 0)");
 
-                entity.ToView("viewSubtotalesFactura");
+                entity.Property(e => e.Descripcion)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
 
-                entity.Property(e => e.IdFactura).HasColumnName("Id_Factura");
-            });
+                entity.Property(e => e.Fecha).HasColumnType("datetime");
 
-            modelBuilder.Entity<ViewSubtotalesFactura43>(entity =>
-            {
-                entity.HasNoKey();
+                entity.Property(e => e.Id).HasColumnType("numeric(18, 0)");
 
-                entity.ToView("viewSubtotalesFactura43");
+                entity.Property(e => e.IdUsuarioSolicita)
+                    .IsRequired()
+                    .HasMaxLength(50);
 
-                entity.Property(e => e.IdFactura).HasColumnName("Id_Factura");
+                entity.Property(e => e.Token)
+                    .IsRequired()
+                    .HasMaxLength(255);
+
+                entity.Property(e => e.UsuarioSolicita)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<ViewTomaGeneral>(entity =>
@@ -9329,6 +10111,65 @@ namespace Datos.Models
                 entity.Property(e => e.SubUbicacion)
                     .IsRequired()
                     .HasMaxLength(10)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<ViewTomaProveedor>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("viewTomaProveedor");
+
+                entity.Property(e => e.CodigoProv).HasColumnType("numeric(18, 0)");
+
+                entity.Property(e => e.Fecha).HasColumnType("datetime");
+
+                entity.Property(e => e.Id).HasColumnType("numeric(18, 0)");
+
+                entity.Property(e => e.IdUsuarioCreo)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .HasColumnName("Id_UsuarioCreo");
+
+                entity.Property(e => e.Proveedor)
+                    .IsRequired()
+                    .HasMaxLength(250)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Usuario)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<ViewTrasladoPuntoVentum>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("viewTrasladoPuntoVenta");
+
+                entity.Property(e => e.Destino)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Fecha).HasColumnType("datetime");
+
+                entity.Property(e => e.Id).HasColumnType("numeric(18, 0)");
+
+                entity.Property(e => e.Observaciones)
+                    .IsRequired()
+                    .HasMaxLength(500)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Origen)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Usuario)
+                    .IsRequired()
+                    .HasMaxLength(255)
                     .IsUnicode(false);
             });
 
@@ -9556,6 +10397,40 @@ namespace Datos.Models
                 entity.Property(e => e.SaldoCuenta).HasColumnName("Saldo_Cuenta");
             });
 
+            modelBuilder.Entity<VistaAnulado>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("vista_anulados");
+
+                entity.Property(e => e.Administrador)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Descripcion)
+                    .IsRequired()
+                    .HasMaxLength(75)
+                    .IsUnicode(false)
+                    .HasColumnName("descripcion");
+
+                entity.Property(e => e.Fecha)
+                    .HasColumnType("datetime")
+                    .HasColumnName("fecha");
+
+                entity.Property(e => e.Nombre)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.NumFactura).HasColumnName("Num_Factura");
+
+                entity.Property(e => e.Tipo)
+                    .IsRequired()
+                    .HasMaxLength(3)
+                    .IsUnicode(false);
+            });
+
             modelBuilder.Entity<VistaArmamento>(entity =>
             {
                 entity.HasNoKey();
@@ -9589,6 +10464,43 @@ namespace Datos.Models
                 entity.Property(e => e.NumFactura).HasColumnName("Num_Factura");
 
                 entity.Property(e => e.PrecioUnit).HasColumnName("Precio_Unit");
+            });
+
+            modelBuilder.Entity<VistaCajerosDisponiblesAbrirCaja>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("Vista_Cajeros_Disponibles_Abrir_Caja");
+
+                entity.Property(e => e.Cedula)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Nombre)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<VistaCodigoBarraDuplicado>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("Vista_Codigo_Barra_Duplicado");
+
+                entity.Property(e => e.Barras)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Descripcion)
+                    .HasMaxLength(341)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Marca)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<VistaComprasCredito>(entity =>
@@ -9653,6 +10565,63 @@ namespace Datos.Models
                     .IsFixedLength(true);
 
                 entity.Property(e => e.Vence).HasColumnType("datetime");
+            });
+
+            modelBuilder.Entity<VistaEntrega>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("vista_entrega");
+
+                entity.Property(e => e.Barras)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Barras2)
+                    .HasMaxLength(255)
+                    .IsUnicode(false)
+                    .HasColumnName("barras2");
+
+                entity.Property(e => e.Barras3)
+                    .HasMaxLength(255)
+                    .IsUnicode(false)
+                    .HasColumnName("barras3");
+
+                entity.Property(e => e.CedulaUsuario)
+                    .IsRequired()
+                    .HasMaxLength(75)
+                    .IsUnicode(false)
+                    .HasColumnName("Cedula_Usuario");
+
+                entity.Property(e => e.CodArticulo)
+                    .IsRequired()
+                    .HasMaxLength(250)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Descripcion)
+                    .IsRequired()
+                    .HasMaxLength(250)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.IdFactura).HasColumnName("Id_Factura");
+
+                entity.Property(e => e.IdFactura1)
+                    .HasColumnType("numeric(18, 0)")
+                    .HasColumnName("IdFactura");
+
+                entity.Property(e => e.Nombre)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.NombreCliente)
+                    .IsRequired()
+                    .HasMaxLength(250)
+                    .IsUnicode(false)
+                    .HasColumnName("Nombre_Cliente");
+
+                entity.Property(e => e.NumFactura).HasColumnName("Num_Factura");
             });
 
             modelBuilder.Entity<VistaFactura>(entity =>
@@ -10199,6 +11168,40 @@ namespace Datos.Models
                 entity.Property(e => e.FechaIngreso).HasColumnType("datetime");
 
                 entity.Property(e => e.IdArticuloComprados).HasColumnName("Id_ArticuloComprados");
+            });
+
+            modelBuilder.Entity<VwRegistroAjustesInventario>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("Vw_Registro_AjustesInventario");
+
+                entity.Property(e => e.Administrador)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Cedula)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Descripcion)
+                    .IsRequired()
+                    .HasMaxLength(75)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Expr1)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Fecha).HasColumnType("datetime");
+
+                entity.Property(e => e.Nombre)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<VwReporteLote>(entity =>

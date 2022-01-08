@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\WEBSuvesaPOS\\DevSuvesaPosWeb\\ApiSuvesaPos\\APIFacturacionElectronica\\APIFacturacionElectronica.csproj": {}
+    "C:\\Users\\AlbertoMartínezQuesa\\OneDrive - Palantir S.A\\Documentos\\Personal\\SUVESA\\Programacion\\DevSuvesaPosWeb\\ApiSuvesaPos\\APIFacturacionElectronica\\APIFacturacionElectronica.csproj": {}
   },
   "projects": {
-    "C:\\WEBSuvesaPOS\\DevSuvesaPosWeb\\ApiSuvesaPos\\APIFacturacionElectronica\\APIFacturacionElectronica.csproj": {
+    "C:\\Users\\AlbertoMartínezQuesa\\OneDrive - Palantir S.A\\Documentos\\Personal\\SUVESA\\Programacion\\DevSuvesaPosWeb\\ApiSuvesaPos\\APIFacturacionElectronica\\APIFacturacionElectronica.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\WEBSuvesaPOS\\DevSuvesaPosWeb\\ApiSuvesaPos\\APIFacturacionElectronica\\APIFacturacionElectronica.csproj",
+        "projectUniqueName": "C:\\Users\\AlbertoMartínezQuesa\\OneDrive - Palantir S.A\\Documentos\\Personal\\SUVESA\\Programacion\\DevSuvesaPosWeb\\ApiSuvesaPos\\APIFacturacionElectronica\\APIFacturacionElectronica.csproj",
         "projectName": "APIFacturacionElectronica",
-        "projectPath": "C:\\WEBSuvesaPOS\\DevSuvesaPosWeb\\ApiSuvesaPos\\APIFacturacionElectronica\\APIFacturacionElectronica.csproj",
-        "packagesPath": "C:\\Users\\Ana\\.nuget\\packages\\",
-        "outputPath": "C:\\WEBSuvesaPOS\\DevSuvesaPosWeb\\ApiSuvesaPos\\APIFacturacionElectronica\\obj\\",
+        "projectPath": "C:\\Users\\AlbertoMartínezQuesa\\OneDrive - Palantir S.A\\Documentos\\Personal\\SUVESA\\Programacion\\DevSuvesaPosWeb\\ApiSuvesaPos\\APIFacturacionElectronica\\APIFacturacionElectronica.csproj",
+        "packagesPath": "C:\\Users\\AlbertoMartínezQuesa\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\AlbertoMartínezQuesa\\OneDrive - Palantir S.A\\Documentos\\Personal\\SUVESA\\Programacion\\DevSuvesaPosWeb\\ApiSuvesaPos\\APIFacturacionElectronica\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Ana\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\AlbertoMartínezQuesa\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -32,8 +32,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\WEBSuvesaPOS\\DevSuvesaPosWeb\\ApiSuvesaPos\\NegocioFE\\NegocioFE.vbproj": {
-                "projectPath": "C:\\WEBSuvesaPOS\\DevSuvesaPosWeb\\ApiSuvesaPos\\NegocioFE\\NegocioFE.vbproj"
+              "C:\\Users\\AlbertoMartínezQuesa\\OneDrive - Palantir S.A\\Documentos\\Personal\\SUVESA\\Programacion\\DevSuvesaPosWeb\\ApiSuvesaPos\\NegocioFE\\NegocioFE.vbproj": {
+                "projectPath": "C:\\Users\\AlbertoMartínezQuesa\\OneDrive - Palantir S.A\\Documentos\\Personal\\SUVESA\\Programacion\\DevSuvesaPosWeb\\ApiSuvesaPos\\NegocioFE\\NegocioFE.vbproj"
               }
             }
           }
@@ -105,24 +105,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\WEBSuvesaPOS\\DevSuvesaPosWeb\\ApiSuvesaPos\\DatosFE\\DatosFE.csproj": {
+    "C:\\Users\\AlbertoMartínezQuesa\\OneDrive - Palantir S.A\\Documentos\\Personal\\SUVESA\\Programacion\\DevSuvesaPosWeb\\ApiSuvesaPos\\DatosFE\\DatosFE.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\WEBSuvesaPOS\\DevSuvesaPosWeb\\ApiSuvesaPos\\DatosFE\\DatosFE.csproj",
+        "projectUniqueName": "C:\\Users\\AlbertoMartínezQuesa\\OneDrive - Palantir S.A\\Documentos\\Personal\\SUVESA\\Programacion\\DevSuvesaPosWeb\\ApiSuvesaPos\\DatosFE\\DatosFE.csproj",
         "projectName": "DatosFE",
-        "projectPath": "C:\\WEBSuvesaPOS\\DevSuvesaPosWeb\\ApiSuvesaPos\\DatosFE\\DatosFE.csproj",
-        "packagesPath": "C:\\Users\\Ana\\.nuget\\packages\\",
-        "outputPath": "C:\\WEBSuvesaPOS\\DevSuvesaPosWeb\\ApiSuvesaPos\\DatosFE\\obj\\",
+        "projectPath": "C:\\Users\\AlbertoMartínezQuesa\\OneDrive - Palantir S.A\\Documentos\\Personal\\SUVESA\\Programacion\\DevSuvesaPosWeb\\ApiSuvesaPos\\DatosFE\\DatosFE.csproj",
+        "packagesPath": "C:\\Users\\AlbertoMartínezQuesa\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\AlbertoMartínezQuesa\\OneDrive - Palantir S.A\\Documentos\\Personal\\SUVESA\\Programacion\\DevSuvesaPosWeb\\ApiSuvesaPos\\DatosFE\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Ana\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\AlbertoMartínezQuesa\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -185,24 +185,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\WEBSuvesaPOS\\DevSuvesaPosWeb\\ApiSuvesaPos\\NegocioFE\\NegocioFE.vbproj": {
+    "C:\\Users\\AlbertoMartínezQuesa\\OneDrive - Palantir S.A\\Documentos\\Personal\\SUVESA\\Programacion\\DevSuvesaPosWeb\\ApiSuvesaPos\\NegocioFE\\NegocioFE.vbproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\WEBSuvesaPOS\\DevSuvesaPosWeb\\ApiSuvesaPos\\NegocioFE\\NegocioFE.vbproj",
+        "projectUniqueName": "C:\\Users\\AlbertoMartínezQuesa\\OneDrive - Palantir S.A\\Documentos\\Personal\\SUVESA\\Programacion\\DevSuvesaPosWeb\\ApiSuvesaPos\\NegocioFE\\NegocioFE.vbproj",
         "projectName": "NegocioFE",
-        "projectPath": "C:\\WEBSuvesaPOS\\DevSuvesaPosWeb\\ApiSuvesaPos\\NegocioFE\\NegocioFE.vbproj",
-        "packagesPath": "C:\\Users\\Ana\\.nuget\\packages\\",
-        "outputPath": "C:\\WEBSuvesaPOS\\DevSuvesaPosWeb\\ApiSuvesaPos\\NegocioFE\\obj\\",
+        "projectPath": "C:\\Users\\AlbertoMartínezQuesa\\OneDrive - Palantir S.A\\Documentos\\Personal\\SUVESA\\Programacion\\DevSuvesaPosWeb\\ApiSuvesaPos\\NegocioFE\\NegocioFE.vbproj",
+        "packagesPath": "C:\\Users\\AlbertoMartínezQuesa\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\AlbertoMartínezQuesa\\OneDrive - Palantir S.A\\Documentos\\Personal\\SUVESA\\Programacion\\DevSuvesaPosWeb\\ApiSuvesaPos\\NegocioFE\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Ana\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\AlbertoMartínezQuesa\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -217,8 +217,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\WEBSuvesaPOS\\DevSuvesaPosWeb\\ApiSuvesaPos\\DatosFE\\DatosFE.csproj": {
-                "projectPath": "C:\\WEBSuvesaPOS\\DevSuvesaPosWeb\\ApiSuvesaPos\\DatosFE\\DatosFE.csproj"
+              "C:\\Users\\AlbertoMartínezQuesa\\OneDrive - Palantir S.A\\Documentos\\Personal\\SUVESA\\Programacion\\DevSuvesaPosWeb\\ApiSuvesaPos\\DatosFE\\DatosFE.csproj": {
+                "projectPath": "C:\\Users\\AlbertoMartínezQuesa\\OneDrive - Palantir S.A\\Documentos\\Personal\\SUVESA\\Programacion\\DevSuvesaPosWeb\\ApiSuvesaPos\\DatosFE\\DatosFE.csproj"
               }
             }
           }
@@ -253,7 +253,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -13,5 +13,8 @@ namespace Datos.Models
         public string CodArticulo { get; set; }
         public string Descripcion { get; set; }
         public double Cantidad { get; set; }
+        public int IdSucursal { get; set; }
+
+        public virtual Sucursale IdSucursalNavigation { get; set; }
     }
 }

@@ -27,8 +27,9 @@ namespace Datos.Models
         public bool Contabilizado { get; set; }
         public int CodMoneda { get; set; }
         public long Asiento { get; set; }
-        public long IdSucursal { get; set; }
+        public int IdSucursal { get; set; }
 
+        public virtual Sucursale IdSucursalNavigation { get; set; }
         public virtual ICollection<DetalleAjustesccobrar> DetalleAjustesccobrars { get; set; }
     }
 }

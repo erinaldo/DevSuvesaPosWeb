@@ -7,11 +7,6 @@ namespace Datos.Models
 {
     public partial class OpcionesDePago
     {
-        public OpcionesDePago()
-        {
-            DetallePagoCajas = new HashSet<DetallePagoCaja>();
-        }
-
         public long Id { get; set; }
         public double Documento { get; set; }
         public string TipoDocumento { get; set; }
@@ -27,8 +22,5 @@ namespace Datos.Models
         public long Numapertura { get; set; }
         public double Vuelto { get; set; }
         public string NumeroDocumento { get; set; }
-        public int? IdSucursal { get; set; }
-
-        public virtual ICollection<DetallePagoCaja> DetallePagoCajas { get; set; }
     }
 }

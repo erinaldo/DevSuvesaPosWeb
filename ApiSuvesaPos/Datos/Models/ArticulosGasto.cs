@@ -27,7 +27,9 @@ namespace Datos.Models
         public string CuentaContable { get; set; }
         public int CodTipoCompra { get; set; }
         public string DescTipoCompra { get; set; }
+        public int IdSucursal { get; set; }
 
         public virtual Compra IdCompraNavigation { get; set; }
+        public virtual Sucursale IdSucursalNavigation { get; set; }
     }
 }

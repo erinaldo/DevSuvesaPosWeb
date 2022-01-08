@@ -34,5 +34,8 @@ namespace Datos.Models
         public bool TiempoRecibido { get; set; }
         public bool IsVentaMascota { get; set; }
         public bool IsCierre { get; set; }
+        public int IdSucursal { get; set; }
+
+        public virtual Sucursale IdSucursalNavigation { get; set; }
     }
 }

@@ -19,6 +19,5 @@ namespace Datos.Models
         public decimal NumRecibo { get; set; }
         public string TelefonoRetira { get; set; }
         public bool Express { get; set; }
-        public int? IdSucursal { get; set; }
     }
 }

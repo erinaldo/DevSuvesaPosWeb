@@ -13,5 +13,8 @@ namespace Datos.Models
         public DateTime Fecha { get; set; }
         public bool Anulado { get; set; }
         public bool Usado { get; set; }
+        public int IdSucursal { get; set; }
+
+        public virtual Sucursale IdSucursalNavigation { get; set; }
     }
 }

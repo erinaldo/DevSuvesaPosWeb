@@ -54,9 +54,8 @@ namespace DatosFE.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-               //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-               optionsBuilder.UseSqlServer("Server=DESKTOP-5A4BJJV; Database=SeePOS; User=sa; Password=suvesacr;");
-               //
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+                optionsBuilder.UseSqlServer("Server=ALBERTO-PC\\QSOFT2017; Database=FE; User=sa; Password=QsoftMSDEsa2005;");
             }
         }
 
@@ -1105,9 +1104,7 @@ namespace DatosFE.Models
 
                 entity.ToView("ObtenerDetalleFactura43");
 
-                entity.Property(e => e.Cabys)
-                    .IsRequired()
-                    .HasMaxLength(30);
+                entity.Property(e => e.Cabys).HasMaxLength(30);
 
                 entity.Property(e => e.CodigoImpuesto)
                     .IsRequired()
@@ -1127,6 +1124,8 @@ namespace DatosFE.Models
                     .HasMaxLength(8000)
                     .IsUnicode(false)
                     .HasColumnName("FechaEmision_Exoneracion");
+
+                entity.Property(e => e.Id).HasColumnName("id");
 
                 entity.Property(e => e.MontoImpuesto).HasColumnName("Monto_Impuesto");
 

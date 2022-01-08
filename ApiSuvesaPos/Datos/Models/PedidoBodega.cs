@@ -23,6 +23,8 @@ namespace Datos.Models
         public string IdUsuarioPidio { get; set; }
         public string IdUsuarioRecibio { get; set; }
         public DateTime FechaRecibido { get; set; }
-        public long IdSucursal { get; set; }
+        public int IdSucursal { get; set; }
+
+        public virtual Sucursale IdSucursalNavigation { get; set; }
     }
 }

@@ -13,5 +13,8 @@ namespace Datos.Models
         public DateTime Fecha { get; set; }
         public long Factura { get; set; }
         public string Motivo { get; set; }
+        public int IdSucursal { get; set; }
+
+        public virtual Sucursale IdSucursalNavigation { get; set; }
     }
 }

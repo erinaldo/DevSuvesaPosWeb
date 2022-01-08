@@ -14,6 +14,8 @@ namespace Datos.Models
         public int CantMin { get; set; }
         public bool Finalizada { get; set; }
         public bool Anulada { get; set; }
-        public long IdSucursal { get; set; }
+        public int IdSucursal { get; set; }
+
+        public virtual Sucursale IdSucursalNavigation { get; set; }
     }
 }

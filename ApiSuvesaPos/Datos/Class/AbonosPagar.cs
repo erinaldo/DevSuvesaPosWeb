@@ -107,7 +107,7 @@ namespace Datos.Class
         {
             try
             {
-                var p = entities.AbonoApartados.Find(id);
+                var p = entities.Abonocpagars.Find(id);
                 Abonocpagar Nuevo = p;
               
                 Nuevo.SaldoCuenta = abono.SaldoCuenta;

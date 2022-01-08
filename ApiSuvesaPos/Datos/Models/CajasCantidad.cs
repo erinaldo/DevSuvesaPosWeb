@@ -10,6 +10,5 @@ namespace Datos.Models
         public long IdCaja { get; set; }
         public long NumCaja { get; set; }
         public long NumApertura { get; set; }
-        public long IdSucursal { get; set; }
     }
 }

@@ -17,5 +17,9 @@ namespace Datos.Models
         public bool EnvioMensaje { get; set; }
         public bool EnvioCarta { get; set; }
         public decimal Etapa { get; set; }
+        public string Pv { get; set; }
+        public int IdSucursal { get; set; }
+
+        public virtual Sucursale IdSucursalNavigation { get; set; }
     }
 }
