@@ -3,8 +3,8 @@
 
         Private db As New DatosFE.Class.ActividadesEmpresas
 
-        Public Function Buscar() As List(Of DatosFE.Models.EmpresaActividade)
-            Return db.ObtenerActividadesEmpresas
+        Public Function Buscar(emisor As Integer) As List(Of DatosFE.Models.ActividadEmpresa)
+            Return db.ObtenerActividadesEmpresas(emisor)
         End Function
 
         Public Function Crear(actividad As DatosFE.Models.EmpresaActividade) As String

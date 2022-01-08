@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
+
 #nullable disable
 
 namespace DatosFE.Models
@@ -16,6 +17,8 @@ namespace DatosFE.Models
             : base(options)
         {
         }
+
+       
 
         public virtual DbSet<ActividadEmpresa> ActividadEmpresas { get; set; }
         public virtual DbSet<ArticulosComprado> ArticulosComprados { get; set; }
@@ -52,10 +55,13 @@ namespace DatosFE.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+             
+             
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=ALBERTO-PC\\QSOFT2017; Database=FE; User=sa; Password=QsoftMSDEsa2005;");
+                 optionsBuilder.UseSqlServer("Server=DESKTOP-5A4BJJV; Database=SeePOS; User=sa; Password=suvesacr;");
+              
             }
         }
 

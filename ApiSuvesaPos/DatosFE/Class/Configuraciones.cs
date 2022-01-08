@@ -7,7 +7,7 @@ using DatosFE.Models;
 
 namespace DatosFE.Class
 {
-    class Configuraciones
+  public  class Configuraciones
     {
         private FEContext entities;
 
@@ -51,23 +51,43 @@ namespace DatosFE.Class
 
         }
 
-        public List<Configuracione> ObtenerActividades() //obtener lista actividades 
+        public List<Configuracione> ObtenerConfiguraciones(string cedula) //obtener lista actividades 
         {
             try
             {
-                var temp = from c in entities.Configuraciones
-
-                           select c;
-                List<Configuracione> result = temp.ToList<Configuracione>();
-
-                if (result.Count > 0)
+                if (cedula == "")
                 {
-                    return result;
+                    var temp = from c in entities.Configuraciones
+
+                               select c;
+                    List<Configuracione> result = temp.ToList<Configuracione>();
+
+                    if (result.Count > 0)
+                    {
+                        return result;
+                    }
+                    else
+                    {
+                        return result = null;
+                    }
                 }
                 else
                 {
-                    return result = null;
+                    var temp = from c in entities.Configuraciones
+                               where c.Cedula == cedula
+                               select c;
+                    List<Configuracione> result = temp.ToList<Configuracione>();
+
+                    if (result.Count > 0)
+                    {
+                        return result;
+                    }
+                    else
+                    {
+                        return result = null;
+                    }
                 }
+
 
 
             }
