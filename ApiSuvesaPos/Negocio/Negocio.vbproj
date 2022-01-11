@@ -6,6 +6,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Modelo\inventario\bodega.vb" />
+    <Compile Remove="Modelo\inventario\marca.vb" />
+    <Compile Remove="Modelo\inventario\prestamos\empresa.vb" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Datos\Datos.csproj" />
   </ItemGroup>
 

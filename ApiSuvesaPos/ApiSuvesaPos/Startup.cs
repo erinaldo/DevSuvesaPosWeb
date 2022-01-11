@@ -10,6 +10,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Datos.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace ApiSuvesaPos
 {
@@ -27,10 +29,20 @@ namespace ApiSuvesaPos
         {
 
             services.AddControllers();
+            services.AddDbContext<SeePOSContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("BloggingDatabase"))
+                );
+            //services.AddSwaggerGen(c =>
+            //{
+            //    c.SwaggerDoc("v1", new OpenApiInfo { Title = "APIFacturacionElectronica", Version = "v1" });
+            //});
+
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "ApiSuvesaPos", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "API WSVAP (WebSmartView)", Version = "v1" });
+                c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First()); //This line
             });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -40,7 +52,12 @@ namespace ApiSuvesaPos
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ApiSuvesaPos v1"));
+                app.UseSwaggerUI(c =>
+                {
+                    c.SwaggerEndpoint("./v1/swagger.json", "My API V1"); //originally "./swagger/v1/swagger.json"
+                });
+                //app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "APIFacturacionElectronica v1"));
+                //  app.UseSwaggerUI();
             }
 
             app.UseRouting();

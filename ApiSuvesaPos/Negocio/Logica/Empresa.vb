@@ -1,110 +1,27 @@
 ﻿Namespace Logica
     Public Class Empresa
 
-        Public Function Buscar(filtro As String) As List(Of Modelo.empresa)
+        Private db As Datos.Class.Empresa
 
-            'Public Function buscar(ByVal texto As String) As DataTable
-            '    Try
-            '        conectado()
-            '        cmd = New SqlCommand("Consultar_empresa")
-            '        cmd.CommandType = CommandType.StoredProcedure
-            '        cmd.Connection = cnn
-            '        cmd.Parameters.AddWithValue("@id", texto)
-            '        If cmd.ExecuteNonQuery Then
-            '            Dim dt As New DataTable
-            '            Dim da As New SqlDataAdapter(cmd)
-            '            da.Fill(dt)
-            '            Return dt
-            '        Else
-            '            Return Nothing
-            '        End If
-            '    Catch ex As Exception
-            '        MsgBox(ex.Message)
-            '        Return Nothing
-            '    Finally
-            '        desconectado()
-            '    End Try
-            'End Function
+        Sub New()
+            Me.db = New Datos.Class.Empresa
+        End Sub
 
+        Public Function Buscar(porNombre As Boolean, filtro As String) As List(Of Datos.Models.Empresa)
+            Return Me.db.Buscar(porNombre, filtro)
         End Function
 
-        Public Sub Crear(empresa As Modelo.empresa)
+        Public Function Crear(empresa As Datos.Models.Empresa) As String
+            Return Me.db.Crear(empresa)
+        End Function
 
-            'Public Function insertar(ByVal dts As vempresa) As Boolean
-            '    Try
-            '        conectado()
-            '        cmd = New SqlCommand("Insertar_empresa")
-            '        cmd.CommandType = CommandType.StoredProcedure
-            '        cmd.Connection = cnn
-            '        'cmd.Parameters.AddWithValue("@id", dts.gid)
-            '        cmd.Parameters.AddWithValue("@empresa", dts.gdescripcion)
+        Public Function Editar(id As Long, empresa As Datos.Models.Empresa) As String
+            Return Me.db.Editar(id, empresa)
+        End Function
 
-            '        If cmd.ExecuteNonQuery Then
-            '            Return True
-            '        Else
-            '            Return False
-            '        End If
-
-            '    Catch ex As Exception
-            '        MsgBox(ex.Message)
-            '        Return False
-            '    Finally
-            '        desconectado()
-            '    End Try
-            'End Function
-
-        End Sub
-
-        Public Sub Editar(empresa As Modelo.empresa)
-
-            'Public Function editar(ByVal dts As vempresa) As Boolean
-            '    Try
-            '        conectado()
-            '        cmd = New SqlCommand("Modificar_empresa")
-            '        cmd.CommandType = CommandType.StoredProcedure
-            '        cmd.Connection = cnn
-            '        cmd.Parameters.AddWithValue("@id", dts.gid)
-            '        cmd.Parameters.AddWithValue("@empresa", dts.gdescripcion)
-            '        If cmd.ExecuteNonQuery Then
-            '            Return True
-            '        Else
-            '            Return False
-            '        End If
-            '    Catch ex As Exception
-            '        MsgBox(ex.Message)
-            '        Return False
-            '    Finally
-            '        desconectado()
-            '    End Try
-            'End Function
-
-        End Sub
-
-        Public Sub Eliminar(id As Integer)
-
-            'Public Function eliminar(ByVal dts As vempresa) As Boolean
-            '    Try
-            '        conectado()
-            '        cmd = New SqlCommand("Eliminar_empresa")
-            '        cmd.CommandType = CommandType.StoredProcedure
-            '        cmd.Connection = cnn
-            '        cmd.Parameters.Add("@id", SqlDbType.NVarChar, 50).Value = dts.gid
-            '        If cmd.ExecuteNonQuery Then
-            '            Return True
-            '        Else
-            '            Return False
-            '        End If
-
-            '    Catch ex As Exception
-            '        MsgBox(ex.Message)
-            '        Return False
-            '    Finally
-            '        desconectado()
-            '    End Try
-
-            'End Function
-
-        End Sub
+        Public Function Eliminar(id As Long) As String
+            Return Me.db.Borrar(id)
+        End Function
 
     End Class
 End Namespace

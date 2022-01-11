@@ -1,30 +1,28 @@
 ﻿Namespace Logica
     Public Class Presentaciones
-        Public Function Buscar(presentacion As String) As List(Of Modelo.presentaciones)
-            Dim presentaciones As New List(Of Modelo.presentaciones)
-            'valor = Fx.BuscarDatos("Select CodMarca, Marca from Marcas", "Marca", "Buscar Marcas...", Me.SqlConnection.ConnectionString)
-            Return presentaciones
+
+
+        Private db As Datos.Class.Presentaciones
+
+        Sub New()
+            Me.db = New Datos.Class.Presentaciones
+        End Sub
+
+        Public Function Buscar(porDescripcion As Boolean, Filtro As String) As List(Of Datos.Models.Presentacione)
+            Return Me.db.Buscar(porDescripcion, Filtro)
         End Function
 
-        Public Sub Crear(presentacion As Modelo.presentaciones)
+        Public Function Crear(presentacion As Datos.Models.Presentacione) As String
+            Return Me.db.Crear(presentacion)
+        End Function
 
-            'Me.BindingContext(DataSetPresentaciones, "Presentaciones").EndCurrentEdit()
-            'Me.DaPresentaciones.Update(DataSetPresentaciones, "Presentaciones")
-        End Sub
+        Public Function Editar(id As Long, presentacion As Datos.Models.Presentacione) As String
+            Return Me.db.Editar(id, presentacion)
+        End Function
 
-        Public Sub Editar(presentacion As Modelo.presentaciones)
-
-            'Me.BindingContext(DataSetPresentaciones, "Presentaciones").EndCurrentEdit()
-            'Me.DaPresentaciones.Update(DataSetPresentaciones, "Presentaciones")
-        End Sub
-
-        Public Sub Eliminar(presentacion As Modelo.presentaciones)
-            'valida que no exista productos relacionados
-
-            'Me.BindingContext(Me.DataSetPresentaciones, "Presentaciones").RemoveAt(Me.BindingContext(Me.DataSetPresentaciones, "Presentaciones").Position)
-            'Me.BindingContext(Me.DataSetPresentaciones, "Presentaciones").EndCurrentEdit()
-            'Registrar()
-        End Sub
+        Public Function Eliminar(id As Long) As String
+            Return Me.db.Borrar(id)
+        End Function
     End Class
 
 End Namespace

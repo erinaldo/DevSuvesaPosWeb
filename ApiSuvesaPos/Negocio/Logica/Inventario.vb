@@ -1,23 +1,19 @@
 ﻿Namespace Logica
     Public Class Inventario
 
-        Public Bodega As New Logica.Bodega
-        Public Marca As New Logica.Marca
-        Public Presentaciones As New Logica.Presentaciones
-        Public Proveedores As New Logica.Proveedores
-        Public Moneda As New Logica.Monedas
-        Public Familia As New Logica.Familia
-        Public Ubicacion As New Logica.Ubicaciones
+        Private db As Datos.Class.Inventario
+
+        Sub New()
+            Me.db = New Datos.Class.Inventario
+        End Sub
 
         Public Function Buscar(verInhabilitados As Boolean,
                                          soloConBarras As Boolean,
                                         inicioCampo As Boolean,
                                          cualQuierParte As Boolean,
                                          campoFiltro As String,
-                                         descripcion As String) As List(Of Modelo.inventario)
+                                         descripcion As String) As List(Of Datos.Models.Inventario)
             'buscador de inventario
-
-            Dim inventario As New List(Of Modelo.inventario)
 
             'If Me.Filtro_Inicio_del_Campo.Checked = True Then
             '    If CampoFiltro = "Barras" Then
@@ -65,16 +61,14 @@
             'Catch ex As SystemException
             '    MsgBox(ex.Message)
             'End Try
-            Return inventario
         End Function
 
-        Public Function ObtenerInventario(codigo As String) As Modelo.inventario
-            Dim inventario As New Modelo.inventario
-            Return inventario
+        Public Function ObtenerInventario(codigo As String) As Datos.Models.Inventario
+            Return Me.db.Buscar(True, codigo).FirstOrDefault()
         End Function
 
-        Public Sub Eliminar(inventario As Modelo.inventario)
-
+        Public Function Eliminar(id As Long) As String
+            Return Me.db.Borrar(id)
             'Dim Items(1) As Integer
             'Dim Cx As New Conexion
             'Items(0) = Cx.SlqExecuteScalar(Cx.Conectar, "SELECT COUNT(Ventas_Detalle.Cantidad) FROM Ventas_Detalle INNER JOIN  Ventas ON Ventas_Detalle.Id_Factura = Ventas.Id WHERE (Ventas.Anulado = 0) and codigo = " & Me.TxtCodigo.Text & "GROUP BY Ventas_Detalle.Codigo")
@@ -97,9 +91,10 @@
             'End If
             'Cx.DesConectar(Cx.sQlconexion)
 
-        End Sub
+        End Function
 
-        Public Sub Crear(inventario As Modelo.inventario)
+        Public Function Crear(inventario As Datos.Models.Inventario) As String
+            Return Me.db.Crear(inventario)
             '**********************************
             'hay que validar que el codigo y las barras no se dupliquen
 
@@ -245,9 +240,10 @@
             '****************************
             'crear tambien las series y articulosrelacionados
 
-        End Sub
+        End Function
 
-        Public Sub Editar(inventario As Modelo.inventario)
+        Public Function Editar(id As Long, inventario As Datos.Models.Inventario) As String
+            Return Me.db.Editar(id, inventario)
             '**********************************
             'hay que validar que el codigo y las barras no se dupliquen
 
@@ -418,9 +414,9 @@
             '           -se actualizan desde el triger de la venta
 
 
-        End Sub
+        End Function
 
-        Public Sub CrearSerie(serie As Modelo.serie)
+        Public Sub CrearSerie(serie As Datos.Models.Serie)
             'este metodo se usaria en las entradas de bodega
 
             'Try
@@ -443,7 +439,7 @@
             'Me.adserie.Update(Me.DataSetInventario.serie)
         End Sub
 
-        Public Sub EliminaSerie(serie As Modelo.serie)
+        Public Sub EliminaSerie(serie As Datos.Models.Serie)
             'este metodo se usaria en las salidas de bodega
 
             'Me.adserie.Update(Me.DataSetInventario.serie)

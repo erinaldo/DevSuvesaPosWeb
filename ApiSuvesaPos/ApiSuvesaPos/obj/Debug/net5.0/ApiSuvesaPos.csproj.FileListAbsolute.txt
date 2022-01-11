@@ -1,31 +1,3 @@
-C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\appsettings.Development.json
-C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\appsettings.json
-C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\ApiSuvesaPos.exe
-C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\ApiSuvesaPos.deps.json
-C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\ApiSuvesaPos.runtimeconfig.json
-C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\ApiSuvesaPos.runtimeconfig.dev.json
-C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\ApiSuvesaPos.dll
-C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\ref\ApiSuvesaPos.dll
-C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\ApiSuvesaPos.pdb
-C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\Microsoft.OpenApi.dll
-C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
-C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\ApiSuvesaPos.csproj.AssemblyReference.cache
-C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\ApiSuvesaPos.GeneratedMSBuildEditorConfig.editorconfig
-C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\ApiSuvesaPos.AssemblyInfoInputs.cache
-C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\ApiSuvesaPos.AssemblyInfo.cs
-C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\ApiSuvesaPos.csproj.CoreCompileInputs.cache
-C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\ApiSuvesaPos.MvcApplicationPartsAssemblyInfo.cs
-C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\ApiSuvesaPos.MvcApplicationPartsAssemblyInfo.cache
-C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\staticwebassets\ApiSuvesaPos.StaticWebAssets.Manifest.cache
-C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\staticwebassets\ApiSuvesaPos.StaticWebAssets.xml
-C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\scopedcss\bundle\ApiSuvesaPos.styles.css
-C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\ApiSuvesaPos.RazorTargetAssemblyInfo.cache
-C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\ApiSuvesaPos.dll
-C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\ref\ApiSuvesaPos.dll
-C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\ApiSuvesaPos.pdb
-C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\ApiSuvesaPos.genruntimeconfig.cache
 C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\ApiSuvesaPos.csproj.AssemblyReference.cache
 C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\ApiSuvesaPos.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\ApiSuvesaPos.AssemblyInfoInputs.cache
@@ -90,6 +62,16 @@ C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVES
 C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
 C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\staticwebassets\ApiSuvesaPos.StaticWebAssets.xml
+C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\appsettings.Development.json
+C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\appsettings.json
+C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\ApiSuvesaPos.exe
+C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\ApiSuvesaPos.deps.json
+C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\ApiSuvesaPos.runtimeconfig.json
+C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\ApiSuvesaPos.runtimeconfig.dev.json
+C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\ApiSuvesaPos.dll
+C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\ref\ApiSuvesaPos.dll
+C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\ApiSuvesaPos.pdb
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\Humanizer.dll
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\Microsoft.Data.SqlClient.dll
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
@@ -104,7 +86,11 @@ C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\Micro
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
+C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\Microsoft.OpenApi.dll
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\Newtonsoft.Json.dll
+C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\System.Configuration.ConfigurationManager.dll
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
@@ -126,4 +112,19 @@ C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\Datos
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\Negocio.dll
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\Datos.pdb
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\bin\Debug\net5.0\Negocio.pdb
-C:\Users\AlbertoMartínezQuesa\OneDrive - Palantir S.A\Documentos\Personal\SUVESA\Programacion\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\staticwebassets\ApiSuvesaPos.StaticWebAssets.xml
+C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\ApiSuvesaPos.csproj.AssemblyReference.cache
+C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\ApiSuvesaPos.GeneratedMSBuildEditorConfig.editorconfig
+C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\ApiSuvesaPos.AssemblyInfoInputs.cache
+C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\ApiSuvesaPos.AssemblyInfo.cs
+C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\ApiSuvesaPos.csproj.CoreCompileInputs.cache
+C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\ApiSuvesaPos.MvcApplicationPartsAssemblyInfo.cs
+C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\ApiSuvesaPos.MvcApplicationPartsAssemblyInfo.cache
+C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\staticwebassets\ApiSuvesaPos.StaticWebAssets.Manifest.cache
+C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\staticwebassets\ApiSuvesaPos.StaticWebAssets.xml
+C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\scopedcss\bundle\ApiSuvesaPos.styles.css
+C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\ApiSuvesaPos.RazorTargetAssemblyInfo.cache
+C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\ApiSuvesaPos.csproj.CopyComplete
+C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\ApiSuvesaPos.dll
+C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\ref\ApiSuvesaPos.dll
+C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\ApiSuvesaPos.pdb
+C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\ApiSuvesaPos.genruntimeconfig.cache

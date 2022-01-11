@@ -1,24 +1,21 @@
 ﻿Namespace Logica
     Public Class Clientes
 
-        Public Property Moneda As New Logica.Monedas
+        Private db As Datos.Class.Cliente
+
+        Sub New()
+            Me.db = New Datos.Class.Cliente
+        End Sub
 
         Public Function Buscar(porNombre As Boolean,
-                                      porCedula As Boolean,
-                                      filtro As String) As List(Of Modelo.clientes)
-
-            'Dim cFunciones As New cFunciones
-            'If _Identificacion = "" Then
-            '    Me.Cod_Cliente_Buscar = cFunciones.BuscarDatosClientes("select identificacion as Identificación,nombre as Nombre from Clientes", "Nombre")
-            'Else
-            '    Me.Cod_Cliente_Buscar = _Identificacion
-            'End If
-
-            'If Cod_Cliente_Buscar = 0 Then Exit Sub
-
+                                      filtro As String) As List(Of Datos.Models.Cliente)
+            Return Me.db.Buscar(porNombre, filtro)
         End Function
 
-        Public Sub Crear(cliente As Modelo.clientes)
+        Public Function Crear(cliente As Datos.Models.Cliente) As String
+
+            Return Me.db.Crear(cliente)
+
             'Dim Pasa As Boolean = True
 
             'If Len(Me.Txtnombre.Text) = 0 Then
@@ -105,13 +102,16 @@
             '    End Try
 
             'End Function
-        End Sub
+        End Function
 
-        Public Sub Editar(cliente As Modelo.clientes)
+        Public Function Editar(id As Long, cliente As Datos.Models.Cliente) As String
+            Return Me.db.Editar(id, cliente)
             'igual que crear
-        End Sub
+        End Function
 
-        Public Sub Eliminar(cliente As Modelo.clientes)
+        Public Function Eliminar(id As Long) As String
+            Return Me.db.Borrar(id)
+
             '    Private Sub Eliminar()
             '    Dim Resultado As String
             '    Dim rs As SqlDataReader
@@ -171,7 +171,7 @@
             '    End Try
 
             'End Sub
-        End Sub
+        End Function
 
     End Class
 End Namespace

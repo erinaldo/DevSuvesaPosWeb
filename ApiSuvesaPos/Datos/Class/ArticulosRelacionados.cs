@@ -55,7 +55,7 @@ namespace Datos.Class
         {
             try
             {
-                var temp = from c in entities.ArticulosComprados
+                var temp = from c in entities.ArticulosRelacionados
 
                            select c;
                 List<ArticulosRelacionado> result = temp.ToList<ArticulosRelacionado>();

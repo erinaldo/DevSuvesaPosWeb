@@ -1,15 +1,18 @@
 ﻿Namespace Logica
     Public Class Monedas
-        '****************************************************************************
-        'Para el sistema siempre el codigo 1 = colones y el codigo 2 = dolares
 
-        Public Function Buscar(monedaNombre As String) As List(Of Modelo.moneda)
-            Dim moneda As New List(Of Modelo.moneda)
-            'valor = Fx.BuscarDatos("Select CodMarca, Marca from Marcas", "Marca", "Buscar Marcas...", Me.SqlConnection.ConnectionString)
-            Return moneda
+        Private db As Datos.Class.Monedas
+
+        Sub New()
+            Me.db = New Datos.Class.Monedas
+        End Sub
+
+        Public Function Buscar(porDescripcion As Boolean, filtro As String) As List(Of Datos.Models.Moneda)
+            Return Me.db.Buscar(porDescripcion, filtro)
         End Function
 
-        Public Sub Crear(moneda As Modelo.moneda)
+        Public Function Crear(moneda As Datos.Models.Moneda) As String
+            Return Me.db.Crear(moneda)
             'Try
             '    BindingContext(DataSet, Tabla).EndCurrentEdit()
             '    Adaptador.Update(DataSet, Tabla)
@@ -19,9 +22,10 @@
             'Catch eEndEdit As System.Exception
             '    System.Windows.Forms.MessageBox.Show(eEndEdit.Message)
             'End Try
-        End Sub
+        End Function
 
-        Public Sub Editar(moneda As Modelo.moneda)
+        Public Function Editar(id As Long, moneda As Datos.Models.Moneda) As String
+            Return Me.Editar(id, moneda)
             'Try
             '    BindingContext(DataSet, Tabla).EndCurrentEdit()
             '    Adaptador.Update(DataSet, Tabla)
@@ -31,16 +35,16 @@
             'Catch eEndEdit As System.Exception
             '    System.Windows.Forms.MessageBox.Show(eEndEdit.Message)
             'End Try
-        End Sub
+        End Function
 
-        Public Sub Eliminar(moneda As Modelo.moneda)
-
+        Public Function Eliminar(id As Long) As String
+            Return Me.db.Borrar(id)
             'BindingContext(DataSet, Tabla).RemoveAt(BindingContext(DataSet, Tabla).Position)
             'BindingContext(DataSet, Tabla).EndCurrentEdit()
             'Adaptador.Update(DataSet, Tabla)
             'If RecargarAdatador Then Adaptador.Update(DataSet, Tabla)
             'Adaptador.Fill(DataSet, Tabla)
-        End Sub
+        End Function
 
 
 

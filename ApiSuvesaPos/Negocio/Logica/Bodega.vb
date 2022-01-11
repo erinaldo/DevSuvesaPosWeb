@@ -1,51 +1,32 @@
 ﻿Namespace Logica
     Public Class Bodega
+        Private db As Datos.Class.Bodegas
 
-        Public Function Buscar() As List(Of Modelo.bodega)
-            Dim bodega As New List(Of Modelo.bodega)
-            'X = Me.SqlDataAdapterBodegas.Fill(Me.DataSetBodegas, "Bodegas")
-            Return bodega
+        Sub New()
+            Me.db = New Datos.Class.Bodegas
+        End Sub
+
+        Public Function Buscar(porNombre As Boolean, filtro As String) As List(Of Datos.Models.Bodega)
+            Return Me.db.Buscar(porNombre, filtro)
         End Function
 
-        Public Function cargarInventario() As List(Of Modelo.inventario)
-            Dim inventario As New List(Of Modelo.inventario)
+        Public Function cargarInventario() As List(Of Datos.Models.Inventario)
+            Dim inventario As New List(Of Datos.Models.Inventario)
             ' If X <> 0 Then Me.SqlDataAdapterInventario.Fill(Me.DataSetBodegas, "Inventario")
             Return inventario
         End Function
 
-        Public Sub Crear(bodega As Modelo.bodega)
-            'Try
-            '    BindingContext(DataSet, Tabla).EndCurrentEdit()
-            '    Adaptador.Update(DataSet, Tabla)
-            '    If RecargarAdatador Then Adaptador.Fill(DataSet, Tabla)
-            '    If ActivarNuevo Then ToolBar1.Buttons(0).Text = "Nuevo" : ToolBar1.Buttons(0).ImageIndex = 0
-            '    If VerMsg Then MsgBox("Los datos se actualizaron satisfactoriamente...", MsgBoxStyle.Information, "Atención...")
-            'Catch eEndEdit As System.Exception
-            '    System.Windows.Forms.MessageBox.Show(eEndEdit.Message)
-            'End Try
-        End Sub
+        Public Function Crear(bodega As Datos.Models.Bodega) As String
+            Return Me.db.Crear(bodega)
+        End Function
 
-        Public Sub Editar(bodega As Modelo.bodega)
-            'Try
-            '    BindingContext(DataSet, Tabla).EndCurrentEdit()
-            '    Adaptador.Update(DataSet, Tabla)
-            '    If RecargarAdatador Then Adaptador.Fill(DataSet, Tabla)
-            '    If ActivarNuevo Then ToolBar1.Buttons(0).Text = "Nuevo" : ToolBar1.Buttons(0).ImageIndex = 0
-            '    If VerMsg Then MsgBox("Los datos se actualizaron satisfactoriamente...", MsgBoxStyle.Information, "Atención...")
-            'Catch eEndEdit As System.Exception
-            '    System.Windows.Forms.MessageBox.Show(eEndEdit.Message)
-            'End Try
-        End Sub
+        Public Function Editar(id As Integer, bodega As Datos.Models.Bodega) As String
+            Return Me.db.Editar(id, bodega)
+        End Function
 
-        Public Sub Eliminar(bodega As Modelo.bodega)
-            'valida que no exista productos relacionados
-
-            'BindingContext(DataSet, Tabla).RemoveAt(BindingContext(DataSet, Tabla).Position)
-            'BindingContext(DataSet, Tabla).EndCurrentEdit()
-            'Adaptador.Update(DataSet, Tabla)
-            'If RecargarAdatador Then Adaptador.Update(DataSet, Tabla)
-            'Adaptador.Fill(DataSet, Tabla)
-        End Sub
+        Public Function Eliminar(id As Integer) As String
+            Return Me.db.Borrar(id)
+        End Function
 
 
     End Class

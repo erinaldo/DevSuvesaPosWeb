@@ -1,40 +1,27 @@
 ﻿Namespace Logica
     Public Class Marca
 
+        Private db As Datos.Class.Marcas
 
-        Public Function Buscar(marca As String) As List(Of Modelo.marca)
-            Dim bodega As New List(Of Modelo.marca)
-            'valor = Fx.BuscarDatos("Select CodMarca, Marca from Marcas", "Marca", "Buscar Marcas...", Me.SqlConnection.ConnectionString)
-            Return bodega
+        Sub New()
+            Me.db = New Datos.Class.Marcas
+        End Sub
+
+        Public Function Buscar(porDescripcion As Boolean, Filtro As String) As List(Of Datos.Models.Marca)
+            Return Me.db.Buscar(porDescripcion, Filtro)
         End Function
 
-        Public Sub Crear(bodega As Modelo.marca)
-            'Try
-            '    Me.BindingContext(Me.DataSetMarca.Marcas).EndCurrentEdit()
-            '    Me.DaMarca.Update(Me.DataSetMarca.Marcas)
-            'Catch ex As Exception
-            '    System.Windows.Forms.MessageBox.Show(ex.Message)
-            'End Try
-        End Sub
+        Public Function Crear(bodega As Datos.Models.Marca) As String
+            Return Me.db.Crear(bodega)
+        End Function
 
-        Public Sub Editar(bodega As Modelo.marca)
-            'Try
-            '    Me.BindingContext(Me.DataSetMarca.Marcas).EndCurrentEdit()
-            '    Me.DaMarca.Update(Me.DataSetMarca.Marcas)
-            'Catch ex As Exception
-            '    System.Windows.Forms.MessageBox.Show(ex.Message)
-            'End Try
-        End Sub
+        Public Function Editar(id As Long, bodega As Datos.Models.Marca) As String
+            Return Me.db.Editar(id, bodega)
+        End Function
 
-        Public Sub Eliminar(bodega As Modelo.marca)
-            'valida que no exista productos relacionados
-
-            'BindingContext(DataSet, Tabla).RemoveAt(BindingContext(DataSet, Tabla).Position)
-            'BindingContext(DataSet, Tabla).EndCurrentEdit()
-            'Adaptador.Update(DataSet, Tabla)
-            'If RecargarAdatador Then Adaptador.Update(DataSet, Tabla)
-            'Adaptador.Fill(DataSet, Tabla)
-        End Sub
+        Public Function Eliminar(id As Long) As String
+            Return Me.db.Borrar(id)
+        End Function
 
     End Class
 
