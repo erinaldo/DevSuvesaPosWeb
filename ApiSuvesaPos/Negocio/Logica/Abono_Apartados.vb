@@ -2,6 +2,11 @@
     Public Class Abono_Apartados
 
 
+        Private db As Datos.Class.AbonosApartados
+
+        Sub New()
+            Me.db = New Datos.Class.AbonosApartados
+        End Sub
 
         Public Function cargarAbonosApartados(porIdApartado As Boolean,
                                               porIdAbonoApartado As Boolean,
@@ -38,6 +43,8 @@
                                      id_usuario As String,
                                      ByRef id_abonoApartado As Integer,
                                      ByRef reciboabono As Integer)
+
+
 
             ''abono a partado
             ''trans.SetParametro("@BaseDatos", Me.PuntodeVenta)

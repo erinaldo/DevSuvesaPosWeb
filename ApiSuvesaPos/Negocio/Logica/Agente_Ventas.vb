@@ -1,8 +1,15 @@
 ﻿Namespace Logica
     Public Class Agente_Ventas
 
+        Private db As Datos.Class.AgentesVentas
 
-        Public Function Buscar(nombre As String) As List(Of Modelo.agente_ventas)
+        Sub New()
+            Me.db = New Datos.Class.AgentesVentas
+        End Sub
+
+        Public Function Buscar(nombre As String) As List(Of Datos.Models.AgenteVenta)
+
+            Return Me.db.ObtenerAgenteVentas(nombre)
 
             'Dim cFunciones As New cFunciones
             'Me.Cod_agente_Buscar = cFunciones.BuscarDatosClientes("select id as id,nombre as Nombre from agente_ventas", "Nombre")
@@ -10,7 +17,9 @@
 
         End Function
 
-        Public Sub Crear(agente_ventas As Modelo.agente_ventas)
+        Public Function Crear(agente_ventas As Datos.Models.AgenteVenta) As String
+
+            Return db.CrearAgenteVentas(agente_ventas)
 
             '     Function Registrar()
             '    Try
@@ -34,9 +43,12 @@
             '    End If
             'End Sub
 
-        End Sub
+        End Function
 
-        Public Sub Editar(agente_ventas As Modelo.agente_ventas)
+        Public Function Editar(id As Integer, agente_ventas As Datos.Models.AgenteVenta) As String
+
+            Return db.EditarAgenteVentas(id, agente_ventas)
+
             'Public Sub RegistrarDatos(ByRef Adaptador As System.Data.SqlClient.SqlDataAdapter, ByRef DataSet As DataSet, ByRef Tabla As String, Optional ByVal ActivarNuevo As Boolean = True, Optional ByVal VerMsg As Boolean = True, Optional ByVal RecargarAdatador As Boolean = True)
             '    Try
             '        BindingContext(DataSet, Tabla).EndCurrentEdit()
@@ -60,9 +72,11 @@
             '        Next
             '    End If
             'End Sub
-        End Sub
+        End Function
 
-        Public Sub Eliminar(id As Integer)
+        Public Function Eliminar(id As Integer) As String
+
+            Return Me.db.BorrarAgenteVenta(id)
 
             'Public Sub EliminarDatos(ByRef Adaptador As System.Data.SqlClient.SqlDataAdapter, ByRef DataSet As DataSet, ByRef Tabla As String, Optional ByVal RecargarAdatador As Boolean = True)
             '    Dim resp As Integer
@@ -83,7 +97,7 @@
             '    End If
             'End Sub
 
-        End Sub
+        End Function
 
 
         Public Function cargarPrecioDiferenciado(idAgente As Integer) As List(Of Modelo.preciodiferenciado)

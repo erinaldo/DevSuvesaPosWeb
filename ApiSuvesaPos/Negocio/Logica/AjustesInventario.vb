@@ -3,11 +3,16 @@
 
         '**************** actualmente los lotes no se usan porque no sirven pero se quiere
         '**************** actualmente busca una cuenta contable pero no se usa
-        Public Property Inventario As New Logica.Inventario
+        'Public Property Inventario As New Logica.Inventario
+        Private db As Datos.Class.AjustesInventarios
 
-        Public Function Buscar(porDescripcion As Boolean, porConsecutivo As Boolean, filtro As String) As List(Of Modelo.ajusteinventario)
+        Sub New()
+            Me.db = New Datos.Class.AjustesInventarios
+        End Sub
 
+        Public Function Buscar(porDescripcion As Boolean, porConsecutivo As Boolean, filtro As String) As List(Of Datos.Models.AjusteInventario)
 
+            Return db.ObtenerAjusteInventario()
             'identificador = CDbl(Fx.Buscar_X_Descripcion_Fecha("SELECT AjusteInventario.Consecutivo, AjusteInventario_Detalle.Desc_Articulo AS Articulo, AjusteInventario.Fecha FROM AjusteInventario INNER JOIN AjusteInventario_Detalle ON AjusteInventario.Consecutivo = AjusteInventario_Detalle.Cons_Ajuste Order by AjusteInventario.Fecha DESC", "Articulo", "Fecha", "Buscar Ajuste de Inventario"))
             'buscando = True
             'If identificador = 0.0 Then ' si se dio en el boton de cancelar
@@ -56,8 +61,8 @@
             'End Function
 
         End Sub
-        Public Sub Crear(ajuste As Modelo.ajusteinventario)
-
+        Public Function Crear(ajuste As Datos.Models.AjusteInventario) As String
+            Return Me.db.CrearAjustesInventarios(ajuste)
             'validacion
             'If Ceros() Then
             'Else
@@ -135,7 +140,7 @@
             '    Return False
             'End Try
 
-        End Sub
+        End Function
 
     End Class
 

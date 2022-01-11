@@ -51,12 +51,12 @@ namespace Datos.Class
 
         }
 
-        public List<AgenteVenta> ObtenerAgenteVentas()
+        public List<AgenteVenta> ObtenerAgenteVentas(string nombre)
         {
             try
             {
                 var temp = from c in entities.AgenteVentas
-
+                           //filtrar por concidencia del nombre.
                            select c;
                 List<AgenteVenta> result = temp.ToList<AgenteVenta>();
 

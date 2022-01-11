@@ -2,11 +2,16 @@
     Public Class Apartados
 
 
+        Private db As Datos.Class.Apartados
+
+        Sub New()
+            Me.db = New Datos.Class.Apartados
+        End Sub
 
         Public Function cargarApartadosPendientes(porNombre As Boolean,
                                                   porNumero As Boolean,
-                                                  filtro As String) As List(Of Modelo.apartados)
-
+                                                  filtro As String) As List(Of Datos.Models.Apartado)
+            Return Me.db.ObtenerApartados()
             'Private Sub CargarApartados()
             '    Dim strSQL As String = "select * from viewapartadosactivos "
             '    If Me.txtBuscar.Text <> "" Then

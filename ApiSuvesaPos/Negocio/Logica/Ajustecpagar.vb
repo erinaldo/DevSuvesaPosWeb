@@ -2,17 +2,23 @@
     Public Class Ajustecpagar
 
         '***************************************************************saldo
-        Public Property Proveedor As New Logica.Proveedores
-        Public Property Moneda As New Logica.Monedas
+        'Public Property Proveedor As New Logica.Proveedores
+        'Public Property Moneda As New Logica.Monedas
 
-        Public Function Buscar(porNombreProveedor As Bodega,
+        Private db As Datos.Class.AjustesPagar
+
+        Sub New()
+            Me.db = New Datos.Class.AjustesPagar
+        End Sub
+
+        Public Function Buscar(porNombreProveedor As Boolean,
                                            porNumeroAjuste As Boolean,
                                            porId As Boolean,
                                            filtro As String,
                                            porFecha As Boolean,
                                            desde As Date,
-                                           hasta As Date) As List(Of Modelo.ajustescpagar)
-
+                                           hasta As Date) As List(Of Datos.Models.Ajustescpagar)
+            Return db.ObtenerAjustesPagar()
             'identificador = CDbl(Fx.Buscar_X_Descripcion_Fecha("Select cast(ID_Ajuste as varchar) as Numero , Nombre_Proveedor, Fecha from ajustescpagar Order by Fecha DESC", "Nombre_Proveedor", "Fecha", "Buscar Ajuste de Cuenta", Me.SqlConnection1.ConnectionString))
             'buscando = True
             'If identificador = 0.0 Then ' si se dio en el boton de cancelar
@@ -23,7 +29,17 @@
         End Function
 
 
-        Public Sub Crear(ajustecpagar As Modelo.ajustescpagar)
+        Public Function Crear(ajustecpagar As Datos.Models.Ajustescpagar) As String
+
+            Try
+                For Each d As Datos.Models.DetalleAjustescPagar In ajustecpagar.DetalleAjustescPagars
+
+                Next
+
+                Return Me.db.CrearAjustesPagar(ajustecpagar)
+            Catch ex As Exception
+
+            End Try
 
             'Valida
             'If Me.BindingContext(Me.DsAjustePagar, "Ajustescpagar.AjustescpagarDetalle_AjustescPagar").Count = 0 Then
@@ -57,7 +73,7 @@
             'Me.daAjustecPagar.Update(Me.DsAjustePagar, "Ajustescpagar")
             'Me.daDetallecPagar.Update(Me.DsAjustePagar, "Detalle_AjustescPagar")
 
-        End Sub
+        End Function
 
         Public Sub Anular()
 

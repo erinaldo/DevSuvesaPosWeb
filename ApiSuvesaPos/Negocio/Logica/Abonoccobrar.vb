@@ -1,11 +1,32 @@
 ﻿Namespace Logica
     Public Class Abonoccobrar
 
-        Public Property AperturaCaja As New Logica.AperturaCaja
-        Public Property Moneda As New Logica.Monedas
-        Public Property Clientes As New Logica.Clientes
+        'Public Property AperturaCaja As New Logica.AperturaCaja
+        'Public Property Moneda As New Logica.Monedas
+        'Public Property Clientes As New Logica.Clientes
 
-        Public Sub Crear(abonoccobrar As Modelo.abonoccobrar)
+        Private db As Datos.Class.AbonosCobros
+
+        Sub New()
+            Me.db = New Datos.Class.AbonosCobros
+        End Sub
+
+        Public Function Crear(abonoccobrar As Datos.Models.Abonoccobrar) As String
+
+            'como se hacen las transacciones?
+
+            Try
+
+                For Each d As Datos.Models.DetalleAbonoccobrar In abonoccobrar.DetalleAbonoccobrars
+                    '
+                Next
+
+                Me.db.CrearAbonoCobro(abonoccobrar)
+            Catch ex As Exception
+
+            End Try
+
+
 
             'BindingContext(DsRecibos1, "abonoccobrar").EndCurrentEdit()
             'BindingContext(DsRecibos1, "abonoccobrar.abonoccobrardetalle_abonoccobrar").EndCurrentEdit()
@@ -86,9 +107,11 @@
             'End Function
 
 
-        End Sub
+        End Function
 
-        Public Function Buscar() As List(Of Modelo.abonoccobrar)
+        Public Function Buscar() As List(Of Datos.Models.Abonoccobrar)
+
+            Return db.ObtenerAbonoApartado(0)
 
             'identificador = CDbl(Fx.Buscar_X_Descripcion_Fecha5C("SELECT abonoccobrar.Id_Recibo, abonoccobrar.Num_Recibo as Recibo , abonoccobrar.Nombre_Cliente AS Nombre_Cliente, abonoccobrar.Fecha,  abonoccobrar.Monto FROM abonoccobrar INNER JOIN  Moneda ON abonoccobrar.Cod_Moneda = Moneda.CodMoneda ORDER BY abonoccobrar.Fecha DESC", "Nombre_Cliente", "Fecha", "Buscar Recibo de Dinero"))
             'buscando = True
