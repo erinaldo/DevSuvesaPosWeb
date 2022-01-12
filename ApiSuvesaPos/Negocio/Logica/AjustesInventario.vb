@@ -1,18 +1,17 @@
 ﻿Namespace Logica
     Public Class AjustesInventario
 
-        '**************** actualmente los lotes no se usan porque no sirven pero se quiere
-        '**************** actualmente busca una cuenta contable pero no se usa
-        'Public Property Inventario As New Logica.Inventario
-        Private db As Datos.Class.AjustesInventarios
+        Private a As Datos.Class.AjustesInventarios
+        Private ad As Datos.Class.AjustesInventariosDetalles
 
         Sub New()
-            Me.db = New Datos.Class.AjustesInventarios
+            Me.a = New Datos.Class.AjustesInventarios
+            Me.ad = New Datos.Class.AjustesInventariosDetalles
         End Sub
 
         Public Function Buscar(porDescripcion As Boolean, porConsecutivo As Boolean, filtro As String) As List(Of Datos.Models.AjusteInventario)
 
-            Return db.ObtenerAjusteInventario()
+            Return a.ObtenerAjusteInventario()
             'identificador = CDbl(Fx.Buscar_X_Descripcion_Fecha("SELECT AjusteInventario.Consecutivo, AjusteInventario_Detalle.Desc_Articulo AS Articulo, AjusteInventario.Fecha FROM AjusteInventario INNER JOIN AjusteInventario_Detalle ON AjusteInventario.Consecutivo = AjusteInventario_Detalle.Cons_Ajuste Order by AjusteInventario.Fecha DESC", "Articulo", "Fecha", "Buscar Ajuste de Inventario"))
             'buscando = True
             'If identificador = 0.0 Then ' si se dio en el boton de cancelar
@@ -62,7 +61,14 @@
 
         End Sub
         Public Function Crear(ajuste As Datos.Models.AjusteInventario) As String
-            Return Me.db.CrearAjustesInventarios(ajuste)
+            Try
+                Me.a.CrearAjustesInventarios(ajuste)
+
+                Return "1"
+            Catch ex As Exception
+                Return ex.Message
+            End Try
+
             'validacion
             'If Ceros() Then
             'Else

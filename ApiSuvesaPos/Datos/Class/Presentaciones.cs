@@ -74,7 +74,7 @@ namespace Datos.Class
             }
         }
 
-        public int Editar(long id, Models.Presentacione presentaciones)
+        public int Editar(int id, Models.Presentacione presentaciones)
         {
             try
             {
@@ -103,7 +103,7 @@ namespace Datos.Class
             }
         }
 
-        public int Borrar(long id) // borrar Actividad apartir del id Actividad
+        public int Borrar(int id) // borrar Actividad apartir del id Actividad
 
 
         {

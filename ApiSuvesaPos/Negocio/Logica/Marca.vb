@@ -15,11 +15,11 @@
             Return Me.db.Crear(bodega)
         End Function
 
-        Public Function Editar(id As Long, bodega As Datos.Models.Marca) As String
+        Public Function Editar(id As Integer, bodega As Datos.Models.Marca) As String
             Return Me.db.Editar(id, bodega)
         End Function
 
-        Public Function Eliminar(id As Long) As String
+        Public Function Eliminar(id As Integer) As String
             Return Me.db.Borrar(id)
         End Function
 

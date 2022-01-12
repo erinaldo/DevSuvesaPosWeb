@@ -75,7 +75,7 @@ namespace Datos.Class
             }
         }
 
-        public int Editar(long id, Models.Bodega proveedor)
+        public int Editar(int id, Models.Bodega proveedor)
         {
             try
             {
@@ -105,7 +105,7 @@ namespace Datos.Class
             }
         }
 
-        public int Borrar(long id) // borrar Actividad apartir del id Actividad
+        public int Borrar(int id) // borrar Actividad apartir del id Actividad
 
 
         {

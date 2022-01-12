@@ -15,11 +15,11 @@
             Return Me.db.Crear(proveedor)
         End Function
 
-        Public Function Editar(id As Long, proveedor As Datos.Models.Proveedore) As String
+        Public Function Editar(id As Integer, proveedor As Datos.Models.Proveedore) As String
             Return Me.db.Editar(id, proveedor)
         End Function
 
-        Public Function Eliminar(id As Long) As String
+        Public Function Eliminar(id As Integer) As String
             Return Me.db.Borrar(id)
         End Function
 

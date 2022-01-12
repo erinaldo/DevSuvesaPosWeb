@@ -18,11 +18,11 @@ namespace Datos.Class
             entities = new SeePOSContext();
         }
 
-        public int Crear(Models.Moneda bodega) // crear carta apartir de objeto de creacion
+        public int Crear(Models.Moneda moneda) // crear carta apartir de objeto de creacion
         {
             try
             {
-                entities.Monedas.Add(bodega);
+                entities.Monedas.Add(moneda);
                 return entities.SaveChanges();
 
             }
@@ -74,7 +74,7 @@ namespace Datos.Class
             }
         }
 
-        public int Editar(long id, Models.Moneda nuevo)
+        public int Editar(long id, Models.Moneda moneda)
         {
             try
             {
@@ -83,10 +83,10 @@ namespace Datos.Class
 
                 if (viejo != null)
                 {
-                    viejo.MonedaNombre = nuevo.MonedaNombre;
-                    viejo.ValorCompra = nuevo.ValorCompra;
-                    viejo.ValorVenta = nuevo.ValorVenta;
-                    viejo.Simbolo = nuevo.Simbolo;
+                    viejo.MonedaNombre = moneda.MonedaNombre;
+                    viejo.ValorCompra = moneda.ValorCompra;
+                    viejo.ValorVenta = moneda.ValorVenta;
+                    viejo.Simbolo = moneda.Simbolo;
 
                     entities.Entry(viejo).State = EntityState.Modified;
 

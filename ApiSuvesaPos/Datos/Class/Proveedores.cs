@@ -74,7 +74,7 @@ namespace Datos.Class
             }
         }
 
-        public int Editar(long id, Models.Proveedore proveedor)
+        public int Editar(int id, Models.Proveedore proveedor)
         {
             try
             {
@@ -134,13 +134,13 @@ namespace Datos.Class
             }
         }
 
-        public int Borrar(long id) // borrar Actividad apartir del id Actividad
+        public int Borrar(int id) // borrar Actividad apartir del id Actividad
 
 
         {
             try
             {
-                var p = entities.Marcas.Find(id);
+                var p = entities.Proveedores.Find(id);
                 entities.Remove(p);
                 return entities.SaveChanges();
 

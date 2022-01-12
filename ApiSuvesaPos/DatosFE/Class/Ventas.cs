@@ -83,7 +83,7 @@ namespace DatosFE.Class
             try
             {
                 var p = entities.Ventas.Find(id);
-                Venta viejo = p;
+                DatosFE.Models.Venta viejo = p;
                 viejo.EstadoMh = estado;
 
                 if(estado == "aceptado")
@@ -107,8 +107,10 @@ namespace DatosFE.Class
         {
             try
             {
+
                 var p = entities.Ventas.Find(id);
-                Venta viejo = p;
+                DatosFE.Models.Venta viejo = p;
+
 
                 if (viejo != null)
                 {

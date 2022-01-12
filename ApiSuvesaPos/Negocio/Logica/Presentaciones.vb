@@ -16,11 +16,11 @@
             Return Me.db.Crear(presentacion)
         End Function
 
-        Public Function Editar(id As Long, presentacion As Datos.Models.Presentacione) As String
+        Public Function Editar(id As Integer, presentacion As Datos.Models.Presentacione) As String
             Return Me.db.Editar(id, presentacion)
         End Function
 
-        Public Function Eliminar(id As Long) As String
+        Public Function Eliminar(id As Integer) As String
             Return Me.db.Borrar(id)
         End Function
     End Class

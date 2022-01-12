@@ -75,7 +75,7 @@ namespace Datos.Class
             }
         }
 
-        public int Editar(long id, Models.Marca marca)
+        public int Editar(int id, Models.Marca marca)
         {
             try
             {
@@ -103,7 +103,7 @@ namespace Datos.Class
             }
         }
 
-        public int Borrar(long id) // borrar Actividad apartir del id Actividad
+        public int Borrar(int id) // borrar Actividad apartir del id Actividad
 
 
         {
