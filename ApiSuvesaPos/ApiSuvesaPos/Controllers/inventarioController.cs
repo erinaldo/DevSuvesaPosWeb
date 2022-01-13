@@ -17,6 +17,12 @@ namespace ApiSuvesaPos.Controllers
 
         private Negocio.Logica.Inventario db = new Negocio.Logica.Inventario();
 
+        private bool Numerico(string text)
+        {
+            double test;
+            return double.TryParse(text, out test);
+        }
+
 
         [HttpPost]
         public IActionResult Registrar(Datos.Models.Inventario inventario)

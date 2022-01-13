@@ -32,17 +32,18 @@ namespace Datos.Class
 
         }
 
-        public List<Models.Cliente> Buscar(bool porId, string filtro) //obtener lista CartasdeExoneracion 
+        public List<Models.Cliente> Buscar(bool porNombre, string filtro) //obtener lista CartasdeExoneracion 
         {
             try
             {
                 List<Models.Cliente> result;
 
-                if (porId == false)
+                if (porNombre == true)
                 {
                     //busca por la descripcion
                     var temp = from c in entities.Clientes
-                                   // usar un like
+                               where c.Nombre.Contains(filtro) || c.Cedula.Contains(filtro) // usar un like
+                               orderby c.Nombre
                                select c;
 
                     result = temp.ToList<Models.Cliente>();

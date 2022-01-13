@@ -40,14 +40,9 @@
 
         End Function
 
-        Public Function Buscar(porNombre As Boolean,
-                                             porNuAjuste As Boolean,
-                                             filtro As String,
-                                             entreFechas As Boolean,
-                                             desde As Date,
-                                             hasta As Date) As List(Of Datos.Models.Ajustesccobrar)
+        Public Function Buscar(porId As Boolean, filtro As String) As List(Of Datos.Models.Ajustesccobrar)
 
-            Return Me.db.ObtenerAjusteCobro()
+            Return Me.db.ObtenerAjusteCobro(porId, filtro)
 
             'identificador = CDbl(Fx.Buscar_X_Descripcion_Fecha("Select ID_Ajuste, AjusteNo, Nombre_Cliente, Fecha from ajustesccobrar Order by Fecha DESC", "Nombre_Cliente", "Fecha", "Buscar Ajuste de Cuenta"))
             'buscando = True

@@ -16,6 +16,12 @@ namespace ApiSuvesaPos.Controllers
 
         private Negocio.Logica.Marca db = new Negocio.Logica.Marca();
 
+        private bool Numerico(string text)
+        {
+            double test;
+            return double.TryParse(text, out test);
+        }
+
 
         [HttpPost]
         public IActionResult Registrar(Datos.Models.Marca marca)
@@ -69,6 +75,10 @@ namespace ApiSuvesaPos.Controllers
         [HttpGet]
         public IActionResult Buscar(bool pornombre, string filtro)
         {
+            if (pornombre == false && !this.Numerico(filtro))
+            {
+                return BadRequest("El parametro filtro no tiene el valor esperado. Se esperaba un valor numerico.");
+            }
 
             var result = this.db.Buscar(pornombre, filtro);
             if (result != null)

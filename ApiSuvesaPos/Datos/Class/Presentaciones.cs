@@ -43,7 +43,8 @@ namespace Datos.Class
                 {
                     //busca por la descripcion de la marca
                     var temp = from c in entities.Presentaciones
-                                   // usar un like
+                               where c.Presentaciones.Contains(filtro)// usar un like
+                               orderby c.Presentaciones
                                select c;
 
                     result = temp.ToList<Models.Presentacione>();

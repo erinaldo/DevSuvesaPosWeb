@@ -109,9 +109,9 @@
 
         End Function
 
-        Public Function Buscar() As List(Of Datos.Models.Abonoccobrar)
+        Public Function Buscar(porId As Boolean, Filtro As String) As List(Of Datos.Models.Abonoccobrar)
 
-            Return db.ObtenerAbonoApartado(0)
+            Return db.ObtenerAbonocCobrar(porId, Filtro)
 
             'identificador = CDbl(Fx.Buscar_X_Descripcion_Fecha5C("SELECT abonoccobrar.Id_Recibo, abonoccobrar.Num_Recibo as Recibo , abonoccobrar.Nombre_Cliente AS Nombre_Cliente, abonoccobrar.Fecha,  abonoccobrar.Monto FROM abonoccobrar INNER JOIN  Moneda ON abonoccobrar.Cod_Moneda = Moneda.CodMoneda ORDER BY abonoccobrar.Fecha DESC", "Nombre_Cliente", "Fecha", "Buscar Recibo de Dinero"))
             'buscando = True

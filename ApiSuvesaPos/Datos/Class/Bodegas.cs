@@ -44,7 +44,8 @@ namespace Datos.Class
                 {
                     //busca por la descripcion
                     var temp = from c in entities.Bodegas
-                                   // usar un like
+                               where c.NombreBodega.Contains(filtro) // usar un like
+                               orderby c.NombreBodega
                                select c;
 
                     result = temp.ToList<Models.Bodega>();

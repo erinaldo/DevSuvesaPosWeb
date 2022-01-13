@@ -43,7 +43,7 @@ namespace Datos.Class
                 {
                     //busca por la descripcion de la marca
                     var temp = from c in entities.Empresas
-                                   // usar un like
+                               where c.Empresa1.Contains(filtro)// usar un like
                                select c;
 
                     result = temp.ToList<Models.Empresa>();

@@ -77,14 +77,27 @@ namespace Datos.Class
             }
         }
 
-        public List<Abonoccobrar> ObtenerAbonoApartado(int id)// id recibo
+        public List<Abonoccobrar> ObtenerAbonocCobrar(bool porIdRecibo, string Filtro)// id recibo
         {
             try
             {
-                var temp = from c in entities.Abonoccobrars
-                           where c.IdRecibo == id
-                           select c;
-                List<Abonoccobrar> result = temp.ToList<Abonoccobrar>();
+                List<Abonoccobrar> result;
+
+                if (porIdRecibo == true)
+                {
+                    var temp = from c in entities.Abonoccobrars
+                               where c.IdRecibo == Convert.ToInt64(Filtro)                               
+                               select c;
+                    result = temp.ToList<Abonoccobrar>();
+                }
+                else
+                {
+                    var temp = from c in entities.Abonoccobrars
+                               where c.NombreCliente.Contains(Filtro) || c.NumRecibo.ToString().Contains(Filtro)
+                               orderby c.Fecha descending
+                               select c;
+                    result = temp.ToList<Abonoccobrar>();
+                }
 
                 if (result.Count > 0)
                 {

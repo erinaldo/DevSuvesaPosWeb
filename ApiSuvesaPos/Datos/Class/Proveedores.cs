@@ -43,7 +43,8 @@ namespace Datos.Class
                 {
                     //busca por la descripcion
                     var temp = from c in entities.Proveedores
-                                   // usar un like
+                               where c.Nombre.Contains(filtro) || c.Cedula.Contains(filtro)// usar un like
+                               orderby c.Nombre
                                select c;
 
                     result = temp.ToList<Models.Proveedore>();

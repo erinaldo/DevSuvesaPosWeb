@@ -43,7 +43,8 @@ namespace Datos.Class
                 {
                     //busca por la descripcion
                     var temp = from c in entities.Monedas
-                                   // usar un like
+                               where c.MonedaNombre.Contains(filtro)// usar un like
+                               orderby c.MonedaNombre
                                select c;
 
                     result = temp.ToList<Models.Moneda>();

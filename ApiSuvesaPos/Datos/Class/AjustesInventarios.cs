@@ -51,14 +51,28 @@ namespace Datos.Class
 
         }
 
-        public List<AjusteInventario> ObtenerAjusteInventario()
+        public List<AjusteInventario> ObtenerAjusteInventario(bool porId, string Filtro)
         {
             try
             {
-                var temp = from c in entities.AjusteInventarios
+                List<AjusteInventario> result;
 
-                           select c;
-                List<AjusteInventario> result = temp.ToList<AjusteInventario>();
+                if (porId == true)
+                {
+                    var temp = from c in entities.AjusteInventarios
+                               where c.Consecutivo == Convert.ToInt64(Filtro)
+                               select c;
+                    result = temp.ToList<AjusteInventario>();
+                }
+                else
+                {
+                    var temp = from a in entities.AjusteInventarios
+                               join ab in entities.AjusteInventarioDetalles on a.Consecutivo equals ab.ConsAjuste
+                               where ab.DescArticulo.Contains(Filtro)
+                               orderby a.Fecha descending
+                               select a;
+                    result = temp.ToList<AjusteInventario>();
+                }
 
                 if (result.Count > 0)
                 {

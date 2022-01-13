@@ -15,6 +15,12 @@ namespace ApiSuvesaPos.Controllers
     {
         private Negocio.Logica.Ajustecpagar db = new Negocio.Logica.Ajustecpagar();
 
+        private bool Numerico(string text)
+        {
+            double test;
+            return double.TryParse(text, out test);
+        }
+
         [HttpPost]
         public IActionResult PostAjustecpagar(Datos.Models.Ajustescpagar nuevo)
         {
@@ -40,16 +46,14 @@ namespace ApiSuvesaPos.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetAjustecpagar(bool pornombre, 
-                                            bool pornumero, 
-                                            bool porid,
-                                            bool porfecha, 
-                                            string filtro, 
-                                            DateTime desde, 
-                                            DateTime hasta)
+        public IActionResult GetAjustecpagar(bool porid, string filtro)
         {
+            if (porid == true && !this.Numerico(filtro))
+            {
+                return BadRequest("El parametro filtro no tiene el valor esperado. Se esperaba un valor numerico.");
+            }
 
-            var result = this.db.Buscar(pornombre, pornumero, porid,filtro,porfecha,desde,hasta);
+            var result = this.db.Buscar(porid,filtro);
             if (result != null)
             {
                 return Ok(result);

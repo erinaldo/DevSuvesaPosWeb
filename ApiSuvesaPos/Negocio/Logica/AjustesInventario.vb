@@ -9,9 +9,9 @@
             Me.ad = New Datos.Class.AjustesInventariosDetalles
         End Sub
 
-        Public Function Buscar(porDescripcion As Boolean, porConsecutivo As Boolean, filtro As String) As List(Of Datos.Models.AjusteInventario)
+        Public Function Buscar(porId As Boolean, filtro As String) As List(Of Datos.Models.AjusteInventario)
 
-            Return a.ObtenerAjusteInventario()
+            Return a.ObtenerAjusteInventario(porId, filtro)
             'identificador = CDbl(Fx.Buscar_X_Descripcion_Fecha("SELECT AjusteInventario.Consecutivo, AjusteInventario_Detalle.Desc_Articulo AS Articulo, AjusteInventario.Fecha FROM AjusteInventario INNER JOIN AjusteInventario_Detalle ON AjusteInventario.Consecutivo = AjusteInventario_Detalle.Cons_Ajuste Order by AjusteInventario.Fecha DESC", "Articulo", "Fecha", "Buscar Ajuste de Inventario"))
             'buscando = True
             'If identificador = 0.0 Then ' si se dio en el boton de cancelar

@@ -32,7 +32,7 @@ namespace Datos.Class
             }
         }
 
-        public int BorrarAgenteVenta(int id)
+        public int BorrarAgenteVenta(long id)
 
 
         {
@@ -56,7 +56,7 @@ namespace Datos.Class
             try
             {
                 var temp = from c in entities.AgenteVentas
-                           //filtrar por concidencia del nombre.
+                          where c.Nombre.Contains(nombre) //filtrar por concidencia del nombre.
                            select c;
                 List<AgenteVenta> result = temp.ToList<AgenteVenta>();
 
@@ -103,7 +103,7 @@ namespace Datos.Class
             }
         }
 
-        public int EditarAgenteVentas(int id, AgenteVenta abono)
+        public int EditarAgenteVentas(long id, AgenteVenta abono)
         {
             try
             {

@@ -51,14 +51,27 @@ namespace Datos.Class
 
         }
 
-        public List<Ajustesccobrar> ObtenerAjusteCobro()
+        public List<Ajustesccobrar> ObtenerAjusteCobro(bool porId, string Filtro)
         {
             try
             {
-                var temp = from c in entities.Ajustesccobrars
+                List<Ajustesccobrar> result;
 
-                           select c;
-                List<Ajustesccobrar> result = temp.ToList<Ajustesccobrar>();
+                if (porId == true)
+                {
+                    var temp = from c in entities.Ajustesccobrars
+                               where c.IdAjuste == Convert.ToInt64(Filtro)
+                               select c;
+                    result = temp.ToList<Ajustesccobrar>();
+                }
+                else
+                {
+                    var temp = from c in entities.Ajustesccobrars
+                               where c.NombreCliente.Contains(Filtro) || c.AjusteNo.ToString().Contains(Filtro)
+                               orderby c.Fecha descending
+                               select c;
+                    result = temp.ToList<Ajustesccobrar>();
+                }
 
                 if (result.Count > 0)
                 {

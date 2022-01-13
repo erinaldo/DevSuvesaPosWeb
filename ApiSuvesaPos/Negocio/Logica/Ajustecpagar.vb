@@ -11,14 +11,8 @@
             Me.db = New Datos.Class.AjustesPagar
         End Sub
 
-        Public Function Buscar(porNombreProveedor As Boolean,
-                                           porNumeroAjuste As Boolean,
-                                           porId As Boolean,
-                                           filtro As String,
-                                           porFecha As Boolean,
-                                           desde As Date,
-                                           hasta As Date) As List(Of Datos.Models.Ajustescpagar)
-            Return db.ObtenerAjustesPagar()
+        Public Function Buscar(porId As Boolean, filtro As String) As List(Of Datos.Models.Ajustescpagar)
+            Return db.ObtenerAjustesPagar(porId, filtro)
             'identificador = CDbl(Fx.Buscar_X_Descripcion_Fecha("Select cast(ID_Ajuste as varchar) as Numero , Nombre_Proveedor, Fecha from ajustescpagar Order by Fecha DESC", "Nombre_Proveedor", "Fecha", "Buscar Ajuste de Cuenta", Me.SqlConnection1.ConnectionString))
             'buscando = True
             'If identificador = 0.0 Then ' si se dio en el boton de cancelar

@@ -16,6 +16,12 @@ namespace ApiSuvesaPos.Controllers
 
         private Negocio.Logica.Ajustesccobrar db = new Negocio.Logica.Ajustesccobrar();
 
+        private bool Numerico(string text)
+        {
+            double test;
+            return double.TryParse(text, out test);
+        }
+
         [HttpPost]
         public IActionResult PostAjusteccobrar(Datos.Models.Ajustesccobrar nuevo)
         {
@@ -41,15 +47,14 @@ namespace ApiSuvesaPos.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetAjusteccobrar(bool pornombre,
-                                            bool pornumero,
-                                            bool porfecha,
-                                            string filtro,
-                                            DateTime desde,
-                                            DateTime hasta)
+        public IActionResult GetAjusteccobrar(bool porid, string filtro)
         {
+            if (porid == true && !this.Numerico(filtro))
+            {
+                return BadRequest("El parametro filtro no tiene el valor esperado. Se esperaba un valor numerico.");
+            }
 
-            var result = this.db.Buscar(pornombre, pornumero, filtro, porfecha, desde, hasta);
+            var result = this.db.Buscar(porid, filtro);
             if (result != null)
             {
                 return Ok(result);

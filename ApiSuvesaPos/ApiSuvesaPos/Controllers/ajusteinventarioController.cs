@@ -16,6 +16,12 @@ namespace ApiSuvesaPos.Controllers
 
         private Negocio.Logica.AjustesInventario db = new Negocio.Logica.AjustesInventario();
 
+        private bool Numerico(string text)
+        {
+            double test;
+            return double.TryParse(text, out test);
+        }
+
         [HttpPost]
         public IActionResult PostAjusteInventario(Datos.Models.AjusteInventario nuevo)
         {
@@ -41,12 +47,14 @@ namespace ApiSuvesaPos.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetAjusteInventario(bool pordescripcion,
-                                            bool porconsecutivo,                                            
-                                            string filtro)
+        public IActionResult GetAjusteInventario(bool porid, string filtro)
         {
+            if (porid == true && !this.Numerico(filtro))
+            {
+                return BadRequest("El parametro filtro no tiene el valor esperado. Se esperaba un valor numerico.");
+            }
 
-            var result = this.db.Buscar(pordescripcion, porconsecutivo, filtro);
+            var result = this.db.Buscar( porid, filtro);
             if (result != null)
             {
                 return Ok(result);

@@ -51,14 +51,29 @@ namespace Datos.Class
 
         }
 
-        public List<Ajustescpagar> ObtenerAjustesPagar()
+        public List<Ajustescpagar> ObtenerAjustesPagar(bool porId, string Filtro)
         {
             try
             {
-                var temp = from c in entities.Ajustescpagars
 
-                           select c;
-                List<Ajustescpagar> result = temp.ToList<Ajustescpagar>();
+                List<Ajustescpagar> result;
+
+                if (porId == true)
+                {
+                    var temp = from c in entities.Ajustescpagars
+                               where c.IdAjuste == Convert.ToInt64(Filtro)
+                               select c;
+                    result = temp.ToList<Ajustescpagar>();
+                }
+                else
+                {
+                    var temp = from c in entities.Ajustescpagars
+                               where c.NombreProveedor.Contains(Filtro) || c.AjusteNo.ToString().Contains(Filtro)
+                               orderby c.Fecha descending
+                               select c;
+                    result = temp.ToList<Ajustescpagar>();
+                }
+
 
                 if (result.Count > 0)
                 {
