@@ -51,14 +51,31 @@ namespace Datos.Class
 
         }
 
-        public List<Abonocpagar> ObtenerAbonoApartado()
+        public List<Abonocpagar> ObtenerAbonocpagar(bool porId, string Filtro)
         {
             try
             {
-                var temp = from c in entities.Abonocpagars
 
-                           select c;
-                List<Abonocpagar> result = temp.ToList<Abonocpagar>();
+                List<Abonocpagar> result;
+
+                if (porId == true)
+                {
+                    //buscar por id de la tabla
+                    var temp = from c in entities.Abonocpagars
+                               where c.IdAbonocpagar == Convert.ToInt64(Filtro)
+                               select c;
+                    result = temp.ToList<Abonocpagar>();
+                }
+                else
+                {
+                    //busca por nombre del proveedor o por numero documento(cheque/tranferencia)
+                    var temp = from c in entities.Abonocpagars
+                               join p in entities.Proveedores on c.CodProveedor equals p.CodigoProv
+                               where p.Nombre.Contains(Filtro) || c.Documento.ToString().Contains(Filtro)
+                               orderby c.Fecha descending
+                               select c;
+                    result = temp.ToList<Abonocpagar>();
+                }
 
                 if (result.Count > 0)
                 {
@@ -103,26 +120,21 @@ namespace Datos.Class
             }
         }
 
-        public int EditarAbonoPagar(int id, Abonocpagar abono)
+        public int AnularAbonoPagar(long id, bool eliminarCheque)
         {
             try
             {
                 var p = entities.Abonocpagars.Find(id);
-                Abonocpagar Nuevo = p;
-              
-                Nuevo.SaldoCuenta = abono.SaldoCuenta;
-                Nuevo.Monto = abono.Monto;
-                Nuevo.SaldoActual = abono.SaldoActual;
-                Nuevo.Fecha = abono.Fecha;
-                Nuevo.Observaciones = abono.Observaciones;
-               
-                Nuevo.IdSucursal = abono.IdSucursal;
-                //Nuevo.AbonoApartadosdetalles = abono.AbonoApartadosdetalle;
-
+                Abonocpagar Nuevo = p;              
+                Nuevo.Anulado = true;
+                if(eliminarCheque == true)
+                {
+                    //el sistema no permite tener dos veces el mismo cheque
+                    //si el usuario quiere volver a digitarlo se pone negativo para que lo vuelva a ingresar
+                    Nuevo.Documento = (Nuevo.Documento * -1);
+                }
                 entities.Entry(Nuevo).State = EntityState.Modified;
-
                 return entities.SaveChanges();
-
 
             }
             catch (Exception ex)

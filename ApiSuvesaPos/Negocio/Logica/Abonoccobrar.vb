@@ -122,7 +122,8 @@
 
         End Function
 
-        Public Sub Anular()
+        Public Function Anular(Id As Long) As String
+            Return Me.db.EditarAbonoscobros(Id)
             '    Function Registrar_Anulacion_Venta() As Boolean
             '    Dim i As Long
             '    Dim Facttem As Double
@@ -148,7 +149,7 @@
             '        Return False
             '    End Try
             'End Function
-        End Sub
+        End Function
 
     End Class
 

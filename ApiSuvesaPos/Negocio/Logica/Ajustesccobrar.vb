@@ -55,7 +55,8 @@
 
         End Function
 
-        Public Sub Anular()
+        Public Function Anular(Id As Long) As String
+            Return Me.db.AnularAjusteCobro(Id)
             'Function Registrar_Anulacion_Ajuste() As Boolean
             '    Dim i As Long
             '    Dim Facttem As Double
@@ -79,7 +80,7 @@
             '        Return False
             '    End Try
             'End Function
-        End Sub
+        End Function
 
 
 

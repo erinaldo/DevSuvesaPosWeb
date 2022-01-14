@@ -116,30 +116,15 @@ namespace Datos.Class
             }
         }
 
-        public int EditarAjusteCobro(int id, Ajustesccobrar abono)
+        public int AnularAjusteCobro(long id)
         {
             try
             {
                 var p = entities.Ajustesccobrars.Find(id);
                 Ajustesccobrar Nuevo = p;
-                
-                Nuevo.NombreCliente = abono.NombreCliente;
-                
-                Nuevo.Monto = abono.Monto;
-                
-                Nuevo.Fecha = abono.Fecha;
-                Nuevo.Observaciones = abono.Observaciones;
-                Nuevo.Anula = abono.Anula;
-                
-                Nuevo.CodMoneda = abono.CodMoneda;
-                
-                Nuevo.IdSucursal = abono.IdSucursal;
-                //Nuevo.AbonoApartadosdetalles = abono.AbonoApartadosdetalle;
-
+                Nuevo.Anula = true;
                 entities.Entry(Nuevo).State = EntityState.Modified;
-
                 return entities.SaveChanges();
-
 
             }
             catch (Exception ex)

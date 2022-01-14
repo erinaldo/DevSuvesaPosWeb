@@ -23,16 +23,15 @@ namespace ApiSuvesaPos.Controllers
         }
 
         [HttpPost]
-        public IActionResult PostAjusteInventario(Datos.Models.AjusteInventario nuevo)
+        public IActionResult PostAjusteInventario(Datos.Models.AjusteInventario ajusteinventario)
         {
             try
             {
 
-                string resp = db.Crear(nuevo);
-
+                string resp = db.Crear(ajusteinventario);
                 if (resp.Equals("1"))
                 {
-                    return Ok(nuevo);
+                    return Ok("Ok");
                 }
                 else
                 {
@@ -43,6 +42,25 @@ namespace ApiSuvesaPos.Controllers
             catch (Exception ex)
             {
                 return new BadRequestResult();
+            }
+        }
+
+        [HttpPut]
+        public IActionResult PutAjusteInventario(int id)
+        {
+
+            string resp = this.db.Anular(id);
+            if (resp.Equals("1"))
+            {
+                return Ok("Ok");
+            }
+            else if (resp.Equals("No existe el valor"))
+            {
+                return NotFound();
+            }
+            else
+            {
+                throw new Exception(resp);
             }
         }
 

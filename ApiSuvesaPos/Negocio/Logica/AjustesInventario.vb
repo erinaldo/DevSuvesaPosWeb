@@ -20,8 +20,8 @@
             'End If
         End Function
 
-        Public Sub Anular(ajuste As Modelo.ajusteinventario)
-
+        Public Function Anular(Id As Integer) As String
+            Return Me.a.AnularAjusteInventario(Id)
             'registra en vitacora
             'Function insertar_bitacora() As Boolean
             '    Dim funciones As New Conexion
@@ -59,7 +59,7 @@
             '    End Try
             'End Function
 
-        End Sub
+        End Function
         Public Function Crear(ajuste As Datos.Models.AjusteInventario) As String
             Try
                 Me.a.CrearAjustesInventarios(ajuste)

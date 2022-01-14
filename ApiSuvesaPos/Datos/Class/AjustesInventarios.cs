@@ -32,7 +32,7 @@ namespace Datos.Class
             }
         }
 
-        public int BorrarAjusteInventario(int id)
+        public int BorrarAjusteInventario(long id)
 
 
         {
@@ -91,7 +91,7 @@ namespace Datos.Class
             }
         }
 
-        public List<AjusteInventario> ObtenerAjusteInventario(int id)
+        public List<AjusteInventario> ObtenerAjusteInventario(long id)
         {
             try
             {
@@ -117,24 +117,16 @@ namespace Datos.Class
             }
         }
 
-        public int EditarAjusteInventario(int id, AjusteInventario abono)
+        public int AnularAjusteInventario(long id)
         {
             try
             {
                 var p = entities.AjusteInventarios.Find(id);
                 AjusteInventario Nuevo = p;
-                
-                Nuevo.Fecha = abono.Fecha;
-                
-                Nuevo.Anula = abono.Anula;
-                
-                Nuevo.IdSucursal = abono.IdSucursal;
-                //Nuevo.AbonoApartadosdetalles = abono.AbonoApartadosdetalle;
-
+                                
+                Nuevo.Anula = true;               
                 entities.Entry(Nuevo).State = EntityState.Modified;
-
                 return entities.SaveChanges();
-
 
             }
             catch (Exception ex)

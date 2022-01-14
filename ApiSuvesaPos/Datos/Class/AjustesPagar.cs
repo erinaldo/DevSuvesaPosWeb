@@ -92,14 +92,16 @@ namespace Datos.Class
             }
         }
 
-        public List<Ajustescpagar> ObtenerAjustesPagar(int id)
+
+
+        public List<DetalleAjustescPagar> ObtenerAjustesPagar(long id)
         {
             try
             {
-                var temp = from c in entities.Ajustescpagars
-                           where c.IdAjuste == id
+                var temp = from c in entities.DetalleAjustescPagars
+                           where c.IdAjustecPagar == id
                            select c;
-                List<Ajustescpagar> result = temp.ToList<Ajustescpagar>();
+                List<DetalleAjustescPagar> result = temp.ToList<DetalleAjustescPagar>();
 
                 if (result.Count > 0)
                 {
@@ -118,28 +120,16 @@ namespace Datos.Class
             }
         }
 
-        public int EditarAjustesPagar(int id, Ajustescpagar abono)
+        public int AnularAjustesPagar(long id)
         {
             try
             {
                 var p = entities.Ajustescpagars.Find(id);
-                Ajustescpagar Nuevo = p;
+                Ajustescpagar Nuevo = p;               
                 
-                Nuevo.Monto = abono.Monto;
-                
-                Nuevo.Fecha = abono.Fecha;
-                Nuevo.Observaciones = abono.Observaciones;
-                Nuevo.Anula = abono.Anula;
-                
-                Nuevo.CodMoneda = abono.CodMoneda;
-                
-                Nuevo.IdSucursal = abono.IdSucursal;
-                //Nuevo.AbonoApartadosdetalles = abono.AbonoApartadosdetalle;
-
+                Nuevo.Anula = true;                
                 entities.Entry(Nuevo).State = EntityState.Modified;
-
                 return entities.SaveChanges();
-
 
             }
             catch (Exception ex)

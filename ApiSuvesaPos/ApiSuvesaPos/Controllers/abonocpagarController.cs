@@ -11,10 +11,11 @@ namespace ApiSuvesaPos.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class ajusteccobrarController : Controller
+    public class abonocpagarController : Controller
     {
 
-        private Negocio.Logica.Ajustesccobrar db = new Negocio.Logica.Ajustesccobrar();
+
+        private Negocio.Logica.Abonocpagar db = new Negocio.Logica.Abonocpagar();
 
         private bool Numerico(string text)
         {
@@ -23,19 +24,16 @@ namespace ApiSuvesaPos.Controllers
         }
 
         [HttpPost]
-        public IActionResult PostAjusteccobrar(Datos.Models.Ajustesccobrar nuevo)
+        public IActionResult PostAbonocCobrar(Datos.Models.Abonocpagar nuevo)
         {
             try
             {
 
                 string resp = db.Crear(nuevo);
 
-                //Ojo
-                // creo que devuelve el numero de sentencias aplicadas
-
-                if (resp.Equals("3"))
+                if (resp.Equals("2"))
                 {
-                    return Ok("Ok");
+                    return Ok("OK");
                 }
                 else
                 {
@@ -50,10 +48,10 @@ namespace ApiSuvesaPos.Controllers
         }
 
         [HttpPut]
-        public IActionResult PutAjusteccobrar(long id)
+        public IActionResult PutAbonocCobrar(long id, bool eliminacheque)
         {
 
-            string resp = this.db.Anular(id);
+            string resp = this.db.Anular(id, eliminacheque);
             if (resp.Equals("1"))
             {
                 return Ok("Ok");
@@ -68,10 +66,10 @@ namespace ApiSuvesaPos.Controllers
             }
         }
 
-
         [HttpGet]
-        public IActionResult GetAjusteccobrar(bool porid, string filtro)
+        public IActionResult GetAbonoccobrar(bool porid, string filtro)
         {
+
             if (porid == true && !this.Numerico(filtro))
             {
                 return BadRequest("El parametro filtro no tiene el valor esperado. Se esperaba un valor numerico.");
@@ -87,6 +85,7 @@ namespace ApiSuvesaPos.Controllers
                 return new NoContentResult();
             }
         }
+
 
     }
 }

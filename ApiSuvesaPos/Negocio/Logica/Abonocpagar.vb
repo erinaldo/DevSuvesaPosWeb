@@ -1,11 +1,15 @@
 ﻿Namespace Logica
     Public Class Abonocpagar
 
-        Public Property Moneda As Logica.Monedas
-        Public Property Bancos As Logica.Bancos
 
-        Public Sub Crear(abonocpagar As Modelo.abonocpagar)
+        Private db As Datos.Class.AbonosPagar
 
+        Sub New()
+            Me.db = New Datos.Class.AbonosPagar
+        End Sub
+
+        Public Function Crear(abonocpagar As Datos.Models.Abonocpagar) As String
+            Return Me.db.CrearAbonoPagar(abonocpagar)
             '********************
             'validacion
             'Private Function VerificaRecibo() As Boolean
@@ -140,15 +144,11 @@
             '    trans.Rollback()
             '    MsgBox(ex.Message, MsgBoxStyle.Critical, Text)
             'End Try
-        End Sub
+        End Function
 
-        Public Function Busar(porProveedor As Boolean,
-                                porCheque As Boolean,
-                                porId As Boolean,
-                                filtro As String,
-                                porFecha As Boolean,
-                                desde As Date,
-                                hasta As Date) As List(Of Modelo.abonocpagar)
+        Public Function Buscar(porId As Boolean, Filtro As String) As List(Of Datos.Models.Abonocpagar)
+            Return db.ObtenerAbonocpagar(porId, Filtro)
+
             'identificador = CDbl(Fx.Buscar_X_Descripcion_Fecha("SELECT abonocpagar.Id_Abonocpagar AS Consecutivo, cast(abonocpagar.Recibo as varchar) as Recibo, ISNULL(Proveedores.Nombre, 'Proveedor Eliminado') AS Proveedor, abonocpagar.Fecha, cast(abonocpagar.Documento as varchar ) as Cheque FROM abonocpagar LEFT OUTER JOIN Proveedores ON abonocpagar.Cod_Proveedor = Proveedores.CodigoProv ORDER BY abonocpagar.Fecha DESC", "Proveedor", "Fecha", "Buscar Pagos a Proveedor", SqlConnection1.ConnectionString))
             'buscando = True
             'If identificador = 0.0 Then ' si se dio en el boton de cancelar
@@ -157,8 +157,8 @@
             'End If
         End Function
 
-        Public Sub Anular(id_Abonocpagar As String, eliminaCheque As Boolean)
-
+        Public Function Anular(id_Abonocpagar As Long, eliminaCheque As Boolean) As String
+            Return Me.db.AnularAbonoPagar(id_Abonocpagar, eliminaCheque)
             '    Function Registrar_Anulacion_Venta() As Boolean
             '    Dim i As Long
             '    Dim Facttem As Double
@@ -196,7 +196,7 @@
             '    End Try
             'End Sub
 
-        End Sub
+        End Function
 
 
     End Class

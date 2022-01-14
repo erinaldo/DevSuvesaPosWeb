@@ -22,6 +22,17 @@
 
         End Function
 
+        Public Function BuscarDetalle(Id As Long) As List(Of Datos.Models.DetalleAjustescPagar)
+            Return db.ObtenerAjustesPagar(Id)
+            'identificador = CDbl(Fx.Buscar_X_Descripcion_Fecha("Select cast(ID_Ajuste as varchar) as Numero , Nombre_Proveedor, Fecha from ajustescpagar Order by Fecha DESC", "Nombre_Proveedor", "Fecha", "Buscar Ajuste de Cuenta", Me.SqlConnection1.ConnectionString))
+            'buscando = True
+            'If identificador = 0.0 Then ' si se dio en el boton de cancelar
+            '    Me.buscando = False
+            '    Exit Sub
+            'End If
+
+        End Function
+
 
         Public Function Crear(ajustecpagar As Datos.Models.Ajustescpagar) As String
 
@@ -69,8 +80,8 @@
 
         End Function
 
-        Public Sub Anular()
-
+        Public Function Anular(Id As Long) As String
+            Return Me.db.AnularAjustesPagar(Id)
 
             '        Function Registrar_Anulacion_Ajuste() As Boolean
             '    Dim i As Long
@@ -97,7 +108,7 @@
             '    End Try
             'End Function
 
-        End Sub
+        End Function
 
     End Class
 

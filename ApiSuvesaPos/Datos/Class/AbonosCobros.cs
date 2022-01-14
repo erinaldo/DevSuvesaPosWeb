@@ -116,30 +116,15 @@ namespace Datos.Class
             }
         }
 
-        public int EditarAbonoscobros(int id, Abonoccobrar abono)
+        public int EditarAbonoscobros(long id)
         {
             try
             {
                 var p = entities.Abonoccobrars.Find(id);
                 Abonoccobrar Nuevo = p;
-                Nuevo.CodCliente = abono.CodCliente;
-                Nuevo.NombreCliente = abono.NombreCliente;
-                Nuevo.SaldoCuenta = abono.SaldoCuenta;
-                Nuevo.Monto = abono.Monto;
-                Nuevo.SaldoActual = abono.SaldoActual;
-                Nuevo.Fecha = abono.Fecha;
-                Nuevo.Observaciones = abono.Observaciones;
-                Nuevo.Anula = abono.Anula;
-                Nuevo.CedUsuario = abono.CedUsuario;
-                Nuevo.CodMoneda = abono.CodMoneda;
-                Nuevo.NumRecibo = abono.NumRecibo;
-                Nuevo.IdSucursal = abono.IdSucursal;
-                //Nuevo.AbonoApartadosdetalles = abono.AbonoApartadosdetalle;
-
+                Nuevo.Anula = true;
                 entities.Entry(Nuevo).State = EntityState.Modified;
-
                 return entities.SaveChanges();
-
 
             }
             catch (Exception ex)

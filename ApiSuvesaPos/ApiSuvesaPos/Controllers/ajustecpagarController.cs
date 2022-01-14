@@ -29,9 +29,12 @@ namespace ApiSuvesaPos.Controllers
 
                 string resp = db.Crear(nuevo);
 
-                if (resp.Equals("1"))
+                // OJO
+                // Este loco devuelve 2 
+
+                if (resp.Equals("2"))
                 {
-                    return Ok(nuevo);
+                    return Ok("Ok");
                 }
                 else
                 {
@@ -42,6 +45,25 @@ namespace ApiSuvesaPos.Controllers
             catch (Exception ex)
             {
                 return new BadRequestResult();
+            }
+        }
+
+        [HttpPut]
+        public IActionResult PutAjustecpagar(long id)
+        {
+
+            string resp = this.db.Anular(id);
+            if (resp.Equals("1"))
+            {
+                return Ok("Ok");
+            }
+            else if (resp.Equals("No existe el valor"))
+            {
+                return NotFound();
+            }
+            else
+            {
+                throw new Exception(resp);
             }
         }
 
@@ -62,7 +84,7 @@ namespace ApiSuvesaPos.Controllers
             {
                 return new NoContentResult();
             }
-        }
+        }        
 
     }
 }
