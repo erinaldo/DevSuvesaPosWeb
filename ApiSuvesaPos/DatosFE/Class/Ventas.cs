@@ -103,18 +103,25 @@ namespace DatosFE.Class
             }
         }
 
-        public string ObtenerClaveFactura(long id) // Retorna la clave de venta
+        public string ObtenerClaveFactura(int id) // Retorna la clave de venta
         {
             try
             {
 
-                var p = entities.Ventas.Find(id);
-                DatosFE.Models.Venta viejo = p;
+                var p = from c in entities.Ventas
+                        where c.Id == id
+                        select c;
+                List < Venta > viejo = p.ToList<Venta>();
 
 
                 if (viejo != null)
                 {
-                    string clave = viejo.ClaveMh;
+                    string clave = "";
+                    foreach (Venta test in viejo)
+                    {
+                        clave = test.ClaveMh;
+                    }
+                   
                     return clave;
                 }
                 else

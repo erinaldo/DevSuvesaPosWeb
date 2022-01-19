@@ -26,27 +26,114 @@ Public Class EnvioComprobantes
         'WMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMMWMWMWMWMWMWMWMWMWMWM
     End Sub
 
-    Public Function EnviarDevolucion(_Id As String, _Internet As Boolean) As Boolean
-        If _Internet = True Then
-            'Si hay internet, Envia la devolucion
-            Return Me.xml.GeneraXMLDevoluciones(_Id)
+
+    Public Function EnviarDevolucion(_Id As String) As String
+        Me.xml = New OBSoluciones.ComprobantesElectronicos.GeneraXML_43
+        Dim resp = Me.xml.XMLDevolucion(_Id)
+        If resp = "1" Then
+
+            Dim Token As String = getToken()
+            If Token <> "" Then
+                Dim enviaFactura As New Comunicacion
+                If enviaFactura.EnvioDatos(Token, Me.xml.ObjRecepcion) = True Then
+
+                    Dim DirectorioTemp = xml.RaizXML & "/" & xml.Fac.NumeroConsecutivo & "/"
+                    'Guarda el Json del envio
+                    Dim jsonEnvio As String = enviaFactura.jsonEnvio
+                    Dim jsonRespuesta As String = enviaFactura.jsonRespuesta
+                    Dim outputFile As New IO.StreamWriter(DirectorioTemp & XMLConsecutivo & "_03_jsonEnvio.txt")
+                    outputFile.Write(jsonEnvio)
+                    outputFile.Close()
+                    'Guarda el Json de la respuesta
+                    outputFile = New IO.StreamWriter(DirectorioTemp & XMLConsecutivo & "_04_jsonRespuesta.txt")
+                    outputFile.Write(jsonRespuesta)
+                    outputFile.Close()
+                    'Guarda respuesta
+                    If Not IsNothing(enviaFactura.xmlRespuesta) Then
+                        enviaFactura.xmlRespuesta.Save(DirectorioTemp & XMLConsecutivo & "_05_RESP.xml")
+                    Else
+                        outputFile = New IO.StreamWriter(DirectorioTemp & XMLConsecutivo & "_05_RESP_SinRespuesta.txt")
+                        outputFile.Write("")
+                        outputFile.Close()
+                    End If
+
+                    'Actualizar estados Devolucion
+                    Select Case enviaFactura.estadoFactura
+                        Case "aceptado"
+                            'Me.Documentos.FacturaAceptada(_IdDocumento, Me.XMLClave, Me.XMLConsecutivo)
+                        Case "rechazado"
+                            'Me.Documentos.RegistrarEstadoFactura(_IdDocumento, Me.XMLClave, Me.XMLConsecutivo, enviaFactura.estadoFactura)
+                            'If enviaFactura.MotiviRechazo.IndexOf("firma del comprobante electrónico no es válida") > 0 Then
+                            ' Me.Documentos.CambiarEstadoComprobante(Me.XMLClave, "procesando")
+                            ' Else
+                            ' Dim correo As New Correo
+                            'Correo.NotificarFacturaRechazada(_IdDocumento, "rolando.obando@gmail.com", enviaFactura.MotiviRechazo)
+                            'End If
+                        Case Else
+                            'Me.Documentos.RegistrarEstadoFactura(_IdDocumento, Me.XMLClave, Me.XMLConsecutivo, enviaFactura.estadoFactura)
+                    End Select
+
+                End If
+            End If
+            Return "1"
         Else
-            Return False
+            Return resp
         End If
     End Function
 
-    Public Sub EnviarFactura(_Id As String, _Internet As Boolean, _PVE As Boolean)
-        If _Internet = True Then
-            'Si hay internet, Envia la factura
-            If _PVE = True Then
-                Me.xml.GeneraXMLTiquete(_Id)
-            Else
-                Me.xml.GeneraXMLFactura(_Id)
+    Public Function EnviarFactura(_Id As String) As String
+        Me.xml = New OBSoluciones.ComprobantesElectronicos.GeneraXML_43
+        Dim resp = Me.xml.XMLFactura(_Id)
+        If resp = "1" Then
+
+            Dim Token As String = getToken()
+            If Token <> "" Then
+                Dim enviaFactura As New Comunicacion
+                If enviaFactura.EnvioDatos(Token, Me.xml.ObjRecepcion) = True Then
+
+                    Dim DirectorioTemp = xml.RaizXML & "/" & xml.Fac.NumeroConsecutivo & "/"
+                    'Guarda el Json del envio
+                    Dim jsonEnvio As String = enviaFactura.jsonEnvio
+                    Dim jsonRespuesta As String = enviaFactura.jsonRespuesta
+                    Dim outputFile As New IO.StreamWriter(DirectorioTemp & XMLConsecutivo & "_03_jsonEnvio.txt")
+                    outputFile.Write(jsonEnvio)
+                    outputFile.Close()
+                    'Guarda el Json de la respuesta
+                    outputFile = New IO.StreamWriter(DirectorioTemp & XMLConsecutivo & "_04_jsonRespuesta.txt")
+                    outputFile.Write(jsonRespuesta)
+                    outputFile.Close()
+                    'Guarda respuesta
+                    If Not IsNothing(enviaFactura.xmlRespuesta) Then
+                        enviaFactura.xmlRespuesta.Save(DirectorioTemp & XMLConsecutivo & "_05_RESP.xml")
+                    Else
+                        outputFile = New IO.StreamWriter(DirectorioTemp & XMLConsecutivo & "_05_RESP_SinRespuesta.txt")
+                        outputFile.Write("")
+                        outputFile.Close()
+                    End If
+
+                    'Actualizar estados Factura
+                    Select Case enviaFactura.estadoFactura
+                        Case "aceptado"
+                            'Me.Documentos.FacturaAceptada(_IdDocumento, Me.XMLClave, Me.XMLConsecutivo)
+                        Case "rechazado"
+                            'Me.Documentos.RegistrarEstadoFactura(_IdDocumento, Me.XMLClave, Me.XMLConsecutivo, enviaFactura.estadoFactura)
+                            'If enviaFactura.MotiviRechazo.IndexOf("firma del comprobante electrónico no es válida") > 0 Then
+                            ' Me.Documentos.CambiarEstadoComprobante(Me.XMLClave, "procesando")
+                            ' Else
+                            ' Dim correo As New Correo
+                            'Correo.NotificarFacturaRechazada(_IdDocumento, "rolando.obando@gmail.com", enviaFactura.MotiviRechazo)
+                            'End If
+                        Case Else
+                            'Me.Documentos.RegistrarEstadoFactura(_IdDocumento, Me.XMLClave, Me.XMLConsecutivo, enviaFactura.estadoFactura)
+                    End Select
+
+                End If
             End If
+            Return "1"
         Else
-            'Si no hay internet, marca la factura como contingencia            
+            Return resp
         End If
-    End Sub
+    End Function
 
     Public Function getToken() As String
         Try
@@ -116,12 +203,12 @@ Public Class EnvioComprobantes
         Dim FeDet As New List(Of DatosFE.Models.ObtenerDetalleFactura43)
 
         Dim cls As New DatosFE.Class.Vistas
-        fe = cls.ObtenerFacturas43(_IdFactura).FirstOrDefault()
-        fedet = cls.ObtenerDetalleFacturas43(_IdFactura)
+        Fe = cls.ObtenerFacturas43(_IdFactura).FirstOrDefault()
+        FeDet = cls.ObtenerDetalleFacturas43(_IdFactura)
 
         Me.PDF.Autor = "OBSoluciones"
         Me.PDF.Titulo = "Comprobantes Electronicos"
-        Me.PDF.CrearFactura(fe.Clave, fe, fedet)
+        Me.PDF.CrearFactura(Fe.Clave, Fe, FeDet)
     End Sub
 
     Public Sub GeneraPDFDevolucion(_IdFactura As String)
@@ -152,7 +239,7 @@ Public Class EnvioComprobantes
                 xmlDocSF = Nothing
                 'Guarda xml Firmado de la factura
                 Dim _firma As New Firma
-                _firma.FirmaXML_Xades_MensajeReceptor(DirectorioTemp & XMLConsecutivo, "C:\Facturas\certificado.p12", False, Me.clsEmisor.certificado)
+                _firma.FirmaXML_Xades_MensajeReceptor(DirectorioTemp & XMLConsecutivo, "C:\Facturas\certificado.p12", False, Me.clsEmisor.Certificado)
                 Dim xmlElectronica As New Xml.XmlDocument
                 xmlElectronica.Load(DirectorioTemp & XMLConsecutivo & "_02_Firmado.xml")
                 '*********************************************************************************************
@@ -229,7 +316,7 @@ Public Class EnvioComprobantes
                 xmlDocSF = Nothing
                 'Guarda xml Firmado de la factura
                 Dim _firma As New Firma
-                _firma.FirmaXML_Xades(DirectorioTemp & XMLConsecutivo, "C:\Facturas\certificado.p12", False, Me.clsEmisor.certificado)
+                _firma.FirmaXML_Xades(DirectorioTemp & XMLConsecutivo, "C:\Facturas\certificado.p12", False, Me.clsEmisor.Certificado)
                 Dim xmlElectronica As New Xml.XmlDocument
                 xmlElectronica.Load(DirectorioTemp & XMLConsecutivo & "_02_Firmado.xml")
 
@@ -452,8 +539,8 @@ fin:
         End If
     End Sub
 
-    Public Function EnviarMensajeReceptor(_Id As String) As Boolean
-        Return Me.xml.GeneraXMLMensajeReceptor(_Id)
+    Public Function EnviarMensajeReceptor(_Id As String) As String
+        Return Me.xml.XMLMensajeReceptor(_Id)
     End Function
 
     Private Function ObtenerCorreo(_IdRecibo As String) As String

@@ -15,7 +15,7 @@ Namespace OBSoluciones
     Namespace ComprobantesElectronicos
         Public Class GeneraXML_43
             Private xml As XmlTextWriter
-            Private UbicacionXMLFacturas As String = "C:/Facturas"
+            Public RaizXML As String = "C:/Facturas"
             Private UbicacionXMLCompras As String = "C:/Compras"
 
             Public Fac As New DatosFE.Models.ObtenerFacturas43
@@ -29,7 +29,7 @@ Namespace OBSoluciones
             Public Event setDifMontos(_IdFactura As String)
             'CONSTRUCTOR DE LA CLASE
             Sub New()
-                If Directory.Exists(Me.UbicacionXMLFacturas) = False Then Directory.CreateDirectory(Me.UbicacionXMLFacturas)
+                If Directory.Exists(Me.RaizXML) = False Then Directory.CreateDirectory(Me.RaizXML)
             End Sub
             'METODOS PARA AGREGAR ELEMENTOS AL XML
             Private Sub AgregarElementoManual(ByVal _TituloXml As String, ByVal _Valor As String)
@@ -80,12 +80,77 @@ Namespace OBSoluciones
                 End Try
                 Return Clave
             End Function
+            Public Function ObjRecepcion() As DatosFE.FE.Recepcion
+                Dim xmlElectronica As New Xml.XmlDocument
+                xmlElectronica.Load(Me.RaizXML & "/" & Me.Fac.NumeroConsecutivo & "/" & Me.Fac.NumeroConsecutivo & "_02_Firmado.xml")
+                Dim myEmisor As New DatosFE.FE.Emisor With {.numeroIdentificacion = Me.Fac.NumeroEmisor, .TipoIdentificacion = Me.Fac.TipoEmisor}
+                Dim myReceptor As New DatosFE.FE.Receptor
+                If Me.Fac.NumeroReceptor <> "" Then
+                    myReceptor = New DatosFE.FE.Receptor With {.numeroIdentificacion = Me.Fac.NumeroReceptor, .TipoIdentificacion = Me.Fac.TipoReceptor}
+                Else
+                    myReceptor.sinReceptor = True
+                End If
+                Dim myRecepcion As New DatosFE.FE.Recepcion
+                myRecepcion.emisor = myEmisor
+                myRecepcion.receptor = myReceptor
+                myRecepcion.clave = Me.Fac.ClaveMh
+                myRecepcion.consecutivoReceptor = ""
+                myRecepcion.fecha = Now.ToString("yyyy-MM-ddTHH:mm:sszzz")
+                myRecepcion.comprobanteXml = Funciones.EncodeStrToBase64(xmlElectronica.OuterXml)
+                xmlElectronica = Nothing
+                Return myRecepcion
+            End Function
+
+            Private Function XMLFirmado(url As String) As Boolean
+                Try
+                    Dim xmlElectronica As New Xml.XmlDocument
+                    xmlElectronica.Load(url)
+                    Dim xml As String = xmlElectronica.OuterXml
+                    xmlElectronica = Nothing
+
+                    Dim CarpetaXML As String = RaizXML & "/" & Me.Fac.NumeroConsecutivo & "/"
+                    'Genera Archivos XML 
+                    '   Guarda xml sin Firmar de la factura
+                    Dim xmlDocSF As New Xml.XmlDocument
+                    xmlDocSF.LoadXml(xml)
+                    xmlDocSF.Save(CarpetaXML & Me.Fac.NumeroConsecutivo & "_01_SF.xml")
+                    Dim xmlTextWriter As New Xml.XmlTextWriter(CarpetaXML & Me.Fac.NumeroConsecutivo & "_01_SF.xml", New System.Text.UTF8Encoding(False))
+                    xmlDocSF.WriteTo(xmlTextWriter)
+                    xmlTextWriter.Close()
+                    xmlDocSF = Nothing
+
+                    '   Guarda xml Firmado de la factura
+                    Dim _firma As New Firma
+                    '********************************************************************************
+                    'Ojo hay que capturar de la base de datos
+                    Dim ClaveCertificado As String = "0211" 'Me.clsEmisor.Certificado
+                    Dim UbicacionCertificado As String = "C:\Facturas\certificado.p12"
+                    '********************************************************************************
+                    _firma.FirmaXML_Xades(CarpetaXML & Me.Fac.NumeroConsecutivo, UbicacionCertificado, False, ClaveCertificado)
+                    Return True
+                Catch ex As Exception
+                    Return False
+                End Try
+            End Function
+            Public Function XMLFactura(_IdFactura As String) As String
+                Try
+                    Me.CargarDatosFactura(_IdFactura)
+                    Dim Tipo As String = Me.Fac.Consecutivo.Substring(8, 2)
+                    If Tipo = "04" Then
+                        '04. Tiquete Electrónico
+                        Return Me.XMLFactura()
+                    Else
+                        '01. Factura Electrónica
+                        Return Me.XMLTiquete()
+                    End If
+                Catch ex As Exception
+                    Return ex.Message
+                End Try
+            End Function
             'GENERA XML FACTURA
-            Public Function GeneraXMLFactura(ByVal _IdFactura As String) As Boolean
+            Private Function XMLFactura() As String
                 Dim consecutivo As String = ""
                 Dim clave As String = ""
-                Me.CargarDatosFactura(_IdFactura)
-
                 Dim TotalServGravados, TotalServExentos As Decimal
 
                 Dim SubTotal, Descuento, Impuesto, Total As Decimal
@@ -111,14 +176,14 @@ Namespace OBSoluciones
                     DifTotales = Math.Abs(TotalComprobante - TotalImpreso)
 
                     If DifTotales > 50 Then
-                        RaiseEvent setDifMontos(_IdFactura)
+                        RaiseEvent setDifMontos(Me.Fac.Id)
                         Return False
                     End If
 
-                    Me.UbicacionXMLFacturas = "C:/Facturas"
-                    Me.UbicacionXMLFacturas += "/" & consecutivo
-                    If Directory.Exists(Me.UbicacionXMLFacturas) = False Then Directory.CreateDirectory(Me.UbicacionXMLFacturas)
-                    Me.xml = New XmlTextWriter(UbicacionXMLFacturas & "/" & consecutivo & "_00_SF.xml", System.Text.Encoding.UTF8)
+                    Dim CarpetaXML As String = RaizXML & "/" & consecutivo & "/"
+                    If Directory.Exists(CarpetaXML) = False Then Directory.CreateDirectory(CarpetaXML)
+                    Me.xml = New XmlTextWriter(CarpetaXML & consecutivo & "_00_SF.xml", System.Text.Encoding.UTF8)
+
                     Me.xml.WriteStartDocument(True)
                     Me.xml.Formatting = Formatting.Indented
                     Me.xml.Indentation = 2
@@ -217,10 +282,6 @@ Namespace OBSoluciones
                         Descuento += CDec(Detalle.MontoDescuento)
                         Impuesto += CDec(Detalle.MontoImpuesto)
                         Total += CDec(Detalle.MontoTotalLinea)
-
-                        'Dim TotalMercanciasGravadas, TotalMercanciasExentas As Decimal
-                        'Dim TotalGravado, TotalExento As Decimal
-                        'Dim TotalVenta, TotalDescuentos, TotalVentaNeta, TotalImpuesto, TotalComprobante As Decimal
                     Next
                     Me.xml.WriteEndElement() '                                                          //DETALLESERVICOS       *********************************
                     Me.xml.WriteStartElement("ResumenFactura") '                                        RESUMENFACTURA          *********************************
@@ -258,7 +319,7 @@ Namespace OBSoluciones
                             Me.xml.WriteEndElement()
                         Else
                             'No se envia a tributacion porque no tiene orden de compra, asi se puede agregar y luego enviar.
-                            Return False
+                            Return "Falta ingresar orden de compra"
                         End If
                     Else
                         If OrdenCompra <> "" And OrdenCompra <> "0" Then
@@ -268,45 +329,35 @@ Namespace OBSoluciones
                         End If
                     End If
 
-                    'Me.xml.WriteStartElement("Normativa") '                                             NORMATIVA              *********************************
-                    'Me.AgregarElemento("NumeroResolucion", "NumeroResolucion") '                            numeroresolucion
-                    'Me.AgregarElemento("FechaResolucion", "FechaResolucion") '                              fecharesolucion
-                    'Me.xml.WriteEndElement() '                                                          //NORMATIVA            *********************************
-
                     Me.xml.WriteEndElement() '                                                          //FACTURA ELECTRONICA   *********************************
                     Me.xml.WriteEndDocument()
                     Me.xml.Close()
                     Me.xml.Dispose()
                     Me.xml = Nothing
-                    Dim xmlElectronica As New Xml.XmlDocument
-                    xmlElectronica.Load(UbicacionXMLFacturas & "/" & consecutivo & "_00_SF.xml")
-                    'xmlElectronica.PreserveWhitespace = True
-                    Dim resultado As String = xmlElectronica.OuterXml
-                    xmlElectronica = Nothing
-                    RaiseEvent DocumentoGenerado(resultado, _IdFactura, "FACTURA")
-                    Return True
+
+                    If Me.XMLFirmado(CarpetaXML & consecutivo & "_00_SF.xml") = True Then
+                        Return "1"
+                    Else
+                        Return "0"
+                    End If
                 Catch ex As Exception
                     RaiseEvent setError(ex.Message)
-                    Return False
+                    Return ex.Message
                 End Try
             End Function
             'GENERA XML TIQUETE CAJA
-            Public Function GeneraXMLTiquete(ByVal _IdFactura As String) As Boolean
+            Private Function XMLTiquete() As Boolean
                 Try
                     Dim consecutivo As String = ""
                     Dim clave As String = ""
-                    Me.CargarDatosFactura(_IdFactura)
-
-                    'consecutivo = dtsEncabezado.Rows(0).Item("Consecutivo")
-                    'clave = Me.ObtenerClave(consecutivo)
 
                     consecutivo = Fac.NumeroConsecutivo
                     clave = Fac.Clave
 
-                    Me.UbicacionXMLFacturas = "C:/Facturas"
-                    Me.UbicacionXMLFacturas += "/" & consecutivo
-                    If Directory.Exists(Me.UbicacionXMLFacturas) = False Then Directory.CreateDirectory(Me.UbicacionXMLFacturas)
-                    Me.xml = New XmlTextWriter(UbicacionXMLFacturas & "/" & consecutivo & "_00_SF.xml", System.Text.Encoding.UTF8)
+                    Dim CarpetaXML As String = RaizXML & "/" & consecutivo & "/"
+                    If Directory.Exists(CarpetaXML) = False Then Directory.CreateDirectory(CarpetaXML)
+                    Me.xml = New XmlTextWriter(CarpetaXML & consecutivo & "_00_SF.xml", System.Text.Encoding.UTF8)
+
                     Me.xml.WriteStartDocument(True)
                     Me.xml.Formatting = Formatting.Indented
                     Me.xml.Indentation = 2
@@ -391,39 +442,35 @@ Namespace OBSoluciones
                     Me.AgregarElemento("TotalImpuesto", Me.Fac.TotalImpuesto) '                                  totalimpuesto
                     Me.AgregarElemento("TotalComprobante", Me.Fac.TotalComprobante) '                            totalcomprobante
                     Me.xml.WriteEndElement() '                                                          //RESUMENFACTURA        *********************************
-                    'Me.xml.WriteStartElement("Normativa") '                                             NORMATIVA               *********************************
-                    'Me.AgregarElemento("NumeroResolucion", "NumeroResolucion") '                            numeroresolucion
-                    'Me.AgregarElemento("FechaResolucion", "FechaResolucion") '                              fecharesolucion
-                    'Me.xml.WriteEndElement() '                                                          //NORMATIVA             *********************************
                     Me.xml.WriteEndElement() '                                                          //FACTURA ELECTRONICA   *********************************
                     Me.xml.WriteEndDocument()
                     Me.xml.Close()
                     Me.xml.Dispose()
                     Me.xml = Nothing
-                    Dim xmlElectronica As New Xml.XmlDocument
-                    xmlElectronica.Load(UbicacionXMLFacturas & "/" & consecutivo & "_00_SF.xml")
-                    'xmlElectronica.PreserveWhitespace = True
-                    Dim resultado As String = xmlElectronica.OuterXml
-                    xmlElectronica = Nothing
-                    RaiseEvent DocumentoGenerado(resultado, _IdFactura, "TIQUETE")
-                    Return True
+
+                    If Me.XMLFirmado(CarpetaXML & consecutivo & "_00_SF.xml") = True Then
+                        Return "1"
+                    Else
+                        Return "0"
+                    End If
                 Catch ex As Exception
                     RaiseEvent setError(ex.Message)
-                    Return False
+                    Return ex.Message
                 End Try
             End Function
             'GENERA XML NOTA CREDITO POR DEVOLUCION
-            Public Function GeneraXMLDevoluciones(ByVal _IdDevolucion As String) As Boolean
+            Public Function XMLDevolucion(ByVal _IdDevolucion As String) As Boolean
                 Try
                     Dim consecutivo As String = ""
                     Dim clave As String = ""
                     Me.CargarDatosDevolucion(_IdDevolucion)
                     consecutivo = Me.Fac.Consecutivo
                     clave = Me.ObtenerClave(consecutivo)
-                    Me.UbicacionXMLFacturas = "C:/Facturas"
-                    Me.UbicacionXMLFacturas += "/" & consecutivo
-                    If Directory.Exists(Me.UbicacionXMLFacturas) = False Then Directory.CreateDirectory(Me.UbicacionXMLFacturas)
-                    Me.xml = New XmlTextWriter(UbicacionXMLFacturas & "/" & consecutivo & "_00_SF.xml", System.Text.Encoding.UTF8)
+
+                    Dim CarpetaXML = Me.RaizXML & "/" & consecutivo & "/"
+                    If Directory.Exists(CarpetaXML) = False Then Directory.CreateDirectory(CarpetaXML)
+                    Me.xml = New XmlTextWriter(RaizXML & consecutivo & "_00_SF.xml", System.Text.Encoding.UTF8)
+
                     Me.xml.WriteStartDocument(True)
                     Me.xml.Formatting = Formatting.Indented
                     Me.xml.Indentation = 2
@@ -540,28 +587,24 @@ Namespace OBSoluciones
                     Me.AgregarElemento("Codigo", Me.Dev.CodigoReferencia) '                                     codigo
                     Me.AgregarElemento("Razon", Me.Dev.RazonReferencia) '                                       razon
                     Me.xml.WriteEndElement() '                                                          //INFORMACIONREFERENCIA *********************************
-                    'Me.xml.WriteStartElement("Normativa") '                                             NORMATIVA               *********************************
-                    'Me.AgregarElemento("NumeroResolucion", "NumeroResolucion") '                            numeroresolucion
-                    'Me.AgregarElemento("FechaResolucion", "FechaResolucion") '                              fecharesolucion
-                    'Me.xml.WriteEndElement() '                                                          //NORMATIVA             *********************************
                     Me.xml.WriteEndElement() '                                                          //FACTURA ELECTRONICA   *********************************
                     Me.xml.WriteEndDocument()
                     Me.xml.Close()
                     Me.xml.Dispose()
                     Me.xml = Nothing
-                    Dim xmlElectronica As New Xml.XmlDocument
-                    'xmlElectronica.PreserveWhitespace = True
-                    xmlElectronica.Load(UbicacionXMLFacturas & "/" & consecutivo & "_00_SF.xml")
-                    Dim resultado As String = xmlElectronica.OuterXml
-                    xmlElectronica = Nothing
-                    RaiseEvent DocumentoGenerado(resultado, _IdDevolucion, "DEVOLUCION")
-                    Return True
+
+                    If Me.XMLFirmado(CarpetaXML & consecutivo & "_00_SF.xml") = True Then
+                        Return "1"
+                    Else
+                        Return "0"
+                    End If
                 Catch ex As Exception
                     RaiseEvent setError(ex.Message)
                     Return False
                 End Try
             End Function
-            Public Function GeneraXMLMensajeReceptor(_IdMensaje As String) As Boolean
+            'GENERA XML MENSAJE RECEPTOR
+            Public Function XMLMensajeReceptor(_IdMensaje As String) As Boolean
                 Try
                     Me.CargarDatosMensaje(_IdMensaje)
                     Dim consecutivo As String = Msg.NumeroConsecutivoReceptor

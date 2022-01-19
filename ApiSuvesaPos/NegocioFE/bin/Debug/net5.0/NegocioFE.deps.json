@@ -10,7 +10,8 @@
         "dependencies": {
           "DatosFE": "1.0.0",
           "iTextSharp": "5.5.13.2",
-          "FirmaXadesNet": "2.1.0.0"
+          "FirmaXadesNet": "2.1.0.0",
+          "Microsoft.Xades": "1.0.7.0"
         },
         "runtime": {
           "NegocioFE.dll": {}
@@ -1076,6 +1077,14 @@
             "fileVersion": "2.1.0.0"
           }
         }
+      },
+      "Microsoft.Xades/1.0.7.0": {
+        "runtime": {
+          "Microsoft.Xades.dll": {
+            "assemblyVersion": "1.0.7.0",
+            "fileVersion": "1.0.7.0"
+          }
+        }
       }
     }
   },
@@ -1763,6 +1772,11 @@
       "sha512": ""
     },
     "FirmaXadesNet/2.1.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.Xades/1.0.7.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

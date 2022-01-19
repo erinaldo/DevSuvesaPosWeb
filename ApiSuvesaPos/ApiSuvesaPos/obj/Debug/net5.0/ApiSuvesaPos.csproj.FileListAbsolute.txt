@@ -123,8 +123,8 @@ C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\stati
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\staticwebassets\ApiSuvesaPos.StaticWebAssets.xml
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\scopedcss\bundle\ApiSuvesaPos.styles.css
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\ApiSuvesaPos.RazorTargetAssemblyInfo.cache
+C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\ApiSuvesaPos.csproj.CopyComplete
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\ApiSuvesaPos.dll
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\ref\ApiSuvesaPos.dll
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\ApiSuvesaPos.pdb
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\ApiSuvesaPos.genruntimeconfig.cache
-C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\ApiSuvesaPos\obj\Debug\net5.0\ApiSuvesaPos.csproj.CopyComplete
