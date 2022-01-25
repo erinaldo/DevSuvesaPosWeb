@@ -11,7 +11,7 @@ Public Class EnvioComprobantes
     Public Archivos As New List(Of String)
     Public Event SubirFactura()
 
-    Private WithEvents xml As New OBSoluciones.ComprobantesElectronicos.GeneraXML_43
+    Private WithEvents _xml As New OBSoluciones.ComprobantesElectronicos.GeneraXML_43
     Private clsEmisor As New DatosFE.Models.Emisor
     Private Directorio As String = "C:/Facturas/"
     Private XMLConsecutivo, XMLClave, XMLEmisorNumero, XMLEmisorTipo, XMLReceptorNumero, XMLReceptorTipo As String
@@ -26,128 +26,155 @@ Public Class EnvioComprobantes
         'WMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMMWMWMWMWMWMWMWMWMWMWM
     End Sub
 
-
-    Public Function EnviarDevolucion(_Id As String) As String
-        Me.xml = New OBSoluciones.ComprobantesElectronicos.GeneraXML_43
-        Dim resp = Me.xml.XMLDevolucion(_Id)
-        If resp = "1" Then
-
-            Dim Token As String = getToken()
-            If Token <> "" Then
-                Dim enviaFactura As New Comunicacion
-                If enviaFactura.EnvioDatos(Token, Me.xml.ObjRecepcion) = True Then
-
-                    Dim DirectorioTemp = xml.RaizXML & "/" & xml.Fac.NumeroConsecutivo & "/"
-                    'Guarda el Json del envio
-                    Dim jsonEnvio As String = enviaFactura.jsonEnvio
-                    Dim jsonRespuesta As String = enviaFactura.jsonRespuesta
-                    Dim outputFile As New IO.StreamWriter(DirectorioTemp & XMLConsecutivo & "_03_jsonEnvio.txt")
-                    outputFile.Write(jsonEnvio)
-                    outputFile.Close()
-                    'Guarda el Json de la respuesta
-                    outputFile = New IO.StreamWriter(DirectorioTemp & XMLConsecutivo & "_04_jsonRespuesta.txt")
-                    outputFile.Write(jsonRespuesta)
-                    outputFile.Close()
-                    'Guarda respuesta
-                    If Not IsNothing(enviaFactura.xmlRespuesta) Then
-                        enviaFactura.xmlRespuesta.Save(DirectorioTemp & XMLConsecutivo & "_05_RESP.xml")
-                    Else
-                        outputFile = New IO.StreamWriter(DirectorioTemp & XMLConsecutivo & "_05_RESP_SinRespuesta.txt")
-                        outputFile.Write("")
-                        outputFile.Close()
-                    End If
-
-                    'Actualizar estados Devolucion
-                    Select Case enviaFactura.estadoFactura
-                        Case "aceptado"
-                            'Me.Documentos.FacturaAceptada(_IdDocumento, Me.XMLClave, Me.XMLConsecutivo)
-                        Case "rechazado"
-                            'Me.Documentos.RegistrarEstadoFactura(_IdDocumento, Me.XMLClave, Me.XMLConsecutivo, enviaFactura.estadoFactura)
-                            'If enviaFactura.MotiviRechazo.IndexOf("firma del comprobante electrónico no es válida") > 0 Then
-                            ' Me.Documentos.CambiarEstadoComprobante(Me.XMLClave, "procesando")
-                            ' Else
-                            ' Dim correo As New Correo
-                            'Correo.NotificarFacturaRechazada(_IdDocumento, "rolando.obando@gmail.com", enviaFactura.MotiviRechazo)
-                            'End If
-                        Case Else
-                            'Me.Documentos.RegistrarEstadoFactura(_IdDocumento, Me.XMLClave, Me.XMLConsecutivo, enviaFactura.estadoFactura)
-                    End Select
-
-                End If
-            End If
-            Return "1"
-        Else
-            Return resp
-        End If
-    End Function
-
-    Public Function EnviarFactura(_Id As String) As String
-        Me.xml = New OBSoluciones.ComprobantesElectronicos.GeneraXML_43
-        Dim resp = Me.xml.XMLFactura(_Id)
-        If resp = "1" Then
-
-            Dim Token As String = getToken()
-            If Token <> "" Then
-                Dim enviaFactura As New Comunicacion
-                If enviaFactura.EnvioDatos(Token, Me.xml.ObjRecepcion) = True Then
-
-                    Dim DirectorioTemp = xml.RaizXML & "/" & xml.Fac.NumeroConsecutivo & "/"
-                    'Guarda el Json del envio
-                    Dim jsonEnvio As String = enviaFactura.jsonEnvio
-                    Dim jsonRespuesta As String = enviaFactura.jsonRespuesta
-                    Dim outputFile As New IO.StreamWriter(DirectorioTemp & XMLConsecutivo & "_03_jsonEnvio.txt")
-                    outputFile.Write(jsonEnvio)
-                    outputFile.Close()
-                    'Guarda el Json de la respuesta
-                    outputFile = New IO.StreamWriter(DirectorioTemp & XMLConsecutivo & "_04_jsonRespuesta.txt")
-                    outputFile.Write(jsonRespuesta)
-                    outputFile.Close()
-                    'Guarda respuesta
-                    If Not IsNothing(enviaFactura.xmlRespuesta) Then
-                        enviaFactura.xmlRespuesta.Save(DirectorioTemp & XMLConsecutivo & "_05_RESP.xml")
-                    Else
-                        outputFile = New IO.StreamWriter(DirectorioTemp & XMLConsecutivo & "_05_RESP_SinRespuesta.txt")
-                        outputFile.Write("")
-                        outputFile.Close()
-                    End If
-
-                    'Actualizar estados Factura
-                    Select Case enviaFactura.estadoFactura
-                        Case "aceptado"
-                            'Me.Documentos.FacturaAceptada(_IdDocumento, Me.XMLClave, Me.XMLConsecutivo)
-                        Case "rechazado"
-                            'Me.Documentos.RegistrarEstadoFactura(_IdDocumento, Me.XMLClave, Me.XMLConsecutivo, enviaFactura.estadoFactura)
-                            'If enviaFactura.MotiviRechazo.IndexOf("firma del comprobante electrónico no es válida") > 0 Then
-                            ' Me.Documentos.CambiarEstadoComprobante(Me.XMLClave, "procesando")
-                            ' Else
-                            ' Dim correo As New Correo
-                            'Correo.NotificarFacturaRechazada(_IdDocumento, "rolando.obando@gmail.com", enviaFactura.MotiviRechazo)
-                            'End If
-                        Case Else
-                            'Me.Documentos.RegistrarEstadoFactura(_IdDocumento, Me.XMLClave, Me.XMLConsecutivo, enviaFactura.estadoFactura)
-                    End Select
-
-                End If
-            End If
-            Return "1"
-        Else
-            Return resp
-        End If
-    End Function
-
-    Public Function getToken() As String
+    '**************************************************************************************************
+    'Version API
+    '**************************************************************************************************
+    '   Utilidades
+    Public Function getToken(ByRef Token As String) As String
         Try
+            'OJO
+            'debo tomar en cuenta que hay mas de un emisor
             Dim iTokenHacienda As New TokenHacienda
             iTokenHacienda.GetTokenHacienda(Me.clsEmisor.Usuario, Me.clsEmisor.Clave)
             If iTokenHacienda.AccesoConcedido = True Then
-                Return iTokenHacienda.accessToken
+                Token = iTokenHacienda.accessToken
+                Return "1"
             Else
-                Return ""
+                Return "Problemas al Obtener el Token"
             End If
         Catch ex As Exception
-            Return ""
+            Return ex.Message
         End Try
     End Function
+
+    '**************************************************************************************************
+    '   FACTURA Y TIQUETES ELECTRONICOS
+    Public Function EnviarFactura(_Id As String) As String
+        Dim xml As New OBSoluciones.ComprobantesElectronicos.GeneraXML_43
+        Dim resp = xml.XMLFactura(_Id) 'genera el xml firmado y pdf del comprobante electronico
+        If resp = "1" Then
+            Dim Token As String = ""
+            resp = getToken(Token) 'obtenemos el token de hacienda
+            If resp = "1" Then
+                Dim enviaFactura As New Comunicacion
+                If enviaFactura.EnvioDatos(Token, xml.ObjRecepcion) = True Then 'aqui envia el comprobante a la api de hacienda
+                    'Guarda el Json del envio
+                    Dim DirectorioTemp = xml.RaizXML & "/" & xml.Fac.NumeroConsecutivo & "/"
+                    Dim jsonEnvio As String = enviaFactura.jsonEnvio
+                    Dim jsonRespuesta As String = enviaFactura.jsonRespuesta
+                    Dim outputFile As New IO.StreamWriter(DirectorioTemp & XMLConsecutivo & "_03_jsonEnvio.txt")
+                    outputFile.Write(jsonEnvio)
+                    outputFile.Close()
+                    'Actualizar estados Factura
+                    If enviaFactura.estadoFactura = "aceptado" Or enviaFactura.estadoFactura = "rechazado" Then
+                        Me.Ventas.EditarEstadoFactura(_Id, "procesando")
+                    Else
+                        Me.Ventas.EditarEstadoFactura(_Id, enviaFactura.estadoFactura)
+                    End If
+                Else
+                    Return "Problemas al enviar al api de hacienda"
+                End If
+            Else
+                Return resp
+            End If
+            Return "1"
+        Else
+            Return resp
+        End If
+    End Function
+    Public Function ActualizarEstadoFactura(_Id As String) As String
+        Dim xml As New OBSoluciones.ComprobantesElectronicos.GeneraXML_43
+        Dim ClaveMH As String = Me.Ventas.ObtenerClaveFactura(_Id) 'Documentos.Obtener_ClaveFacturaMH(_IdFactura)
+        Dim ConsecutivoMh As String = Me.Ventas.ObtenerNumeroConsecutivoFactura(_Id) 'Documentos.Obtener_ConsecutivoFacturaMH(_IdFactura)
+        Dim DirectorioTemp As String = xml.RaizXML & "/" & ConsecutivoMh & "/"
+        If IO.Directory.Exists(DirectorioTemp) Then IO.Directory.CreateDirectory(DirectorioTemp)
+
+        Dim Token As String = ""
+        Dim resp As String = ""
+        resp = getToken(Token) 'obtenemos el token de hacienda
+        If resp = "1" Then
+            Dim enviaFactura As New Comunicacion
+            If enviaFactura.ConsultaEstatus(Token, ClaveMH) = True Then 'aqui consultamos el estado del comprobante en la api de hacienda
+                'guardamos xml de la respuesta
+                If Not IsNothing(enviaFactura.xmlRespuesta) Then
+                    enviaFactura.xmlRespuesta.Save(DirectorioTemp & ConsecutivoMh & "_07_RespuestaClave.xml")
+                End If
+                'Actualizar estados Factura
+                Select Case enviaFactura.estadoFactura
+                    Case "rechazado"
+                        Me.Ventas.EditarEstadoFactura(_Id, enviaFactura.estadoFactura)
+                        ' Dim correo As New Correo
+                        'Correo.NotificarFacturaRechazada(_IdDocumento, "rolando.obando@gmail.com", enviaFactura.MotiviRechazo)
+                    Case Else : Me.Ventas.EditarEstadoFactura(_Id, enviaFactura.estadoFactura)
+                End Select
+            End If
+        End If
+    End Function
+    Public Function EnviarCorreoFactura(_Id As String) As String
+        Dim correo As New Correo
+        Return correo.EnviarFactura(_Id)
+    End Function
+    '**************************************************************************************************
+    Public Function EnviarDevolucion(_Id As String) As String
+        Me._xml = New OBSoluciones.ComprobantesElectronicos.GeneraXML_43
+        Dim resp = Me._xml.XMLDevolucion(_Id)
+        If resp = "1" Then
+            Dim Token As String = ""
+            resp = getToken(Token) 'obtenemos el token de hacienda
+            If resp = "1" Then
+                Dim enviaFactura As New Comunicacion
+                If enviaFactura.EnvioDatos(Token, Me._xml.ObjRecepcion) = True Then
+                    'Guarda el Json del envio
+                    Dim DirectorioTemp = _xml.RaizXML & "/" & _xml.Dev.Consecutivo & "/"
+                    Dim jsonEnvio As String = enviaFactura.jsonEnvio
+                    Dim jsonRespuesta As String = enviaFactura.jsonRespuesta
+                    Dim outputFile As New IO.StreamWriter(DirectorioTemp & XMLConsecutivo & "_03_jsonEnvio.txt")
+                    outputFile.Write(jsonEnvio)
+                    outputFile.Close()
+                    'Actualizar estados Devolucion
+                    Select Case enviaFactura.estadoFactura
+                        Case "aceptado" : Me.Devoluciones.EditarEstadoDevolucionVenta(_Id, "procesando", _xml.Dev.Clave, _xml.Dev.Consecutivo)
+                        Case "rechazado" : Me.Devoluciones.EditarEstadoDevolucionVenta(_Id, "procesando", _xml.Dev.Clave, _xml.Dev.Consecutivo)
+                        Case Else : Me.Devoluciones.EditarEstadoDevolucionVenta(_Id, "procesando", _xml.Dev.Clave, _xml.Dev.Consecutivo)
+                    End Select
+                End If
+            End If
+            Return "1"
+        Else
+            Return resp
+        End If
+    End Function
+    Public Function ActualizarEstadoDevolucion(_Id As String) As String
+        Dim xml As New OBSoluciones.ComprobantesElectronicos.GeneraXML_43
+        Dim ClaveMH As String = Me.Devoluciones.ObtenerClaveDevolucion(_Id) 'Documentos.Obtener_ClaveFacturaMH(_IdFactura)
+        Dim ConsecutivoMh As String = Me.Devoluciones.ObtenerNumeroConsecutivoDevolucion(_Id) 'Documentos.Obtener_ConsecutivoFacturaMH(_IdFactura)
+        Dim DirectorioTemp As String = xml.RaizXML & "/" & ConsecutivoMh & "/"
+        If IO.Directory.Exists(DirectorioTemp) Then IO.Directory.CreateDirectory(DirectorioTemp)
+
+        Dim Token As String = ""
+        Dim resp As String = ""
+        resp = getToken(Token) 'obtenemos el token de hacienda
+        If resp = "1" Then
+            Dim enviaFactura As New Comunicacion
+            If enviaFactura.ConsultaEstatus(Token, ClaveMH) = True Then 'aqui consultamos el estado del comprobante en la api de hacienda
+                'guardamos xml de la respuesta
+                If Not IsNothing(enviaFactura.xmlRespuesta) Then
+                    enviaFactura.xmlRespuesta.Save(DirectorioTemp & ConsecutivoMh & "_07_RespuestaClave.xml")
+                End If
+                'Actualizar estados Factura
+                Select Case enviaFactura.estadoFactura
+                    Case "rechazado"
+                        Me.Devoluciones.EditarEstadoDevolucionVenta(_Id, enviaFactura.estadoFactura)
+                        ' Dim correo As New Correo
+                        'Correo.NotificarFacturaRechazada(_IdDocumento, "rolando.obando@gmail.com", enviaFactura.MotiviRechazo)
+                    Case Else : Me.Devoluciones.EditarEstadoDevolucionVenta(_Id, enviaFactura.estadoFactura)
+                End Select
+            End If
+        End If
+    End Function
+
+    '**************************************************************************************************
+
 
     Private XMLConsecutivoReceptor As String = ""
     Private Sub ObtenerDatosXML(_xmlSinFirmar As String, Optional ByVal _MensajeReceptor As Boolean = False)
@@ -224,7 +251,7 @@ Public Class EnvioComprobantes
         Me.PDF.CrearNotaCredito(Dev.Clave, Dev, DevDet)
     End Sub
 
-    Private Sub xml_DocumentoGenerado(_xml As String, _IdDocumento As String, _TipoDocumento As String) Handles xml.DocumentoGenerado
+    Private Sub xml_DocumentoGenerado(_xml As String, _IdDocumento As String, _TipoDocumento As String) Handles _xml.DocumentoGenerado
         Try
             If _TipoDocumento = "MENSAJERECEPTOR" Then
                 Me.ObtenerDatosXML(_xml, True)
@@ -366,7 +393,7 @@ Public Class EnvioComprobantes
                         'Crear pdf con el codigo QR
                         Me.PDF.Autor = "OBSoluciones"
                         Me.PDF.Titulo = "Comprobantes Electronicos"
-                        Me.PDF.CrearFactura(Me.XMLClave, Me.xml.Fac, Me.xml.FacDet)
+                        Me.PDF.CrearFactura(Me.XMLClave, Me._xml.Fac, Me._xml.FacDet)
                         'Manda a subir los archivos al FTP
                         Me.Archivos.Clear()
                         Dim Archivo As String = ""
@@ -435,7 +462,7 @@ Public Class EnvioComprobantes
                     If _TipoDocumento = "DEVOLUCION" Then
                         Me.PDF.Autor = "OBSoluciones"
                         Me.PDF.Titulo = "Comprobantes Electronicos"
-                        Me.PDF.CrearNotaCredito(Me.XMLClave, Me.xml.Dev, Me.xml.DevDet)
+                        Me.PDF.CrearNotaCredito(Me.XMLClave, Me._xml.Dev, Me._xml.DevDet)
                         'Actualizar estados Factura
                         Select Case enviaFactura.estadoFactura
                             Case "rechazado"
@@ -478,7 +505,7 @@ fin:
 
     End Sub
 
-    Public Sub ActualizarEstadoFactura(_IdFactura As String)
+    Public Sub __ActualizarEstadoFactura(_IdFactura As String)
         Dim ClaveMH As String = Me.Ventas.ObtenerClaveFactura(_IdFactura) 'Documentos.Obtener_ClaveFacturaMH(_IdFactura)
         Me.XMLConsecutivo = Me.Ventas.ObtenerNumeroConsecutivoFactura(_IdFactura) 'Documentos.Obtener_ConsecutivoFacturaMH(_IdFactura)
         Dim DirectorioTemp As String = Me.Directorio & Me.XMLConsecutivo & "/"
@@ -511,7 +538,7 @@ fin:
         End If
     End Sub
 
-    Public Sub ActualizarEstadoDevolucion(_IdDevolucion As String)
+    Public Sub __ActualizarEstadoDevolucion(_IdDevolucion As String)
         Dim ClaveMH As String = Me.Devoluciones.ObtenerClaveDevolucion(_IdDevolucion) 'Documentos.Obtener_ClaveDevolucionMH(_IdDevolucion)
         Me.XMLConsecutivo = Me.Devoluciones.ObtenerNumeroConsecutivoDevolucion(_IdDevolucion) 'Documentos.Obtener_ConsecutivoDevolucionMH(_IdDevolucion)
         Dim DirectorioTemp As String = Me.Directorio & Me.XMLConsecutivo & "/"
@@ -540,7 +567,7 @@ fin:
     End Sub
 
     Public Function EnviarMensajeReceptor(_Id As String) As String
-        Return Me.xml.XMLMensajeReceptor(_Id)
+        Return Me._xml.XMLMensajeReceptor(_Id)
     End Function
 
     Private Function ObtenerCorreo(_IdRecibo As String) As String
@@ -689,7 +716,7 @@ fin:
 
     End Sub
 
-    Private Sub xml_setDifMontos(_IdFactura As String) Handles xml.setDifMontos
+    Private Sub xml_setDifMontos(_IdFactura As String) Handles _xml.setDifMontos
         ' Me.Documentos.RegistrarEstadoFactura(_IdFactura, Me.XMLClave, Me.XMLConsecutivo, "-PROCESANDO-")
     End Sub
 

@@ -15,6 +15,7 @@ Namespace OBSoluciones
     Namespace ComprobantesElectronicos
         Public Class GeneraXML_43
             Private xml As XmlTextWriter
+            Private PDF As New OBSoluciones.Utilidades.PDF
             Public RaizXML As String = "C:/Facturas"
             Private UbicacionXMLCompras As String = "C:/Compras"
 
@@ -335,6 +336,13 @@ Namespace OBSoluciones
                     Me.xml.Dispose()
                     Me.xml = Nothing
 
+                    'Crea Codigo QR
+                    'QR.GenerarCodigo(DirectorioTemp & Me.XMLClave & ".png", Me.FTP.DireccionPublica + "/COMPROBANTES/" & Me.XMLConsecutivo & "/" & Me.XMLClave & ".pdf")
+                    'Crear pdf con el codigo QR
+                    Me.PDF.Autor = "OBSoluciones"
+                    Me.PDF.Titulo = "Comprobantes Electronicos"
+                    Me.PDF.CrearFactura(clave, Me.Fac, Me.FacDet)
+
                     If Me.XMLFirmado(CarpetaXML & consecutivo & "_00_SF.xml") = True Then
                         Return "1"
                     Else
@@ -592,6 +600,10 @@ Namespace OBSoluciones
                     Me.xml.Close()
                     Me.xml.Dispose()
                     Me.xml = Nothing
+
+                    Me.PDF.Autor = "OBSoluciones"
+                    Me.PDF.Titulo = "Comprobantes Electronicos"
+                    Me.PDF.CrearNotaCredito(clave, Me.Dev, Me.DevDet)
 
                     If Me.XMLFirmado(CarpetaXML & consecutivo & "_00_SF.xml") = True Then
                         Return "1"
