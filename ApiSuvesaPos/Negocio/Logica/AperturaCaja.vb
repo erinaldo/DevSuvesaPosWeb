@@ -1,11 +1,14 @@
 ﻿Namespace Logica
     Public Class AperturaCaja
 
-        Public Property Cantidad_Cajas As Logica.Cajas_Cantidad
-        Public Property Moneda As New Logica.Monedas
-        Public Property Denominacion_Moneda As New Logica.Denominacion_Moneda
+        Private db As Datos.Class.AperturasCajas
 
-        Public Sub Crear(aperturacaja As Modelo.aperturacaja)
+        Sub New()
+            Me.db = New Datos.Class.AperturasCajas
+        End Sub
+
+        Public Function Crear(aperturacaja As Datos.Models.Aperturacaja) As String
+            Return Me.db.CrearAperturasCajas(aperturacaja)
 
             'Private Function Valida() As Boolean
             '    Try
@@ -97,9 +100,10 @@
             '        MsgBox(ex.Message, MsgBoxStyle.Critical)
             '    End Try
             'End Function
-        End Sub
+        End Function
 
-        Public Sub Editar(aperturacaja As Modelo.aperturacaja)
+        Public Function Editar(id As Integer, aperturacaja As Datos.Models.Aperturacaja) As String
+            Return Me.db.EditarAperturasCajas(id, aperturacaja)
 
             'Private Function Valida() As Boolean
             '    Try
@@ -191,9 +195,10 @@
             '        MsgBox(ex.Message, MsgBoxStyle.Critical)
             '    End Try
             'End Function
-        End Sub
+        End Function
 
-        Public Sub Anular()
+        Public Function Anular(id As Long) As Integer
+            Return Me.db.AnularAperturasCajas(id)
 
             'Function Anular_Apertura()
             '    If MessageBox.Show("¿Desea anular la Apertura de caja?", "Atención...", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.Yes Then
@@ -206,7 +211,7 @@
             '    End If
             'End Function
 
-        End Sub
+        End Function
 
         Public Function Buscar(porNombre As Boolean,
                                porId As Boolean,

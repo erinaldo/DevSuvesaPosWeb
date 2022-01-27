@@ -8,20 +8,22 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Datos.Class
 {
-    public class AperturasCajas
+    class Compras
     {
+
         SeePOSContext entities;
 
-        public AperturasCajas()
+        public Compras()
         {
             entities = new SeePOSContext();
         }
 
-        public int CrearAperturasCajas(Aperturacaja apertura)
+
+        public int CrearCompras(Models.Compra compra)
         {
             try
             {
-                entities.Aperturacajas.Add(apertura);
+                entities.Compras.Add(compra);
                 return entities.SaveChanges();
 
             }
@@ -32,49 +34,44 @@ namespace Datos.Class
             }
         }
 
-        public int AnularAperturasCajas(long id)
+        public int BorrarCompra(long id)
         {
             try
             {
-                var p = entities.Aperturacajas.Find(id);
-                Aperturacaja Nuevo = p;                
-                Nuevo.Anulado = true;            
-
-                entities.Entry(Nuevo).State = EntityState.Modified;
-
+                var p = entities.Compras.Find(id);
+                entities.Remove(p);
                 return entities.SaveChanges();
 
             }
             catch (Exception ex)
             {
+
                 throw ex;
             }
 
         }
 
-        public List<Aperturacaja> ObtenerAperturasCajas(bool porId, string Filtro)
+        public List<Models.Compra> ObtenerCompras(bool porId, string Filtro)
         {
             try
             {
-
-                List<Aperturacaja> result;
+                List<Models.Compra> result;
 
                 if (porId == true)
                 {
-                    var temp = from c in entities.Aperturacajas
-                               where c.NumCaja == Convert.ToInt64(Filtro)
+                    var temp = from c in entities.Compras
+                              // where c.IdArea == Convert.ToInt64(Filtro)
                                select c;
-                    result = temp.ToList<Aperturacaja>();
+                    result = temp.ToList<Models.Compra>();
                 }
                 else
                 {
-                    var temp = from c in entities.Aperturacajas
-                               where c.Nombre.Contains(Filtro)
-                               orderby c.Fecha descending
+                    var temp = from c in entities.Compras
+                              // where c.Descripcion.Contains(Filtro)
+                              // orderby c.Descripcion ascending
                                select c;
-                    result = temp.ToList<Aperturacaja>();
+                    result = temp.ToList<Models.Compra>();
                 }
-
 
                 if (result.Count > 0)
                 {
@@ -85,7 +82,6 @@ namespace Datos.Class
                     return result = null;
                 }
 
-
             }
             catch (Exception ex)
             {
@@ -93,29 +89,30 @@ namespace Datos.Class
             }
         }
 
-        public int EditarAperturasCajas(long id, Aperturacaja aperturacaja)
+        public int EditarCompras(int id, Models.Compra area)
         {
             try
             {
                 // Ojo
-                // pendinte
-                var p = entities.Aperturacajas.Find(id);
-                Aperturacaja Nuevo = p;
-                Nuevo.Fecha = aperturacaja.Fecha;
-                Nuevo.Observaciones = aperturacaja.Observaciones;                
-                Nuevo.IdSucursal = aperturacaja.IdSucursal;
-                //Nuevo.AbonoApartadosdetalles = abono.AbonoApartadosdetalle;
+                //Falta agregar la relacion entra las tablas area con  areaarticulo y areaencargado
+
+                var p = entities.Areas.Find(id);
+                Area Nuevo = p;
+                //Nuevo.IdSucursal = area.IdSucursal;
+                //Nuevo.Descripcion = area.Descripcion;
+                //Nuevo.Observaciones = area.Observaciones;
 
                 entities.Entry(Nuevo).State = EntityState.Modified;
 
                 return entities.SaveChanges();
 
-
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
+
+
     }
 }

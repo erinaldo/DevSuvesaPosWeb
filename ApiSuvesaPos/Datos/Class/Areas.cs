@@ -33,8 +33,6 @@ namespace Datos.Class
         }
 
         public int BorrarAreas(int id)
-
-
         {
             try
             {
@@ -51,14 +49,27 @@ namespace Datos.Class
 
         }
 
-        public List<Area> ObtenerAreas()
+        public List<Area> ObtenerAreas(bool porId, string Filtro)
         {
             try
             {
-                var temp = from c in entities.Areas
+                List<Area> result;
 
-                           select c;
-                List<Area> result = temp.ToList<Area>();
+                if (porId == true)
+                {
+                    var temp = from c in entities.Areas
+                               where c.IdArea == Convert.ToInt64(Filtro)
+                               select c;
+                    result = temp.ToList<Area>();
+                }
+                else
+                {
+                    var temp = from c in entities.Areas
+                               where c.Descripcion.Contains(Filtro)
+                               orderby c.Descripcion ascending
+                               select c;
+                    result = temp.ToList<Area>();
+                }
 
                 if (result.Count > 0)
                 {
@@ -69,7 +80,6 @@ namespace Datos.Class
                     return result = null;
                 }
 
-
             }
             catch (Exception ex)
             {
@@ -77,45 +87,22 @@ namespace Datos.Class
             }
         }
 
-        public List<Area> ObtenerAreas(int id)
+        public int EditarAreas(int id, Area area)
         {
             try
             {
-                var temp = from c in entities.Areas
-                           where c.IdArea == id
-                           select c;
-                List<Area> result = temp.ToList<Area>();
+                // Ojo
+                //Falta agregar la relacion entra las tablas area con  areaarticulo y areaencargado
 
-                if (result.Count > 0)
-                {
-                    return result;
-                }
-                else
-                {
-                    return result = null;
-                }
-
-
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        public int EditarAreas(int id, Area abono)
-        {
-            try
-            {
                 var p = entities.Areas.Find(id);
                 Area Nuevo = p;                
-                Nuevo.IdSucursal = abono.IdSucursal;
-                //Nuevo.AbonoApartadosdetalles = abono.AbonoApartadosdetalle;
+                Nuevo.IdSucursal = area.IdSucursal;
+                Nuevo.Descripcion = area.Descripcion;
+                Nuevo.Observaciones = area.Observaciones;                                
 
                 entities.Entry(Nuevo).State = EntityState.Modified;
 
                 return entities.SaveChanges();
-
 
             }
             catch (Exception ex)
