@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Datos.Class
 {
-    class CajasCantidad
+ public   class CajasCantidad
     {
         SeePOSContext entities;
 

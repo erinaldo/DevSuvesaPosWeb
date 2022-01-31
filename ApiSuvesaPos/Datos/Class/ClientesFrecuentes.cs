@@ -78,7 +78,7 @@ namespace Datos.Class
         {
             try
             {
-                var p = entities.Clientes.Find(id);
+                var p = entities.ClientesFrecuentes.Find(id);
                 Models.ClientesFrecuente viejo = p;
 
                 if (viejo != null)

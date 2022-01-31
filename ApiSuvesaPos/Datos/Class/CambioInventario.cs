@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Datos.Class
 {
-    class CambioInventario
+  public  class CambioInventario
     {
 
         SeePOSContext entities;

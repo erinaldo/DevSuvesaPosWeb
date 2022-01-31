@@ -1,12 +1,14 @@
 ﻿Namespace Logica
     Public Class CierraCaja
 
-        'Public Property OpcionesdePago As Logica.opc
-        Public Property Moneda As New Logica.Monedas
-        Public Property ArqueoCajas As New Logica.ArqueoCajas
+        Private db As Datos.Class.CierreCaja
 
-        Public Function Buscar() As List(Of Modelo.cierrecaja)
+        Public Sub New()
+            Me.db = New Datos.Class.CierreCaja
+        End Sub
 
+        Public Function Buscar(porId As Boolean, Filtro As String) As List(Of Datos.Models.Cierrecaja)
+            Return Me.db.ObtenerCierreCajas(porId, Filtro)
             'Dim cFunciones As New cFunciones
             'Apertura = "0"
             'Dim CierreNumero As String = cFunciones.Buscar_X_Descripcion_Fecha("SELECT CAST(NumeroCierre AS varchar) AS Cierre, Nombre, Fecha FROM cierrecaja Order by NumeroCierre Desc", "Nombre", "Fecha", "Buscando Cierre de Caja...")
@@ -17,8 +19,8 @@
 
         End Function
 
-        Public Sub Anular(idCiere As Integer)
-
+        Public Function Anular(Id As Integer) As String
+            Return Me.db.AnularCierreCaja(Id)
             'Private Sub Anular()
             '    Dim resp As Integer
             '    If SqlConnection1.State <> SqlConnection1.State.Open Then SqlConnection1.Open()
@@ -40,10 +42,10 @@
             '    End If
             'End Sub
 
-        End Sub
+        End Function
 
-        Public Sub Crear(cierrecaja As Modelo.cierrecaja)
-
+        Public Function Crear(cierrecaja As Datos.Models.Cierrecaja) As String
+            Return Me.db.CrearAreas(cierrecaja)
             'Private Function Registar() As Boolean
             '    If SqlConnection1.State <> SqlConnection1.State.Open Then SqlConnection1.Open()
             '    Dim Trans As SqlTransaction = SqlConnection1.BeginTransaction
@@ -87,7 +89,7 @@
             '    End Try
             'End Function
 
-        End Sub
+        End Function
 
     End Class
 End Namespace

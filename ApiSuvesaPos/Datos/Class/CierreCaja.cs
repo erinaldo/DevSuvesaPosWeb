@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Datos.Class
 {
-    class CierreCaja
+   public class CierreCaja
     {
 
         SeePOSContext entities;
@@ -18,11 +18,11 @@ namespace Datos.Class
             entities = new SeePOSContext();
         }
 
-        public int CrearAreas(Models.Cierrecaja area)
+        public int CrearAreas(Models.Cierrecaja cierrecaja)
         {
             try
             {
-                entities.Cierrecajas.Add(area);
+                entities.Cierrecajas.Add(cierrecaja);
                 return entities.SaveChanges();
 
             }

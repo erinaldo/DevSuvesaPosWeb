@@ -1,19 +1,22 @@
 ﻿Namespace Logica
     Public Class CambioInventario
 
-        Public Property Inventario As New Logica.Inventario
+        Private db As Datos.Class.CambioInventario
 
-        Public Function Buscar() As List(Of Modelo.cambioinventario)
+        Public Sub New()
+            Me.db = New Datos.Class.CambioInventario
+        End Sub
 
+        Public Function Buscar() As List(Of Datos.Models.CambioInventario)
+            Return Me.Buscar()
             'Dim strSQL As String = "select * from viewCambiosInventario Where aplicado = 0"
             'Dim dt As New DataTable
             'cFunciones.Llenar_Tabla_Generico(strSQL, dt, CadenaConexionSeePOS)
             'Me.viewCambios.DataSource = dt
-
         End Function
 
-        Public Sub Crear(cambioinventario As Modelo.cambioinventario)
-
+        Public Function Crear(cambioinventario As Datos.Models.CambioInventario) As String
+            Return Me.db.CrearCambioInventario(cambioinventario)
             'Public Sub GuardarCambio()
             '    'guarda el cambio
             '    Dim db As New OBSoluciones.SQL.Sentencias(CadenaConexionSeePOS)
@@ -29,7 +32,7 @@
             '    Me.Close()
             'End Sub
 
-        End Sub
+        End Function
 
         Public Sub Aplicar(cambios As List(Of Modelo.cambioinventario))
 
@@ -46,11 +49,9 @@
 
         End Sub
 
-        Public Sub Anular(id As Integer)
-
-
-
-        End Sub
+        Public Function BorrarCambioInventario(id As Integer) As String
+            Return Me.db.BorrarCambioInventario(id)
+        End Function
 
     End Class
 End Namespace

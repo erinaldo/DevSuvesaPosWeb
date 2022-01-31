@@ -2,11 +2,11 @@
     Public Class AjustesInventario
 
         Private a As Datos.Class.AjustesInventarios
-        Private ad As Datos.Class.AjustesInventariosDetalles
+        'Private ad As Datos.Class.AjustesInventariosDetalles
 
         Sub New()
             Me.a = New Datos.Class.AjustesInventarios
-            Me.ad = New Datos.Class.AjustesInventariosDetalles
+            'Me.ad = New Datos.Class.AjustesInventariosDetalles
         End Sub
 
         Public Function Buscar(porId As Boolean, filtro As String) As List(Of Datos.Models.AjusteInventario)

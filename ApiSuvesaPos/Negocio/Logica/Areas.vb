@@ -1,14 +1,14 @@
 ﻿Namespace Logica
-    Public Class AperturaCaja
+    Public Class Areas
 
-        Private db As Datos.Class.AperturasCajas
+        Private db As Datos.Class.Areas
 
         Sub New()
-            Me.db = New Datos.Class.AperturasCajas
+            Me.db = New Datos.Class.Areas
         End Sub
 
-        Public Function Crear(aperturacaja As Datos.Models.Aperturacaja) As String
-            Return Me.db.CrearAperturasCajas(aperturacaja)
+        Public Function Crear(area As Datos.Models.Area) As String
+            Return Me.db.CrearAreas(area)
 
             'Private Function Valida() As Boolean
             '    Try
@@ -102,8 +102,8 @@
             'End Function
         End Function
 
-        Public Function Editar(id As Integer, aperturacaja As Datos.Models.Aperturacaja) As String
-            Return Me.db.EditarAperturasCajas(id, aperturacaja)
+        Public Function Editar(id As Integer, area As Datos.Models.Area) As String
+            Return Me.db.EditarAreas(id, area)
 
             'Private Function Valida() As Boolean
             '    Try
@@ -197,8 +197,8 @@
             'End Function
         End Function
 
-        Public Function Anular(id As Long) As Integer
-            Return Me.db.AnularAperturasCajas(id)
+        Public Function Borrar(id As Long) As String
+            Return Me.db.BorrarAreas(id)
 
             'Function Anular_Apertura()
             '    If MessageBox.Show("¿Desea anular la Apertura de caja?", "Atención...", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.Yes Then
@@ -213,8 +213,8 @@
 
         End Function
 
-        Public Function Buscar(porId As Boolean, Filtro As String) As List(Of Datos.Models.Aperturacaja)
-            Return Me.db.ObtenerAperturasCajas(porId, Filtro)
+        Public Function Buscar(porId As Boolean, Filtro As String) As List(Of Datos.Models.Area)
+            Return Me.db.ObtenerAreas(porId, Filtro)
             'Private Sub BuscarAperturas()
             '    Dim Fx As New cFunciones
             '    Dim Apertura As String
