@@ -1,7 +1,16 @@
 ﻿Namespace Logica
     Public Class Prestamo
 
-        Public Function Buscar() As List(Of Modelo.prestamo)
+        Private db As Datos.Class.Prestamo
+
+        Sub New()
+            Me.db = New Datos.Class.Prestamo
+        End Sub
+
+        Public Function Buscar(porNombre As Boolean, Filtro As String) As List(Of Datos.Models.Prestamo)
+            Return Me.db.Buscar(porNombre, Filtro)
+            'Datos.Models.Prestamo
+            'Datos.Models.Prestamo
 
             'Public Function buscar(ByVal texto As String, Optional ByVal _ConsultaBoleta As Boolean = False, Optional ByVal _SPrestamo As Boolean = True) As DataTable
             '    Try
@@ -35,8 +44,8 @@
 
         End Function
 
-        Public Sub Crear(prestamo As Modelo.prestamo)
-
+        Public Function Crear(prestamo As Datos.Models.Prestamo) As String
+            Return Me.db.Crear(prestamo)
             'Public Function insertar(ByVal dts As vprestamo, _IdUsuarioCreo As String, _BoletaProveedor As String, Optional ByVal _SPrestamo As Boolean = True) As Boolean
             '    Try
             '        conectado()
@@ -76,9 +85,10 @@
             '    End Try
             'End Function
 
-        End Sub
+        End Function
 
-        Public Sub Editar(prestamo As Modelo.prestamo)
+        Public Function Editar(id As Long, prestamo As Datos.Models.Prestamo) As String
+            Return Me.db.Editar(id, prestamo)
 
             'Public Function editar(ByVal dts As vprestamo, _IdUsuarioCreo As String, _BoletaProveedor As String, Optional ByVal _SPrestamo As Boolean = True) As Boolean
             '    Try
@@ -119,10 +129,10 @@
             '    End Try
             'End Function
 
-        End Sub
+        End Function
 
-        Public Sub Eliminar()
-
+        Public Function Eliminar(id As Long) As String
+            Return Me.db.Borrar(id)
             'Public Function eliminar(ByVal dts As vprestamo, Optional ByVal _SPrestamo As Boolean = True) As Boolean
             '    Try
             '        conectado()
@@ -151,7 +161,7 @@
 
             'End Function
 
-        End Sub
+        End Function
 
         Public Sub Entregado()
 

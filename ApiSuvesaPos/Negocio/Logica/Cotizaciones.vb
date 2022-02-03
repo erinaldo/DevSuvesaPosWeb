@@ -1,26 +1,18 @@
 ﻿Namespace Logica
     Public Class Cotizaciones
 
-        Public Property Inventario As New Logica.Inventario
-        Public Property Clientes As New Logica.Clientes
-        Public Property Moneda As New Logica.Monedas
+        Private db As Datos.Class.Cotizacion
 
-        Public Function Buscar(porNombre As Boolean,
-                                         porNumero As Boolean,
-                                         filtro As String,
-                                         entreFechas As Boolean,
-                                         desde As Date,
-                                         hasta As Date) As List(Of Modelo.cotizacion)
-            'identificador = CDbl(Fx.Buscar_X_Descripcion_Fecha("Select Cotizacion, Fecha, Nombre_Cliente AS Cliente, Total as [Total Cotización] from Cotizacion Order by Fecha DESC", "Cliente", "Fecha", "Buscar Cotizacion"))
-            ''buscando = True
-            'If identificador = 0.0 Then ' si se dio en el boton de cancelar
-            '    '   Me.buscando = False
-            '    Exit Sub
-            'End If
+        Sub New()
+            Me.db = New Datos.Class.Cotizacion
+        End Sub
+
+        Public Function Buscar(porNombre As Boolean, Filtro As String) As List(Of Datos.Models.Cotizacion)
+            Return db.Buscar(porNombre, Filtro)
         End Function
 
-        Public Sub Crear(cotizacion As Modelo.cotizacion)
-
+        Public Function Crear(cotizacion As Datos.Models.Cotizacion) As String
+            Return Me.db.Crear(cotizacion)
             'Dim Contacto As String = ""
             'Dim frm As New frmContactoCotizacion
             'frm.txtContacto.Text = Me.txtContacto.Text
@@ -69,11 +61,11 @@
             '    End Try
             'End Function
 
-        End Sub
+        End Function
 
-        Public Sub Editar(cotizacion As Modelo.cotizacion)
-            'igual que el de crear
-        End Sub
+        Public Function Editar(Id As Long, Cotizacion As Datos.Models.Cotizacion) As String
+            Return Me.db.Editar(Id, Cotizacion)
+        End Function
 
         Public Sub Anular()
             'Function Registrar_Anulacion_Venta() As Boolean

@@ -1,12 +1,18 @@
 ﻿Namespace Logica
     Public Class PreAbonocCobrar
 
+        Private db As Datos.Class.PreAbonocCobrar
 
-        Public Property AperturaCaja As New Logica.AperturaCaja
-        Public Property Moneda As New Logica.Monedas
-        Public Property Clientes As New Logica.Clientes
+        Sub New()
+            Me.db = New Datos.Class.PreAbonocCobrar
+        End Sub
 
-        Public Sub Crear(abonoccobrar As Modelo.preabonoccobrar)
+        Public Function Crear(abonoccobrar As Datos.Models.PreAbonocCobrar) As String
+
+            Return Me.db.Crear(abonoccobrar)
+
+            'Datos.Models.PreAbonocCobrar
+            'Datos.Models.PreAbonocCobrar
 
             'BindingContext(DsRecibos1, "abonoccobrar").EndCurrentEdit()
             'BindingContext(DsRecibos1, "abonoccobrar.abonoccobrardetalle_abonoccobrar").EndCurrentEdit()
@@ -87,7 +93,7 @@
 
 
 
-        End Sub
+        End Function
 
 
     End Class

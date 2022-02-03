@@ -5,10 +5,16 @@
         'ALTER TABLE Articulos_Comprados DISABLE TRIGGER RegistrarKardexComprasIngreso_Update
         'ALTER TABLE Articulos_Comprados ENABLE TRIGGER RegistrarKardexComprasIngreso_Update
 
-        Public Property Moneda As Logica.Monedas
-        Public Property Compras As Logica.Compras
+        Private db As Datos.Class.devoluciones_Compras
 
-        Public Sub Crear(devolucionCompra As Modelo.devoluciones_compras)
+        Sub New()
+            Me.db = New Datos.Class.devoluciones_Compras
+        End Sub
+
+        Public Function Crear(devolucionCompra As Datos.Models.DevolucionesCompra) As String
+            Return Me.db.Crear(devolucionCompra)
+            'Datos.Models.DevolucionesCompra
+            'Datos.Models.DevolucionesCompra
 
 
             'If Me.SqlConnection1.State <> ConnectionState.Open Then Me.SqlConnection1.Open()
@@ -78,15 +84,10 @@
             '    Me.SqlConnection1.Close()
             'End Try
 
-        End Sub
+        End Function
 
-        Public Function Buscar(porNombreProveedor As Boolean,
-                                               porNumeroDevolucion As Boolean,
-                                               filtro As String,
-                                               entreFechas As Boolean,
-                                               desde As Date,
-                                               hasta As Date) As List(Of Modelo.devoluciones_compras)
-
+        Public Function Buscar(porNombre As Boolean, Filtro As String) As List(Of Datos.Models.DevolucionesCompra)
+            Return Me.db.Buscar(porNombre, Filtro)
             'identificador = CDbl(Fx.Buscar_X_Descripcion_Fecha("SELECT  Devolucion, NombrePro,Fecha FROM devoluciones_Compras Order by Fecha DESC", "NombrePro", "Fecha", "Buscar Devolución de Compra", Me.SqlConnection1.ConnectionString))
 
             'buscando = True

@@ -1,9 +1,16 @@
 ﻿Namespace Logica
     Public Class Rifa
 
-        Public Property Proveedores As New Logica.Proveedores
+        Private db As Datos.Class.Rifa
 
-        Public Sub Crear(rifa As Modelo.rifa)
+        Sub New()
+            Me.db = New Datos.Class.Rifa
+        End Sub
+
+        Public Function Crear(rifa As Datos.Models.Rifa) As String
+            Return Me.db.Crear(rifa)
+            'Datos.Models.Rifa
+            'Datos.Models.Rifa
 
             '    Function Registrar()
             '    Try
@@ -24,10 +31,10 @@
             '    Next
             'End Sub
 
-        End Sub
+        End Function
 
-        Public Sub Editar(rifa As Modelo.rifa)
-
+        Public Function Editar(id As Long, rifa As Datos.Models.Rifa) As String
+            Return Me.db.Editar(id, rifa)
             '    Function Registrar()
             '    Try
             '        Me.BindingContext(Me.Dsrifa1.rifa).EndCurrentEdit()
@@ -47,12 +54,10 @@
             '    Next
             'End Sub
 
-        End Sub
+        End Function
 
-        Public Function Buscar(porDescripcion As Boolean,
-                                   porId As Boolean,
-                                   filtro As String) As List(Of Modelo.rifa)
-
+        Public Function Buscar(porNombre As Boolean, Filtro As String) As List(Of Datos.Models.Rifa)
+            Return Me.db.Buscar(porNombre, Filtro)
             'Sub Buscar_rifa()
             '    Try
             '        Dim Fx As New cFunciones
@@ -80,8 +85,8 @@
 
         End Function
 
-        Public Sub Eliminar(id As Integer)
-
+        Public Function Eliminar(id As Long) As String
+            Return Me.db.Borrar(id)
             'Private Sub Eliminar()
             '    Try
             '        Dim rs As SqlDataReader
@@ -111,7 +116,7 @@
 
             'End Sub
 
-        End Sub
+        End Function
 
     End Class
 End Namespace

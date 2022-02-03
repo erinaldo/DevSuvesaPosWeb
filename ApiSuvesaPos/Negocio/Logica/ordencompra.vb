@@ -1,11 +1,16 @@
 ﻿Namespace Logica
     Public Class ordencompra
 
-        Public Property Moneda As New Logica.Monedas
-        Public Property Proveedores As New Logica.Proveedores
-        Public Property Inventario As New Logica.Inventario
+        Private db As Datos.Class.OrdenCompra
 
-        Public Function Buscar() As List(Of Modelo.ordencompra)
+        Sub New()
+            Me.db = New Datos.Class.OrdenCompra
+        End Sub
+
+        Public Function Buscar(porNombre As Boolean, Filtro As String) As List(Of Datos.Models.Ordencompra)
+            Return Me.db.Buscar(porNombre, Filtro)
+            'Datos.Models.Ordencompra
+            'Datos.Models.Ordencompra
 
 
             'Dim identificador As Double
@@ -21,43 +26,8 @@
 
         End Function
 
-        Public Sub Crear(ordencompra As Modelo.ordencompra)
-
-
-            'Function RegistrarOrden() As Boolean
-
-            '    If Me.SqlConnection1.State <> Me.SqlConnection1.State.Open Then Me.SqlConnection1.Open()
-            '    Dim Trans As SqlTransaction = Me.SqlConnection1.BeginTransaction
-            '    Try
-
-            '        Me.Adapter_Orden_Compra.InsertCommand.Transaction = Trans
-            '        Me.Adapter_Detalle_Orden_Compras.InsertCommand.Transaction = Trans
-
-            '        Me.Adapter_Orden_Compra.UpdateCommand.Transaction = Trans
-            '        Me.Adapter_Detalle_Orden_Compras.UpdateCommand.Transaction = Trans
-
-            '        Me.Adapter_Orden_Compra.DeleteCommand.Transaction = Trans
-            '        Me.Adapter_Detalle_Orden_Compras.DeleteCommand.Transaction = Trans
-
-            '        Me.Adapter_Orden_Compra.Update(Me.DataSetOrden_Compras1, "ordencompra")
-            '        Me.Adapter_Detalle_Orden_Compras.Update(Me.DataSetOrden_Compras1, "detalle_ordencompra")
-            '        Trans.Commit()
-            '        Return True
-
-            '    Catch ex As Exception
-            '        Trans.Rollback()
-            '        MsgBox(ex.Message)
-            '        Me.ToolBar1.Buttons(2).Enabled = True
-            '        Return False
-            '    End Try
-
-
-            'End Function
-
-        End Sub
-
-        Public Sub Editar(ordencompra As Modelo.ordencompra)
-
+        Public Function Crear(ordencompra As Datos.Models.Ordencompra) As String
+            Return Me.db.Crear(ordencompra)
 
             'Function RegistrarOrden() As Boolean
 
@@ -89,7 +59,42 @@
 
             'End Function
 
-        End Sub
+        End Function
+
+        Public Function Editar(id As Long, ordencompra As Datos.Models.Ordencompra) As String
+            Return Me.db.Editar(id, ordencompra)
+
+            'Function RegistrarOrden() As Boolean
+
+            '    If Me.SqlConnection1.State <> Me.SqlConnection1.State.Open Then Me.SqlConnection1.Open()
+            '    Dim Trans As SqlTransaction = Me.SqlConnection1.BeginTransaction
+            '    Try
+
+            '        Me.Adapter_Orden_Compra.InsertCommand.Transaction = Trans
+            '        Me.Adapter_Detalle_Orden_Compras.InsertCommand.Transaction = Trans
+
+            '        Me.Adapter_Orden_Compra.UpdateCommand.Transaction = Trans
+            '        Me.Adapter_Detalle_Orden_Compras.UpdateCommand.Transaction = Trans
+
+            '        Me.Adapter_Orden_Compra.DeleteCommand.Transaction = Trans
+            '        Me.Adapter_Detalle_Orden_Compras.DeleteCommand.Transaction = Trans
+
+            '        Me.Adapter_Orden_Compra.Update(Me.DataSetOrden_Compras1, "ordencompra")
+            '        Me.Adapter_Detalle_Orden_Compras.Update(Me.DataSetOrden_Compras1, "detalle_ordencompra")
+            '        Trans.Commit()
+            '        Return True
+
+            '    Catch ex As Exception
+            '        Trans.Rollback()
+            '        MsgBox(ex.Message)
+            '        Me.ToolBar1.Buttons(2).Enabled = True
+            '        Return False
+            '    End Try
+
+
+            'End Function
+
+        End Function
 
         Public Sub Anular()
 

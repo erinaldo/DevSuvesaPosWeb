@@ -1,9 +1,16 @@
 ﻿Namespace Logica
     Public Class PedidoBodega
 
-        Public Property Inventario As New Logica.Inventario
+        Private db As Datos.Class.PedidoBodega
 
-        Public Sub Crear(pedidobodega As Modelo.pedidobodega)
+        Sub New()
+            Me.db = New Datos.Class.PedidoBodega
+        End Sub
+
+        Public Function Crear(pedidobodega As Datos.Models.PedidoBodega) As String
+            Return Me.db.Crear(pedidobodega)
+            'Datos.Models.PedidoBodega
+            'Datos.Models.PedidoBodega
 
             'Private db As OBSoluciones.SQL.Transaccion
             'Private Consecutivo As Integer
@@ -45,14 +52,10 @@
             '    db.Ejecutar("Insertar_PedidoBodega", Me.Consecutivo, 4)
             'End Sub
 
-        End Sub
+        End Function
 
-        Public Function Buscar(porEstado As Boolean,
-                                           filtroEstado As String,
-                                           entreFechas As Boolean,
-                                           desde As Date,
-                                           hasta As Date) As List(Of Modelo.pedidobodega)
-
+        Public Function Buscar(porNombre As Boolean, Filtro As String) As List(Of Datos.Models.PedidoBodega)
+            Return Me.db.Buscar(porNombre, Filtro)
             'Private Sub ConsultaBodega()
 
             '    If Me.ckFiltrarxEstado.Checked = True Then

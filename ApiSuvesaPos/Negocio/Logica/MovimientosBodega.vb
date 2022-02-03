@@ -1,18 +1,16 @@
 ﻿Namespace Logica
     Public Class MovimientosBodega
 
-        '**************** actualmente los lotes no se usan porque no sirven pero se quiere
+        Private db As Datos.Class.MovimientosBodega
 
-        Public Property Bodegas As Logica.Bodega
-        Public Property Inventario As New Logica.Inventario
+        Sub New()
+            Me.db = New Datos.Class.MovimientosBodega
+        End Sub
 
-
-        Public Function Buscar(porBodega As Boolean,
-                                               porReferencia As Boolean,
-                                               filtro As String,
-                                               porFecha As Boolean,
-                                               desde As Date,
-                                               hasta As Date) As List(Of Modelo.movimientosbodega)
+        Public Function Buscar(porNombre As Boolean, Filtro As String) As List(Of Datos.Models.MovimientosBodega)
+            Return Me.db.Buscar(porNombre, Filtro)
+            'Datos.Models.MovimientosBodega
+            'Datos.Models.MovimientosBodega
 
             'Dim Buscar As New FrmBuscador
             'Buscar.SQLString = "SELECT MovimientosBodega.Boleta_Movimiento AS Movimiento, MovimientosBodega.Referencia, Bodegas.Nombre_Bodega AS Bodega, MovimientosBodega.Fecha FROM MovimientosBodega INNER JOIN  Bodegas ON MovimientosBodega.Bodega = Bodegas.ID_Bodega ORDER BY Boleta_Movimiento DESC"
@@ -29,8 +27,8 @@
 
         End Function
 
-        Public Sub Crear(movimientobodega As Modelo.movimientosbodega)
-
+        Public Function Crear(movimientobodega As Datos.Models.MovimientosBodega) As String
+            Return Me.db.Crear(movimientobodega)
             'valida que no exista la referencia
             'Private Function ValidaReferencia(ByVal _CodBodega As Integer, ByVal _Referencia As String) As Boolean
             '    Dim SQL As New GestioDatos
@@ -106,9 +104,9 @@
             'End Sub
 
 
-        End Sub
+        End Function
 
-        Public Sub Anular(movimientobodega As Modelo.movimientosbodega)
+        Public Sub Anular(movimientobodega As Datos.Models.MovimientosBodega)
 
             'Function insertar_bitacora() As Boolean
             '    Dim funciones As New Conexion

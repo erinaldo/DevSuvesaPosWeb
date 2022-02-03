@@ -2,10 +2,17 @@
     Public Class TemperaturaCamara
 
 
+        Private db As Datos.Class.TemperaturaCamara
 
-        Public Function Buscar(entreFechas As Boolean,
-                                                desde As Date,
-                                                hasta As Date)
+        Sub New()
+            Me.db = New Datos.Class.TemperaturaCamara
+        End Sub
+
+        Public Function Buscar(porNombre As Boolean, Filtro As String) As List(Of Datos.Models.TemperaturaCamara)
+            Return Me.db.Buscar(porNombre, Filtro)
+
+            'Datos.Models.TemperaturaCamara
+            'Datos.Models.TemperaturaCamara
 
             'Private Sub CargarRegistrosTemperatura()
             '    Dim dt As New DataTable
@@ -20,8 +27,8 @@
 
         End Function
 
-        Public Sub Crear(temperaturacamara As Modelo.temperaturacamara)
-
+        Public Function Crear(temperaturacamara As Datos.Models.TemperaturaCamara) As String
+            Return Me.db.Crear(temperaturacamara)
             'Private Sub AgregarNuevoRegistro()
             '    Dim Fecha As Date
             '    Dim Id_Usuario As String
@@ -42,10 +49,10 @@
             '    Me.CargarRegistrosTemperatura()
             'End Sub
 
-        End Sub
+        End Function
 
-        Public Sub Editar(temperaturacamara As Modelo.temperaturacamara)
-
+        Public Function Editar(id As Decimal, temperaturacamara As Datos.Models.TemperaturaCamara) As String
+            Return Me.db.Editar(id, temperaturacamara)
             'Private Sub AgregarNuevoRegistro()
             '    Dim Fecha As Date
             '    Dim Id_Usuario As String
@@ -66,7 +73,7 @@
             '    Me.CargarRegistrosTemperatura()
             'End Sub
 
-        End Sub
+        End Function
 
     End Class
 End Namespace

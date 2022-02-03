@@ -2,13 +2,36 @@
 Namespace Logica
     Public Class Familia
 
-        Public Function Buscar(descripcion As String) As List(Of Modelo.familias)
-            Dim familia As New List(Of Modelo.familias)
-            'valor = Fx.BuscarDatos("Select Codigo,Descripcion From Familia", "Descripcion", "Buscar Familia...", Me.SqlConnection1.ConnectionString)
-            Return familia
+        Private db As Datos.Class.Familia
+
+        Sub New()
+            Me.db = New Datos.Class.Familia
+        End Sub
+
+        Public Function Buscar(porNombre As Boolean, Filtro As String) As List(Of Datos.Models.Familium)
+
+            Return Me.db.Buscar(porNombre, Filtro)
+            'Datos.Models.Familium
+            'Datos.Models.Familium
         End Function
 
-        Public Sub Crear(familia As Modelo.familias)
+        Public Function Crear(familia As Datos.Models.Familium) As String
+            If estaVacio(familia.Descripcion) Or
+                estaVacio(familia.CuentaGra) Or
+                estaVacio(familia.CuentaExe) Or
+                estaVacio(familia.CuentaCosto) Then
+                'no pasa validacion datos vacios
+            End If
+
+            Return Me.db.Crear(familia)
+
+            'Me.Adapter_Familias.Update(Me.DataSetFamilia1, "Familia")
+            'Me.Adapter_Subfamilias.Update(Me.DataSetFamilia1, "SubFamilias")
+            'Trans.Commit()
+            'Me.DataSetFamilia1.AcceptChanges()
+        End Function
+
+        Public Function Editar(id As Long, familia As Datos.Models.Familium) As String
             If estaVacio(familia.Descripcion) Or
                 estaVacio(familia.CuentaGra) Or
                 estaVacio(familia.CuentaExe) Or
@@ -17,29 +40,18 @@ Namespace Logica
 
             End If
 
-            'Me.Adapter_Familias.Update(Me.DataSetFamilia1, "Familia")
-            'Me.Adapter_Subfamilias.Update(Me.DataSetFamilia1, "SubFamilias")
-            'Trans.Commit()
-            'Me.DataSetFamilia1.AcceptChanges()
-        End Sub
-
-        Public Sub Editar(familia As Modelo.familias)
-            If estaVacio(familia.Descripcion) Or
-                estaVacio(familia.CuentaGra) Or
-                estaVacio(familia.CuentaExe) Or
-                estaVacio(familia.CuentaCosto) Then
-                'no pasa validacion datos vacios
-
-            End If
+            Return Me.db.Editar(id, familia)
 
             'Me.Adapter_Familias.Update(Me.DataSetFamilia1, "Familia")
             'Me.Adapter_Subfamilias.Update(Me.DataSetFamilia1, "SubFamilias")
             'Trans.Commit()
             'Me.DataSetFamilia1.AcceptChanges()
-        End Sub
+        End Function
 
-        Public Sub Eliminar(familia As Modelo.familias)
+        Public Function Eliminar(id As Long) As String
             'valida que no exista productos relacionados
+
+            Me.db.Borrar(id)
 
             'Cargo el codigo de la familia al que pertenecen las familias que se eliminaran
             'Dim strCodigoFamilia As String = Me.BindingContext(DataSetFamilia1, "Familia").Current("Codigo")
@@ -48,7 +60,7 @@ Namespace Logica
             'Me.BindingContext(Me.DataSetFamilia1, "Familia").RemoveAt(Me.BindingContext(Me.DataSetFamilia1, "Familia").Position)
             'Me.BindingContext(Me.DataSetFamilia1, "Familia").EndCurrentEdit()
             'Me.Adapter_Familias.Update(Me.DataSetFamilia1, "Familia")
-        End Sub
+        End Function
 
     End Class
 End Namespace

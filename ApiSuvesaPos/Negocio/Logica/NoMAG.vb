@@ -1,9 +1,15 @@
 ﻿Namespace Logica
     Public Class NoMAG
 
+        Private db As Datos.Class.NoMAG
 
-        Public Function Buscar() As List(Of NoMAG)
+        Sub New()
+            Me.db = New Datos.Class.NoMAG
+        End Sub
 
+
+        Public Function Buscar(porNombre As Boolean, Filtro As String) As List(Of Datos.Models.NoMag)
+            Return Me.db.Buscar(porNombre, Filtro)
             'Private Sub CargarDatos()
             '    Try
             '        Dim dt As New DataTable
@@ -16,7 +22,10 @@
 
         End Function
 
-        Public Function Crear(nomag As Modelo.nomag)
+        Public Function Crear(nomag As Datos.Models.NoMag) As String
+            Return Me.db.Crear(nomag)
+            'Datos.Models.NoMag
+            'Datos.Models.NoMag
 
             'Private Sub btnAgregarCliente_Click(sender As Object, e As EventArgs) Handles btnAgregarCliente.Click
             '    Try
@@ -33,8 +42,8 @@
 
         End Function
 
-        Public Sub Eliminar(id As Integer)
-
+        Public Function Eliminar(id As Long) As String
+            Return Me.db.Borrar(id)
             'Private Sub viewDatos_KeyDown(sender As Object, e As KeyEventArgs) Handles viewDatos.KeyDown
             '    If e.KeyCode = Keys.Delete Then
             '        Try
@@ -47,7 +56,7 @@
             '    End If
             'End Sub
 
-        End Sub
+        End Function
 
     End Class
 End Namespace

@@ -1,16 +1,7 @@
 ﻿Namespace Logica
     Public Class Preventas
 
-        Public Property Configuraciones As New Logica.Configuraciones
-        Public Property AperturaCaja As New Logica.AperturaCaja
-        Public Property PedidoBodega As New Logica.PedidoBodega
-        Public Property CartaExoneracion As New Logica.CartaExoneracion
-        Public Property Agente_Ventas As New Logica.Agente_Ventas
-        Public Property Rifa As New Rifa
-        Public Property Clientes As New Logica.Clientes
-        Public Property Moneda As New Logica.Monedas
-        Public Property Inventario As New Logica.Inventario
-        Public Property Cotizaciones As New Logica.Cotizaciones
+
 
 
         Public Function obtenerPreVentas(id As Integer) As Modelo.ventas

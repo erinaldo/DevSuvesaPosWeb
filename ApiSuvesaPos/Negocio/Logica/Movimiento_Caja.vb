@@ -1,11 +1,14 @@
 ﻿Namespace Logica
     Public Class Movimiento_Caja
 
-        Public Property Moneda As New Logica.Monedas
-        Public Property AperturaCaja As New Logica.AperturaCaja
+        Private db As Datos.Class.Movimiento_Caja
 
+        Public Function Crear(movimiento_caja As Datos.Models.MovimientoCaja) As String
 
-        Public Sub Crear(movimiento_caja As Modelo.movimientosbodega)
+            Return Me.db.Crear(movimiento_caja)
+
+            'Datos.Models.MovimientoCaja
+            'Datos.Models.MovimientoCaja
 
             'Sub Registrar()
             '    Try
@@ -35,13 +38,10 @@
             '    End Try
             'End Sub
 
-        End Sub
+        End Function
 
-        Public Function Buscar(observaciones As String,
-                                              entreFechas As Boolean,
-                                              desde As Date,
-                                              hasta As Date) As List(Of Modelo.movimiento_caja)
-
+        Public Function Buscar(porNombre As Boolean, Filtro As String) As List(Of Datos.Models.MovimientoCaja)
+            Return Me.db.Buscar(porNombre, Filtro)
             'identificador = CDbl(Fx.Buscar_X_Descripcion_Fecha("SELECT Id, Monto, Observaciones, Fecha FROM Movimiento_Caja Order by Fecha Desc ", "Observaciones", "Fecha", "Buscar Movimiento de Caja"))
             'buscando = True
             'If identificador = 0.0 Then ' si se dio en el boton de cancelar

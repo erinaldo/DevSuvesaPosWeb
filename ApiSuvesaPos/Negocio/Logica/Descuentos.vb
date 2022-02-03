@@ -1,11 +1,14 @@
 ﻿Public Class Descuentos
 
+    Private db As Datos.Class.Descuentos
 
-    Public Property Proveedores As New Logica.Proveedores
+    Sub New()
+        Me.db = New Datos.Class.Descuentos
+    End Sub
 
 
-    Public Function Buscar() As List(Of Modelo.descuentos)
-
+    Public Function Buscar(Id As Decimal) As List(Of Datos.Models.Descuento)
+        Return Me.db.ObtenerporId(Id)
         'Private Sub Cargar_Descuntos()
         '    Dim dt As New DataTable
         '    cFunciones.Llenar_Tabla_Generico("Select * from viewDescuentos", dt, CadenaConexionSeePOS)
@@ -17,8 +20,8 @@
 
     End Function
 
-    Public Sub Crear(descuento As Modelo.descuentos)
-
+    Public Function Crear(descuento As Datos.Models.Descuento) As String
+        Return Me.db.Crear(descuento)
         'Private Sub Guardar_Descuento()
         '    If Me.IdProveedor <> "0" And Me.txtProveedor.Text <> "" Then
         '        If IsNumeric(Me.txtDescuento.Text) Then
@@ -39,10 +42,14 @@
         '    End If
         'End Sub
 
-    End Sub
+    End Function
 
-    Public Sub Eliminar(id As Integer)
+    Public Function Editar(id As Decimal, descuento As Datos.Models.Descuento) As String
+        Return Me.db.Editar(id, descuento)
+    End Function
 
+    Public Function Eliminar(id As Decimal) As String
+        Return Me.db.Borrar(id)
         'Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
         '    If MsgBox("Desea Eliminar El Descuento", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Confirmar Accion") Then
         '        Dim db As New OBSoluciones.SQL.Sentencias(CadenaConexionSeePOS)
@@ -52,6 +59,6 @@
         '    End If
         'End Sub
 
-    End Sub
+    End Function
 
 End Class

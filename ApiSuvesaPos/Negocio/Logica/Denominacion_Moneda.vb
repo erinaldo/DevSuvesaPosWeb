@@ -1,16 +1,52 @@
 ﻿Namespace Logica
     Public Class Denominacion_Moneda
 
-        Public Property Monedas As Logica.Monedas
+        Private db As Datos.Class.DenominacionMoneda
 
-        Public Function Buscar() As List(Of Modelo.denominacion_moneda)
+        Sub New()
+            Me.db = New Datos.Class.DenominacionMoneda
+        End Sub
 
-            'Me.AdapterDenominacion.Fill(Me.DataSetConfiguracionMoneda1.Denominacion_Moneda)
+        Public Function Buscar(porNombre As Boolean, Filtro As String) As List(Of Datos.Models.DenominacionMonedum)
+            Return Me.db.Buscar(porNombre, Filtro)
+        End Function
+
+        Public Function Crear(denominacion_moneda As Datos.Models.DenominacionMonedum) As String
+            Return Me.db.Crear(denominacion_moneda)
+            'Function Registrar()
+            '    Dim resp As Integer
+
+            '    If Validar() Then
+            '        resp = MessageBox.Show("¿Deseas Guardar los cambios?", "SeeSoft", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1)
+            '        If resp = 6 Then
+            '            Try
+            '                Me.BindingContext(Me.DataSetConfiguracionMoneda1, "Denominacion_Moneda").Current("Tipo") = ComboBox2.Text
+            '                Me.BindingContext(Me.DataSetConfiguracionMoneda1, "Denominacion_Moneda").EndCurrentEdit()
+            '                Me.AdapterDenominacion.Update(Me.DataSetConfiguracionMoneda1, "Denominacion_Moneda")
+            '                'Para boton Nuevo
+            '                Me.ToolBar1.Buttons(0).Text = "Nuevo"
+            '                Me.ToolBar1.Buttons(0).ImageIndex = 0
+            '                'Para boton Acualizar
+            '                Me.ToolBar1.Buttons(3).Enabled = False
+            '                'Para boton Editar
+            '                Me.ToolBarExcel.Text = "Editar"
+            '                Me.ToolBarExcel.ImageIndex = 5
+            '                Me.Inabilitar()
+
+            '            Catch eEndEdit As System.Data.NoNullAllowedException
+            '                System.Windows.Forms.MessageBox.Show(eEndEdit.Message)
+            '            End Try
+            '        End If
+
+            '    Else
+            '        MsgBox("Debes Ingresar Campos....", MsgBoxStyle.Information, "Atención...")
+            '    End If
+            'End Function
 
         End Function
 
-        Public Sub Crear(denominacion_moneda As Modelo.denominacion_moneda)
-
+        Public Function Editar(id As Long, denominacion_moneda As Datos.Models.DenominacionMonedum) As String
+            Return Me.db.Editar(id, denominacion_moneda)
             'Function Registrar()
             '    Dim resp As Integer
 
@@ -41,45 +77,12 @@
             '    End If
             'End Function
 
-        End Sub
+        End Function
 
-        Public Sub Editar(denominacion_moneda As Modelo.denominacion_moneda)
-
-            'Function Registrar()
-            '    Dim resp As Integer
-
-            '    If Validar() Then
-            '        resp = MessageBox.Show("¿Deseas Guardar los cambios?", "SeeSoft", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1)
-            '        If resp = 6 Then
-            '            Try
-            '                Me.BindingContext(Me.DataSetConfiguracionMoneda1, "Denominacion_Moneda").Current("Tipo") = ComboBox2.Text
-            '                Me.BindingContext(Me.DataSetConfiguracionMoneda1, "Denominacion_Moneda").EndCurrentEdit()
-            '                Me.AdapterDenominacion.Update(Me.DataSetConfiguracionMoneda1, "Denominacion_Moneda")
-            '                'Para boton Nuevo
-            '                Me.ToolBar1.Buttons(0).Text = "Nuevo"
-            '                Me.ToolBar1.Buttons(0).ImageIndex = 0
-            '                'Para boton Acualizar
-            '                Me.ToolBar1.Buttons(3).Enabled = False
-            '                'Para boton Editar
-            '                Me.ToolBarExcel.Text = "Editar"
-            '                Me.ToolBarExcel.ImageIndex = 5
-            '                Me.Inabilitar()
-
-            '            Catch eEndEdit As System.Data.NoNullAllowedException
-            '                System.Windows.Forms.MessageBox.Show(eEndEdit.Message)
-            '            End Try
-            '        End If
-
-            '    Else
-            '        MsgBox("Debes Ingresar Campos....", MsgBoxStyle.Information, "Atención...")
-            '    End If
-            'End Function
-
-        End Sub
-
-        Public Sub Eliminar()
+        Public Function Eliminar(id As Long) As String
             'igual que crear y editar
-        End Sub
+            Return Me.db.Borrar(id)
+        End Function
 
     End Class
 End Namespace

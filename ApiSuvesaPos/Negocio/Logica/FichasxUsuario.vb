@@ -1,9 +1,16 @@
 ﻿Namespace Logica
     Public Class FichasxUsuario
 
-        'agregar cls de usuarios
+        Private db As Datos.Class.FichasxUsuario
 
-        Public Function Buscar() As List(Of Modelo.fichasxusuario)
+        Sub New()
+            Me.db = New Datos.Class.FichasxUsuario
+        End Sub
+
+        Public Function Buscar(porNombre As String, Filtro As String) As List(Of Datos.Models.FichasxUsuario)
+            Return Me.db.Buscar(porNombre, Filtro)
+            'Datos.Models.FichasxUsuario
+            'Datos.Models.FichasxUsuario
 
             'Private Sub CargarUsuario()
             '    Try
@@ -28,8 +35,8 @@
 
         End Function
 
-        Public Sub Crear(fichasxusuario As Modelo.fichasxusuario)
-
+        Public Function Crear(fichasxusuario As Datos.Models.FichasxUsuario) As String
+            Return Me.db.Crear(fichasxusuario)
             'Private Sub Registrar(_IdUsuario As String, _Nombre As String, _Desde As Decimal, _Hasta As Decimal, _EnMostrador As Integer)
             '    Try
             '        Dim db As New OBSoluciones.SQL.Sentencias(CadenaConexionSeePOS)
@@ -45,10 +52,10 @@
             '    End Try
             'End Sub
 
-        End Sub
+        End Function
 
-        Public Sub Eliminar(id As Integer)
-
+        Public Function Eliminar(id As Long) As String
+            Return Me.db.Borrar(id)
             'Private Sub btnQuitar_Click(sender As Object, e As EventArgs) Handles btnQuitar.Click
             '    If Me.viewDatos.Rows.Count > 0 Then
             '        If MsgBox("Desea quitar los usuarios seleccionados.", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Confirmar Accion.") = MsgBoxResult.Yes Then
@@ -61,7 +68,7 @@
             '    End If
             'End Sub
 
-        End Sub
+        End Function
 
 
     End Class
