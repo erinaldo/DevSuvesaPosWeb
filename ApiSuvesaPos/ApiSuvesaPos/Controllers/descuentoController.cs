@@ -6,38 +6,32 @@ using System.Threading.Tasks;
 using System.Web;
 using Newtonsoft.Json;
 using Negocio.Logica;
- 
+
 namespace ApiSuvesaPos.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class bodegaController : Controller
+    public class descuentoController : Controller
     {
 
-        private Negocio.Logica.Bodega db = new Negocio.Logica.Bodega();
-
-        private bool Numerico(string text)
-        {
-            double test;
-            return double.TryParse(text, out test);
-        }
+        private Negocio.Logica.Descuentos db = new Negocio.Logica.Descuentos();
 
 
         [HttpPost]
-        public IActionResult Registrar(Datos.Models.Bodega bodega)
+        public IActionResult Registrar(Datos.Models.Descuento descuento)
         {
             try
             {
-                string resp = db.Crear(bodega);
+                string resp = db.Crear(descuento);
 
                 if (resp.Equals("1"))
                 {
-                    return Ok(bodega);
+                    return Ok(descuento);
                 }
                 else
                 {
                     throw new Exception(resp);
-                }                
+                }
             }
             catch (Exception ex)
             {
@@ -46,15 +40,15 @@ namespace ApiSuvesaPos.Controllers
         }
 
         [HttpPut]
-        public IActionResult Actualizar(int id, Datos.Models.Bodega bodega)
+        public IActionResult Actualizar(int id, Datos.Models.Descuento descuento)
         {
             try
             {
 
-                string resp = db.Editar(id, bodega);
+                string resp = db.Editar(id, descuento);
                 if (resp.Equals("1"))
                 {
-                    return Ok(bodega);
+                    return Ok(descuento);
                 }
                 else if (resp.Equals("No existe el valor"))
                 {
@@ -64,7 +58,7 @@ namespace ApiSuvesaPos.Controllers
                 {
                     throw new Exception(resp);
                 }
-                
+
             }
             catch (Exception ex)
             {
@@ -73,15 +67,10 @@ namespace ApiSuvesaPos.Controllers
         }
 
         [HttpGet]
-        public IActionResult Buscar(bool pornombre, string filtro)
+        public IActionResult Buscar(decimal id)
         {
 
-            if (pornombre == false && !this.Numerico(filtro))
-            {
-                return BadRequest("El parametro filtro no tiene el valor esperado. Se esperaba un valor numerico.");
-            }
-
-            var result = this.db.Buscar(pornombre, filtro);
+            var result = this.db.Buscar(id);
             if (result != null)
             {
                 return Ok(result);
@@ -93,7 +82,7 @@ namespace ApiSuvesaPos.Controllers
         }
 
         [HttpDelete]
-        public IActionResult Eliminar(int id)
+        public IActionResult Eliminar(decimal id)
         {
             try
             {

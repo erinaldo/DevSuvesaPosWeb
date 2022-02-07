@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 using System.Web;
 using Newtonsoft.Json;
 using Negocio.Logica;
- 
+
 namespace ApiSuvesaPos.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class bodegaController : Controller
+    public class denominacionmonedaController : Controller
     {
 
-        private Negocio.Logica.Bodega db = new Negocio.Logica.Bodega();
+        private Negocio.Logica.Denominacion_Moneda db = new Negocio.Logica.Denominacion_Moneda();
 
         private bool Numerico(string text)
         {
@@ -24,7 +24,7 @@ namespace ApiSuvesaPos.Controllers
 
 
         [HttpPost]
-        public IActionResult Registrar(Datos.Models.Bodega bodega)
+        public IActionResult Registrar(Datos.Models.DenominacionMonedum bodega)
         {
             try
             {
@@ -37,7 +37,7 @@ namespace ApiSuvesaPos.Controllers
                 else
                 {
                     throw new Exception(resp);
-                }                
+                }
             }
             catch (Exception ex)
             {
@@ -46,7 +46,7 @@ namespace ApiSuvesaPos.Controllers
         }
 
         [HttpPut]
-        public IActionResult Actualizar(int id, Datos.Models.Bodega bodega)
+        public IActionResult Actualizar(int id, Datos.Models.DenominacionMonedum bodega)
         {
             try
             {
@@ -64,7 +64,7 @@ namespace ApiSuvesaPos.Controllers
                 {
                     throw new Exception(resp);
                 }
-                
+
             }
             catch (Exception ex)
             {

@@ -53,8 +53,8 @@
 
         End Function
 
-        Public Sub Anular(id As Integer)
-
+        Public Function Anular(id As Integer) As String
+            Return "algo"
             'Sub Anular()
             '    Try
             '        If MsgBox("Desea Anular este Movimiento de Caja", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
@@ -70,7 +70,7 @@
             '    End Try
             'End Sub
 
-        End Sub
+        End Function
 
     End Class
 End Namespace

@@ -7,7 +7,7 @@
             Me.db = New Datos.Class.FichasxUsuario
         End Sub
 
-        Public Function Buscar(porNombre As String, Filtro As String) As List(Of Datos.Models.FichasxUsuario)
+        Public Function Buscar(porNombre As Boolean, Filtro As String) As List(Of Datos.Models.FichasxUsuario)
             Return Me.db.Buscar(porNombre, Filtro)
             'Datos.Models.FichasxUsuario
             'Datos.Models.FichasxUsuario

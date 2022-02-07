@@ -96,7 +96,7 @@
 
         End Function
 
-        Public Sub Anular()
+        Public Function Anular(id As Long) As String
 
             'Function AnularOrden()
             '    Try
@@ -139,7 +139,7 @@
             '    End Try
             'End Function
 
-        End Sub
+        End Function
 
     End Class
 End Namespace

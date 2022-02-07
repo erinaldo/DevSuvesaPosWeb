@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 using System.Web;
 using Newtonsoft.Json;
 using Negocio.Logica;
- 
+
 namespace ApiSuvesaPos.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class bodegaController : Controller
+    public class movimientocajaController : Controller
     {
 
-        private Negocio.Logica.Bodega db = new Negocio.Logica.Bodega();
+        private Negocio.Logica.Movimiento_Caja db = new Negocio.Logica.Movimiento_Caja();
 
         private bool Numerico(string text)
         {
@@ -24,47 +24,20 @@ namespace ApiSuvesaPos.Controllers
 
 
         [HttpPost]
-        public IActionResult Registrar(Datos.Models.Bodega bodega)
+        public IActionResult Registrar(Datos.Models.MovimientoCaja movimiento)
         {
             try
             {
-                string resp = db.Crear(bodega);
+                string resp = db.Crear(movimiento);
 
                 if (resp.Equals("1"))
                 {
-                    return Ok(bodega);
-                }
-                else
-                {
-                    throw new Exception(resp);
-                }                
-            }
-            catch (Exception ex)
-            {
-                return new BadRequestResult();
-            }
-        }
-
-        [HttpPut]
-        public IActionResult Actualizar(int id, Datos.Models.Bodega bodega)
-        {
-            try
-            {
-
-                string resp = db.Editar(id, bodega);
-                if (resp.Equals("1"))
-                {
-                    return Ok(bodega);
-                }
-                else if (resp.Equals("No existe el valor"))
-                {
-                    return NotFound();
+                    return Ok(movimiento);
                 }
                 else
                 {
                     throw new Exception(resp);
                 }
-                
             }
             catch (Exception ex)
             {
@@ -98,7 +71,7 @@ namespace ApiSuvesaPos.Controllers
             try
             {
 
-                string resp = db.Eliminar(id);
+                string resp = db.Anular(id);
                 if (resp.Equals("1"))
                 {
                     return Ok("Ok");

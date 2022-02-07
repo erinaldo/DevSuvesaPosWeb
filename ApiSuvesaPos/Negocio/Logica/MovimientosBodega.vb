@@ -106,8 +106,8 @@
 
         End Function
 
-        Public Sub Anular(movimientobodega As Datos.Models.MovimientosBodega)
-
+        Public Function Anular(Id As Integer) As String
+            Return "Algo"
             'Function insertar_bitacora() As Boolean
             '    Dim funciones As New Conexion
             '    Dim datos As String
@@ -140,7 +140,7 @@
             '    End Try
             'End Function
 
-        End Sub
+        End Function
 
     End Class
 

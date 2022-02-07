@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 using System.Web;
 using Newtonsoft.Json;
 using Negocio.Logica;
- 
+
 namespace ApiSuvesaPos.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class bodegaController : Controller
+    public class familiaController : Controller
     {
 
-        private Negocio.Logica.Bodega db = new Negocio.Logica.Bodega();
+        private Negocio.Logica.Familia db = new Negocio.Logica.Familia();
 
         private bool Numerico(string text)
         {
@@ -24,20 +24,20 @@ namespace ApiSuvesaPos.Controllers
 
 
         [HttpPost]
-        public IActionResult Registrar(Datos.Models.Bodega bodega)
+        public IActionResult Registrar(Datos.Models.Familium familia)
         {
             try
             {
-                string resp = db.Crear(bodega);
+                string resp = db.Crear(familia);
 
                 if (resp.Equals("1"))
                 {
-                    return Ok(bodega);
+                    return Ok(familia);
                 }
                 else
                 {
                     throw new Exception(resp);
-                }                
+                }
             }
             catch (Exception ex)
             {
@@ -46,15 +46,15 @@ namespace ApiSuvesaPos.Controllers
         }
 
         [HttpPut]
-        public IActionResult Actualizar(int id, Datos.Models.Bodega bodega)
+        public IActionResult Actualizar(int id, Datos.Models.Familium familia)
         {
             try
             {
 
-                string resp = db.Editar(id, bodega);
+                string resp = db.Editar(id, familia);
                 if (resp.Equals("1"))
                 {
-                    return Ok(bodega);
+                    return Ok(familia);
                 }
                 else if (resp.Equals("No existe el valor"))
                 {
@@ -64,7 +64,7 @@ namespace ApiSuvesaPos.Controllers
                 {
                     throw new Exception(resp);
                 }
-                
+
             }
             catch (Exception ex)
             {

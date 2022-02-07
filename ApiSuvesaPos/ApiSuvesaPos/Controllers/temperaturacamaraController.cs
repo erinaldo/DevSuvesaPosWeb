@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 using System.Web;
 using Newtonsoft.Json;
 using Negocio.Logica;
- 
+
 namespace ApiSuvesaPos.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class bodegaController : Controller
+    public class temperaturacamaraController : Controller
     {
 
-        private Negocio.Logica.Bodega db = new Negocio.Logica.Bodega();
+        private Negocio.Logica.TemperaturaCamara db = new Negocio.Logica.TemperaturaCamara();
 
         private bool Numerico(string text)
         {
@@ -24,20 +24,20 @@ namespace ApiSuvesaPos.Controllers
 
 
         [HttpPost]
-        public IActionResult Registrar(Datos.Models.Bodega bodega)
+        public IActionResult Registrar(Datos.Models.TemperaturaCamara temperatura)
         {
             try
             {
-                string resp = db.Crear(bodega);
+                string resp = db.Crear(temperatura);
 
                 if (resp.Equals("1"))
                 {
-                    return Ok(bodega);
+                    return Ok(temperatura);
                 }
                 else
                 {
                     throw new Exception(resp);
-                }                
+                }
             }
             catch (Exception ex)
             {
@@ -46,15 +46,15 @@ namespace ApiSuvesaPos.Controllers
         }
 
         [HttpPut]
-        public IActionResult Actualizar(int id, Datos.Models.Bodega bodega)
+        public IActionResult Actualizar(int id, Datos.Models.TemperaturaCamara temperatura)
         {
             try
             {
 
-                string resp = db.Editar(id, bodega);
+                string resp = db.Editar(id, temperatura);
                 if (resp.Equals("1"))
                 {
-                    return Ok(bodega);
+                    return Ok(temperatura);
                 }
                 else if (resp.Equals("No existe el valor"))
                 {
@@ -64,7 +64,7 @@ namespace ApiSuvesaPos.Controllers
                 {
                     throw new Exception(resp);
                 }
-                
+
             }
             catch (Exception ex)
             {
@@ -92,32 +92,5 @@ namespace ApiSuvesaPos.Controllers
             }
         }
 
-        [HttpDelete]
-        public IActionResult Eliminar(int id)
-        {
-            try
-            {
-
-                string resp = db.Eliminar(id);
-                if (resp.Equals("1"))
-                {
-                    return Ok("Ok");
-                }
-                else if (resp.Equals("No existe el valor"))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw new Exception(resp);
-                }
-
-            }
-            catch (Exception ex)
-            {
-                return new BadRequestResult();
-            }
-        }
-
-    }
+      }
 }
