@@ -38,12 +38,14 @@ namespace Datos.Class
 				if (porNombre == true)
 				{
 					var temp = from c in entities.Rifas
+							   where c.Descripcion.Contains(filtro)
 							   select c;
 					result = temp.ToList<Models.Rifa>();
 				}
 				else
 				{
 					var temp = from c in entities.Rifas
+							   where c.Id == Convert.ToInt32(filtro)
 							   select c;
 					result = temp.ToList<Models.Rifa>();
 				}

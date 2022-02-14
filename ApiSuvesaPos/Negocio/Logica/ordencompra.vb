@@ -97,7 +97,12 @@
         End Function
 
         Public Function Anular(id As Long) As String
-
+            Dim resp As String = Me.db.Anular(id)
+            If resp = "0" Then
+                Return "No existe el valor"
+            Else
+                Return resp
+            End If
             'Function AnularOrden()
             '    Try
             '        Dim resp As Integer

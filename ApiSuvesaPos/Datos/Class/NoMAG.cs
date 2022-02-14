@@ -37,13 +37,15 @@ namespace Datos.Class
 				List<Models.NoMag> result;
 				if (porNombre == true)
 				{
-					var temp = from c in entities.NoMags
+					//devuelve todos los registros
+					var temp = from c in entities.NoMags						   
 							   select c;
 					result = temp.ToList<Models.NoMag>();
 				}
 				else
 				{
 					var temp = from c in entities.NoMags
+							   where c.Id == Convert.ToInt32(filtro)
 							   select c;
 					result = temp.ToList<Models.NoMag>();
 				}
@@ -88,13 +90,21 @@ namespace Datos.Class
 			}
 		}
 
-		public int Borrar(long id) //borrar NoMAG
+		public int Borrar(decimal id) //borrar NoMAG
 		{
 			try
 			{
 				var p = entities.NoMags.Find(id);
-				entities.Remove(p);
-				return entities.SaveChanges();
+				if (p != null)
+				{
+					entities.Remove(p);
+					return entities.SaveChanges();
+                }
+                else
+                {
+					return 0;
+                }
+
 			}
 			catch (Exception ex)
 			{

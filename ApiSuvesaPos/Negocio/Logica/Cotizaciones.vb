@@ -67,28 +67,14 @@
             Return Me.db.Editar(Id, Cotizacion)
         End Function
 
-        Public Sub Anular()
-            'Function Registrar_Anulacion_Venta() As Boolean
-
-            '    If Me.SqlConnection1.State <> Me.SqlConnection1.State.Open Then Me.SqlConnection1.Open()
-            '    Dim Trans As SqlTransaction = Me.SqlConnection1.BeginTransaction
-            '    Try
-
-            '        Me.SqlUpdateCommand1.Transaction = Trans
-
-            '        Me.Adapter_Cotizacion.Update(Me.DataSet_Cotizaciones21, "Cotizacion")
-
-            '        Trans.Commit()
-            '        Return True
-
-            '    Catch ex As Exception
-            '        Trans.Rollback()
-            '        MsgBox(ex.Message, MsgBoxStyle.Information, "Atención...")
-            '        Me.ToolBar1.Buttons(3).Enabled = True
-            '        Return False
-            '    End Try
-            'End Function
-        End Sub
+        Public Function Anular(Id As Long) As String
+            Dim res As String = Me.db.Anular(Id)
+            If res = "0" Then
+                Return "No existe el valor"
+            Else
+                Return res
+            End If
+        End Function
 
     End Class
 

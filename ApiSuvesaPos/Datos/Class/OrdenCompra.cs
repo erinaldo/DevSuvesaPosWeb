@@ -38,12 +38,15 @@ namespace Datos.Class
 				if (porNombre == true)
 				{
 					var temp = from c in entities.Ordencompras
+							   where c.Nombre.Contains(filtro)
+							   orderby c.Fecha descending
 							   select c;
 					result = temp.ToList<Models.Ordencompra>();
 				}
 				else
 				{
 					var temp = from c in entities.Ordencompras
+							   where c.Orden == Convert.ToInt32(filtro)
 							   select c;
 					result = temp.ToList<Models.Ordencompra>();
 				}
@@ -69,8 +72,7 @@ namespace Datos.Class
 				var p = entities.Ordencompras.Find(id);
 				Models.Ordencompra viejo = p;
 				if (viejo != null)
-				{
-					viejo.Orden = nuevo.Orden;
+				{					
 					viejo.Proveedor = nuevo.Proveedor;
 					viejo.Nombre = nuevo.Nombre;
 					viejo.Fecha = nuevo.Fecha;
@@ -106,19 +108,29 @@ namespace Datos.Class
 			}
 		}
 
-		public int Borrar(long id) //borrar OrdenCompra
+		public int Anular(long id) //anular OrdenCompra
 		{
 			try
 			{
-				var p = entities.OrdenCompra.Find(id);
-				entities.Remove(p);
-				return entities.SaveChanges();
+				var p = entities.Ordencompras.Find(id);
+				Models.Ordencompra viejo = p;
+				if (viejo != null)
+				{
+					viejo.Anulado = true;
+					entities.Entry(viejo).State = EntityState.Modified;
+					return entities.SaveChanges();
+				}
+				else
+				{
+					return 0;// no se encotro el registro solicitado.
+				}
 			}
 			catch (Exception ex)
 			{
 				throw ex;
 			}
 		}
+
 	}
 }
 

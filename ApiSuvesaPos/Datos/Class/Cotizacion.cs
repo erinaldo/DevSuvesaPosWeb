@@ -136,15 +136,25 @@ namespace Datos.Class
             }
         }
 
-        public int Borrar(long id) // borrar Actividad apartir del id Actividad
-
-
+        public int Anular(long id)
         {
             try
             {
                 var p = entities.Cotizacions.Find(id);
-                entities.Remove(p);
-                return entities.SaveChanges();
+                Models.Cotizacion cotizacion = p;
+
+                if (cotizacion != null)
+                {
+
+                    cotizacion.Anulado = true;
+                    entities.Entry(cotizacion).State = EntityState.Modified;
+
+                    return entities.SaveChanges();
+                }
+                else
+                {
+                    return 0;// no se encotro el registro solicitado.
+                }
 
             }
             catch (Exception ex)
@@ -152,7 +162,6 @@ namespace Datos.Class
 
                 throw ex;
             }
-
         }
 
 

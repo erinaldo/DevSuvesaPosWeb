@@ -107,7 +107,12 @@
         End Function
 
         Public Function Anular(Id As Integer) As String
-            Return "Algo"
+            Dim res As String = Me.db.Anular(Id)
+            If res = "0" Then
+                Return "No existe el valor"
+            Else
+                Return res
+            End If
             'Function insertar_bitacora() As Boolean
             '    Dim funciones As New Conexion
             '    Dim datos As String

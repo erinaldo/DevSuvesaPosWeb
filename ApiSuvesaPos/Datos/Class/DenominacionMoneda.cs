@@ -33,6 +33,7 @@ namespace Datos.Class
 
         }
 
+
         public List<Models.DenominacionMonedum> Buscar(bool porNombre, string filtro) //obtener lista CartasdeExoneracion 
         {
             try

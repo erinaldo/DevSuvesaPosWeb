@@ -30,14 +30,23 @@ namespace ApiSuvesaPos.Controllers
             {
                 string resp = db.Crear(cotizacion);
 
-                if (resp.Equals("1"))
+                double test;
+                if (double.TryParse( resp, out test))// Si el resultado es numerico
                 {
-                    return Ok(cotizacion);
+                    if (test>0)//Si el resultado es mayor que cero
+                    {
+                        return Ok("Ok");
+                    }
+                    else
+                    {
+                        throw new Exception(resp);
+                    }
                 }
                 else
                 {
                     throw new Exception(resp);
                 }
+
             }
             catch (Exception ex)
             {
@@ -52,13 +61,17 @@ namespace ApiSuvesaPos.Controllers
             {
 
                 string resp = db.Editar(id, cotizacion);
-                if (resp.Equals("1"))
+                double test;
+                if (double.TryParse(resp, out test))// Si el resultado es numerico
                 {
-                    return Ok(cotizacion);
-                }
-                else if (resp.Equals("No existe el valor"))
-                {
-                    return NotFound();
+                    if (test > 0)//Si el resultado es mayor que cero
+                    {
+                        return Ok("Ok");
+                    }
+                    else
+                    {
+                        throw new Exception(resp);
+                    }
                 }
                 else
                 {
@@ -93,15 +106,24 @@ namespace ApiSuvesaPos.Controllers
         }
 
         [HttpPut]
+        [Route("anular")]
         public IActionResult Anular(int id)
         {
             try
             {
 
-                string resp = ""; //db.Anular(id);
-                if (resp.Equals("1"))
+                string resp = db.Anular(id);
+                double test;
+                if (double.TryParse(resp, out test))// Si el resultado es numerico
                 {
-                    return Ok("Ok");
+                    if (test > 0)//Si el resultado es mayor que cero
+                    {
+                        return Ok("Ok");
+                    }
+                    else
+                    {
+                        throw new Exception(resp);
+                    }
                 }
                 else if (resp.Equals("No existe el valor"))
                 {

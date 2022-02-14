@@ -29,7 +29,7 @@ namespace ApiSuvesaPos.Controllers
         {
             try
             {
-                string resp = db.CrearAperturasCajas(apertura);
+                string resp = db.CrearAperturasCajas(apertura).ToString();
 
                 if (resp.Equals("1"))
                 {
@@ -52,7 +52,7 @@ namespace ApiSuvesaPos.Controllers
             try
             {
 
-                string resp = db.EditarAperturasCajas(id, apertura);
+                string resp = db.EditarAperturasCajas(id, apertura).ToString();
                 if (resp.Equals("1"))
                 {
                     return Ok(apertura);
@@ -100,7 +100,7 @@ namespace ApiSuvesaPos.Controllers
             try
             {
 
-                string resp = db.AnularAperturasCajas(id);
+                string resp = db.AnularAperturasCajas(id).ToString();
                 if (resp.Equals("1"))
                 {
                     return Ok("Ok");

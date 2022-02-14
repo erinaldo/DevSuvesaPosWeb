@@ -79,7 +79,7 @@ namespace Datos.Class
         {
             try
             {
-                var p = entities.DenominacionMoneda.Find(id);
+                var p = entities.DevolucionesCompras.Find(id);
                 Models.DevolucionesCompra viejo = p;
 
                 if (viejo != null)
@@ -122,15 +122,28 @@ namespace Datos.Class
             }
         }
 
-        public int Borrar(long id) 
+        public int Anular(long id) 
 
 
         {
             try
             {
                 var p = entities.DevolucionesCompras.Find(id);
-                entities.Remove(p);
-                return entities.SaveChanges();
+                Models.DevolucionesCompra viejo = p;
+
+                if (viejo != null)
+                {
+
+                    viejo.Anulado = true;
+
+                    entities.Entry(viejo).State = EntityState.Modified;
+
+                    return entities.SaveChanges();
+                }
+                else
+                {
+                    return 0;// no se encotro el registro solicitado.
+                }
 
             }
             catch (Exception ex)

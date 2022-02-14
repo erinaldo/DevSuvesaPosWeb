@@ -21,7 +21,7 @@ namespace Datos.Class
         public int Crear(Models.DevolucionesVenta devVenta) 
         {
             try
-            {
+            {                
                 entities.DevolucionesVentas.Add(devVenta);
                 return entities.SaveChanges();
 
@@ -80,7 +80,7 @@ namespace Datos.Class
         {
             try
             {
-                var p = entities.DenominacionMoneda.Find(id);
+                var p = entities.DevolucionesVentas.Find(id);
                 Models.DevolucionesVenta viejo = p;
 
                 if (viejo != null)
@@ -132,15 +132,25 @@ namespace Datos.Class
             }
         }
 
-        public int Borrar(long id) 
+        public int Anular(long id) 
 
 
         {
             try
             {
                 var p = entities.DevolucionesVentas.Find(id);
-                entities.Remove(p);
-                return entities.SaveChanges();
+                Models.DevolucionesVenta viejo = p;
+
+                if (viejo != null)
+                {
+                    viejo.Anulado = true;
+                    entities.Entry(viejo).State = EntityState.Modified;
+                    return entities.SaveChanges();
+                }
+                else
+                {
+                    return 0;// no se encotro el registro solicitado.
+                }
 
             }
             catch (Exception ex)

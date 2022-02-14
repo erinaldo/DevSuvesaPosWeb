@@ -30,14 +30,23 @@ namespace ApiSuvesaPos.Controllers
             {
                 string resp = db.Crear(movimiento);
 
-                if (resp.Equals("1"))
+                double test;
+                if (double.TryParse(resp, out test))// Si el resultado es numerico
                 {
-                    return Ok(movimiento);
+                    if (test > 0)//Si el resultado es mayor que cero
+                    {
+                        return Ok("Ok");
+                    }
+                    else
+                    {
+                        throw new Exception(resp);
+                    }
                 }
                 else
                 {
                     throw new Exception(resp);
                 }
+
             }
             catch (Exception ex)
             {
@@ -65,16 +74,24 @@ namespace ApiSuvesaPos.Controllers
             }
         }
 
-        [HttpDelete]
-        public IActionResult Eliminar(int id)
+        [HttpPut]
+        public IActionResult Anular(int id)
         {
             try
             {
 
                 string resp = db.Anular(id);
-                if (resp.Equals("1"))
+                double test;
+                if (double.TryParse(resp, out test))// Si el resultado es numerico
                 {
-                    return Ok("Ok");
+                    if (test > 0)//Si el resultado es mayor que cero
+                    {
+                        return Ok("Ok");
+                    }
+                    else
+                    {
+                        throw new Exception(resp);
+                    }
                 }
                 else if (resp.Equals("No existe el valor"))
                 {
@@ -84,6 +101,7 @@ namespace ApiSuvesaPos.Controllers
                 {
                     throw new Exception(resp);
                 }
+
 
             }
             catch (Exception ex)

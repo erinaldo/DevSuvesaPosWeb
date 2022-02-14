@@ -38,12 +38,14 @@ namespace Datos.Class
 				if (porNombre == true)
 				{
 					var temp = from c in entities.FichasxUsuarios
+							   where c.Usuario.Contains(filtro)
 							   select c;
 					result = temp.ToList<Models.FichasxUsuario>();
 				}
 				else
 				{
 					var temp = from c in entities.FichasxUsuarios
+							   where c.Id == Convert.ToInt32(filtro)
 							   select c;
 					result = temp.ToList<Models.FichasxUsuario>();
 				}
@@ -92,7 +94,7 @@ namespace Datos.Class
 			}
 		}
 
-		public int Borrar(long id) //borrar FichasxUsuario
+		public int Borrar(decimal id) //borrar FichasxUsuario
 		{
 			try
 			{

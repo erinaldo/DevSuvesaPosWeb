@@ -63,11 +63,11 @@ namespace Datos.Class
             }
         }
 
-        public int Editar(long id, Models.Descuento nuevo)
+        public int Editar(decimal id, Models.Descuento nuevo)
         {
             try
             {
-                var p = entities.DescuentoProgramados.Find(id);
+                var p = entities.Descuentos.Find(id);
                 Models.Descuento viejo = p;
 
                 if (viejo != null)

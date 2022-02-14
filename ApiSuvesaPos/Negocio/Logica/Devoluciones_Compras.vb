@@ -98,7 +98,14 @@
 
         End Function
 
-        Public Sub Anular()
+        Public Function Anular(Id As Long) As String
+
+            Dim res As String = Me.db.Anular(Id)
+            If res = "0" Then
+                Return "No existe el valor"
+            Else
+                Return res
+            End If
 
             '    Function Registrar_Anulacion() As Boolean
             '    Dim i As Long
@@ -124,7 +131,7 @@
             '    End Try
             'End Function
 
-        End Sub
+        End Function
 
     End Class
 

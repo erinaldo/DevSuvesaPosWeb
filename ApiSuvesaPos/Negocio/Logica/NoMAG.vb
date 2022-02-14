@@ -43,7 +43,12 @@
         End Function
 
         Public Function Eliminar(id As Long) As String
-            Return Me.db.Borrar(id)
+            Dim resp As String = Me.db.Borrar(id)
+            If resp = "0" Then
+                Return "No existe el valor"
+            Else
+                Return resp
+            End If
             'Private Sub viewDatos_KeyDown(sender As Object, e As KeyEventArgs) Handles viewDatos.KeyDown
             '    If e.KeyCode = Keys.Delete Then
             '        Try

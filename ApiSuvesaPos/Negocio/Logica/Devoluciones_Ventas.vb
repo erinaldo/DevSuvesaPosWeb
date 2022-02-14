@@ -25,8 +25,13 @@
             'Me.llenarVentasOpcionesdePago(Me.BindingContext(Me.DataSetDevolucionVentas1, "devoluciones_ventas").Current("Id_Factura"))
         End Function
 
-        Public Sub Anular()
-
+        Public Function Anular(id As Integer) As String
+            Dim res As String = Me.db.Anular(id)
+            If res = "0" Then
+                Return "No existe el valor"
+            Else
+                Return res
+            End If
             '    Function Anular_Detalle(ByVal Id As Long) As Boolean
             '    '--------------------------------------------------------------------------------------------
             '    ' SE DISPARA DESENCADENADOR QUE REGISTRA EN EL KARDEX LA ANULACION DE LA DEVOLUCION         ' 
@@ -70,7 +75,7 @@
             '    End Try
             'End Function
 
-        End Sub
+        End Function
 
         Public Function Crear(devoluciones_ventas As Datos.Models.DevolucionesVenta) As String
             Return Me.db.Crear(devoluciones_ventas)

@@ -38,12 +38,15 @@ namespace Datos.Class
 				if (porNombre == true)
 				{
 					var temp = from c in entities.MovimientoCajas
+							   join u in entities.Usuarios on c.Usuario equals u.IdUsuario
+							   where u.Nombre.Contains(filtro)
 							   select c;
 					result = temp.ToList<Models.MovimientoCaja>();
 				}
 				else
 				{
 					var temp = from c in entities.MovimientoCajas
+							   where c.Id == Convert.ToInt32(filtro)
 							   select c;
 					result = temp.ToList<Models.MovimientoCaja>();
 				}
@@ -97,13 +100,46 @@ namespace Datos.Class
 			}
 		}
 
+		public int Anular(long id) //anular Movimiento_Caja
+		{
+			try
+			{
+				var p = entities.MovimientoCajas.Find(id);
+				Models.MovimientoCaja viejo = p;
+				if (viejo != null)
+				{
+
+					viejo.Anulado = true;
+					entities.Entry(viejo).State = EntityState.Modified;
+
+					return entities.SaveChanges();
+				}
+				else
+				{
+					return 0;// no se encotro el registro solicitado.
+				}
+			}
+			catch (Exception ex)
+			{
+				throw ex;
+			}
+		}
+
 		public int Borrar(long id) //borrar Movimiento_Caja
 		{
 			try
 			{
 				var p = entities.MovimientoCajas.Find(id);
-				entities.Remove(p);
-				return entities.SaveChanges();
+				if (p != null)
+				{
+					entities.Remove(p);
+					return entities.SaveChanges();
+				}
+                else
+                {
+					return 0;
+                }
+
 			}
 			catch (Exception ex)
 			{

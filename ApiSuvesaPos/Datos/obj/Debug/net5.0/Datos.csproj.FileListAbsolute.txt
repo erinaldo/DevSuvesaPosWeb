@@ -19,7 +19,6 @@ C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\Datos\bin\Debug\net5.0\Datos.runtim
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\Datos\bin\Debug\net5.0\Datos.dll
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\Datos\bin\Debug\net5.0\ref\Datos.dll
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\Datos\bin\Debug\net5.0\Datos.pdb
-C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\Datos\obj\Debug\net5.0\Datos.csproj.AssemblyReference.cache
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\Datos\obj\Debug\net5.0\Datos.GeneratedMSBuildEditorConfig.editorconfig
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\Datos\obj\Debug\net5.0\Datos.AssemblyInfoInputs.cache
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\Datos\obj\Debug\net5.0\Datos.AssemblyInfo.cs
@@ -28,3 +27,4 @@ C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\Datos\obj\Debug\net5.0\Datos.dll
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\Datos\obj\Debug\net5.0\ref\Datos.dll
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\Datos\obj\Debug\net5.0\Datos.pdb
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\Datos\obj\Debug\net5.0\Datos.genruntimeconfig.cache
+C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\Datos\obj\Debug\net5.0\Datos.csproj.AssemblyReference.cache

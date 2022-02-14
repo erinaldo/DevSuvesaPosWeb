@@ -38,12 +38,15 @@ namespace Datos.Class
 				if (porNombre == true)
 				{
 					var temp = from c in entities.MovimientosBodegas
+							   where c.Cliente.Contains(filtro)
+							   orderby c.Fecha descending
 							   select c;
 					result = temp.ToList<Models.MovimientosBodega>();
 				}
 				else
 				{
 					var temp = from c in entities.MovimientosBodegas
+							   where c.BoletaMovimiento == Convert.ToInt32(filtro)
 							   select c;
 					result = temp.ToList<Models.MovimientosBodega>();
 				}
@@ -93,6 +96,32 @@ namespace Datos.Class
 				throw ex;
 			}
 		}
+
+		public int Anular(long id) //editar MovimientosBodega
+		{
+			try
+			{
+				var p = entities.MovimientosBodegas.Find(id);
+				Models.MovimientosBodega viejo = p;
+				if (viejo != null)
+				{
+
+					viejo.Anulado = true;				
+					entities.Entry(viejo).State = EntityState.Modified;
+
+					return entities.SaveChanges();
+				}
+				else
+				{
+					return 0;// no se encotro el registro solicitado.
+				}
+			}
+			catch (Exception ex)
+			{
+				throw ex;
+			}
+		}
+
 
 		public int Borrar(long id) //borrar MovimientosBodega
 		{
