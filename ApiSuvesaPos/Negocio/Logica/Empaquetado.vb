@@ -1,12 +1,14 @@
 ﻿Namespace Logica
     Public Class Empaquetado
 
-        'marcas == Pantalla
-        Public Property Pantalla As New Logica.Marca
-        Public Property Configuraciones As New Logica.Configuraciones
 
+        Private db As Datos.Class.Empaquetado
 
-        Public Function cargarEmpaquetado() As List(Of Modelo.detalle_empaquetado)
+        Sub New()
+            Me.db = New Datos.Class.Empaquetado
+        End Sub
+
+        Public Function cargarEmpaquetado() As List(Of Datos.Models.Empaquetado)
 
             'Public Sub cargar()
             '    Timer1.Enabled = True
@@ -33,7 +35,7 @@
 
         End Function
 
-        Public Sub Empaquetar(detalle_empaquetado As List(Of Modelo.detalle_empaquetado))
+        Public Sub Empaquetar(detalle_empaquetado As List(Of Datos.Models.Empaquetado))
 
             '    Public Sub procesar()
             '    Dim conec As New Conexion

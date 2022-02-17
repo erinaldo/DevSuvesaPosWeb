@@ -123,7 +123,16 @@
         End Function
 
         Public Function Anular(Id As Long) As String
-            Return Me.db.EditarAbonoscobros(Id)
+            Dim res As String = Me.db.Anular(Id)
+            If res = "0" Then
+                Return "No existe el valor"
+            Else
+                Return res
+            End If
+
+            'Return Me.db.EditarAbonoscobros(Id)
+
+
             '    Function Registrar_Anulacion_Venta() As Boolean
             '    Dim i As Long
             '    Dim Facttem As Double

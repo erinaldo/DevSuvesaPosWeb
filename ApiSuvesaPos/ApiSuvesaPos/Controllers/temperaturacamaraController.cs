@@ -30,9 +30,17 @@ namespace ApiSuvesaPos.Controllers
             {
                 string resp = db.Crear(temperatura);
 
-                if (resp.Equals("1"))
+                double test;
+                if (double.TryParse(resp, out test))// Si el resultado es numerico
                 {
-                    return Ok(temperatura);
+                    if (test > 0)//Si el resultado es mayor que cero
+                    {
+                        return Ok("Ok");
+                    }
+                    else
+                    {
+                        throw new Exception(resp);
+                    }
                 }
                 else
                 {
@@ -52,9 +60,17 @@ namespace ApiSuvesaPos.Controllers
             {
 
                 string resp = db.Editar(id, temperatura);
-                if (resp.Equals("1"))
+                double test;
+                if (double.TryParse(resp, out test))// Si el resultado es numerico
                 {
-                    return Ok(temperatura);
+                    if (test > 0)//Si el resultado es mayor que cero
+                    {
+                        return Ok("Ok");
+                    }
+                    else
+                    {
+                        throw new Exception(resp);
+                    }
                 }
                 else if (resp.Equals("No existe el valor"))
                 {
@@ -92,5 +108,40 @@ namespace ApiSuvesaPos.Controllers
             }
         }
 
-      }
+        [HttpDelete]
+        public IActionResult Eliminar(int id)
+        {
+            try
+            {
+
+                string resp = db.Eliminar(id);
+                double test;
+                if (double.TryParse(resp, out test))// Si el resultado es numerico
+                {
+                    if (test > 0)//Si el resultado es mayor que cero
+                    {
+                        return Ok("Ok");
+                    }
+                    else
+                    {
+                        throw new Exception(resp);
+                    }
+                }
+                else if (resp.Equals("No existe el valor"))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw new Exception(resp);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return new BadRequestResult();
+            }
+        }
+
+    }
 }

@@ -37,13 +37,29 @@ namespace Datos.Class
 				List<Models.TemperaturaCamara> result;
 				if (porNombre == true)
 				{
-					var temp = from c in entities.TemperaturaCamaras
-							   select c;
-					result = temp.ToList<Models.TemperaturaCamara>();
+					if(filtro == null)
+                    {
+						var temp = from c in entities.TemperaturaCamaras								   
+								   orderby c.Fecha descending
+								   select c;						
+						result = temp.ToList<Models.TemperaturaCamara>();
+					}
+                    else
+                    {
+						var temp = from c in entities.TemperaturaCamaras
+								   join u in entities.Usuarios on c.IdUsuario equals u.IdUsuario
+								   where u.Nombre.Contains(filtro)
+								   orderby c.Fecha descending
+								   select c;
+						result = temp.ToList<Models.TemperaturaCamara>();
+					}
+
 				}
 				else
 				{
 					var temp = from c in entities.TemperaturaCamaras
+							   where c.Id == Convert.ToInt32(filtro)
+							   orderby c.Fecha descending
 							   select c;
 					result = temp.ToList<Models.TemperaturaCamara>();
 				}

@@ -103,21 +103,29 @@ namespace Datos.Class
             }
         }
 
-        public int EditarAgenteVentas(long id, AgenteVenta abono)
+        public int EditarAgenteVentas(long id, AgenteVenta agente)
         {
             try
             {
                 var p = entities.AgenteVentas.Find(id);
-                AgenteVenta Nuevo = p;
-                
-                
-                Nuevo.IdSucursal = abono.IdSucursal;
-                //Nuevo.AbonoApartadosdetalles = abono.AbonoApartadosdetalle;
-
-                entities.Entry(Nuevo).State = EntityState.Modified;
-
-                return entities.SaveChanges();
-
+                AgenteVenta viejo = p;                                            
+                if (viejo != null)
+                {
+                    viejo.IdSucursal = agente.IdSucursal;
+                    viejo.Nombre = agente.Nombre;
+                    viejo.Telefono = agente.Telefono;
+                    viejo.Direccion = agente.Direccion;
+                    viejo.Correo = agente.Correo;
+                    viejo.TipoPrecio = agente.TipoPrecio;
+                    viejo.Anulado = agente.Anulado;
+                    viejo.IdSucursal = agente.IdSucursal;
+                    entities.Entry(viejo).State = EntityState.Modified;
+                    return entities.SaveChanges();
+                }
+                else
+                {
+                    return 0;// no se encotro el registro solicitado.
+                }
 
             }
             catch (Exception ex)

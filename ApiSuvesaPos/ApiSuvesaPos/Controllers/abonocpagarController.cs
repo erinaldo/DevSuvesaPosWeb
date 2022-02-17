@@ -31,9 +31,17 @@ namespace ApiSuvesaPos.Controllers
 
                 string resp = db.Crear(nuevo);
 
-                if (resp.Equals("2"))
+                double test;
+                if (double.TryParse(resp, out test))// Si el resultado es numerico
                 {
-                    return Ok("OK");
+                    if (test > 0)//Si el resultado es mayor que cero
+                    {
+                        return Ok("Ok");
+                    }
+                    else
+                    {
+                        throw new Exception(resp);
+                    }
                 }
                 else
                 {
@@ -52,9 +60,17 @@ namespace ApiSuvesaPos.Controllers
         {
 
             string resp = this.db.Anular(id, eliminacheque);
-            if (resp.Equals("1"))
+            double test;
+            if (double.TryParse(resp, out test))// Si el resultado es numerico
             {
-                return Ok("Ok");
+                if (test > 0)//Si el resultado es mayor que cero
+                {
+                    return Ok("Ok");
+                }
+                else
+                {
+                    throw new Exception(resp);
+                }
             }
             else if (resp.Equals("No existe el valor"))
             {

@@ -11,18 +11,24 @@ namespace ApiSuvesaPos.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class agenteventaController : Controller
+    public class ubicacionController : Controller
     {
 
-        private Negocio.Logica.Agente_Ventas db = new Negocio.Logica.Agente_Ventas();
+        private Negocio.Logica.Ubicaciones db = new Negocio.Logica.Ubicaciones();
+
+        private bool Numerico(string text)
+        {
+            double test;
+            return double.TryParse(text, out test);
+        }
+
 
         [HttpPost]
-        public IActionResult PostAgenteVenta(Datos.Models.AgenteVenta nuevo)
+        public IActionResult Registrar(Datos.Models.Ubicacione ubicacion)
         {
             try
             {
-                
-                string resp = db.Crear(nuevo);
+                string resp = db.Crear(ubicacion);
 
                 double test;
                 if (double.TryParse(resp, out test))// Si el resultado es numerico
@@ -40,7 +46,6 @@ namespace ApiSuvesaPos.Controllers
                 {
                     throw new Exception(resp);
                 }
-
             }
             catch (Exception ex)
             {
@@ -49,13 +54,12 @@ namespace ApiSuvesaPos.Controllers
         }
 
         [HttpPut]
-        public IActionResult PutAgenteVenta(int id ,Datos.Models.AgenteVenta agenteventa)
+        public IActionResult Actualizar(int id, Datos.Models.Ubicacione ubicacion)
         {
             try
             {
 
-                string resp = db.Editar(id, agenteventa);
-
+                string resp = db.Editar(id, ubicacion);
                 double test;
                 if (double.TryParse(resp, out test))// Si el resultado es numerico
                 {
@@ -85,10 +89,15 @@ namespace ApiSuvesaPos.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetAgenteVenta(string nombre)
+        public IActionResult Buscar(bool pornombre, string filtro)
         {
 
-            var result = this.db.Buscar(nombre);
+            if (pornombre == false && !this.Numerico(filtro))
+            {
+                return BadRequest("El parametro filtro no tiene el valor esperado. Se esperaba un valor numerico.");
+            }
+
+            var result = this.db.Buscar(pornombre, filtro);
             if (result != null)
             {
                 return Ok(result);
@@ -100,29 +109,37 @@ namespace ApiSuvesaPos.Controllers
         }
 
         [HttpDelete]
-        public IActionResult DeleteAgenteVenta(int id)
+        public IActionResult Eliminar(int id)
         {
-
-            var resp = this.db.Eliminar(id);
-            double test;
-            if (double.TryParse(resp, out test))// Si el resultado es numerico
+            try
             {
-                if (test > 0)//Si el resultado es mayor que cero
+
+                string resp = db.Eliminar(id);
+                double test;
+                if (double.TryParse(resp, out test))// Si el resultado es numerico
                 {
-                    return Ok("Ok");
+                    if (test > 0)//Si el resultado es mayor que cero
+                    {
+                        return Ok("Ok");
+                    }
+                    else
+                    {
+                        throw new Exception(resp);
+                    }
+                }
+                else if (resp.Equals("No existe el valor"))
+                {
+                    return NotFound();
                 }
                 else
                 {
                     throw new Exception(resp);
                 }
+
             }
-            else if (resp.Equals("No existe el valor"))
+            catch (Exception ex)
             {
-                return NotFound();
-            }
-            else
-            {
-                throw new Exception(resp);
+                return new BadRequestResult();
             }
         }
 

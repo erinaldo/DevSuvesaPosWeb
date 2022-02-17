@@ -24,9 +24,17 @@ namespace ApiSuvesaPos.Controllers
             {
                 string resp = db.Crear(descuento);
 
-                if (resp.Equals("1"))
+                double test;
+                if (double.TryParse(resp, out test))// Si el resultado es numerico
                 {
-                    return Ok(descuento);
+                    if (test > 0)//Si el resultado es mayor que cero
+                    {
+                        return Ok("Ok");
+                    }
+                    else
+                    {
+                        throw new Exception(resp);
+                    }
                 }
                 else
                 {
@@ -46,9 +54,17 @@ namespace ApiSuvesaPos.Controllers
             {
 
                 string resp = db.Editar(id, descuento);
-                if (resp.Equals("1"))
+                double test;
+                if (double.TryParse(resp, out test))// Si el resultado es numerico
                 {
-                    return Ok(descuento);
+                    if (test > 0)//Si el resultado es mayor que cero
+                    {
+                        return Ok("Ok");
+                    }
+                    else
+                    {
+                        throw new Exception(resp);
+                    }
                 }
                 else if (resp.Equals("No existe el valor"))
                 {
@@ -88,9 +104,17 @@ namespace ApiSuvesaPos.Controllers
             {
 
                 string resp = db.Eliminar(id);
-                if (resp.Equals("1"))
+                double test;
+                if (double.TryParse(resp, out test))// Si el resultado es numerico
                 {
-                    return Ok("Ok");
+                    if (test > 0)//Si el resultado es mayor que cero
+                    {
+                        return Ok("Ok");
+                    }
+                    else
+                    {
+                        throw new Exception(resp);
+                    }
                 }
                 else if (resp.Equals("No existe el valor"))
                 {

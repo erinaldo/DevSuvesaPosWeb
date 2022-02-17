@@ -2,41 +2,27 @@
 Namespace Logica
     Public Class Ubicaciones
 
-        Public Function Buscar() As List(Of Modelo.ubicaciones)
-            Dim ubicacion As New List(Of Modelo.ubicaciones)
-            'cx.Llenar_Tabla_Generico("Select * from familia", Me.DataSetFamilia1.Familia1, Me.SqlConnection1.ConnectionString)
-            Return ubicacion
+        Private db As Datos.Class.Ubicaciones
+
+        Sub New()
+            Me.db = New Datos.Class.Ubicaciones
+        End Sub
+
+        Public Function Buscar(pornombre As Boolean, filtro As String) As List(Of Datos.Models.Ubicacione)
+            Return Me.db.Buscar(pornombre, filtro)
         End Function
 
-        Public Sub Crear(ubicacion As Modelo.ubicaciones)
-            If estaVacio(ubicacion.Descripcion) Then
-                'no pasa validacion datos vacios
+        Public Function Crear(ubicacion As Datos.Models.Ubicacione) As String
+            Return Me.db.Crear(ubicacion)
+        End Function
 
-            End If
+        Public Function Editar(id As Decimal, ubicacion As Datos.Models.Ubicacione) As String
+            Return Me.db.Editar(id, ubicacion)
+        End Function
 
-            'Me.daubicaciones.Update(Me.DataSet_Ubicaciones1, "Ubicaciones")
-            'Me.dasububicacion.Update(Me.DataSet_Ubicaciones1, "SubUbicacion")
-            'Trans.Commit()
-        End Sub
-
-        Public Sub Editar(ubicacion As Modelo.ubicaciones)
-            If estaVacio(ubicacion.Descripcion) Then
-                'no pasa validacion datos vacios
-
-            End If
-
-            'Me.daubicaciones.Update(Me.DataSet_Ubicaciones1, "Ubicaciones")
-            'Me.dasububicacion.Update(Me.DataSet_Ubicaciones1, "SubUbicacion")
-            'Trans.Commit()
-        End Sub
-
-        Public Sub Eliminar(ubicacion As Modelo.ubicaciones)
-            'valida que no exista productos relacionados
-
-            'Me.BindingContext(Me.DataSet_Ubicaciones1, "Ubicaciones").RemoveAt(Me.BindingContext(Me.DataSet_Ubicaciones1, "Ubicaciones").Position)
-            'Me.BindingContext(Me.DataSet_Ubicaciones1, "Ubicaciones").EndCurrentEdit()
-            'Me.Registrar_Ubicacion()
-        End Sub
+        Public Function Eliminar(id As Decimal) As String
+            Return Me.db.Borrar(id)
+        End Function
 
     End Class
 

@@ -51,6 +51,10 @@
 
         End Function
 
+        Public Function Eliminar(id As Decimal) As String
+            Return Me.db.Borrar(id)
+        End Function
+
         Public Function Editar(id As Decimal, temperaturacamara As Datos.Models.TemperaturaCamara) As String
             Return Me.db.Editar(id, temperaturacamara)
             'Private Sub AgregarNuevoRegistro()

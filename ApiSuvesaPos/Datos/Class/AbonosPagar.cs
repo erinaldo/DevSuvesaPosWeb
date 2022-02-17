@@ -125,16 +125,23 @@ namespace Datos.Class
             try
             {
                 var p = entities.Abonocpagars.Find(id);
-                Abonocpagar Nuevo = p;              
-                Nuevo.Anulado = true;
-                if(eliminarCheque == true)
+                Abonocpagar viejo = p;                             
+                if (viejo != null)
                 {
-                    //el sistema no permite tener dos veces el mismo cheque
-                    //si el usuario quiere volver a digitarlo se pone negativo para que lo vuelva a ingresar
-                    Nuevo.Documento = (Nuevo.Documento * -1);
+                    viejo.Anulado = true;
+                    if (eliminarCheque == true)
+                    {
+                        //el sistema no permite tener dos veces el mismo cheque
+                        //si el usuario quiere volver a digitarlo se pone negativo para que lo vuelva a ingresar
+                        viejo.Documento = (viejo.Documento * -1);
+                    }
+                    entities.Entry(viejo).State = EntityState.Modified;
+                    return entities.SaveChanges();
                 }
-                entities.Entry(Nuevo).State = EntityState.Modified;
-                return entities.SaveChanges();
+                else
+                {
+                    return 0;// no se encotro el registro solicitado.
+                }
 
             }
             catch (Exception ex)

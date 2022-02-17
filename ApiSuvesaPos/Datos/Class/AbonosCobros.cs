@@ -116,15 +116,24 @@ namespace Datos.Class
             }
         }
 
-        public int EditarAbonoscobros(long id)
+        public int Anular(long id)
         {
             try
             {
                 var p = entities.Abonoccobrars.Find(id);
-                Abonoccobrar Nuevo = p;
-                Nuevo.Anula = true;
-                entities.Entry(Nuevo).State = EntityState.Modified;
-                return entities.SaveChanges();
+                Abonoccobrar viejo = p;
+               
+                if (viejo != null)
+                {
+
+                    viejo.Anula = true;
+                    entities.Entry(viejo).State = EntityState.Modified;
+                    return entities.SaveChanges();
+                }
+                else
+                {
+                    return 0;// no se encotro el registro solicitado.
+                }
 
             }
             catch (Exception ex)
