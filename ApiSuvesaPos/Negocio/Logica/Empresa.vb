@@ -16,11 +16,21 @@
         End Function
 
         Public Function Editar(id As Long, empresa As Datos.Models.Empresa) As String
-            Return Me.db.Editar(id, empresa)
+            Dim res As String = Me.db.Editar(id, empresa)
+            If res = "0" Then
+                Return "No existe el valor"
+            Else
+                Return res
+            End If
         End Function
 
         Public Function Eliminar(id As Long) As String
-            Return Me.db.Borrar(id)
+            Dim res As String = Me.db.Borrar(id)
+            If res = "0" Then
+                Return "No existe el valor"
+            Else
+                Return res
+            End If
         End Function
 
     End Class

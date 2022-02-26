@@ -107,14 +107,20 @@ namespace Datos.Class
         }
 
         public int Borrar(long id) // borrar Actividad apartir del id Actividad
-
-
         {
             try
             {
-                var p = entities.DenominacionMoneda.Find(id);
-                entities.Remove(p);
-                return entities.SaveChanges();
+                var p = entities.DenominacionMoneda.Find(id);                                
+                Models.DenominacionMonedum Nuevo = p;
+                if (Nuevo != null)
+                {
+                    entities.Remove(p);
+                    return entities.SaveChanges();
+                }
+                else
+                {
+                    return 0;// no se encotro el registro solicitado.
+                }
 
             }
             catch (Exception ex)

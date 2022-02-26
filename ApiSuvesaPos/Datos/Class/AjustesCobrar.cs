@@ -121,10 +121,17 @@ namespace Datos.Class
             try
             {
                 var p = entities.Ajustesccobrars.Find(id);
-                Ajustesccobrar Nuevo = p;
-                Nuevo.Anula = true;
-                entities.Entry(Nuevo).State = EntityState.Modified;
-                return entities.SaveChanges();
+                Ajustesccobrar Nuevo = p;                
+                if (Nuevo != null)
+                {
+                    Nuevo.Anula = true;
+                    entities.Entry(Nuevo).State = EntityState.Modified;
+                    return entities.SaveChanges();
+                }
+                else
+                {
+                    return 0;// no se encotro el registro solicitado.
+                }
 
             }
             catch (Exception ex)

@@ -158,7 +158,13 @@
         End Function
 
         Public Function Anular(id_Abonocpagar As Long, eliminaCheque As Boolean) As String
-            Return Me.db.AnularAbonoPagar(id_Abonocpagar, eliminaCheque)
+            Dim res As String = Me.db.AnularAbonoPagar(id_Abonocpagar, eliminaCheque)
+            If res = "0" Then
+                Return "No existe el valor"
+            Else
+                Return res
+            End If
+
             '    Function Registrar_Anulacion_Venta() As Boolean
             '    Dim i As Long
             '    Dim Facttem As Double

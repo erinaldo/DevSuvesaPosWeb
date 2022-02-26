@@ -21,7 +21,12 @@
         End Function
 
         Public Function Anular(Id As Integer) As String
-            Return Me.a.AnularAjusteInventario(Id)
+            Dim res As String = Me.a.AnularAjusteInventario(Id)
+            If res = "0" Then
+                Return "No existe el valor"
+            Else
+                Return res
+            End If
             'registra en vitacora
             'Function insertar_bitacora() As Boolean
             '    Dim funciones As New Conexion

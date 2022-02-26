@@ -36,10 +36,18 @@ namespace Datos.Class
         public int BorrarCambioInventario(int id)
         {
             try
-            {
+            {                
                 var p = entities.CambioInventarios.Find(id);
-                entities.Remove(p);
-                return entities.SaveChanges();
+                Models.CambioInventario Nuevo = p;
+                if (Nuevo != null)
+                {
+                    entities.Remove(p);
+                    return entities.SaveChanges();
+                }
+                else
+                {
+                    return 0;// no se encotro el registro solicitado.
+                }
 
             }
             catch (Exception ex)

@@ -4,7 +4,7 @@
         Public Property Configuraciones As New Logica.Configuraciones
         Public Property AperturaCaja As New Logica.AperturaCaja
         Public Property PedidoBodega As New Logica.PedidoBodega
-        Public Property CartaExoneracion As New Logica.CartaExoneracion
+
         Public Property Agente_Ventas As New Logica.Agente_Ventas
         Public Property Rifa As New Logica.Rifa
         Public Property Clientes As New Logica.Clientes

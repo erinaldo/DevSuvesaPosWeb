@@ -101,14 +101,21 @@ namespace Datos.Class
                 // pendinte
                 var p = entities.Aperturacajas.Find(id);
                 Aperturacaja Nuevo = p;
-                Nuevo.Fecha = aperturacaja.Fecha;
-                Nuevo.Observaciones = aperturacaja.Observaciones;                
-                Nuevo.IdSucursal = aperturacaja.IdSucursal;
-                //Nuevo.AbonoApartadosdetalles = abono.AbonoApartadosdetalle;
+                if (Nuevo != null)
+                {
+                    Nuevo.Fecha = aperturacaja.Fecha;
+                    Nuevo.Observaciones = aperturacaja.Observaciones;
+                    Nuevo.IdSucursal = aperturacaja.IdSucursal;
+                    //Nuevo.AbonoApartadosdetalles = abono.AbonoApartadosdetalle;
 
-                entities.Entry(Nuevo).State = EntityState.Modified;
+                    entities.Entry(Nuevo).State = EntityState.Modified;
 
-                return entities.SaveChanges();
+                    return entities.SaveChanges();
+                }
+                else
+                {
+                    return 0;// no se encotro el registro solicitado.
+                }
 
 
             }

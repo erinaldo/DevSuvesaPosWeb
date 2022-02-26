@@ -96,13 +96,20 @@ namespace Datos.Class
 
                 var p = entities.Areas.Find(id);
                 Area Nuevo = p;                
-                Nuevo.IdSucursal = area.IdSucursal;
-                Nuevo.Descripcion = area.Descripcion;
-                Nuevo.Observaciones = area.Observaciones;                                
+                if (Nuevo != null)
+                {
+                    Nuevo.IdSucursal = area.IdSucursal;
+                    Nuevo.Descripcion = area.Descripcion;
+                    Nuevo.Observaciones = area.Observaciones;
 
-                entities.Entry(Nuevo).State = EntityState.Modified;
+                    entities.Entry(Nuevo).State = EntityState.Modified;
 
-                return entities.SaveChanges();
+                    return entities.SaveChanges();
+                }
+                else
+                {
+                    return 0;// no se encotro el registro solicitado.
+                }
 
             }
             catch (Exception ex)

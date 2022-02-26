@@ -46,8 +46,12 @@
         End Function
 
         Public Function Editar(id As Integer, agente_ventas As Datos.Models.AgenteVenta) As String
-
-            Return db.EditarAgenteVentas(id, agente_ventas)
+            Dim res As String = db.EditarAgenteVentas(id, agente_ventas)
+            If res = "0" Then
+                Return "No existe el valor"
+            Else
+                Return res
+            End If
 
             'Public Sub RegistrarDatos(ByRef Adaptador As System.Data.SqlClient.SqlDataAdapter, ByRef DataSet As DataSet, ByRef Tabla As String, Optional ByVal ActivarNuevo As Boolean = True, Optional ByVal VerMsg As Boolean = True, Optional ByVal RecargarAdatador As Boolean = True)
             '    Try
@@ -75,8 +79,12 @@
         End Function
 
         Public Function Eliminar(id As Integer) As String
-
-            Return Me.db.BorrarAgenteVenta(id)
+            Dim res As String = Me.db.BorrarAgenteVenta(id)
+            If res = "0" Then
+                Return "No existe el valor"
+            Else
+                Return res
+            End If
 
             'Public Sub EliminarDatos(ByRef Adaptador As System.Data.SqlClient.SqlDataAdapter, ByRef DataSet As DataSet, ByRef Tabla As String, Optional ByVal RecargarAdatador As Boolean = True)
             '    Dim resp As Integer

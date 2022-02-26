@@ -46,11 +46,21 @@
         End Function
 
         Public Function Editar(id As Decimal, descuento As Datos.Models.Descuento) As String
-            Return Me.db.Editar(id, descuento)
+            Dim res As String = Me.db.Editar(id, descuento)
+            If res = "0" Then
+                Return "No existe el valor"
+            Else
+                Return res
+            End If
         End Function
 
         Public Function Eliminar(id As Decimal) As String
-            Return Me.db.Borrar(id)
+            Dim res As String = Me.db.Borrar(id)
+            If res = "0" Then
+                Return "No existe el valor"
+            Else
+                Return res
+            End If
             'Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
             '    If MsgBox("Desea Eliminar El Descuento", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Confirmar Accion") Then
             '        Dim db As New OBSoluciones.SQL.Sentencias(CadenaConexionSeePOS)

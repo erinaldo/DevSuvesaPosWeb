@@ -38,12 +38,14 @@ namespace Datos.Class
 				if (porNombre == true)
 				{
 					var temp = from c in entities.Ubicaciones
+							   where c.Descripcion.Contains(filtro) 
 							   select c;
 					result = temp.ToList<Models.Ubicacione>();
 				}
 				else
 				{
 					var temp = from c in entities.Ubicaciones
+							   where c.Codigo == Convert.ToInt32(filtro)
 							   select c;
 					result = temp.ToList<Models.Ubicacione>();
 				}
@@ -95,8 +97,16 @@ namespace Datos.Class
 			try
 			{
 				var p = entities.Ubicaciones.Find(id);
-				entities.Remove(p);
-				return entities.SaveChanges();
+				Models.Ubicacione Nuevo = p;
+				if (Nuevo != null)
+				{
+					entities.Remove(p);
+					return entities.SaveChanges();
+				}
+				else
+				{
+					return 0;// no se encotro el registro solicitado.
+				}
 			}
 			catch (Exception ex)
 			{

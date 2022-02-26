@@ -25,7 +25,12 @@
         End Function
 
         Public Function Editar(id As Long, moneda As Datos.Models.Moneda) As String
-            Return Me.Editar(id, moneda)
+            Dim res As String = Me.db.Editar(id, moneda)
+            If res = "0" Then
+                Return "No existe el valor"
+            Else
+                Return res
+            End If
             'Try
             '    BindingContext(DataSet, Tabla).EndCurrentEdit()
             '    Adaptador.Update(DataSet, Tabla)
@@ -38,7 +43,12 @@
         End Function
 
         Public Function Eliminar(id As Long) As String
-            Return Me.db.Borrar(id)
+            Dim res As String = Me.db.Borrar(id)
+            If res = "0" Then
+                Return "No existe el valor"
+            Else
+                Return res
+            End If
             'BindingContext(DataSet, Tabla).RemoveAt(BindingContext(DataSet, Tabla).Position)
             'BindingContext(DataSet, Tabla).EndCurrentEdit()
             'Adaptador.Update(DataSet, Tabla)

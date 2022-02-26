@@ -103,7 +103,12 @@
         End Function
 
         Public Function Editar(id As Integer, aperturacaja As Datos.Models.Aperturacaja) As String
-            Return Me.db.EditarAperturasCajas(id, aperturacaja)
+            Dim res As String = Me.db.EditarAperturasCajas(id, aperturacaja)
+            If res = "0" Then
+                Return "No existe el valor"
+            Else
+                Return res
+            End If
 
             'Private Function Valida() As Boolean
             '    Try

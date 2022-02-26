@@ -34,7 +34,12 @@
         End Function
 
         Public Function Editar(id As Long, rifa As Datos.Models.Rifa) As String
-            Return Me.db.Editar(id, rifa)
+            Dim res As String = Me.db.Editar(id, rifa)
+            If res = "0" Then
+                Return "No existe el valor"
+            Else
+                Return res
+            End If
             '    Function Registrar()
             '    Try
             '        Me.BindingContext(Me.Dsrifa1.rifa).EndCurrentEdit()
@@ -86,7 +91,12 @@
         End Function
 
         Public Function Eliminar(id As Long) As String
-            Return Me.db.Borrar(id)
+            Dim res As String = Me.db.Borrar(id)
+            If res = "0" Then
+                Return "No existe el valor"
+            Else
+                Return res
+            End If
             'Private Sub Eliminar()
             '    Try
             '        Dim rs As SqlDataReader

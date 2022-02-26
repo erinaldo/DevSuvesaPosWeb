@@ -38,12 +38,17 @@ namespace Datos.Class
             try
             {
                 var p = entities.Cierrecajas.Find(id);
-                Models.Cierrecaja Nuevo = p;
-                Nuevo.Anulado = true;
-
-                entities.Entry(Nuevo).State = EntityState.Modified;
-
-                return entities.SaveChanges();
+                Models.Cierrecaja Nuevo = p;                              
+                if (Nuevo != null)
+                {
+                    Nuevo.Anulado = true;
+                    entities.Entry(Nuevo).State = EntityState.Modified;
+                    return entities.SaveChanges();
+                }
+                else
+                {
+                    return 0;// no se encotro el registro solicitado.
+                }
 
             }
             catch (Exception ex)

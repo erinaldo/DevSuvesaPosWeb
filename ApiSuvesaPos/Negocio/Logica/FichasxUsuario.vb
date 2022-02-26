@@ -55,7 +55,12 @@
         End Function
 
         Public Function Eliminar(id As Long) As String
-            Return Me.db.Borrar(id)
+            Dim res As String = Me.db.Borrar(id)
+            If res = "0" Then
+                Return "No existe el valor"
+            Else
+                Return res
+            End If
             'Private Sub btnQuitar_Click(sender As Object, e As EventArgs) Handles btnQuitar.Click
             '    If Me.viewDatos.Rows.Count > 0 Then
             '        If MsgBox("Desea quitar los usuarios seleccionados.", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Confirmar Accion.") = MsgBoxResult.Yes Then

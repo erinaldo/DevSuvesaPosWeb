@@ -39,8 +39,16 @@ namespace Datos.Class
             try
             {
                 var p = entities.AgenteVentas.Find(id);
-                entities.Remove(p);
-                return entities.SaveChanges();
+                AgenteVenta borrar = p;
+                if (borrar != null)
+                {
+                    entities.Remove(borrar);
+                    return entities.SaveChanges();
+                }
+                else
+                {
+                    return 0;// no se encotro el registro solicitado.
+                }
 
             }
             catch (Exception ex)

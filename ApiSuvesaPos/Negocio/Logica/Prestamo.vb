@@ -88,8 +88,12 @@
         End Function
 
         Public Function Editar(id As Long, prestamo As Datos.Models.Prestamo) As String
-            Return Me.db.Editar(id, prestamo)
-
+            Dim res As String = Me.db.Editar(id, prestamo)
+            If res = "0" Then
+                Return "No existe el valor"
+            Else
+                Return res
+            End If
             'Public Function editar(ByVal dts As vprestamo, _IdUsuarioCreo As String, _BoletaProveedor As String, Optional ByVal _SPrestamo As Boolean = True) As Boolean
             '    Try
             '        conectado()
@@ -132,7 +136,12 @@
         End Function
 
         Public Function Eliminar(id As Long) As String
-            Return Me.db.Borrar(id)
+            Dim res As String = Me.db.Borrar(id)
+            If res = "0" Then
+                Return "No existe el valor"
+            Else
+                Return res
+            End If
             'Public Function eliminar(ByVal dts As vprestamo, Optional ByVal _SPrestamo As Boolean = True) As Boolean
             '    Try
             '        conectado()

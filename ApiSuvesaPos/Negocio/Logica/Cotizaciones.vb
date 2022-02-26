@@ -64,7 +64,12 @@
         End Function
 
         Public Function Editar(Id As Long, Cotizacion As Datos.Models.Cotizacion) As String
-            Return Me.db.Editar(Id, Cotizacion)
+            Dim res As String = Me.db.Editar(Id, Cotizacion)
+            If res = "0" Then
+                Return "No existe el valor"
+            Else
+                Return res
+            End If
         End Function
 
         Public Function Anular(Id As Long) As String

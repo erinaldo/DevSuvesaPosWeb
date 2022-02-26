@@ -103,7 +103,12 @@
         End Function
 
         Public Function Editar(id As Integer, area As Datos.Models.Area) As String
-            Return Me.db.EditarAreas(id, area)
+            Dim res As String = Me.db.EditarAreas(id, area)
+            If res = "0" Then
+                Return "No existe el valor"
+            Else
+                Return res
+            End If
 
             'Private Function Valida() As Boolean
             '    Try

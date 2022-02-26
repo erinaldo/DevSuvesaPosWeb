@@ -46,7 +46,12 @@
         End Function
 
         Public Function Editar(id As Long, denominacion_moneda As Datos.Models.DenominacionMonedum) As String
-            Return Me.db.Editar(id, denominacion_moneda)
+            Dim res As String = Me.db.Editar(id, denominacion_moneda)
+            If res = "0" Then
+                Return "No existe el valor"
+            Else
+                Return res
+            End If
             'Function Registrar()
             '    Dim resp As Integer
 
@@ -81,7 +86,12 @@
 
         Public Function Eliminar(id As Long) As String
             'igual que crear y editar
-            Return Me.db.Borrar(id)
+            Dim res As String = Me.db.Borrar(id)
+            If res = "0" Then
+                Return "No existe el valor"
+            Else
+                Return res
+            End If
         End Function
 
     End Class

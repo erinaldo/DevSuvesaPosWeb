@@ -130,7 +130,6 @@
                 Return res
             End If
 
-            'Return Me.db.EditarAbonoscobros(Id)
 
 
             '    Function Registrar_Anulacion_Venta() As Boolean

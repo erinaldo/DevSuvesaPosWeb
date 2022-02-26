@@ -12,7 +12,12 @@
         End Function
 
         Public Function Editar(id As Decimal, pretoma As Datos.Models.PreTomaGeneral) As String
-            Return Me.db.Editar(id, pretoma)
+            Dim res As String = Me.db.Editar(id, pretoma)
+            If res = "0" Then
+                Return "No existe el valor"
+            Else
+                Return res
+            End If
         End Function
 
         Public Function Buscar(porNombre As Boolean, Filtro As String) As List(Of Datos.Models.PreTomaGeneral)

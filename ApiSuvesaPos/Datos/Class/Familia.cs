@@ -38,12 +38,14 @@ namespace Datos.Class
 				if (porNombre == true)
 				{
 					var temp = from c in entities.Familia
+							   where c.Descripcion.Contains(filtro)
 							   select c;
 					result = temp.ToList<Models.Familium>();
 				}
 				else
 				{
 					var temp = from c in entities.Familia
+							   where c.Codigo == Convert.ToInt32(filtro)
 							   select c;
 					result = temp.ToList<Models.Familium>();
 				}
@@ -100,8 +102,17 @@ namespace Datos.Class
 			try
 			{
 				var p = entities.Familia.Find(id);
-				entities.Remove(p);
-				return entities.SaveChanges();
+				Models.Familium Nuevo = p;
+				if (Nuevo != null)
+				{
+					entities.Remove(p);
+					return entities.SaveChanges();
+				}
+				else
+				{
+					return 0;// no se encotro el registro solicitado.
+				}
+
 			}
 			catch (Exception ex)
 			{

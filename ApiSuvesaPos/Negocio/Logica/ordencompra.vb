@@ -62,8 +62,12 @@
         End Function
 
         Public Function Editar(id As Long, ordencompra As Datos.Models.Ordencompra) As String
-            Return Me.db.Editar(id, ordencompra)
-
+            Dim res As String = Me.db.Editar(id, ordencompra)
+            If res = "0" Then
+                Return "No existe el valor"
+            Else
+                Return res
+            End If
             'Function RegistrarOrden() As Boolean
 
             '    If Me.SqlConnection1.State <> Me.SqlConnection1.State.Open Then Me.SqlConnection1.Open()

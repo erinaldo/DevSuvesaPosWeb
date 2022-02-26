@@ -243,7 +243,12 @@
         End Function
 
         Public Function Editar(id As Long, inventario As Datos.Models.Inventario) As String
-            Return Me.db.Editar(id, inventario)
+            Dim res As String = Me.db.Editar(id, inventario)
+            If res = "0" Then
+                Return "No existe el valor"
+            Else
+                Return res
+            End If
             '**********************************
             'hay que validar que el codigo y las barras no se dupliquen
 

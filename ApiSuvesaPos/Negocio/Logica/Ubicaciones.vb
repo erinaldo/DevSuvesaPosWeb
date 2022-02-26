@@ -17,11 +17,21 @@ Namespace Logica
         End Function
 
         Public Function Editar(id As Decimal, ubicacion As Datos.Models.Ubicacione) As String
-            Return Me.db.Editar(id, ubicacion)
+            Dim res As String = Me.db.Editar(id, ubicacion)
+            If res = "0" Then
+                Return "No existe el valor"
+            Else
+                Return res
+            End If
         End Function
 
         Public Function Eliminar(id As Decimal) As String
-            Return Me.db.Borrar(id)
+            Dim res As String = Me.db.Borrar(id)
+            If res = "0" Then
+                Return "No existe el valor"
+            Else
+                Return res
+            End If
         End Function
 
     End Class

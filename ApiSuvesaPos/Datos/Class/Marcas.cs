@@ -105,14 +105,20 @@ namespace Datos.Class
         }
 
         public int Borrar(int id) // borrar Actividad apartir del id Actividad
-
-
         {
             try
             {
-                var p = entities.Marcas.Find(id);
-                entities.Remove(p);
-                return entities.SaveChanges();
+                var p = entities.Marcas.Find(id);               
+                Models.Marca Nuevo = p;
+                if (Nuevo != null)
+                {
+                    entities.Remove(p);
+                    return entities.SaveChanges();
+                }
+                else
+                {
+                    return 0;// no se encotro el registro solicitado.
+                }
 
             }
             catch (Exception ex)

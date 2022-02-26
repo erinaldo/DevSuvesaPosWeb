@@ -50,7 +50,12 @@
         End Sub
 
         Public Function BorrarCambioInventario(id As Integer) As String
-            Return Me.db.BorrarCambioInventario(id)
+            Dim res As String = Me.db.BorrarCambioInventario(id)
+            If res = "0" Then
+                Return "No existe el valor"
+            Else
+                Return res
+            End If
         End Function
 
     End Class

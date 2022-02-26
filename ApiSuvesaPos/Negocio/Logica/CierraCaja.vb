@@ -20,7 +20,12 @@
         End Function
 
         Public Function Anular(Id As Integer) As String
-            Return Me.db.AnularCierreCaja(Id)
+            Dim res As String = Me.db.AnularCierreCaja(Id)
+            If res = "0" Then
+                Return "No existe el valor"
+            Else
+                Return res
+            End If
             'Private Sub Anular()
             '    Dim resp As Integer
             '    If SqlConnection1.State <> SqlConnection1.State.Open Then SqlConnection1.Open()

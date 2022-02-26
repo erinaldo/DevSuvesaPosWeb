@@ -123,13 +123,19 @@ namespace Datos.Class
         public int AnularAjustesPagar(long id)
         {
             try
-            {
+            {          
                 var p = entities.Ajustescpagars.Find(id);
-                Ajustescpagar Nuevo = p;               
-                
-                Nuevo.Anula = true;                
-                entities.Entry(Nuevo).State = EntityState.Modified;
-                return entities.SaveChanges();
+                Models.Ajustescpagar viejo = p;
+                if (viejo != null)
+                {
+                    viejo.Anula = true;
+                    entities.Entry(viejo).State = EntityState.Modified;
+                    return entities.SaveChanges();
+                }
+                else
+                {
+                    return 0;// no se encotro el registro solicitado.
+                }
 
             }
             catch (Exception ex)

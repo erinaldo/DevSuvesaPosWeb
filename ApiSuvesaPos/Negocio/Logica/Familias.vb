@@ -40,8 +40,12 @@ Namespace Logica
 
             End If
 
-            Return Me.db.Editar(id, familia)
-
+            Dim res As String = Me.db.Editar(id, familia)
+            If res = "0" Then
+                Return "No existe el valor"
+            Else
+                Return res
+            End If
             'Me.Adapter_Familias.Update(Me.DataSetFamilia1, "Familia")
             'Me.Adapter_Subfamilias.Update(Me.DataSetFamilia1, "SubFamilias")
             'Trans.Commit()
@@ -51,7 +55,12 @@ Namespace Logica
         Public Function Eliminar(id As Long) As String
             'valida que no exista productos relacionados
 
-            Me.db.Borrar(id)
+            Dim res As String = Me.db.Borrar(id)
+            If res = "0" Then
+                Return "No existe el valor"
+            Else
+                Return res
+            End If
 
             'Cargo el codigo de la familia al que pertenecen las familias que se eliminaran
             'Dim strCodigoFamilia As String = Me.BindingContext(DataSetFamilia1, "Familia").Current("Codigo")

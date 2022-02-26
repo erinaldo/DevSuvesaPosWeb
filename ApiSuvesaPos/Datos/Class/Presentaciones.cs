@@ -111,8 +111,16 @@ namespace Datos.Class
             try
             {
                 var p = entities.Presentaciones.Find(id);
-                entities.Remove(p);
-                return entities.SaveChanges();
+                Models.Presentacione Nuevo = p;
+                if (Nuevo != null)
+                {
+                    entities.Remove(p);
+                    return entities.SaveChanges();
+                }
+                else
+                {
+                    return 0;// no se encotro el registro solicitado.
+                }
 
             }
             catch (Exception ex)
