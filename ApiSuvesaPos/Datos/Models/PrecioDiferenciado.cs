@@ -13,8 +13,5 @@ namespace Datos.Models
         public string Proveedor { get; set; }
         public string Tipo { get; set; }
         public double Porcentaje { get; set; }
-        public int IdSucursal { get; set; }
-
-        public virtual Sucursale IdSucursalNavigation { get; set; }
     }
 }

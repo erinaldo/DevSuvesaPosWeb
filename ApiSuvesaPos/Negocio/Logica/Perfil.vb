@@ -1,47 +1,39 @@
-﻿Public Class Perfil
+﻿Namespace Logica
+    Public Class Perfil
+        Private db As Datos.Class.Perfil
 
-    Public Function Buscar() As List(Of Modelo.perfil)
+        Sub New()
+            Me.db = New Datos.Class.Perfil
+        End Sub
 
-        'Me.AdapterPerfil.Fill(Me.DataSetPerfilUsuario1.Perfil)
+        Public Function Buscar(porNombre As Boolean, filtro As String) As List(Of Datos.Models.Perfil)
+            Return Me.db.Buscar(porNombre, filtro)
+        End Function
 
-    End Function
+        Public Function Crear(pefil As Datos.Models.Perfil) As String
+            Return Me.db.Crear(pefil)
+        End Function
+
+        Public Function Editar(id As Integer, perfil As Datos.Models.Perfil) As String
+            Dim res As String = Me.db.Editar(id, perfil)
+            If res = "0" Then
+                Return "No existe el valor"
+            Else
+                Return res
+            End If
+        End Function
+
+        Public Function Eliminar(id As Integer) As String
+            Dim res As String = Me.db.Borrar(id)
+            If res = "0" Then
+                Return "No existe el valor"
+            Else
+                Return res
+            End If
+        End Function
 
 
-    Public Sub Crear()
+    End Class
+End Namespace
 
-        'Me.BindingContext(Me.DataSetPerfilUsuario1, "Perfil").EndCurrentEdit()
-        'Me.AdapterPerfil.Update(Me.DataSetPerfilUsuario1, "Perfil")
 
-    End Sub
-
-    Public Sub Editar()
-
-        'Me.BindingContext(Me.DataSetPerfilUsuario1, "Perfil").EndCurrentEdit()
-        'Me.AdapterPerfil.Update(Me.DataSetPerfilUsuario1, "Perfil")
-
-    End Sub
-
-    Public Sub Eliminar()
-
-        'Public Sub EliminarDatos(ByRef Adaptador As System.Data.SqlClient.SqlDataAdapter, ByRef DataSet As DataSet, ByRef Tabla As String, Optional ByVal RecargarAdatador As Boolean = True)
-        '    Dim resp As Integer
-
-        '    If MsgBox("Desea eliminar el registrto actual...", MsgBoxStyle.YesNo, "Atención...") = MsgBoxResult.Yes Then
-        '        Try
-        '            BindingContext(DataSet, Tabla).RemoveAt(BindingContext(DataSet, Tabla).Position)
-        '            BindingContext(DataSet, Tabla).EndCurrentEdit()
-        '            Adaptador.Update(DataSet, Tabla)
-        '            If RecargarAdatador Then Adaptador.Update(DataSet, Tabla)
-        '            Adaptador.Fill(DataSet, Tabla)
-
-        '            MsgBox("Los datos se eliminaron satisfactoriamente", MsgBoxStyle.Information)
-
-        '        Catch eEndEdit As System.Data.NoNullAllowedException
-        '            System.Windows.Forms.MessageBox.Show(eEndEdit.Message)
-        '        End Try
-        '    End If
-        'End Sub
-
-    End Sub
-
-End Class

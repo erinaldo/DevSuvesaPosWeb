@@ -49,8 +49,7 @@ namespace Datos.Models
         public int IdEmisor { get; set; }
         public bool ImprimeContadoPve { get; set; }
         public bool TokenNegativo { get; set; }
-        public int IdSucursal { get; set; }
 
-        public virtual Sucursale IdSucursalNavigation { get; set; }
+        public virtual Emisor IdEmisorNavigation { get; set; }
     }
 }

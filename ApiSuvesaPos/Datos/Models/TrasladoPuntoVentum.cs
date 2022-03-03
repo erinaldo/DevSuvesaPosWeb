@@ -14,8 +14,5 @@ namespace Datos.Models
         public string Observaciones { get; set; }
         public bool Anulado { get; set; }
         public string IdUsuarioCreo { get; set; }
-        public int IdSucursal { get; set; }
-
-        public virtual Sucursale IdSucursalNavigation { get; set; }
     }
 }

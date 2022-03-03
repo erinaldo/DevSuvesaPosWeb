@@ -108,12 +108,9 @@ namespace Datos.Class
             try
             {
                 var p = entities.Abonoreintegros.Find(id);
-                Abonoreintegro Nuevo = p;
-                
-                Nuevo.Monto = abono.Monto;
-                
-                Nuevo.Fecha = abono.Fecha;
-               
+                Abonoreintegro Nuevo = p;                
+                Nuevo.Monto = abono.Monto;                
+                Nuevo.Fecha = abono.Fecha;               
                 Nuevo.IdSucursal = abono.IdSucursal;
                 //Nuevo.AbonoApartadosdetalles = abono.AbonoApartadosdetalle;
 

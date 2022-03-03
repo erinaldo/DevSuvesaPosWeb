@@ -18,7 +18,6 @@ namespace Datos.Models
         public bool? Bloqueada { get; set; }
         public int IdSucursal { get; set; }
 
-        public virtual Sucursale IdSucursalNavigation { get; set; }
         public virtual ICollection<MovimientosBodega> MovimientosBodegas { get; set; }
     }
 }

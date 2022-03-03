@@ -11,9 +11,7 @@ namespace Datos.Models
         public long Cliente { get; set; }
         public string Nombre { get; set; }
         public string Telefono { get; set; }
-        public int IdSucursal { get; set; }
 
         public virtual Cliente ClienteNavigation { get; set; }
-        public virtual Sucursale IdSucursalNavigation { get; set; }
     }
 }

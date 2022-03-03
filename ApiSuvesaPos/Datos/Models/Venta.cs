@@ -75,10 +75,9 @@ namespace Datos.Models
         public DateTime? FechaEtapa { get; set; }
         public bool? EnProcesoIncobrable { get; set; }
         public int? IdEmpresa { get; set; }
-        public int? IdSucursal { get; set; }
 
         public virtual Cliente CodClienteNavigation { get; set; }
-        public virtual Sucursale IdSucursalNavigation { get; set; }
+        public virtual Emisor IdEmpresaNavigation { get; set; }
         public virtual ICollection<DevolucionesVenta> DevolucionesVenta { get; set; }
         public virtual ICollection<VentasDetalle> VentasDetalles { get; set; }
     }

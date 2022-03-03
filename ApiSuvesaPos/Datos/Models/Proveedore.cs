@@ -13,6 +13,7 @@ namespace Datos.Models
             Ajustescpagars = new HashSet<Ajustescpagar>();
             Compras = new HashSet<Compra>();
             CuentasBancariasProveedors = new HashSet<CuentasBancariasProveedor>();
+            MensajeReceptors = new HashSet<MensajeReceptor>();
         }
 
         public int CodigoProv { get; set; }
@@ -53,5 +54,6 @@ namespace Datos.Models
         public virtual ICollection<Ajustescpagar> Ajustescpagars { get; set; }
         public virtual ICollection<Compra> Compras { get; set; }
         public virtual ICollection<CuentasBancariasProveedor> CuentasBancariasProveedors { get; set; }
+        public virtual ICollection<MensajeReceptor> MensajeReceptors { get; set; }
     }
 }

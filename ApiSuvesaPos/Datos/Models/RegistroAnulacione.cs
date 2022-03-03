@@ -14,8 +14,5 @@ namespace Datos.Models
         public bool Justificacion { get; set; }
         public bool Permiso { get; set; }
         public string Administrador { get; set; }
-        public int IdSucursal { get; set; }
-
-        public virtual Sucursale IdSucursalNavigation { get; set; }
     }
 }

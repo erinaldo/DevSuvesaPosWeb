@@ -12,6 +12,22 @@ namespace Datos.Models
             SubFamilia = new HashSet<SubFamilia>();
         }
 
+        public Familium(int codigo, string descripcion, string observaciones, string cuentagra, string descripciongra,string cuentaexe, string descripcioexe, string cuentacosto, string descripcioncosto, ICollection<SubFamilia> subFamilia)
+        {
+            SubFamilia = new HashSet<SubFamilia>();
+            this.Codigo = codigo;
+            this.Descripcion = descripcion;
+            this.Observaciones = observaciones;
+            this.CuentaGra = cuentagra;
+            this.DescripcionGra = descripciongra;
+            this.CuentaExe = cuentaexe;
+            this.DescripcionExe = descripcioexe;
+            this.CuentaCosto = cuentacosto;
+            this.DescripcionCosto = descripcioncosto;
+            this.SubFamilia = subFamilia;
+        }
+
+
         public int Codigo { get; set; }
         public string Descripcion { get; set; }
         public string Observaciones { get; set; }

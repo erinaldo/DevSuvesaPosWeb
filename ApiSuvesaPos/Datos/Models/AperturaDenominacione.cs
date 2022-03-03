@@ -12,7 +12,5 @@ namespace Datos.Models
         public long IdDenominacion { get; set; }
         public double Monto { get; set; }
         public double Cantidad { get; set; }
-
-        public virtual Aperturacaja IdAperturaNavigation { get; set; }
     }
 }

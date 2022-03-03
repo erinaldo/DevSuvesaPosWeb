@@ -17,7 +17,7 @@ namespace Datos.Class
 			entities = new SeePOSContext();
 		}
 
-		public int Crear(Models.Modulos modulos) // registro de Modulos
+		public int Crear(Models.Modulo modulos) // registro de Modulos
 		{
 			try
 			{
@@ -30,22 +30,24 @@ namespace Datos.Class
 			}
 		}
 
-		public List<Models.Modulos> Buscar(bool porNombre, string filtro)  //consultar Modulos
+		public List<Models.Modulo> Buscar(bool porNombre, string filtro)  //consultar Modulos
 		{
 			try
 			{
-				List<Models.Modulos> result;
+				List<Models.Modulo> result;
 				if (porNombre == true)
 				{
-					var temp = from c in entities.Modulos							   
+					var temp = from c in entities.Modulos
+							   where c.ModuloNombre.Contains(filtro)
 							   select c;
-					result = temp.ToList<Models.Modulos>();
+					result = temp.ToList<Models.Modulo>();
 				}
 				else
 				{
 					var temp = from c in entities.Modulos
+							   where c.IdModulo == Convert.ToInt32(filtro)
 							   select c;
-					result = temp.ToList<Models.Modulos>();
+					result = temp.ToList<Models.Modulo>();
 				}
 				if (result.Count > 0)
 				{
@@ -62,15 +64,15 @@ namespace Datos.Class
 			}
 		}
 
-		public int Editar(long id, Models.Modulos nuevo) //editar Modulos
+		public int Editar(long id, Models.Modulo nuevo) //editar Modulos
 		{
 			try
 			{
 				var p = entities.Modulos.Find(id);
-				Models.Modulos viejo = p;
+				Models.Modulo viejo = p;
 				if (viejo != null)
 				{
-					viejo.Idmodulo = nuevo.Idmodulo;
+					viejo.IdModulo = nuevo.IdModulo;
 					viejo.ModuloNombreInterno = nuevo.ModuloNombreInterno;
 					viejo.ModuloNombre = nuevo.ModuloNombre;
 					viejo.Software = nuevo.Software;
@@ -96,8 +98,16 @@ namespace Datos.Class
 			try
 			{
 				var p = entities.Modulos.Find(id);
-				entities.Remove(p);
-				return entities.SaveChanges();
+				Models.Modulo Nuevo = p;
+				if (Nuevo != null)
+				{
+					entities.Remove(p);
+					return entities.SaveChanges();
+				}
+				else
+				{
+					return 0;// no se encotro el registro solicitado.
+				}
 			}
 			catch (Exception ex)
 			{

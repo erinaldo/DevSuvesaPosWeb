@@ -17,7 +17,5 @@ namespace Datos.Models
         public bool? Anulado { get; set; }
         public decimal TipoPrecio { get; set; }
         public int IdSucursal { get; set; }
-
-        public virtual Sucursale IdSucursalNavigation { get; set; }
     }
 }

@@ -7,7 +7,11 @@ namespace Datos.Models
 {
     public partial class Usuario
     {
-        public string Cedula { get; set; }
+        public Usuario()
+        {
+            PerfilXUsuarios = new HashSet<PerfilXUsuario>();
+        }
+
         public string IdUsuario { get; set; }
         public string Nombre { get; set; }
         public string ClaveEntrada { get; set; }
@@ -20,5 +24,7 @@ namespace Datos.Models
         public bool AplicarDesc { get; set; }
         public double PorcDesc { get; set; }
         public bool ExistNegativa { get; set; }
+
+        public virtual ICollection<PerfilXUsuario> PerfilXUsuarios { get; set; }
     }
 }

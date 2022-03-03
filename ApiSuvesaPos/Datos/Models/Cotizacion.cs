@@ -46,9 +46,8 @@ namespace Datos.Models
         public string Telefono { get; set; }
         public string TipoCedula { get; set; }
         public string CedulaCliente { get; set; }
-        public int IdSucursal { get; set; }
+        public int? IdSucursal { get; set; }
 
-        public virtual Sucursale IdSucursalNavigation { get; set; }
         public virtual ICollection<CotizacionDetalle> CotizacionDetalles { get; set; }
     }
 }

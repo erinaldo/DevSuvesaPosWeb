@@ -11,8 +11,5 @@ namespace Datos.Models
         public DateTime? Ini { get; set; }
         public string Obs { get; set; }
         public string Usuario { get; set; }
-        public int IdSucursal { get; set; }
-
-        public virtual Sucursale IdSucursalNavigation { get; set; }
     }
 }

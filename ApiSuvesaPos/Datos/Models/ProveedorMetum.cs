@@ -12,8 +12,5 @@ namespace Datos.Models
         public double? Mensual { get; set; }
         public DateTime? Fecha { get; set; }
         public decimal? Anulado { get; set; }
-        public int IdSucursal { get; set; }
-
-        public virtual Sucursale IdSucursalNavigation { get; set; }
     }
 }

@@ -65,9 +65,7 @@ namespace Datos.Models
         public bool Frecuente { get; set; }
         public decimal IdFactura { get; set; }
         public decimal IdFacturaRemplaza { get; set; }
-        public int IdSucursal { get; set; }
 
-        public virtual Sucursale IdSucursalNavigation { get; set; }
         public virtual ICollection<PreVentasDetalle> PreVentasDetalles { get; set; }
     }
 }

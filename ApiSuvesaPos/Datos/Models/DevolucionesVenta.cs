@@ -42,7 +42,6 @@ namespace Datos.Models
         public int IdSucursal { get; set; }
 
         public virtual Venta IdFacturaNavigation { get; set; }
-        public virtual Sucursale IdSucursalNavigation { get; set; }
         public virtual ICollection<ArticulosVentasDevuelto> ArticulosVentasDevueltos { get; set; }
     }
 }

@@ -18,7 +18,7 @@ namespace Datos.Models
         public double CostoUnit { get; set; }
         public double CostoMov { get; set; }
         public int CodProveedor { get; set; }
-        public long CodCliente { get; set; }
+        public int CodCliente { get; set; }
         public int CodMoneda { get; set; }
         public double TipoCambio { get; set; }
         public string Observaciones { get; set; }

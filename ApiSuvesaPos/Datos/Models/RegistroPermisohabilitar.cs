@@ -12,8 +12,5 @@ namespace Datos.Models
         public string Descripcion { get; set; }
         public decimal? Codigo { get; set; }
         public string Administrador { get; set; }
-        public int IdSucursal { get; set; }
-
-        public virtual Sucursale IdSucursalNavigation { get; set; }
     }
 }

@@ -22,8 +22,5 @@ namespace Datos.Models
         public string Transportista { get; set; }
         public string IdUsuariCreo { get; set; }
         public string BoletaProveedor { get; set; }
-        public int IdSucursal { get; set; }
-
-        public virtual Sucursale IdSucursalNavigation { get; set; }
     }
 }

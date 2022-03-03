@@ -15,8 +15,5 @@ namespace Datos.Models
         public double Cantidad { get; set; }
         public DateTime Fecha { get; set; }
         public bool Anulado { get; set; }
-        public int IdSucursal { get; set; }
-
-        public virtual Sucursale IdSucursalNavigation { get; set; }
     }
 }

@@ -15,7 +15,5 @@ namespace Datos.Models
         public decimal Recibo { get; set; }
         public decimal NumApertura { get; set; }
         public int IdSucursal { get; set; }
-
-        public virtual Sucursale IdSucursalNavigation { get; set; }
     }
 }

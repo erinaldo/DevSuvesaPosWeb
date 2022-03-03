@@ -26,7 +26,6 @@ namespace Datos.Models
         public long NumRecibo { get; set; }
         public int IdSucursal { get; set; }
 
-        public virtual Sucursale IdSucursalNavigation { get; set; }
         public virtual ICollection<AbonoApartadosdetalle> AbonoApartadosdetalles { get; set; }
     }
 }

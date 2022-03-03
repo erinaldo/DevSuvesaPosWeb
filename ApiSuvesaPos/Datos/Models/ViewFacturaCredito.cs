@@ -55,6 +55,6 @@ namespace Datos.Models
         public string ConsecutivoMh { get; set; }
         public bool ExcluirCxC { get; set; }
         public decimal IdAdelanto { get; set; }
-        public bool? EnProcesoIncobrable { get; set; }
+        public bool EnProcesoIncobrable { get; set; }
     }
 }

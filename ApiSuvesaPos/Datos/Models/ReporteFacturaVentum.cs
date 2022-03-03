@@ -64,11 +64,6 @@ namespace Datos.Models
         public DateTime? FechaArchivo { get; set; }
         public bool Frecuente { get; set; }
         public decimal IdFacturaRemplaza { get; set; }
-        public bool Renta { get; set; }
-        public decimal Etapa { get; set; }
-        public DateTime? FechaEtapa { get; set; }
-        public bool? EnProcesoIncobrable { get; set; }
-        public int? IdEmpresa { get; set; }
         public long IdVentaDetalle { get; set; }
         public long IdFactura { get; set; }
         public long Codigo { get; set; }

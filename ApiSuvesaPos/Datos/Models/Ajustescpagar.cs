@@ -31,7 +31,6 @@ namespace Datos.Models
         public int IdSucursal { get; set; }
 
         public virtual Proveedore CodProveedorNavigation { get; set; }
-        public virtual Sucursale IdSucursalNavigation { get; set; }
         public virtual ICollection<DetalleAjustescPagar> DetalleAjustescPagars { get; set; }
     }
 }

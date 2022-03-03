@@ -29,7 +29,6 @@ namespace Datos.Models
         public long Asiento { get; set; }
         public int IdSucursal { get; set; }
 
-        public virtual Sucursale IdSucursalNavigation { get; set; }
         public virtual ICollection<DetalleAjustesccobrar> DetalleAjustesccobrars { get; set; }
     }
 }

@@ -35,6 +35,5 @@ namespace Datos.Models
 
         public virtual Inventario CodigoNavigation { get; set; }
         public virtual DevolucionesVenta DevolucionNavigation { get; set; }
-        public virtual Sucursale IdSucursalNavigation { get; set; }
     }
 }

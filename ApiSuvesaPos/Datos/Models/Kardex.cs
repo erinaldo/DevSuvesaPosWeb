@@ -27,6 +27,5 @@ namespace Datos.Models
         public double? ExistAntBod { get; set; }
         public long? IdBodegaDestino { get; set; }
         public long? IdBodegaOrigen { get; set; }
-        public int IdSucursal { get; set; }
     }
 }

@@ -37,9 +37,21 @@ namespace Datos.Class
 				List<Models.Familium> result;
 				if (porNombre == true)
 				{
-					var temp = from c in entities.Familia
-							   where c.Descripcion.Contains(filtro)
-							   select c;
+					var temp = from fam in entities.Familia
+							   join subFam in entities.SubFamilias on fam.Codigo equals subFam.CodigoFamilia
+							   where fam.Descripcion.Contains(filtro)
+							   select new Models.Familium  { 
+								   Codigo = fam.Codigo, 
+								   Descripcion = fam.Descripcion,  
+								   Observaciones =  fam.Observaciones, 
+								   CuentaGra = fam.CuentaGra, 
+								   DescripcionGra = fam.DescripcionGra, 
+								   CuentaExe = fam.CuentaExe, 
+								   DescripcionExe = fam.DescripcionExe, 
+								   CuentaCosto = fam.CuentaCosto, 
+								   DescripcionCosto = fam.DescripcionCosto,
+								   SubFamilia = null
+							   };
 					result = temp.ToList<Models.Familium>();
 				}
 				else

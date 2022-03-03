@@ -22,9 +22,6 @@ namespace Datos.Models
         public string Tags { get; set; }
         public decimal IdApertura { get; set; }
         public bool Anulado { get; set; }
-        public int? IdSucursal { get; set; }
         public string NumeroTarjeta { get; set; }
-
-        public virtual Sucursale IdSucursalNavigation { get; set; }
     }
 }

@@ -12,8 +12,5 @@ namespace Datos.Models
         public string Serie1 { get; set; }
         public bool Vendido { get; set; }
         public decimal Factura { get; set; }
-        public int IdSucursal { get; set; }
-
-        public virtual Sucursale IdSucursalNavigation { get; set; }
     }
 }

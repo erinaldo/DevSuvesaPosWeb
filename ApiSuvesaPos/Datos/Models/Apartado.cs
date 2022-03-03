@@ -33,7 +33,6 @@ namespace Datos.Models
         public int CodMoneda { get; set; }
         public int IdSucursal { get; set; }
 
-        public virtual Sucursale IdSucursalNavigation { get; set; }
         public virtual ICollection<AbonoApartadosdetalle> AbonoApartadosdetalles { get; set; }
         public virtual ICollection<ApartadoDetalle> ApartadoDetalles { get; set; }
     }

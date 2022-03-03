@@ -9,7 +9,6 @@ namespace Datos.Models
     {
         public Aperturacaja()
         {
-            AperturaDenominaciones = new HashSet<AperturaDenominacione>();
             AperturaTotalTopes = new HashSet<AperturaTotalTope>();
         }
 
@@ -23,8 +22,6 @@ namespace Datos.Models
         public long NumCaja { get; set; }
         public int IdSucursal { get; set; }
 
-        public virtual Sucursale IdSucursalNavigation { get; set; }
-        public virtual ICollection<AperturaDenominacione> AperturaDenominaciones { get; set; }
         public virtual ICollection<AperturaTotalTope> AperturaTotalTopes { get; set; }
     }
 }

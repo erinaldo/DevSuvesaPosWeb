@@ -1,24 +1,18 @@
 ﻿Namespace Logica
     Public Class Usuarios
 
-        Public Property Perfil_x_Usuario As New Logica.Perfil_x_Usuario
+        Private db As Datos.Class.Usuarios
 
-        Public Function obtenerUsuarios() As List(Of Modelo.usuarios)
+        Sub New()
+            Me.db = New Datos.Class.Usuarios
+        End Sub
 
-            'Me.AdapterUsuario.Fill(Me.DatasetUsuario1.Usuarios)
-
+        Public Function Buscar(porNombre As Boolean, Filtro As String) As List(Of Datos.Models.Usuario)
+            Return Me.db.Buscar(porNombre, Filtro)
         End Function
 
-        Public Function Buscar() As List(Of Modelo.usuarios)
-
-            'Id = funcion.BuscarDatos("SELECT Id_Usuario,Nombre FROM Usuarios", "Nombre", "Buscar Usuario ...", Me.SqlConnection1.ConnectionString)
-            'cedula = Id
-            'LlenarUsuario(Id)
-
-        End Function
-
-        Public Sub Crear(usuario As Modelo.usuarios)
-
+        Public Function Crear(usuario As Datos.Models.Usuario) As String
+            Return Me.db.Crear(usuario)
             '    Function Registra()
             '    Try
 
@@ -58,10 +52,15 @@
 
             'End Function
 
-        End Sub
+        End Function
 
-        Public Sub Editar(usuario As Modelo.usuarios)
-
+        Public Function Editar(id As Long, usuario As Datos.Models.Usuario) As String
+            Dim res As String = Me.db.Editar(id, usuario)
+            If res = "0" Then
+                Return "No existe el valor"
+            Else
+                Return res
+            End If
             '    Function Registra()
             '    Try
 
@@ -101,7 +100,7 @@
 
             'End Function
 
-        End Sub
+        End Function
 
     End Class
 End Namespace

@@ -15,7 +15,5 @@ namespace Datos.Models
         public bool Finalizada { get; set; }
         public bool Anulada { get; set; }
         public int IdSucursal { get; set; }
-
-        public virtual Sucursale IdSucursalNavigation { get; set; }
     }
 }

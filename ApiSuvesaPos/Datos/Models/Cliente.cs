@@ -56,7 +56,6 @@ namespace Datos.Models
         public bool Fallecido { get; set; }
         public int IdSucursal { get; set; }
 
-        public virtual Sucursale IdSucursalNavigation { get; set; }
         public virtual ICollection<Encargadocompra> Encargadocompras { get; set; }
         public virtual ICollection<Referenciabancarium> Referenciabancaria { get; set; }
         public virtual ICollection<Referenciacomercial> Referenciacomercials { get; set; }

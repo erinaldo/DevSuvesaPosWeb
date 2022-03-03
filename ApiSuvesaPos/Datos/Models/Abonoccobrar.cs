@@ -33,7 +33,6 @@ namespace Datos.Models
         public string EstadoEnvio { get; set; }
         public int IdSucursal { get; set; }
 
-        public virtual Sucursale IdSucursalNavigation { get; set; }
         public virtual ICollection<DetalleAbonoccobrar> DetalleAbonoccobrars { get; set; }
     }
 }

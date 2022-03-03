@@ -40,10 +40,8 @@ namespace Datos.Models
         public double SubTotalBonificado { get; set; }
         public string CodArticuloBonificacion { get; set; }
         public string CodCabys { get; set; }
-        public int IdSucursal { get; set; }
 
         public virtual Inventario CodigoNavigation { get; set; }
         public virtual Compra IdCompraNavigation { get; set; }
-        public virtual Sucursale IdSucursalNavigation { get; set; }
     }
 }

@@ -110,9 +110,9 @@ namespace Datos.Models
         public bool? Muestra { get; set; }
         public bool Web { get; set; }
         public bool SoloUsoInterno { get; set; }
-        public int IdSucursal { get; set; }
 
         public virtual Presentacione CodPresentacionNavigation { get; set; }
+        public virtual Impuesto IdImpuestoNavigation { get; set; }
         public virtual ICollection<AjusteInventarioDetalle> AjusteInventarioDetalles { get; set; }
         public virtual ICollection<ArticulosComprado> ArticulosComprados { get; set; }
         public virtual ICollection<ArticulosVentasDevuelto> ArticulosVentasDevueltos { get; set; }

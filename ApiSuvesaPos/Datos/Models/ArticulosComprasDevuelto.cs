@@ -27,6 +27,5 @@ namespace Datos.Models
         public int IdSucursal { get; set; }
 
         public virtual DevolucionesCompra DevolucionNavigation { get; set; }
-        public virtual Sucursale IdSucursalNavigation { get; set; }
     }
 }

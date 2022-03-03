@@ -31,9 +31,7 @@ namespace Datos.Models
         public string Banco { get; set; }
         public double Ficha { get; set; }
         public string Estado { get; set; }
-        public int IdSucursal { get; set; }
 
-        public virtual Sucursale IdSucursalNavigation { get; set; }
         public virtual ICollection<DetallePreAbonocCobrar> DetallePreAbonocCobrars { get; set; }
     }
 }

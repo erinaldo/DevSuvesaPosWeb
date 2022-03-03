@@ -19,7 +19,5 @@ namespace Datos.Models
         public long NumApertura { get; set; }
         public double TipoCambio { get; set; }
         public int IdSucursal { get; set; }
-
-        public virtual Sucursale IdSucursalNavigation { get; set; }
     }
 }

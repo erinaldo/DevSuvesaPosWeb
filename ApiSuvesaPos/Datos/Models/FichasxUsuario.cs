@@ -14,7 +14,5 @@ namespace Datos.Models
         public double Hasta { get; set; }
         public decimal EnMostrador { get; set; }
         public int IdSucursal { get; set; }
-
-        public virtual Sucursale IdSucursalNavigation { get; set; }
     }
 }

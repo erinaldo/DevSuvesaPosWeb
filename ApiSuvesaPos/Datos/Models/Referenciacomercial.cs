@@ -12,9 +12,7 @@ namespace Datos.Models
         public string Telefono { get; set; }
         public double Monto { get; set; }
         public long Id { get; set; }
-        public int IdSucursal { get; set; }
 
         public virtual Cliente ClienteNavigation { get; set; }
-        public virtual Sucursale IdSucursalNavigation { get; set; }
     }
 }
