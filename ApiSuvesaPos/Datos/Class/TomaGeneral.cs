@@ -30,6 +30,31 @@ namespace Datos.Class
 			}
 		}
 
+		public List<Models.TomaGeneralDetalle> BuscarDetalle(decimal Id)  //consultar TomaGeneral
+		{
+			try
+			{
+				List<Models.TomaGeneralDetalle> result;
+					var temp = from c in entities.TomaGeneralDetalles
+							   where c.IdToma == Id
+							   select c;
+					result = temp.ToList<Models.TomaGeneralDetalle>();
+				
+				if (result.Count > 0)
+				{
+					return result;
+				}
+				else
+				{
+					return result = null;
+				}
+			}
+			catch (Exception ex)
+			{
+				throw ex;
+			}
+		}
+
 		public List<Models.TomaGeneral> Buscar(bool porNombre, string filtro)  //consultar TomaGeneral
 		{
 			try

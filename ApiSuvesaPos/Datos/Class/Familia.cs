@@ -30,6 +30,32 @@ namespace Datos.Class
 			}
 		}
 
+		public List<Models.SubFamilia> BuscarSubFamilia(int CodigoFamilia)
+        {
+			try
+			{
+				List<Models.SubFamilia> result;
+				
+					var temp = from c in entities.SubFamilias
+							   where c.CodigoFamilia == CodigoFamilia
+							   select c;
+					result = temp.ToList<Models.SubFamilia>();
+				
+				if (result.Count > 0)
+				{
+					return result;
+				}
+				else
+				{
+					return result = null;
+				}
+			}
+			catch (Exception ex)
+			{
+				throw ex;
+			}
+		}
+
 		public List<Models.Familium> Buscar(bool porNombre, string filtro)  //consultar Familia
 		{
 			try
@@ -37,21 +63,9 @@ namespace Datos.Class
 				List<Models.Familium> result;
 				if (porNombre == true)
 				{
-					var temp = from fam in entities.Familia
-							   join subFam in entities.SubFamilias on fam.Codigo equals subFam.CodigoFamilia
+					var temp = from fam in entities.Familia							   
 							   where fam.Descripcion.Contains(filtro)
-							   select new Models.Familium  { 
-								   Codigo = fam.Codigo, 
-								   Descripcion = fam.Descripcion,  
-								   Observaciones =  fam.Observaciones, 
-								   CuentaGra = fam.CuentaGra, 
-								   DescripcionGra = fam.DescripcionGra, 
-								   CuentaExe = fam.CuentaExe, 
-								   DescripcionExe = fam.DescripcionExe, 
-								   CuentaCosto = fam.CuentaCosto, 
-								   DescripcionCosto = fam.DescripcionCosto,
-								   SubFamilia = null
-							   };
+							   select fam;
 					result = temp.ToList<Models.Familium>();
 				}
 				else
@@ -76,26 +90,58 @@ namespace Datos.Class
 			}
 		}
 
-		public int Editar(long id, Models.Familium nuevo) //editar Familia
+		public int Editar(long id, Models.Familium Familia) //editar Familia
 		{
 			try
 			{
 				var p = entities.Familia.Find(id);
-				Models.Familium viejo = p;
-				if (viejo != null)
+				Models.Familium Familias = p;
+				if (Familias != null)
 				{
-					viejo.Codigo = nuevo.Codigo;
-					viejo.Descripcion = nuevo.Descripcion;
-					viejo.Observaciones = nuevo.Observaciones;
-					viejo.CuentaGra = nuevo.CuentaGra;
-					viejo.DescripcionGra = nuevo.DescripcionGra;
-					viejo.CuentaExe = nuevo.CuentaExe;
-					viejo.DescripcionExe = nuevo.DescripcionExe;
-					viejo.CuentaCosto = nuevo.CuentaCosto;
-					viejo.DescripcionCosto = nuevo.DescripcionCosto;
+					Familias.Codigo = Familia.Codigo;
+					Familias.Descripcion = Familia.Descripcion;
+					Familias.Observaciones = Familia.Observaciones;
+					Familias.CuentaGra = Familia.CuentaGra;
+					Familias.DescripcionGra = Familia.DescripcionGra;
+					Familias.CuentaExe = Familia.CuentaExe;
+					Familias.DescripcionExe = Familia.DescripcionExe;
+					Familias.CuentaCosto = Familia.CuentaCosto;
+					Familias.DescripcionCosto = Familia.DescripcionCosto;
 
-					entities.Entry(viejo).State = EntityState.Modified;
+					Models.SubFamilia nuevaLinea;
+					foreach (Models.SubFamilia Detalle in Familias.SubFamilia)
+					{
+						//Agrega nuevos registros
+						if (Detalle.Codigo == "0")
+						{
+							nuevaLinea = new Models.SubFamilia();
+							nuevaLinea.CodigoFamilia = Detalle.CodigoFamilia;
+							nuevaLinea.SubCodigo = Detalle.SubCodigo;
+							nuevaLinea.Descripcion = Detalle.Descripcion;
+							nuevaLinea.Observaciones = Detalle.Observaciones;
+							Familias.SubFamilia.Add(nuevaLinea);
+						}
+						else
+						{
+							//Actualiza los detalles
+							var a = entities.SubFamilias.Find(Detalle.Codigo);
+							Models.SubFamilia lineaModificada = a;
+							if (lineaModificada != null)
+							{
+								lineaModificada.CodigoFamilia = Detalle.CodigoFamilia;
+								lineaModificada.SubCodigo = Detalle.SubCodigo;
+								lineaModificada.Codigo = Detalle.Codigo;
+								lineaModificada.Descripcion = Detalle.Descripcion;
+								lineaModificada.Observaciones = Detalle.Observaciones;
 
+								entities.Entry(lineaModificada).State = EntityState.Modified;
+								entities.SaveChanges();
+							}
+						}
+
+					}
+
+					entities.Entry(Familias).State = EntityState.Modified;
 					return entities.SaveChanges();
 				}
 				else

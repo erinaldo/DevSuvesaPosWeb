@@ -62,6 +62,30 @@ namespace Datos.Class
 			}
 		}
 
+		public List<Models.PreTomaGeneralDetalle> BuscarDetalle(long Id)  //consultar PreTomaGeneral
+		{
+			try
+			{
+				List<Models.PreTomaGeneralDetalle> result;
+					var temp = from c in entities.PreTomaGeneralDetalles
+							   select c;
+					result = temp.ToList<Models.PreTomaGeneralDetalle>();
+				
+				if (result.Count > 0)
+				{
+					return result;
+				}
+				else
+				{
+					return result = null;
+				}
+			}
+			catch (Exception ex)
+			{
+				throw ex;
+			}
+		}
+
 		public int Editar(decimal id, Models.PreTomaGeneral nuevo) //editar PreTomaGeneral
 		{
 			try

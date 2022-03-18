@@ -90,6 +90,32 @@ namespace Datos.Class
             }
         }
 
+        public List<Models.DetalleAjustesccobrar> ObtenerDetallesAjustescCobrar(long Id)
+        {
+            try
+            {
+                var temp = from c in entities.DetalleAjustesccobrars
+                           where c.IdAjustecCobrar == Id
+                           select c;
+                List<DetalleAjustesccobrar> result = temp.ToList<DetalleAjustesccobrar>();
+
+                if (result.Count > 0)
+                {
+                    return result;
+                }
+                else
+                {
+                    return result = null;
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public List<Ajustesccobrar> ObtenerAjusteCobro(int id)
         {
             try

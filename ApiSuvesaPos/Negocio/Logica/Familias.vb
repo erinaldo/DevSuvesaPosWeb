@@ -9,10 +9,36 @@ Namespace Logica
         End Sub
 
         Public Function Buscar(porNombre As Boolean, Filtro As String) As List(Of Datos.Models.Familium)
+            Dim datos As New List(Of Datos.Models.Familium)
+            datos = Me.db.Buscar(porNombre, Filtro)
 
-            Return Me.db.Buscar(porNombre, Filtro)
-            'Datos.Models.Familium
-            'Datos.Models.Familium
+            Dim Resultado As New List(Of Datos.Models.Familium)
+            For Each fam As Datos.Models.Familium In datos
+                Dim Familia As New Datos.Models.Familium
+                Familia.Codigo = fam.Codigo
+                Familia.Descripcion = fam.Descripcion
+                Familia.Observaciones = fam.Observaciones
+                Familia.CuentaGra = fam.CuentaGra
+                Familia.DescripcionGra = fam.DescripcionGra
+                Familia.CuentaExe = fam.CuentaExe
+                Familia.DescripcionExe = fam.DescripcionExe
+                Familia.CuentaCosto = fam.CuentaCosto
+                Familia.DescripcionCosto = fam.DescripcionCosto
+
+                For Each subFam As Datos.Models.SubFamilia In Me.db.BuscarSubFamilia(fam.Codigo)
+                    Dim SubFamilias As New Datos.Models.SubFamilia
+                    SubFamilias.CodigoFamilia = subFam.CodigoFamilia
+                    SubFamilias.SubCodigo = subFam.SubCodigo
+                    SubFamilias.Codigo = subFam.Codigo
+                    SubFamilias.Descripcion = subFam.Descripcion
+                    SubFamilias.Observaciones = subFam.Observaciones
+                    Familia.SubFamilia.Add(SubFamilias)
+                Next
+
+                Resultado.Add(Familia)
+            Next
+
+            Return Resultado
         End Function
 
         Public Function Crear(familia As Datos.Models.Familium) As String

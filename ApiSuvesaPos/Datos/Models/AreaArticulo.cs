@@ -10,5 +10,7 @@ namespace Datos.Models
         public decimal IdAreaArticulo { get; set; }
         public decimal IdArea { get; set; }
         public decimal Codigo { get; set; }
+
+        public virtual Area IdAreaNavigation { get; set; }
     }
 }

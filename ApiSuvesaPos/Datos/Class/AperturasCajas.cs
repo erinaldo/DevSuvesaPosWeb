@@ -52,6 +52,65 @@ namespace Datos.Class
 
         }
 
+        public List<AperturaDenominacione> ObtenerAperturaDenominaciones(long NApertura)
+        {
+            try
+            {
+
+                List<AperturaDenominacione> result;
+
+                
+                    var temp = from c in entities.AperturaDenominaciones
+                               where c.IdApertura == NApertura
+                               select c;
+                    result = temp.ToList<AperturaDenominacione>();                              
+
+                if (result.Count > 0)
+                {
+                    return result;
+                }
+                else
+                {
+                    return result = null;
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<AperturaTotalTope> ObtenerAperturaTope(long NApertura)
+        {
+            try
+            {
+
+                List<AperturaTotalTope> result;
+
+                var temp = from c in entities.AperturaTotalTopes
+                           where c.Napertura == NApertura
+                           select c;
+                result = temp.ToList<AperturaTotalTope>();
+
+                if (result.Count > 0)
+                {
+                    return result;
+                }
+                else
+                {
+                    return result = null;
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public List<Aperturacaja> ObtenerAperturasCajas(bool porId, string Filtro)
         {
             try
@@ -97,19 +156,85 @@ namespace Datos.Class
         {
             try
             {
-                // Ojo
-                // pendinte
                 var p = entities.Aperturacajas.Find(id);
                 Aperturacaja Nuevo = p;
                 if (Nuevo != null)
                 {
+                    Nuevo.Napertura = aperturacaja.Napertura;
                     Nuevo.Fecha = aperturacaja.Fecha;
+                    Nuevo.Nombre = aperturacaja.Nombre;
+                    Nuevo.Estado = aperturacaja.Estado;
                     Nuevo.Observaciones = aperturacaja.Observaciones;
+                    Nuevo.Anulado = aperturacaja.Anulado;
+                    Nuevo.Cedula = aperturacaja.Cedula;
+                    Nuevo.NumCaja = aperturacaja.NumCaja;
                     Nuevo.IdSucursal = aperturacaja.IdSucursal;
-                    //Nuevo.AbonoApartadosdetalles = abono.AbonoApartadosdetalle;
+
+                    Models.AperturaDenominacione AperturaDenominacion;
+                    foreach (Models.AperturaDenominacione Detalle in aperturacaja.AperturaDenominaciones)
+                    {
+                        //Agrega nuevos registros
+                        if (Detalle.Id == 0)
+                        {
+                            AperturaDenominacion = new Models.AperturaDenominacione();
+                            AperturaDenominacion.IdApertura = Detalle.IdApertura;
+                            AperturaDenominacion.IdDenominacion = Detalle.IdDenominacion;
+                            AperturaDenominacion.Monto = Detalle.Monto;
+                            AperturaDenominacion.Cantidad = Detalle.Cantidad;
+                            Nuevo.AperturaDenominaciones.Add(AperturaDenominacion);
+                        }
+                        else
+                        {
+                            //Actualiza los detalles
+                            var a = entities.AperturaDenominaciones.Find(Detalle.Id);
+                            Models.AperturaDenominacione lineaModificada = a;
+                            if (lineaModificada != null)
+                            {
+                                lineaModificada.IdApertura = Detalle.IdApertura;
+                                lineaModificada.IdDenominacion = Detalle.IdDenominacion;
+                                lineaModificada.Monto = Detalle.Monto;
+                                lineaModificada.Cantidad = Detalle.Cantidad;
+
+                                entities.Entry(lineaModificada).State = EntityState.Modified;
+                                entities.SaveChanges();
+                            }
+                        }
+
+                    }
+
+                    Models.AperturaTotalTope AperturaTope;
+                    foreach (Models.AperturaTotalTope Detalle in aperturacaja.AperturaTotalTopes)
+                    {
+                        //Agrega nuevos registros
+                        if (Detalle.IdTotalTope == 0)
+                        {
+                            AperturaTope = new Models.AperturaTotalTope();
+                            AperturaTope.Napertura = Detalle.Napertura;
+                            AperturaTope.CodMoneda = Detalle.CodMoneda;
+                            AperturaTope.MontoTope = Detalle.MontoTope;
+                            AperturaTope.MonedaNombre = Detalle.MonedaNombre;
+                            Nuevo.AperturaTotalTopes.Add(AperturaTope);
+                        }
+                        else
+                        {
+                            //Actualiza los detalles
+                            var a = entities.AperturaTotalTopes.Find(Detalle.IdTotalTope);
+                            Models.AperturaTotalTope lineaModificada = a;
+                            if (lineaModificada != null)
+                            {
+                                lineaModificada.Napertura = Detalle.Napertura;
+                                lineaModificada.CodMoneda = Detalle.CodMoneda;
+                                lineaModificada.MontoTope = Detalle.MontoTope;
+                                lineaModificada.MonedaNombre = Detalle.MonedaNombre;
+
+                                entities.Entry(lineaModificada).State = EntityState.Modified;
+                                entities.SaveChanges();
+                            }
+                        }
+
+                    }
 
                     entities.Entry(Nuevo).State = EntityState.Modified;
-
                     return entities.SaveChanges();
                 }
                 else

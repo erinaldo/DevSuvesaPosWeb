@@ -46,15 +46,6 @@
 
         Public Function Buscar(porNombre As Boolean, Filtro As String) As List(Of Datos.Models.MovimientoCaja)
             Return Me.db.Buscar(porNombre, Filtro)
-            'identificador = CDbl(Fx.Buscar_X_Descripcion_Fecha("SELECT Id, Monto, Observaciones, Fecha FROM Movimiento_Caja Order by Fecha Desc ", "Observaciones", "Fecha", "Buscar Movimiento de Caja"))
-            'buscando = True
-            'If identificador = 0.0 Then ' si se dio en el boton de cancelar
-            '    buscando = False
-            '    Exit Sub
-            'End If
-            'Fx.Cargar_Tabla_Generico(Me.Adapter_MovimientoCaja, "SELECT * FROM Movimiento_Caja WHERE (Id =" & identificador & " )")
-            'Me.Adapter_MovimientoCaja.Fill(Me.DataSet_MovimientoCaja1, "Movimiento_Caja")
-
         End Function
 
         Public Function Anular(id As Integer) As String

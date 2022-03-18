@@ -15,5 +15,7 @@ namespace Datos.Models
         public double Precio { get; set; }
         public bool Entregado { get; set; }
         public double Devuelto { get; set; }
+
+        public virtual Prestamo IdPrestamoNavigation { get; set; }
     }
 }

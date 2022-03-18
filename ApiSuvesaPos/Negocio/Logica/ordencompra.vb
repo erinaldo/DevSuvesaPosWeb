@@ -8,22 +8,62 @@
         End Sub
 
         Public Function Buscar(porNombre As Boolean, Filtro As String) As List(Of Datos.Models.Ordencompra)
-            Return Me.db.Buscar(porNombre, Filtro)
-            'Datos.Models.Ordencompra
-            'Datos.Models.Ordencompra
+            Dim datos As New List(Of Datos.Models.Ordencompra)
+            datos = Me.db.Buscar(porNombre, Filtro)
 
+            Dim Resultado As New List(Of Datos.Models.Ordencompra)
+            For Each ord As Datos.Models.Ordencompra In datos
+                Dim OrdenCompra As New Datos.Models.Ordencompra
+                OrdenCompra.Orden = ord.Orden
+                OrdenCompra.Proveedor = ord.Proveedor
+                OrdenCompra.Nombre = ord.Nombre
+                OrdenCompra.Fecha = ord.Fecha
+                OrdenCompra.Contado = ord.Contado
+                OrdenCompra.Credito = ord.Credito
+                OrdenCompra.Diascredito = ord.Diascredito
+                OrdenCompra.Plazo = ord.Plazo
+                OrdenCompra.Descuento = ord.Descuento
+                OrdenCompra.Impuesto = ord.Impuesto
+                OrdenCompra.Total = ord.Total
+                OrdenCompra.Observaciones = ord.Observaciones
+                OrdenCompra.Usuario = ord.Usuario
+                OrdenCompra.NombreUsuario = ord.NombreUsuario
+                OrdenCompra.Entregar = ord.Entregar
+                OrdenCompra.CodMoneda = ord.CodMoneda
+                OrdenCompra.SubTotalGravado = ord.SubTotalGravado
+                OrdenCompra.SubTotalExento = ord.SubTotalExento
+                OrdenCompra.SubTotal = ord.SubTotal
+                OrdenCompra.Anulado = ord.Anulado
+                OrdenCompra.IdSucursal = ord.IdSucursal
 
-            'Dim identificador As Double
+                For Each det As Datos.Models.DetalleOrdencompra In Me.db.BuscarDetalle(OrdenCompra.Orden)
+                    Dim Detalle As New Datos.Models.DetalleOrdencompra
+                    Detalle.Id = det.Id
+                    Detalle.Orden = det.Orden
+                    Detalle.Codigo = det.Codigo
+                    Detalle.Descripcion = det.Descripcion
+                    Detalle.CostoUnitario = det.CostoUnitario
+                    Detalle.Cantidad = det.Cantidad
+                    Detalle.TotalCompra = det.TotalCompra
+                    Detalle.PorcDescuento = det.PorcDescuento
+                    Detalle.Descuento = det.Descuento
+                    Detalle.PorcImpuesto = det.PorcImpuesto
+                    Detalle.Impuesto = det.Impuesto
+                    Detalle.OtrosCargos = det.OtrosCargos
+                    Detalle.MontoFlete = det.MontoFlete
+                    Detalle.Costo = det.Costo
+                    Detalle.Gravado = det.Gravado
+                    Detalle.Exento = det.Exento
+                    Detalle.Vendidos = det.Vendidos
+                    Detalle.ExistActual = det.ExistActual
 
-            'Dim Fx As New cFunciones
+                    OrdenCompra.DetalleOrdencompras.Add(Detalle)
+                Next
 
-            'identificador = CDbl(Fx.Buscar_X_Descripcion_Fecha("Select Orden, Nombre,Fecha from ordencompra Order by Fecha DESC", "Nombre", "Fecha", "Buscar Orden de Compra"))
-            'buscando = True
-            'If identificador = 0.0 Then ' si se dio en el boton de cancelar
-            '    Me.buscando = False
-            '    Exit Sub
-            'End If
+                Resultado.Add(OrdenCompra)
+            Next
 
+            Return Resultado
         End Function
 
         Public Function Crear(ordencompra As Datos.Models.Ordencompra) As String

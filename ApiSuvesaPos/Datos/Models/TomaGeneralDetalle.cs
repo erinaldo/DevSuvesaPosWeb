@@ -18,5 +18,7 @@ namespace Datos.Models
         public double Toma { get; set; }
         public double Diferencia { get; set; }
         public bool Contado { get; set; }
+
+        public virtual TomaGeneral IdTomaNavigation { get; set; }
     }
 }

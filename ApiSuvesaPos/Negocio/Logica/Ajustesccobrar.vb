@@ -41,18 +41,52 @@
         End Function
 
         Public Function Buscar(porId As Boolean, filtro As String) As List(Of Datos.Models.Ajustesccobrar)
+            Dim datos As New List(Of Datos.Models.Ajustesccobrar)
+            datos = db.ObtenerAjusteCobro(porId, filtro)
 
-            Return Me.db.ObtenerAjusteCobro(porId, filtro)
+            Dim Resultado As New List(Of Datos.Models.Ajustesccobrar)
+            For Each ajuste As Datos.Models.Ajustesccobrar In datos
+                Dim Ajusteccobrar As New Datos.Models.Ajustesccobrar
+                Ajusteccobrar.IdAjuste = ajuste.IdAjuste
+                Ajusteccobrar.AjusteNo = ajuste.AjusteNo
+                Ajusteccobrar.Tipo = ajuste.Tipo
+                Ajusteccobrar.CodCliente = ajuste.CodCliente
+                Ajusteccobrar.NombreCliente = ajuste.NombreCliente
+                Ajusteccobrar.Fecha = ajuste.Fecha
+                Ajusteccobrar.SaldoPrev = ajuste.SaldoPrev
+                Ajusteccobrar.Monto = ajuste.Monto
+                Ajusteccobrar.SaldoAct = ajuste.SaldoAct
+                Ajusteccobrar.Observaciones = ajuste.Observaciones
+                Ajusteccobrar.Anula = ajuste.Anula
+                Ajusteccobrar.CodUsuario = ajuste.CodUsuario
+                Ajusteccobrar.Contabilizado = ajuste.Contabilizado
+                Ajusteccobrar.CodMoneda = ajuste.CodMoneda
+                Ajusteccobrar.Asiento = ajuste.Asiento
+                Ajusteccobrar.IdSucursal = ajuste.IdSucursal
 
-            'identificador = CDbl(Fx.Buscar_X_Descripcion_Fecha("Select ID_Ajuste, AjusteNo, Nombre_Cliente, Fecha from ajustesccobrar Order by Fecha DESC", "Nombre_Cliente", "Fecha", "Buscar Ajuste de Cuenta"))
-            'buscando = True
-            'If identificador = 0.0 Then ' si se dio en el boton de cancelar
-            '    buscando = False
-            '    Exit Sub
-            'End If
+                For Each detalle As Datos.Models.DetalleAjustesccobrar In Me.db.ObtenerDetallesAjustescCobrar(Ajusteccobrar.IdAjuste)
+                    Dim DetalleAjusteccobrar As New Datos.Models.DetalleAjustesccobrar
+                    DetalleAjusteccobrar.IdDetalleAjustecCobrar = detalle.IdDetalleAjustecCobrar
+                    DetalleAjusteccobrar.IdAjustecCobrar = detalle.IdAjustecCobrar
+                    DetalleAjusteccobrar.Factura = detalle.Factura
+                    DetalleAjusteccobrar.Tipo = detalle.Tipo
+                    DetalleAjusteccobrar.Monto = detalle.Monto
+                    DetalleAjusteccobrar.SaldoAnt = detalle.SaldoAnt
+                    DetalleAjusteccobrar.Ajuste = detalle.Ajuste
+                    DetalleAjusteccobrar.AjusteSuMoneda = detalle.AjusteSuMoneda
+                    DetalleAjusteccobrar.SaldoAjustado = detalle.SaldoAjustado
+                    DetalleAjusteccobrar.Observaciones = detalle.Observaciones
+                    DetalleAjusteccobrar.TipoNota = detalle.TipoNota
+                    DetalleAjusteccobrar.CuentaContable = detalle.CuentaContable
+                    DetalleAjusteccobrar.IdCuentaC = detalle.IdCuentaC
 
-            'LlenarVentas(identificador)
+                    Ajusteccobrar.DetalleAjustesccobrars.Add(DetalleAjusteccobrar)
+                Next
 
+                Resultado.Add(Ajusteccobrar)
+            Next
+
+            Return Resultado
         End Function
 
         Public Function Anular(Id As Long) As String

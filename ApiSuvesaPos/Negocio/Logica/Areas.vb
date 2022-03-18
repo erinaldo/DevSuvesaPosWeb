@@ -219,30 +219,39 @@
         End Function
 
         Public Function Buscar(porId As Boolean, Filtro As String) As List(Of Datos.Models.Area)
-            Return Me.db.ObtenerAreas(porId, Filtro)
-            'Private Sub BuscarAperturas()
-            '    Dim Fx As New cFunciones
-            '    Dim Apertura As String
+            Dim datos As New List(Of Datos.Models.Area)
+            datos = Me.db.ObtenerAreas(porId, Filtro)
 
-            '    Apertura = Fx.Buscar_X_Descripcion_Fecha("SELECT NApertura AS Apertura, Nombre, Fecha, num_caja as Caja FROM aperturacaja Order by NApertura Desc", "Nombre", "Fecha", "Buscar Apertura de Caja", Me.SqlConnection1.ConnectionString)
-            '    If Apertura <> "" Then
-            '        Me.DataSetAperturaCaja1.Apertura_Denominaciones.Clear()
-            '        Me.DataSetAperturaCaja1.Apertura_Total_Tope.Clear()
-            '        Me.DataSetAperturaCaja1.aperturacaja.Clear()
-            '        CargarApertura(Apertura)
-            '        CargarTope(Apertura)
-            '        CargarDenominacion(Apertura)
-            '        Me.ToolBar1.Buttons(4).Enabled = True
-            '        Me.ToolBar1.Buttons(2).Enabled = False
-            '        Me.ToolBar1.Buttons(3).Enabled = True
-            '        Me.GridControl2.Enabled = False
-            '        Me.GridControl3.Enabled = False
-            '        Me.GridControl1.Enabled = True
-            '        Me.GroupBox2.Enabled = True
-            '        Me.GroupBox5.Enabled = True
-            '        Me.GroupBox3.Enabled = False
-            '    End If
-            'End Sub
+            Dim Resultado As New List(Of Datos.Models.Area)
+            For Each ar As Datos.Models.Area In datos
+                Dim Area As New Datos.Models.Area
+                Area.IdArea = ar.IdArea
+                Area.Descripcion = ar.Descripcion
+                Area.Observaciones = ar.Observaciones
+                Area.IdSucursal = ar.IdSucursal
+
+                For Each det As Datos.Models.AreaArticulo In Me.db.ObtenerAreasArticulo(Area.IdArea)
+                    Dim Detalle As New Datos.Models.AreaArticulo
+                    Detalle.IdAreaArticulo = det.IdAreaArticulo
+                    Detalle.IdArea = det.IdArea
+                    Detalle.Codigo = det.Codigo
+
+                    Area.AreaArticulos.Add(Detalle)
+                Next
+
+                For Each det As Datos.Models.AreaEncargado In Me.db.ObtenerAreasEncargado(Area.IdArea)
+                    Dim Detalle As New Datos.Models.AreaEncargado
+                    Detalle.IdAreaEncargado = det.IdAreaEncargado
+                    Detalle.IdArea = det.IdArea
+                    Detalle.IdUsuario = det.IdUsuario
+
+                    Area.AreaEncargados.Add(Detalle)
+                Next
+
+                Resultado.Add(Area)
+            Next
+
+            Return Resultado
         End Function
 
 

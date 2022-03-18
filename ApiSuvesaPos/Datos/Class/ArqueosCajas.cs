@@ -55,6 +55,88 @@ namespace Datos.Class
 
         }
 
+        public List<ArqueoDeposito> ObtenerArqueosDeposito(decimal Id)
+        {
+            try
+            {
+                List<ArqueoDeposito> result;
+                    var temp = from c in entities.ArqueoDepositos
+                               where c.IdApertura == Id
+                               select c;
+                    result = temp.ToList<ArqueoDeposito>();
+                
+
+                if (result.Count > 0)
+                {
+                    return result;
+                }
+                else
+                {
+                    return result = null;
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<ArqueoEfectivo> ObtenerArqueosEfectivo(decimal Id)
+        {
+            try
+            {
+                List<ArqueoEfectivo> result;
+                var temp = from c in entities.ArqueoEfectivos
+                           where c.IdArqueo == Id
+                           select c;
+                result = temp.ToList<ArqueoEfectivo>();
+
+                if (result.Count > 0)
+                {
+                    return result;
+                }
+                else
+                {
+                    return result = null;
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<ArqueoTarjetum> ObtenerArqueosTarjeta(decimal Id)
+        {
+            try
+            {
+                List<ArqueoTarjetum> result;
+                var temp = from c in entities.ArqueoTarjeta
+                           where c.IdArqueo == Id
+                           select c;
+                result = temp.ToList<ArqueoTarjetum>();
+
+                if (result.Count > 0)
+                {
+                    return result;
+                }
+                else
+                {
+                    return result = null;
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public List<ArqueoCaja> ObtenerArqueosCajas(bool porId, string Filtro)
         {
             try
@@ -98,21 +180,130 @@ namespace Datos.Class
         }
 
 
-        public int EditarArqueosCajas(int id, ArqueoCaja abono)
+        public int EditarArqueosCajas(int id, ArqueoCaja Arqueo)
         {
             try
             {
 
-
-                // Ojo
-                // pendinte
                 var p = entities.ArqueoCajas.Find(id);
-                ArqueoCaja Nuevo = p;
-                Nuevo.Id = abono.Id;
-                //Nuevo.AbonoApartadosdetalles = abono.AbonoApartadosdetalle;
+                ArqueoCaja ArqueoCaja = p;
+                ArqueoCaja.Id = Arqueo.Id;
+                ArqueoCaja.EfectivoColones = Arqueo.EfectivoColones;
+                ArqueoCaja.EfectivoDolares = Arqueo.EfectivoDolares;
+                ArqueoCaja.TarjetaColones = Arqueo.TarjetaColones;
+                ArqueoCaja.TarjetaDolares = Arqueo.TarjetaDolares;
+                ArqueoCaja.Cheques = Arqueo.Cheques;
+                ArqueoCaja.ChequesDol = Arqueo.ChequesDol;
+                ArqueoCaja.DepositoCol = Arqueo.DepositoCol;
+                ArqueoCaja.DepositoDol = Arqueo.DepositoDol;
+                ArqueoCaja.Total = Arqueo.Total;
+                ArqueoCaja.IdApertura = Arqueo.IdApertura;
+                ArqueoCaja.Fecha = Arqueo.Fecha;
+                ArqueoCaja.Cajero = Arqueo.Cajero;
+                ArqueoCaja.Anulado = Arqueo.Anulado;
+                ArqueoCaja.TipoCambioD = Arqueo.TipoCambioD;
+                ArqueoCaja.Observaciones = Arqueo.Observaciones;
+                ArqueoCaja.TarjetaSistema = Arqueo.TarjetaSistema;
+                ArqueoCaja.OtrasTarjetas = Arqueo.OtrasTarjetas;
 
-                entities.Entry(Nuevo).State = EntityState.Modified;
+                Models.ArqueoDeposito nuevaLinea1;
+                foreach (Models.ArqueoDeposito Detalle in Arqueo.ArqueoDepositos)
+                {
+                    //Agrega nuevos registros
+                    if (Detalle.Id == 0)
+                    {
+                        nuevaLinea1 = new Models.ArqueoDeposito();
+                        nuevaLinea1.Banco = Detalle.Banco;
+                        nuevaLinea1.Cuenta = Detalle.Cuenta;
+                        nuevaLinea1.Moneda = Detalle.Moneda;
+                        nuevaLinea1.Numero = Detalle.Numero;
+                        nuevaLinea1.Monto = Detalle.Monto;
+                        nuevaLinea1.IdApertura = Detalle.IdApertura;
+                        nuevaLinea1.Tipo = Detalle.Tipo;
+                        ArqueoCaja.ArqueoDepositos.Add(nuevaLinea1);
+                    }
+                    else
+                    {
+                        //Actualiza los detalles
+                        var a = entities.ArqueoDepositos.Find(Detalle.Id);
+                        Models.ArqueoDeposito lineaModificada = a;
+                        if (lineaModificada != null)
+                        {
+                            lineaModificada.Banco = Detalle.Banco;
+                            lineaModificada.Cuenta = Detalle.Cuenta;
+                            lineaModificada.Moneda = Detalle.Moneda;
+                            lineaModificada.Numero = Detalle.Numero;
+                            lineaModificada.Monto = Detalle.Monto;
+                            lineaModificada.IdApertura = Detalle.IdApertura;
+                            lineaModificada.Tipo = Detalle.Tipo;
 
+                            entities.Entry(lineaModificada).State = EntityState.Modified;
+                            entities.SaveChanges();
+                        }
+                    }
+
+                }
+
+                Models.ArqueoEfectivo nuevaLinea2;
+                foreach (Models.ArqueoEfectivo Detalle in Arqueo.ArqueoEfectivos)
+                {
+                    //Agrega nuevos registros
+                    if (Detalle.Id == 0)
+                    {
+                        nuevaLinea2 = new Models.ArqueoEfectivo();
+                        nuevaLinea2.IdDenominacion = Detalle.IdDenominacion;
+                        nuevaLinea2.Monto = Detalle.Monto;
+                        nuevaLinea2.Cantidad = Detalle.Cantidad;
+
+                        ArqueoCaja.ArqueoEfectivos.Add(nuevaLinea2);
+                    }
+                    else
+                    {
+                        //Actualiza los detalles
+                        var a = entities.ArqueoEfectivos.Find(Detalle.Id);
+                        Models.ArqueoEfectivo lineaModificada = a;
+                        if (lineaModificada != null)
+                        {
+                            lineaModificada.IdDenominacion = Detalle.IdDenominacion;
+                            lineaModificada.Monto = Detalle.Monto;
+                            lineaModificada.Cantidad = Detalle.Cantidad;
+
+                            entities.Entry(lineaModificada).State = EntityState.Modified;
+                            entities.SaveChanges();
+                        }
+                    }
+
+                }
+
+                Models.ArqueoTarjetum nuevaLinea3;
+                foreach (Models.ArqueoTarjetum Detalle in Arqueo.ArqueoTarjeta)
+                {
+                    //Agrega nuevos registros
+                    if (Detalle.Id == 0)
+                    {
+                        nuevaLinea3 = new Models.ArqueoTarjetum();
+                        nuevaLinea3.IdTarjeta = Detalle.IdTarjeta;
+                        nuevaLinea3.Monto = Detalle.Monto;
+                        ArqueoCaja.ArqueoTarjeta.Add(nuevaLinea3);
+                    }
+                    else
+                    {
+                        //Actualiza los detalles
+                        var a = entities.ArqueoTarjeta.Find(Detalle.Id);
+                        Models.ArqueoTarjetum lineaModificada = a;
+                        if (lineaModificada != null)
+                        {
+                            lineaModificada.IdTarjeta = Detalle.IdTarjeta;
+                            lineaModificada.Monto = Detalle.Monto;
+
+                            entities.Entry(lineaModificada).State = EntityState.Modified;
+                            entities.SaveChanges();
+                        }
+                    }
+
+                }
+
+                entities.Entry(ArqueoCaja).State = EntityState.Modified;
                 return entities.SaveChanges();
 
 

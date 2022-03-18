@@ -30,6 +30,32 @@ namespace Datos.Class
 			}
 		}
 
+		public List<Models.SubUbicacion> BuscarDetalle(long Id)  //consultar Ubicaciones
+		{
+			try
+			{
+				List<Models.SubUbicacion> result;
+				
+					var temp = from c in entities.SubUbicacions
+							   where c.CodUbicacion == Id
+							   select c;
+					result = temp.ToList<Models.SubUbicacion>();
+				
+				if (result.Count > 0)
+				{
+					return result;
+				}
+				else
+				{
+					return result = null;
+				}
+			}
+			catch (Exception ex)
+			{
+				throw ex;
+			}
+		}
+
 		public List<Models.Ubicacione> Buscar(bool porNombre, string filtro)  //consultar Ubicaciones
 		{
 			try
@@ -64,21 +90,53 @@ namespace Datos.Class
 			}
 		}
 
-		public int Editar(long id, Models.Ubicacione nuevo) //editar Ubicaciones
+		public int Editar(long id, Models.Ubicacione Ubicacion) //editar Ubicaciones
 		{
 			try
 			{
 				var p = entities.Ubicaciones.Find(id);
-				Models.Ubicacione viejo = p;
-				if (viejo != null)
+				Models.Ubicacione Ubicaciones = p;
+				if (Ubicaciones != null)
 				{
-					viejo.Codigo = nuevo.Codigo;
-					viejo.Descripcion = nuevo.Descripcion;
-					viejo.Observaciones = nuevo.Observaciones;
-					viejo.Activa = nuevo.Activa;
+					Ubicaciones.Codigo = Ubicacion.Codigo;
+					Ubicaciones.Descripcion = Ubicacion.Descripcion;
+					Ubicaciones.Observaciones = Ubicacion.Observaciones;
+					Ubicaciones.Activa = Ubicacion.Activa;
 
-					entities.Entry(viejo).State = EntityState.Modified;
+					Models.SubUbicacion nuevaLinea;
+					foreach (Models.SubUbicacion Detalle in Ubicacion.SubUbicacions)
+					{
+						//Agrega nuevos registros
+						if (Detalle.Codigo == "0")
+						{
+							nuevaLinea = new Models.SubUbicacion();
+							nuevaLinea.CodUbicacion = Detalle.CodUbicacion;
+							nuevaLinea.CodSubUbicacion = Detalle.CodSubUbicacion;
+							nuevaLinea.DescripcionD = Detalle.DescripcionD;
+							nuevaLinea.Observaciones = Detalle.Observaciones;
+							Ubicaciones.SubUbicacions.Add(nuevaLinea);
+						}
+						else
+						{
+							//Actualiza los detalles
+							var a = entities.SubUbicacions.Find(Detalle.Codigo);
+							Models.SubUbicacion lineaModificada = a;
+							if (lineaModificada != null)
+							{
+								lineaModificada.CodUbicacion = Detalle.CodUbicacion;
+								lineaModificada.CodSubUbicacion = Detalle.CodSubUbicacion;
+								lineaModificada.Codigo = Detalle.Codigo;
+								lineaModificada.DescripcionD = Detalle.DescripcionD;
+								lineaModificada.Observaciones = Detalle.Observaciones;
 
+								entities.Entry(lineaModificada).State = EntityState.Modified;
+								entities.SaveChanges();
+							}
+						}
+
+					}
+
+					entities.Entry(Ubicaciones).State = EntityState.Modified;
 					return entities.SaveChanges();
 				}
 				else

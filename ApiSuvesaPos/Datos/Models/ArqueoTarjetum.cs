@@ -11,5 +11,7 @@ namespace Datos.Models
         public long IdArqueo { get; set; }
         public int IdTarjeta { get; set; }
         public double Monto { get; set; }
+
+        public virtual ArqueoCaja IdArqueoNavigation { get; set; }
     }
 }

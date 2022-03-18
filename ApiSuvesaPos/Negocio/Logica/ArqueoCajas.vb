@@ -1,41 +1,79 @@
 ﻿Namespace Logica
     Public Class ArqueoCajas
 
-        'cargar cls de tipotarjeta  
-        Public Property AperturaCaja As New Logica.AperturaCaja
-        Public Property Moneda As New Logica.Monedas
-        Public Property Denominacion_Moneda As New Logica.Denominacion_Moneda
+        Private db As Datos.Class.ArqueosCajas
 
-        Public Function Buscar(porNombre As Boolean,
-                               porApertura As Boolean,
-                               porIdArqueo As Boolean,
-                               Filtro As String) As List(Of Modelo.arqueocajas)
+        Sub New()
+            db = New Datos.Class.ArqueosCajas
+        End Sub
 
-            'Dim cFunciones As New cFunciones
-            'Dim Id_ArqueoCaja As String = cFunciones.Buscar_X_Descripcion_Fecha("select cast(Id as varchar) as Arqueo, Cajero,Fecha from ArqueoCajas Order by Id Desc", "Cajero", "Fecha", "Arqueo Caja ....")
+        Public Function Buscar(porNombre As Boolean, Filtro As String) As List(Of Datos.Models.ArqueoCaja)
+            Dim datos As New List(Of Datos.Models.ArqueoCaja)
+            datos = Me.db.ObtenerArqueosCajas(porNombre, Filtro)
 
-            'If Id_ArqueoCaja = Nothing Then
+            Dim Resultado As New List(Of Datos.Models.ArqueoCaja)
+            For Each arq As Datos.Models.ArqueoCaja In datos
+                Dim Arqueo As New Datos.Models.ArqueoCaja
+                Arqueo.Id = arq.Id
+                Arqueo.EfectivoColones = arq.EfectivoColones
+                Arqueo.EfectivoDolares = arq.EfectivoDolares
+                Arqueo.TarjetaColones = arq.TarjetaColones
+                Arqueo.TarjetaDolares = arq.TarjetaDolares
+                Arqueo.Cheques = arq.Cheques
+                Arqueo.ChequesDol = arq.ChequesDol
+                Arqueo.DepositoCol = arq.DepositoCol
+                Arqueo.DepositoDol = arq.DepositoDol
+                Arqueo.Total = arq.Total
+                Arqueo.IdApertura = arq.IdApertura
+                Arqueo.Fecha = arq.Fecha
+                Arqueo.Cajero = arq.Cajero
+                Arqueo.Anulado = arq.Anulado
+                Arqueo.TipoCambioD = arq.TipoCambioD
+                Arqueo.Observaciones = arq.Observaciones
+                Arqueo.TarjetaSistema = arq.TarjetaSistema
+                Arqueo.OtrasTarjetas = arq.OtrasTarjetas
 
-            'Else
-            '    Cargar(Id_ArqueoCaja)
-            'Function Cargar(ByVal IdArqueo As String)
-            '    Try
-            '        Dim cFunciones As New cFunciones
-            '        Me.DataSetArqueo1.ArqueoEfectivo.Clear()
-            '        Me.DataSetArqueo1.ArqueoTarjeta.Clear()
-            '        Me.DataSetArqueo1.ArqueoCajas.Clear()
 
-            '        cFunciones.Llenar_Tabla_Generico("Select * from ArqueoCajas Where Id = " & IdArqueo, Me.DataSetArqueo1.ArqueoCajas)
-            '        cFunciones.Llenar_Tabla_Generico("Select * from ArqueoTarjeta Where Id_Arqueo = " & IdArqueo, Me.DataSetArqueo1.ArqueoTarjeta)
-            '        cFunciones.Llenar_Tabla_Generico("Select * from ArqueoEfectivo Where Id_Arqueo = " & IdArqueo, Me.DataSetArqueo1.ArqueoEfectivo)
-            '        Me.Cargando()
-            '        Return True
+                For Each det As Datos.Models.ArqueoEfectivo In Me.db.ObtenerArqueosEfectivo(Arqueo.Id)
+                    Dim Detalle As New Datos.Models.ArqueoEfectivo
+                    Detalle.Id = det.Id
+                    Detalle.IdArqueo = det.IdArqueo
+                    Detalle.IdDenominacion = det.IdDenominacion
+                    Detalle.Monto = det.Monto
+                    Detalle.Cantidad = det.Cantidad
 
-            '    Catch ex As Exception
-            '        MsgBox(ex.Message)
-            '        Return False
-            '    End Try
-            'End Function
+                    Arqueo.ArqueoEfectivos.Add(Detalle)
+                Next
+
+                For Each det As Datos.Models.ArqueoDeposito In Me.db.ObtenerArqueosDeposito(Arqueo.Id)
+                    Dim Detalle As New Datos.Models.ArqueoDeposito
+                    Detalle.Id = det.Id
+                    Detalle.IdArqueo = det.IdArqueo
+                    Detalle.Banco = det.Banco
+                    Detalle.Cuenta = det.Cuenta
+                    Detalle.Moneda = det.Moneda
+                    Detalle.Numero = det.Numero
+                    Detalle.Monto = det.Monto
+                    Detalle.IdApertura = det.IdApertura
+                    Detalle.Tipo = det.Tipo
+
+                    Arqueo.ArqueoDepositos.Add(Detalle)
+                Next
+
+                For Each det As Datos.Models.ArqueoTarjetum In Me.db.ObtenerArqueosTarjeta(Arqueo.Id)
+                    Dim Detalle As New Datos.Models.ArqueoTarjetum
+                    Detalle.Id = det.Id
+                    Detalle.IdArqueo = det.IdArqueo
+                    Detalle.IdTarjeta = det.IdTarjeta
+                    Detalle.Monto = det.Monto
+
+                    Arqueo.ArqueoTarjeta.Add(Detalle)
+                Next
+
+                Resultado.Add(Arqueo)
+            Next
+
+            Return Resultado
 
         End Function
         Public Sub Crear(arqueocajas As Modelo.arqueocajas)

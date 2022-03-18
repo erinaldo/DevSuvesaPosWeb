@@ -12,14 +12,53 @@
         End Sub
 
         Public Function Buscar(porId As Boolean, filtro As String) As List(Of Datos.Models.Ajustescpagar)
-            Return db.ObtenerAjustesPagar(porId, filtro)
-            'identificador = CDbl(Fx.Buscar_X_Descripcion_Fecha("Select cast(ID_Ajuste as varchar) as Numero , Nombre_Proveedor, Fecha from ajustescpagar Order by Fecha DESC", "Nombre_Proveedor", "Fecha", "Buscar Ajuste de Cuenta", Me.SqlConnection1.ConnectionString))
-            'buscando = True
-            'If identificador = 0.0 Then ' si se dio en el boton de cancelar
-            '    Me.buscando = False
-            '    Exit Sub
-            'End If
+            Dim datos As New List(Of Datos.Models.Ajustescpagar)
+            datos = db.ObtenerAjustesPagar(porId, filtro)
 
+            Dim Resultado As New List(Of Datos.Models.Ajustescpagar)
+            For Each ajuste As Datos.Models.Ajustescpagar In datos
+                Dim Ajustescpagar As New Datos.Models.Ajustescpagar
+                Ajustescpagar.IdAjuste = ajuste.IdAjuste
+                Ajustescpagar.AjusteNo = ajuste.AjusteNo
+                Ajustescpagar.Tipo = ajuste.Tipo
+                Ajustescpagar.CodProveedor = ajuste.CodProveedor
+                Ajustescpagar.NombreProveedor = ajuste.NombreProveedor
+                Ajustescpagar.Fecha = ajuste.Fecha
+                Ajustescpagar.SaldoPrev = ajuste.SaldoPrev
+                Ajustescpagar.Monto = ajuste.Monto
+                Ajustescpagar.SaldoAct = ajuste.SaldoAct
+                Ajustescpagar.Observaciones = ajuste.Observaciones
+                Ajustescpagar.Anula = ajuste.Anula
+                Ajustescpagar.CodUsuario = ajuste.CodUsuario
+                Ajustescpagar.Contabilizado = ajuste.Contabilizado
+                Ajustescpagar.CodMoneda = ajuste.CodMoneda
+                Ajustescpagar.Asiento = ajuste.Asiento
+                Ajustescpagar.FechaEntrada = ajuste.FechaEntrada
+                Ajustescpagar.IdSucursal = ajuste.IdSucursal
+
+                For Each detAjuste As Datos.Models.DetalleAjustescPagar In Me.db.ObtenerDetalles(Ajustescpagar.IdAjuste)
+                    Dim DetalleAjuste As New Datos.Models.DetalleAjustescPagar
+                    DetalleAjuste.IdDetalleAjustecPagar = detAjuste.IdDetalleAjustecPagar
+                    DetalleAjuste.IdAjustecPagar = detAjuste.IdAjustecPagar
+                    DetalleAjuste.Factura = detAjuste.Factura
+                    DetalleAjuste.Tipo = detAjuste.Tipo
+                    DetalleAjuste.Monto = detAjuste.Monto
+                    DetalleAjuste.SaldoAnt = detAjuste.SaldoAnt
+                    DetalleAjuste.Ajuste = detAjuste.Ajuste
+                    DetalleAjuste.AjusteSuMoneda = detAjuste.AjusteSuMoneda
+                    DetalleAjuste.SaldoAjustado = detAjuste.SaldoAjustado
+                    DetalleAjuste.Observaciones = detAjuste.Observaciones
+                    DetalleAjuste.TipoNota = detAjuste.TipoNota
+                    DetalleAjuste.IdCompra = detAjuste.IdCompra
+                    DetalleAjuste.CuentaContable = detAjuste.CuentaContable
+                    DetalleAjuste.DescripcionCuentaContable = detAjuste.DescripcionCuentaContable
+                    Ajustescpagar.DetalleAjustescPagars.Add(DetalleAjuste)
+                Next
+
+                Resultado.Add(Ajustescpagar)
+            Next
+
+            Return Resultado
         End Function
 
         Public Function BuscarDetalle(Id As Long) As List(Of Datos.Models.DetalleAjustescPagar)

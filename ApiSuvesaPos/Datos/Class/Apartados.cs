@@ -51,6 +51,32 @@ namespace Datos.Class
 
         }
 
+        public List<ApartadoDetalle> ObtenerDetalleApartados(long IdApartado)
+        {
+            try
+            {
+                var temp = from c in entities.ApartadoDetalles
+                           where c.IdApartado == IdApartado
+                           select c;
+                List<ApartadoDetalle> result = temp.ToList<ApartadoDetalle>();
+
+                if (result.Count > 0)
+                {
+                    return result;
+                }
+                else
+                {
+                    return result = null;
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public List<Apartado> ObtenerApartados()
         {
             try

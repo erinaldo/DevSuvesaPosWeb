@@ -30,6 +30,7 @@ namespace Datos.Class
 			}
 		}
 
+
 		public List<Models.MovimientoCaja> Buscar(bool porNombre, string filtro)  //consultar Movimiento_Caja
 		{
 			try

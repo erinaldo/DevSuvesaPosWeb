@@ -7,6 +7,11 @@ namespace Datos.Models
 {
     public partial class Prestamo
     {
+        public Prestamo()
+        {
+            DetallePrestamos = new HashSet<DetallePrestamo>();
+        }
+
         public long Id { get; set; }
         public DateTime Fecha { get; set; }
         public bool Estado { get; set; }
@@ -22,5 +27,7 @@ namespace Datos.Models
         public string Transportista { get; set; }
         public string IdUsuariCreo { get; set; }
         public string BoletaProveedor { get; set; }
+
+        public virtual ICollection<DetallePrestamo> DetallePrestamos { get; set; }
     }
 }

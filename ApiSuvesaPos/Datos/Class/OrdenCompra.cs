@@ -30,6 +30,31 @@ namespace Datos.Class
 			}
 		}
 
+		public List<Models.DetalleOrdencompra> BuscarDetalle(long Id)  //consultar OrdenCompra
+		{
+			try
+			{
+				List<Models.DetalleOrdencompra> result;
+					var temp = from c in entities.DetalleOrdencompras
+							   where c.Orden == Id
+							   select c;
+					result = temp.ToList<Models.DetalleOrdencompra>();
+				
+				if (result.Count > 0)
+				{
+					return result;
+				}
+				else
+				{
+					return result = null;
+				}
+			}
+			catch (Exception ex)
+			{
+				throw ex;
+			}
+		}
+
 		public List<Models.Ordencompra> Buscar(bool porNombre, string filtro)  //consultar OrdenCompra
 		{
 			try
@@ -65,36 +90,95 @@ namespace Datos.Class
 			}
 		}
 
-		public int Editar(long id, Models.Ordencompra nuevo) //editar OrdenCompra
+		public int Editar(long id, Models.Ordencompra Orden) //editar OrdenCompra
 		{
 			try
 			{
 				var p = entities.Ordencompras.Find(id);
-				Models.Ordencompra viejo = p;
-				if (viejo != null)
+				Models.Ordencompra OrdenCompra = p;
+				if (OrdenCompra != null)
 				{					
-					viejo.Proveedor = nuevo.Proveedor;
-					viejo.Nombre = nuevo.Nombre;
-					viejo.Fecha = nuevo.Fecha;
-					viejo.Contado = nuevo.Contado;
-					viejo.Credito = nuevo.Credito;
-					viejo.Diascredito = nuevo.Diascredito;
-					viejo.Plazo = nuevo.Plazo;
-					viejo.Descuento = nuevo.Descuento;
-					viejo.Impuesto = nuevo.Impuesto;
-					viejo.Total = nuevo.Total;
-					viejo.Observaciones = nuevo.Observaciones;
-					viejo.Usuario = nuevo.Usuario;
-					viejo.NombreUsuario = nuevo.NombreUsuario;
-					viejo.Entregar = nuevo.Entregar;
-					viejo.CodMoneda = nuevo.CodMoneda;
-					viejo.SubTotalGravado = nuevo.SubTotalGravado;
-					viejo.SubTotalExento = nuevo.SubTotalExento;
-					viejo.SubTotal = nuevo.SubTotal;
-					viejo.Anulado = nuevo.Anulado;
+					OrdenCompra.Proveedor = Orden.Proveedor;
+					OrdenCompra.Nombre = Orden.Nombre;
+					OrdenCompra.Fecha = Orden.Fecha;
+					OrdenCompra.Contado = Orden.Contado;
+					OrdenCompra.Credito = Orden.Credito;
+					OrdenCompra.Diascredito = Orden.Diascredito;
+					OrdenCompra.Plazo = Orden.Plazo;
+					OrdenCompra.Descuento = Orden.Descuento;
+					OrdenCompra.Impuesto = Orden.Impuesto;
+					OrdenCompra.Total = Orden.Total;
+					OrdenCompra.Observaciones = Orden.Observaciones;
+					OrdenCompra.Usuario = Orden.Usuario;
+					OrdenCompra.NombreUsuario = Orden.NombreUsuario;
+					OrdenCompra.Entregar = Orden.Entregar;
+					OrdenCompra.CodMoneda = Orden.CodMoneda;
+					OrdenCompra.SubTotalGravado = Orden.SubTotalGravado;
+					OrdenCompra.SubTotalExento = Orden.SubTotalExento;
+					OrdenCompra.SubTotal = Orden.SubTotal;
+					OrdenCompra.Anulado = Orden.Anulado;
 
-					entities.Entry(viejo).State = EntityState.Modified;
+					Models.DetalleOrdencompra nuevaLinea;
+					foreach (Models.DetalleOrdencompra Detalle in OrdenCompra.DetalleOrdencompras)
+					{
+						//Agrega nuevos registros
+						if (Detalle.Id == 0)
+						{
+							nuevaLinea = new Models.DetalleOrdencompra();
+							//nuevaLinea.Id = Detalle.Id;
+							nuevaLinea.Orden = Detalle.Orden;
+							nuevaLinea.Codigo = Detalle.Codigo;
+							nuevaLinea.Descripcion = Detalle.Descripcion;
+							nuevaLinea.CostoUnitario = Detalle.CostoUnitario;
+							nuevaLinea.Cantidad = Detalle.Cantidad;
+							nuevaLinea.TotalCompra = Detalle.TotalCompra;
+							nuevaLinea.PorcDescuento = Detalle.PorcDescuento;
+							nuevaLinea.Descuento = Detalle.Descuento;
+							nuevaLinea.PorcImpuesto = Detalle.PorcImpuesto;
+							nuevaLinea.Impuesto = Detalle.Impuesto;
+							nuevaLinea.OtrosCargos = Detalle.OtrosCargos;
+							nuevaLinea.MontoFlete = Detalle.MontoFlete;
+							nuevaLinea.Costo = Detalle.Costo;
+							nuevaLinea.Gravado = Detalle.Gravado;
+							nuevaLinea.Exento = Detalle.Exento;
+							nuevaLinea.Vendidos = Detalle.Vendidos;
+							nuevaLinea.ExistActual = Detalle.ExistActual;
+							OrdenCompra.DetalleOrdencompras.Add(nuevaLinea);
+						}
+						else
+						{
+							//Actualiza los detalles
+							var a = entities.DetalleOrdencompras.Find(Detalle.Id);
+							Models.DetalleOrdencompra lineaModificada = a;
+							if (lineaModificada != null)
+							{
+								lineaModificada.Id = Detalle.Id;
+								lineaModificada.Orden = Detalle.Orden;
+								lineaModificada.Codigo = Detalle.Codigo;
+								lineaModificada.Descripcion = Detalle.Descripcion;
+								lineaModificada.CostoUnitario = Detalle.CostoUnitario;
+								lineaModificada.Cantidad = Detalle.Cantidad;
+								lineaModificada.TotalCompra = Detalle.TotalCompra;
+								lineaModificada.PorcDescuento = Detalle.PorcDescuento;
+								lineaModificada.Descuento = Detalle.Descuento;
+								lineaModificada.PorcImpuesto = Detalle.PorcImpuesto;
+								lineaModificada.Impuesto = Detalle.Impuesto;
+								lineaModificada.OtrosCargos = Detalle.OtrosCargos;
+								lineaModificada.MontoFlete = Detalle.MontoFlete;
+								lineaModificada.Costo = Detalle.Costo;
+								lineaModificada.Gravado = Detalle.Gravado;
+								lineaModificada.Exento = Detalle.Exento;
+								lineaModificada.Vendidos = Detalle.Vendidos;
+								lineaModificada.ExistActual = Detalle.ExistActual;
 
+								entities.Entry(lineaModificada).State = EntityState.Modified;
+								entities.SaveChanges();
+							}
+						}
+
+					}
+
+					entities.Entry(OrdenCompra).State = EntityState.Modified;
 					return entities.SaveChanges();
 				}
 				else

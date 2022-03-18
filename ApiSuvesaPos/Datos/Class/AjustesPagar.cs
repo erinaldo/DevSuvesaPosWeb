@@ -51,6 +51,37 @@ namespace Datos.Class
 
         }
 
+        public List<DetalleAjustescPagar> ObtenerDetalles(long Id)
+        {
+            try
+            {
+
+                List<DetalleAjustescPagar> result;
+
+                    var temp = from c in entities.DetalleAjustescPagars
+                               where c.IdAjustecPagar == Id
+                               select c;
+                    result = temp.ToList<DetalleAjustescPagar>();
+
+
+
+                if (result.Count > 0)
+                {
+                    return result;
+                }
+                else
+                {
+                    return result = null;
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public List<Ajustescpagar> ObtenerAjustesPagar(bool porId, string Filtro)
         {
             try

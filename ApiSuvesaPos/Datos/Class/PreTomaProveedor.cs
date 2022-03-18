@@ -30,6 +30,31 @@ namespace Datos.Class
 			}
 		}
 
+		public List<Models.PreTomaProveedorDetalle> BuscarDetalle(decimal Id)  //consultar PreTomaProveedor
+		{
+			try
+			{
+				List<Models.PreTomaProveedorDetalle> result;
+					var temp = from c in entities.PreTomaProveedorDetalles
+							   where c.IdPreTomaProveedor == Id
+							   select c;
+					result = temp.ToList<Models.PreTomaProveedorDetalle>();
+				
+				if (result.Count > 0)
+				{
+					return result;
+				}
+				else
+				{
+					return result = null;
+				}
+			}
+			catch (Exception ex)
+			{
+				throw ex;
+			}
+		}
+
 		public List<Models.PreTomaProveedor> Buscar(bool porNombre, string filtro)  //consultar PreTomaProveedor
 		{
 			try

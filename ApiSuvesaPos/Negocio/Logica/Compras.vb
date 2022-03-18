@@ -1,218 +1,119 @@
 ﻿Namespace Logica
     Public Class Compras
 
+        Private db As Datos.Class.Compras
 
-        '**************** actualmente los lotes no se usan porque no sirven pero se quiere
-        Public Property Moneda As New Monedas
-        Public Property Proveedores As New Proveedores
-        Public Property Inventario As New Inventario
-
-
-        Public Sub Eliminar(compra As Modelo.compras)
-
-
-            'Dim Transaccion As SqlTransaction
-            'Try
-
-            '    ToolBar1.Buttons(2).Enabled = False
-            '    If SqlConnection.State <> SqlConnection.State.Open Then SqlConnection.Open()
-            '    Transaccion = SqlConnection.BeginTransaction
-            '    'Se crea la transaccion & se asigna a los commandos
-            '    AdapterCompras.UpdateCommand.Transaction = Transaccion
-            '    AdapterCompras.DeleteCommand.Transaction = Transaccion
-
-            '    'Transacciones en Articulos comprados 
-            '    AdapterArticulos_Comprados.UpdateCommand.Transaction = Transaccion
-            '    AdapterArticulos_Comprados.DeleteCommand.Transaction = Transaccion
-
-            '    'Transacciones en Lotes 
-            '    Me.AdapterLotes.UpdateCommand.Transaction = Transaccion
-            '    Me.AdapterLotes.DeleteCommand.Transaction = Transaccion
-
-            '    BindingContext(DataSetCompras, "compras").RemoveAt(BindingContext(DataSetCompras, "compras").Position)
-            '    BindingContext(DataSetCompras, "compras").EndCurrentEdit()
-
-            '    Me.AdapterLotes.Update(DataSetCompras, "Lotes")
-            '    AdapterArticulos_Comprados.Update(DataSetCompras, "articulos_comprados")
-            '    AdapterCompras.Update(DataSetCompras, "compras")
-
-            '    Transaccion.Commit()
-            '    MsgBox("Los datos se Eliminaron satisfactoriamente...", MsgBoxStyle.Information, "Atención...")
-            '    DataSetCompras.articulos_comprados.Clear()
-            '    DataSetCompras.Lotes.Clear()
-            '    DataSetCompras.compras.Clear()
-            '    DataSetCompras.detalle_ordencompra.Clear()
-            '    ComboBoxProvedor.Text = ""
-            '    TxtTotalFactura.Text = "0.00"
-            '    ToolBar1.Buttons(2).Enabled = True
-            '    txtClave.Text = ""
-            '    TxtNombreUsuario.Text = ""
-            '    txtClave.Focus()
-            '    txtClave.Enabled = False
-            '    GroupBox1.Enabled = False
-            '    GroupBoxOpcionesCompras.Enabled = False
-            '    GroupBoxDetalleArticulo.Enabled = False
-            '    ComboMonedaCompra.Enabled = True
-            '    Importando = False
-            '    Finalizado_Importacion = False
-            '    'ErrorProvider.Dispose()
-
-            'Catch ex As Exception
-            '    Transaccion.Rollback()
-            '    MsgBox(ex.Message, MsgBoxStyle.Critical, "Alerta...")
-            'End Try
+        Sub New()
+            Me.db = New Datos.Class.Compras
         End Sub
 
-        Public Sub Crear(compra As Modelo.compras)
-            '
+        Public Function Eliminar(Id As Long) As String
+            Return Me.db.BorrarCompra(Id)
+        End Function
 
-            'Dim Transaccion As SqlTransaction
-            'Try
-            '    If SqlConnection.State <> SqlConnection.State.Open Then SqlConnection.Open()
+        Public Function Crear(compra As Datos.Models.Compra) As String
+            Return db.CrearCompras(compra)
+        End Function
 
-            '    Transaccion = SqlConnection.BeginTransaction
-            '    Calcular_Totales_Compras()
-            '    BindingContext(DataSetCompras, "compras").EndCurrentEdit()
+        Public Function Editar(Id As Long, compra As Datos.Models.Compra) As String
+            Dim res As String = db.EditarCompras(Id, compra)
+            If res = "0" Then
+                Return "No existe el valor"
+            Else
+                Return res
+            End If
+        End Function
 
-            '    AdapterCompras.UpdateCommand.Transaction = Transaccion
-            '    AdapterCompras.InsertCommand.Transaction = Transaccion
-            '    AdapterCompras.DeleteCommand.Transaction = Transaccion
+        Public Function Buscar(porId As Boolean, porNombre As Boolean, filtro As String) As List(Of Datos.Models.Compra)
+            Dim datos As New List(Of Datos.Models.Compra)
+            datos = Me.db.ObtenerCompras(porNombre, filtro)
 
-            '    AdapterLotes.UpdateCommand.Transaction = Transaccion
-            '    AdapterLotes.DeleteCommand.Transaction = Transaccion
-            '    AdapterLotes.InsertCommand.Transaction = Transaccion
+            Dim Resultado As New List(Of Datos.Models.Compra)
+            For Each comp As Datos.Models.Compra In datos
+                Dim Compra As New Datos.Models.Compra
+                Compra.IdCompra = comp.IdCompra
+                Compra.Factura = comp.Factura
+                Compra.CodigoProv = comp.CodigoProv
+                Compra.SubTotalGravado = comp.SubTotalGravado
+                Compra.SubTotalExento = comp.SubTotalExento
+                Compra.Descuento = comp.Descuento
+                Compra.Impuesto = comp.Impuesto
+                Compra.TotalFactura = comp.TotalFactura
+                Compra.Fecha = comp.Fecha
+                Compra.Vence = comp.Vence
+                Compra.FechaIngreso = comp.FechaIngreso
+                Compra.MotivoGasto = comp.MotivoGasto
+                Compra.Compra1 = comp.Compra1
+                Compra.Contabilizado = comp.Contabilizado
+                Compra.Consignacion = comp.Consignacion
+                Compra.Asiento = comp.Asiento
+                Compra.ContaInve = comp.ContaInve
+                Compra.AsientoInve = comp.AsientoInve
+                Compra.TipoCompra = comp.TipoCompra
+                Compra.CedulaUsuario = comp.CedulaUsuario
+                Compra.CodMonedaCompra = comp.CodMonedaCompra
+                Compra.FacturaCancelado = comp.FacturaCancelado
+                Compra.Gasto = comp.Gasto
+                Compra.TipoCambio = comp.TipoCambio
+                Compra.CambioImpuesto = comp.CambioImpuesto
+                Compra.Taller = comp.Taller
+                Compra.Mascotas = comp.Mascotas
+                Compra.NumOrden = comp.NumOrden
+                Compra.Fec = comp.Fec
+                Compra.CodigoActividad = comp.CodigoActividad
+                Compra.EnviadoDgt = comp.EnviadoDgt
+                Compra.EstadoDgt = comp.EstadoDgt
+                Compra.ConsecutivoDgt = comp.ConsecutivoDgt
+                Compra.ClaveDgt = comp.ClaveDgt
+                Compra.Trans = comp.Trans
+                Compra.NumTrans = comp.NumTrans
+                Compra.Prepagada = comp.Prepagada
+                Compra.PreAbono = comp.PreAbono
 
-            '    AdapterArticulos_Comprados.UpdateCommand.Transaction = Transaccion
-            '    AdapterArticulos_Comprados.DeleteCommand.Transaction = Transaccion
-            '    AdapterArticulos_Comprados.InsertCommand.Transaction = Transaccion
 
-            '    '-----------------------------------------------------------------------------------
-            '    'Inicia Transacción....
+                For Each det As Datos.Models.ArticulosComprado In Me.db.ObtenerArticulosComprados(Compra.IdCompra)
+                    Dim Detalle As New Datos.Models.ArticulosComprado
+                    Detalle.IdArticuloComprados = det.IdArticuloComprados
+                    Detalle.IdCompra = det.IdCompra
+                    Detalle.Codigo = det.Codigo
+                    Detalle.CodArticulo = det.CodArticulo
+                    Detalle.Descripcion = det.Descripcion
+                    Detalle.Base = det.Base
+                    Detalle.MontoFlete = det.MontoFlete
+                    Detalle.OtrosCargos = det.OtrosCargos
+                    Detalle.Costo = det.Costo
+                    Detalle.Cantidad = det.Cantidad
+                    Detalle.Regalias = det.Regalias
+                    Detalle.Gravado = det.Gravado
+                    Detalle.Exento = det.Exento
+                    Detalle.DescuentoP = det.DescuentoP
+                    Detalle.Descuento = det.Descuento
+                    Detalle.ImpuestoP = det.ImpuestoP
+                    Detalle.Impuesto = det.Impuesto
+                    Detalle.Total = det.Total
+                    Detalle.Devoluciones = det.Devoluciones
+                    Detalle.PrecioA = det.PrecioA
+                    Detalle.PrecioB = det.PrecioB
+                    Detalle.PrecioC = det.PrecioC
+                    Detalle.PrecioD = det.PrecioD
+                    Detalle.CodMonedaVenta = det.CodMonedaVenta
+                    Detalle.NuevoCostoBase = det.NuevoCostoBase
+                    Detalle.Lote = det.Lote
+                    Detalle.Bonificado = det.Bonificado
+                    Detalle.CodigoBonificado = det.CodigoBonificado
+                    Detalle.CantidadBonificado = det.CantidadBonificado
+                    Detalle.CostoBonificado = det.CostoBonificado
+                    Detalle.SubTotalBonificado = det.SubTotalBonificado
+                    Detalle.CodArticuloBonificacion = det.CodArticuloBonificacion
+                    Detalle.CodCabys = det.CodCabys
 
-            '    pbuscar = TxtFacturaCompraN.Text
-            '    txtComboTipoF = ComboTipoF.Text
+                    Compra.ArticulosComprados.Add(Detalle)
+                Next
 
-            '    AdapterCompras.Update(DataSetCompras.compras)
-            '    'AdapterLotes.Update(DataSetCompras.Lotes)
-            '    AdapterArticulos_Comprados.Update(DataSetCompras.articulos_comprados)
-            '    '-----------------------------------------------------------------------------------
-            '    Transaccion.Commit()
+                Resultado.Add(Compra)
+            Next
 
-            '    Dim db As New OBSoluciones.SQL.Sentencias(CadenaConexionSeePOS)
-            '    Dim IdCompra As String = BindingContext(DataSetCompras, "Compras").Current("Id_Compra")
-
-            '    For Each r As Lote In Me.Lotes
-            '        If r.Id > 0 Then
-            '            'db.Ejecutar("", CommandType.Text)
-            '        Else
-            '            db.Ejecutar("Insert into ControlLotes(IdReferencia, Lote, Barras, Vence, Codigo, Cantidad, Actual) Values(" & IdCompra & ", '" & r.Lote & "', '" & r.Barras & "', '" & r.Vence & "', " & r.Codigo & ", " & r.Cantidad & ", " & r.Cantidad & ")", CommandType.Text)
-            '            'db.Ejecutar("Update Inventario Set Barras = '" & r.Barras & "' Where Codigo = " & r.Codigo, CommandType.Text)
-            '        End If
-            '    Next
-
-            '    Dim dtLotes As New DataTable
-            '    Me.Lotes.Clear()
-            '    cFunciones.Llenar_Tabla_Generico("Select c.Id, c.Lote, c.Vence, c.Codigo, i.Descripcion, CAST(i.PresentaCant as nvarchar) + ' ' + p.Presentaciones as Presentacion , c.Barras, c.Cantidad from ControlLotes c inner join Inventario i on c.Codigo = i.Codigo inner join Presentaciones p on i.CodPresentacion = p.CodPres Where c.IdReferencia = " & IdCompra, dtLotes, CadenaConexionSeePOS)
-            '    For Each r As DataRow In dtLotes.Rows
-            '        Me.Lotes.Add(New Lote(r.Item("Id"), r.Item("Lote"), r.Item("Vence"), r.Item("Codigo"), r.Item("Descripcion"), r.Item("Presentacion"), r.Item("Barras"), r.Item("Cantidad"), r.Item("Cantidad")))
-            '    Next
-
-            '    MsgBox("Los datos se actualiazaron satisfactoriamente...", MsgBoxStyle.Information, "Atención...")
-            '    Return True
-            'Catch ex As Exception
-            '    Transaccion.Rollback()
-            '    'If Err.Number = 5 Then
-            '    '    MsgBox("Esta Factura ya existe!", MsgBoxStyle.Information)
-            '    '    ToolBar1.Buttons(2).Enabled = True
-            '    '    Return False
-            '    '    Exit Try
-            '    'End If
-            '    MsgBox(ex.ToString, MsgBoxStyle.Information)
-            '    ToolBar1.Buttons(2).Enabled = True
-            '    Return False
-            'End Try
-        End Sub
-
-        Public Sub Editar(compra As Modelo.compras)
-            '
-
-            'Dim Transaccion As SqlTransaction
-            'Try
-            '    If SqlConnection.State <> SqlConnection.State.Open Then SqlConnection.Open()
-
-            '    Transaccion = SqlConnection.BeginTransaction
-            '    Calcular_Totales_Compras()
-            '    BindingContext(DataSetCompras, "compras").EndCurrentEdit()
-
-            '    AdapterCompras.UpdateCommand.Transaction = Transaccion
-            '    AdapterCompras.InsertCommand.Transaction = Transaccion
-            '    AdapterCompras.DeleteCommand.Transaction = Transaccion
-
-            '    AdapterLotes.UpdateCommand.Transaction = Transaccion
-            '    AdapterLotes.DeleteCommand.Transaction = Transaccion
-            '    AdapterLotes.InsertCommand.Transaction = Transaccion
-
-            '    AdapterArticulos_Comprados.UpdateCommand.Transaction = Transaccion
-            '    AdapterArticulos_Comprados.DeleteCommand.Transaction = Transaccion
-            '    AdapterArticulos_Comprados.InsertCommand.Transaction = Transaccion
-
-            '    '-----------------------------------------------------------------------------------
-            '    'Inicia Transacción....
-
-            '    pbuscar = TxtFacturaCompraN.Text
-            '    txtComboTipoF = ComboTipoF.Text
-
-            '    AdapterCompras.Update(DataSetCompras.compras)
-            '    'AdapterLotes.Update(DataSetCompras.Lotes)
-            '    AdapterArticulos_Comprados.Update(DataSetCompras.articulos_comprados)
-            '    '-----------------------------------------------------------------------------------
-            '    Transaccion.Commit()
-
-            '    Dim db As New OBSoluciones.SQL.Sentencias(CadenaConexionSeePOS)
-            '    Dim IdCompra As String = BindingContext(DataSetCompras, "Compras").Current("Id_Compra")
-
-            '    For Each r As Lote In Me.Lotes
-            '        If r.Id > 0 Then
-            '            'db.Ejecutar("", CommandType.Text)
-            '        Else
-            '            db.Ejecutar("Insert into ControlLotes(IdReferencia, Lote, Barras, Vence, Codigo, Cantidad, Actual) Values(" & IdCompra & ", '" & r.Lote & "', '" & r.Barras & "', '" & r.Vence & "', " & r.Codigo & ", " & r.Cantidad & ", " & r.Cantidad & ")", CommandType.Text)
-            '            'db.Ejecutar("Update Inventario Set Barras = '" & r.Barras & "' Where Codigo = " & r.Codigo, CommandType.Text)
-            '        End If
-            '    Next
-
-            '    Dim dtLotes As New DataTable
-            '    Me.Lotes.Clear()
-            '    cFunciones.Llenar_Tabla_Generico("Select c.Id, c.Lote, c.Vence, c.Codigo, i.Descripcion, CAST(i.PresentaCant as nvarchar) + ' ' + p.Presentaciones as Presentacion , c.Barras, c.Cantidad from ControlLotes c inner join Inventario i on c.Codigo = i.Codigo inner join Presentaciones p on i.CodPresentacion = p.CodPres Where c.IdReferencia = " & IdCompra, dtLotes, CadenaConexionSeePOS)
-            '    For Each r As DataRow In dtLotes.Rows
-            '        Me.Lotes.Add(New Lote(r.Item("Id"), r.Item("Lote"), r.Item("Vence"), r.Item("Codigo"), r.Item("Descripcion"), r.Item("Presentacion"), r.Item("Barras"), r.Item("Cantidad"), r.Item("Cantidad")))
-            '    Next
-
-            '    MsgBox("Los datos se actualiazaron satisfactoriamente...", MsgBoxStyle.Information, "Atención...")
-            '    Return True
-            'Catch ex As Exception
-            '    Transaccion.Rollback()
-            '    'If Err.Number = 5 Then
-            '    '    MsgBox("Esta Factura ya existe!", MsgBoxStyle.Information)
-            '    '    ToolBar1.Buttons(2).Enabled = True
-            '    '    Return False
-            '    '    Exit Try
-            '    'End If
-            '    MsgBox(ex.ToString, MsgBoxStyle.Information)
-            '    ToolBar1.Buttons(2).Enabled = True
-            '    Return False
-            'End Try
-        End Sub
-
-        Public Function Buscar(porId As Boolean, porNombre As Boolean, porFactura As Boolean, filtro As String) As List(Of Modelo.compras)
-            '== a busargasto pero filtrando los gastos
-
-            Dim compras As New List(Of Modelo.compras)
-            'Dim Fx As New cFunciones
-
-            'identificador = CDbl(Fx.Buscar_X_Descripcion_Fecha("Select Id_Compra, (convert(Varchar, convert(Bigint,Factura,0),1) + '-' + TipoCompra)as Factura,Proveedores.nombre,Fecha from compras inner join Proveedores on compras.CodigoProv = Proveedores.CodigoProv Order by Fecha DESC", "nombre", "Fecha", "Buscar Factura de Compra"))
-
-            'buscando = True
-            Return compras
+            Return Resultado
         End Function
 
 

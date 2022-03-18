@@ -30,6 +30,31 @@ namespace Datos.Class
 			}
 		}
 
+		public List<Models.MovimientosBodegaDetalle> BuscarDetalle(long Id)  //consultar MovimientosBodega
+		{
+			try
+			{
+				List<Models.MovimientosBodegaDetalle> result;
+					var temp = from c in entities.MovimientosBodegaDetalles
+							   where c.BoletaMovimiento == Id
+							   select c;
+					result = temp.ToList<Models.MovimientosBodegaDetalle>();
+				
+				if (result.Count > 0)
+				{
+					return result;
+				}
+				else
+				{
+					return result = null;
+				}
+			}
+			catch (Exception ex)
+			{
+				throw ex;
+			}
+		}
+
 		public List<Models.MovimientosBodega> Buscar(bool porNombre, string filtro)  //consultar MovimientosBodega
 		{
 			try

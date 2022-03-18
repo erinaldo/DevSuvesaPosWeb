@@ -87,15 +87,60 @@
         End Function
 
         Public Function Buscar(porNombre As Boolean, Filtro As String) As List(Of Datos.Models.DevolucionesCompra)
-            Return Me.db.Buscar(porNombre, Filtro)
-            'identificador = CDbl(Fx.Buscar_X_Descripcion_Fecha("SELECT  Devolucion, NombrePro,Fecha FROM devoluciones_Compras Order by Fecha DESC", "NombrePro", "Fecha", "Buscar Devolución de Compra", Me.SqlConnection1.ConnectionString))
+            Dim datos As New List(Of Datos.Models.DevolucionesCompra)
+            datos = db.Buscar(porNombre, Filtro)
 
-            'buscando = True
-            'If identificador = 0.0 Then ' si se dio en el boton de cancelar
-            '    Me.buscando = False
-            '    Exit Sub
-            'End If
+            Dim Resultado As New List(Of Datos.Models.DevolucionesCompra)
+            For Each devo As Datos.Models.DevolucionesCompra In datos
+                Dim Devolucion As New Datos.Models.DevolucionesCompra
+                Devolucion.Devolucion = devo.Devolucion
+                Devolucion.IdFacturaCompra = devo.IdFacturaCompra
+                Devolucion.SaldoAntFact = devo.SaldoAntFact
+                Devolucion.SubTotalGravado = devo.SubTotalGravado
+                Devolucion.SubTotalExcento = devo.SubTotalExcento
+                Devolucion.Descuento = devo.Descuento
+                Devolucion.Impuesto = devo.Impuesto
+                Devolucion.Monto = devo.Monto
+                Devolucion.Fecha = devo.Fecha
+                Devolucion.Contabilizado = devo.Contabilizado
+                Devolucion.Asiento = devo.Asiento
+                Devolucion.Anulado = devo.Anulado
+                Devolucion.CedulaUsuario = devo.CedulaUsuario
+                Devolucion.CodMoneda = devo.CodMoneda
+                Devolucion.NombrePro = devo.NombrePro
+                Devolucion.ContaInventario = devo.ContaInventario
+                Devolucion.AsientoInventario = devo.AsientoInventario
+                Devolucion.FechaEntrada = devo.FechaEntrada
+                Devolucion.IdSucursal = devo.IdSucursal
 
+                For Each detalle As Datos.Models.ArticulosComprasDevuelto In Me.db.BuscarDetalle(Devolucion.Devolucion)
+                    Dim ArticulosDevueltos As New Datos.Models.ArticulosComprasDevuelto
+                    ArticulosDevueltos.Consecutivo = detalle.Consecutivo
+                    ArticulosDevueltos.Devolucion = detalle.Devolucion
+                    ArticulosDevueltos.Codigo = detalle.Codigo
+                    ArticulosDevueltos.Descripcion = detalle.Descripcion
+                    ArticulosDevueltos.Cantidad = detalle.Cantidad
+                    ArticulosDevueltos.PrecioCosto = detalle.PrecioCosto
+                    ArticulosDevueltos.PrecioBase = detalle.PrecioBase
+                    ArticulosDevueltos.PrecioFlete = detalle.PrecioFlete
+                    ArticulosDevueltos.PrecioOtros = detalle.PrecioOtros
+                    ArticulosDevueltos.Descuento = detalle.Descuento
+                    ArticulosDevueltos.MontoDescuento = detalle.MontoDescuento
+                    ArticulosDevueltos.Impuesto = detalle.Impuesto
+                    ArticulosDevueltos.MontoImpuesto = detalle.MontoImpuesto
+                    ArticulosDevueltos.SubtotalGravado = detalle.SubtotalGravado
+                    ArticulosDevueltos.SubTotalExcento = detalle.SubTotalExcento
+                    ArticulosDevueltos.SubTotal = detalle.SubTotal
+                    ArticulosDevueltos.Numero = detalle.Numero
+                    ArticulosDevueltos.IdSucursal = detalle.IdSucursal
+
+                    Devolucion.ArticulosComprasDevueltos.Add(ArticulosDevueltos)
+                Next
+
+                Resultado.Add(Devolucion)
+            Next
+
+            Return Resultado
         End Function
 
         Public Function Anular(Id As Long) As String

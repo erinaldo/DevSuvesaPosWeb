@@ -219,30 +219,47 @@
         End Function
 
         Public Function Buscar(porId As Boolean, Filtro As String) As List(Of Datos.Models.Aperturacaja)
-            Return Me.db.ObtenerAperturasCajas(porId, Filtro)
-            'Private Sub BuscarAperturas()
-            '    Dim Fx As New cFunciones
-            '    Dim Apertura As String
+            Dim datos As New List(Of Datos.Models.Aperturacaja)
+            datos = Me.db.ObtenerAperturasCajas(porId, Filtro)
 
-            '    Apertura = Fx.Buscar_X_Descripcion_Fecha("SELECT NApertura AS Apertura, Nombre, Fecha, num_caja as Caja FROM aperturacaja Order by NApertura Desc", "Nombre", "Fecha", "Buscar Apertura de Caja", Me.SqlConnection1.ConnectionString)
-            '    If Apertura <> "" Then
-            '        Me.DataSetAperturaCaja1.Apertura_Denominaciones.Clear()
-            '        Me.DataSetAperturaCaja1.Apertura_Total_Tope.Clear()
-            '        Me.DataSetAperturaCaja1.aperturacaja.Clear()
-            '        CargarApertura(Apertura)
-            '        CargarTope(Apertura)
-            '        CargarDenominacion(Apertura)
-            '        Me.ToolBar1.Buttons(4).Enabled = True
-            '        Me.ToolBar1.Buttons(2).Enabled = False
-            '        Me.ToolBar1.Buttons(3).Enabled = True
-            '        Me.GridControl2.Enabled = False
-            '        Me.GridControl3.Enabled = False
-            '        Me.GridControl1.Enabled = True
-            '        Me.GroupBox2.Enabled = True
-            '        Me.GroupBox5.Enabled = True
-            '        Me.GroupBox3.Enabled = False
-            '    End If
-            'End Sub
+            Dim Resultado As New List(Of Datos.Models.Aperturacaja)
+            For Each ape As Datos.Models.Aperturacaja In datos
+                Dim Apertura As New Datos.Models.Aperturacaja
+                Apertura.Napertura = ape.Napertura
+                Apertura.Fecha = ape.Fecha
+                Apertura.Nombre = ape.Nombre
+                Apertura.Estado = ape.Estado
+                Apertura.Observaciones = ape.Observaciones
+                Apertura.Anulado = ape.Anulado
+                Apertura.Cedula = ape.Cedula
+                Apertura.NumCaja = ape.NumCaja
+                Apertura.IdSucursal = ape.IdSucursal
+
+                For Each det As Datos.Models.AperturaDenominacione In Me.db.ObtenerAperturaDenominaciones(Apertura.Napertura)
+                    Dim Detalle As New Datos.Models.AperturaDenominacione
+                    Detalle.Id = det.Id
+                    Detalle.IdApertura = det.IdApertura
+                    Detalle.IdDenominacion = det.IdDenominacion
+                    Detalle.Monto = det.Monto
+                    Detalle.Cantidad = det.Cantidad
+
+                    Apertura.AperturaDenominaciones.Add(Detalle)
+                Next
+
+                For Each det As Datos.Models.AperturaTotalTope In Me.db.ObtenerAperturaTope(Apertura.Napertura)
+                    Dim Detalle As New Datos.Models.AperturaTotalTope
+                    Detalle.IdTotalTope = det.IdTotalTope
+                    Detalle.Napertura = det.Napertura
+                    Detalle.CodMoneda = det.CodMoneda
+                    Detalle.MontoTope = det.MontoTope
+                    Detalle.MonedaNombre = det.MonedaNombre
+                    Apertura.AperturaTotalTopes.Add(Detalle)
+                Next
+
+                Resultado.Add(Apertura)
+            Next
+
+            Return Resultado
         End Function
 
 

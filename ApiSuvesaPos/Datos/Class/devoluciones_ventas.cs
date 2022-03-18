@@ -33,6 +33,34 @@ namespace Datos.Class
 
         }
 
+        public List<Models.ArticulosVentasDevuelto> BuscarDetalle(long Id)
+        {
+            try
+            {
+                List<Models.ArticulosVentasDevuelto> result;
+                    var temp = from c in entities.ArticulosVentasDevueltos
+                               where c.Devolucion == Id
+                               select c;
+                    result = temp.ToList<Models.ArticulosVentasDevuelto>();
+                
+
+                if (result.Count > 0)
+                {
+                    return result;
+                }
+                else
+                {
+                    return result = null;
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public List<Models.DevolucionesVenta> Buscar(bool porNombre, string filtro)  
         {
             try

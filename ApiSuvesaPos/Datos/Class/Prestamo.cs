@@ -30,6 +30,30 @@ namespace Datos.Class
 			}
 		}
 
+		public List<Models.DetallePrestamo> BuscarDetalle(long Id)  //consultar Prestamo
+		{
+			try
+			{
+				List<Models.DetallePrestamo> result;
+					var temp = from c in entities.DetallePrestamos
+							   select c;
+					result = temp.ToList<Models.DetallePrestamo>();
+				
+				if (result.Count > 0)
+				{
+					return result;
+				}
+				else
+				{
+					return result = null;
+				}
+			}
+			catch (Exception ex)
+			{
+				throw ex;
+			}
+		}
+
 		public List<Models.Prestamo> Buscar(bool porNombre, string filtro)  //consultar Prestamo
 		{
 			try

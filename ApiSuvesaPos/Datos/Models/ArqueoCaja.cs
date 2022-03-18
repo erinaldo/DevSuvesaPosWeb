@@ -7,6 +7,13 @@ namespace Datos.Models
 {
     public partial class ArqueoCaja
     {
+        public ArqueoCaja()
+        {
+            ArqueoDepositos = new HashSet<ArqueoDeposito>();
+            ArqueoEfectivos = new HashSet<ArqueoEfectivo>();
+            ArqueoTarjeta = new HashSet<ArqueoTarjetum>();
+        }
+
         public long Id { get; set; }
         public double EfectivoColones { get; set; }
         public double EfectivoDolares { get; set; }
@@ -25,5 +32,9 @@ namespace Datos.Models
         public string Observaciones { get; set; }
         public double TarjetaSistema { get; set; }
         public double OtrasTarjetas { get; set; }
+
+        public virtual ICollection<ArqueoDeposito> ArqueoDepositos { get; set; }
+        public virtual ICollection<ArqueoEfectivo> ArqueoEfectivos { get; set; }
+        public virtual ICollection<ArqueoTarjetum> ArqueoTarjeta { get; set; }
     }
 }

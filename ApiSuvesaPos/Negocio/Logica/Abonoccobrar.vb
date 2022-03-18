@@ -110,16 +110,54 @@
         End Function
 
         Public Function Buscar(porId As Boolean, Filtro As String) As List(Of Datos.Models.Abonoccobrar)
+            Dim datos As New List(Of Datos.Models.Abonoccobrar)
+            datos = db.ObtenerAbonocCobrar(porId, Filtro)
 
-            Return db.ObtenerAbonocCobrar(porId, Filtro)
+            Dim Resultado As New List(Of Datos.Models.Abonoccobrar)
+            For Each abono As Datos.Models.Abonoccobrar In datos
+                Dim abonoccobrar As New Datos.Models.Abonoccobrar
+                abonoccobrar.IdRecibo = abono.IdRecibo
+                abonoccobrar.NumRecibo = abono.NumRecibo
+                abonoccobrar.CodCliente = abono.CodCliente
+                abonoccobrar.NombreCliente = abono.NombreCliente
+                abonoccobrar.SaldoCuenta = abono.SaldoCuenta
+                abonoccobrar.Monto = abono.Monto
+                abonoccobrar.SaldoActual = abono.SaldoActual
+                abonoccobrar.Fecha = abono.Fecha
+                abonoccobrar.Observaciones = abono.Observaciones
+                abonoccobrar.Anula = abono.Anula
+                abonoccobrar.CedUsuario = abono.CedUsuario
+                abonoccobrar.Contabilizado = abono.Contabilizado
+                abonoccobrar.Asiento = abono.Asiento
+                abonoccobrar.CodMoneda = abono.CodMoneda
+                abonoccobrar.Cheque = abono.Cheque
+                abonoccobrar.NumCaja = abono.NumCaja
+                abonoccobrar.Banco = abono.Banco
+                abonoccobrar.NumApertura = abono.NumApertura
+                abonoccobrar.EstadoEnvio = abono.EstadoEnvio
+                abonoccobrar.IdSucursal = abono.IdSucursal
 
-            'identificador = CDbl(Fx.Buscar_X_Descripcion_Fecha5C("SELECT abonoccobrar.Id_Recibo, abonoccobrar.Num_Recibo as Recibo , abonoccobrar.Nombre_Cliente AS Nombre_Cliente, abonoccobrar.Fecha,  abonoccobrar.Monto FROM abonoccobrar INNER JOIN  Moneda ON abonoccobrar.Cod_Moneda = Moneda.CodMoneda ORDER BY abonoccobrar.Fecha DESC", "Nombre_Cliente", "Fecha", "Buscar Recibo de Dinero"))
-            'buscando = True
-            'If identificador = 0.0 Then ' si se dio en el boton de cancelar
-            '    buscando = False
-            '    Exit Sub
-            'End If
 
+                For Each detalle As Datos.Models.DetalleAbonoccobrar In Me.db.ObtenerDetalleAbonoscCobrar(abono.IdRecibo)
+                    Dim DetalleAbonoccobrar As New Datos.Models.DetalleAbonoccobrar
+                    DetalleAbonoccobrar.Consecutivo = detalle.Consecutivo
+                    DetalleAbonoccobrar.IdRecibo = detalle.IdRecibo
+                    DetalleAbonoccobrar.Factura = detalle.Factura
+                    DetalleAbonoccobrar.Tipo = detalle.Tipo
+                    DetalleAbonoccobrar.Fecha = detalle.Fecha
+                    DetalleAbonoccobrar.Monto = detalle.Monto
+                    DetalleAbonoccobrar.SaldoAnt = detalle.SaldoAnt
+                    DetalleAbonoccobrar.Intereses = detalle.Intereses
+                    DetalleAbonoccobrar.Abono = detalle.Abono
+                    DetalleAbonoccobrar.AbonoSuMoneda = detalle.AbonoSuMoneda
+                    DetalleAbonoccobrar.Saldo = detalle.Saldo
+                    abonoccobrar.DetalleAbonoccobrars.Add(DetalleAbonoccobrar)
+                Next
+
+                Resultado.Add(abonoccobrar)
+            Next
+
+            Return Resultado
         End Function
 
         Public Function Anular(Id As Long) As String

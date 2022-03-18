@@ -8,40 +8,46 @@
         End Sub
 
         Public Function Buscar(porNombre As Boolean, Filtro As String) As List(Of Datos.Models.Prestamo)
-            Return Me.db.Buscar(porNombre, Filtro)
-            'Datos.Models.Prestamo
-            'Datos.Models.Prestamo
+            Dim datos As New List(Of Datos.Models.Prestamo)
+            datos = db.Buscar(porNombre, Filtro)
 
-            'Public Function buscar(ByVal texto As String, Optional ByVal _ConsultaBoleta As Boolean = False, Optional ByVal _SPrestamo As Boolean = True) As DataTable
-            '    Try
-            '        conectado()
+            Dim Resultado As New List(Of Datos.Models.Prestamo)
+            For Each pres As Datos.Models.Prestamo In datos
+                Dim prestamo As New Datos.Models.Prestamo
+                prestamo.Id = pres.Id
+                prestamo.Fecha = pres.Fecha
+                prestamo.Estado = pres.Estado
+                prestamo.Anulado = pres.Anulado
+                prestamo.Entrada = pres.Entrada
+                prestamo.Salida = pres.Salida
+                prestamo.Observacion = pres.Observacion
+                prestamo.NombreDestino = pres.NombreDestino
+                prestamo.Boleta = pres.Boleta
+                prestamo.Destinatario = pres.Destinatario
+                prestamo.NombreDestinatario = pres.NombreDestinatario
+                prestamo.Destino = pres.Destino
+                prestamo.Transportista = pres.Transportista
+                prestamo.IdUsuariCreo = pres.IdUsuariCreo
+                prestamo.BoletaProveedor = pres.BoletaProveedor
 
-            '        If _SPrestamo = True Then
-            '            cmd = New SqlCommand("Consultar_SPrestamo")
-            '        Else
-            '            cmd = New SqlCommand("Consultar_Prestamo")
-            '        End If
+                For Each detalle As Datos.Models.DetallePrestamo In Me.db.BuscarDetalle(prestamo.Id)
+                    Dim prestamoDetalle As New Datos.Models.DetallePrestamo
+                    prestamoDetalle.Id = detalle.Id
+                    prestamoDetalle.IdPrestamo = detalle.IdPrestamo
+                    prestamoDetalle.Codigo = detalle.Codigo
+                    prestamoDetalle.Descripcion = detalle.Descripcion
+                    prestamoDetalle.Cantidad = detalle.Cantidad
+                    prestamoDetalle.Precio = detalle.Precio
+                    prestamoDetalle.Entregado = detalle.Entregado
+                    prestamoDetalle.Devuelto = detalle.Devuelto
 
-            '        cmd.CommandType = CommandType.StoredProcedure
-            '        cmd.Connection = cnn
-            '        cmd.Parameters.AddWithValue("@id", texto)
-            '        cmd.Parameters.AddWithValue("@ConsultaBoleta", _ConsultaBoleta)
-            '        If cmd.ExecuteNonQuery Then
-            '            Dim dt As New DataTable
-            '            Dim da As New SqlDataAdapter(cmd)
-            '            da.Fill(dt)
-            '            Return dt
-            '        Else
-            '            Return Nothing
-            '        End If
-            '    Catch ex As Exception
-            '        MsgBox(ex.Message)
-            '        Return Nothing
-            '    Finally
-            '        desconectado()
-            '    End Try
-            'End Function
+                    prestamo.DetallePrestamos.Add(prestamoDetalle)
+                Next
 
+                Resultado.Add(prestamo)
+            Next
+
+            Return Resultado
         End Function
 
         Public Function Crear(prestamo As Datos.Models.Prestamo) As String

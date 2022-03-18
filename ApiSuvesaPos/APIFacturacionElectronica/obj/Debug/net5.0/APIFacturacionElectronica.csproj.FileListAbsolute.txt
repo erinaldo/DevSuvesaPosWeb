@@ -142,4 +142,3 @@ C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\obj\Debug
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\obj\Debug\net5.0\ref\APIFacturacionElectronica.dll
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\obj\Debug\net5.0\APIFacturacionElectronica.pdb
 C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\obj\Debug\net5.0\APIFacturacionElectronica.genruntimeconfig.cache
-C:\WEBSuvesaPOS\DevSuvesaPosWeb\ApiSuvesaPos\APIFacturacionElectronica\obj\Debug\net5.0\APIFacturacionElectronica.csproj.CopyComplete

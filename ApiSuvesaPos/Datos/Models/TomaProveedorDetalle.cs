@@ -15,5 +15,7 @@ namespace Datos.Models
         public double Existencia { get; set; }
         public double Toma { get; set; }
         public double Diferencia { get; set; }
+
+        public virtual TomaProveedor IdTomaProveedorNavigation { get; set; }
     }
 }

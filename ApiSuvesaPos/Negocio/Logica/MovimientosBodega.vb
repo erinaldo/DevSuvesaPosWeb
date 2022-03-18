@@ -8,23 +8,42 @@
         End Sub
 
         Public Function Buscar(porNombre As Boolean, Filtro As String) As List(Of Datos.Models.MovimientosBodega)
-            Return Me.db.Buscar(porNombre, Filtro)
-            'Datos.Models.MovimientosBodega
-            'Datos.Models.MovimientosBodega
+            Dim datos As New List(Of Datos.Models.MovimientosBodega)
+            datos = db.Buscar(porNombre, Filtro)
 
-            'Dim Buscar As New FrmBuscador
-            'Buscar.SQLString = "SELECT MovimientosBodega.Boleta_Movimiento AS Movimiento, MovimientosBodega.Referencia, Bodegas.Nombre_Bodega AS Bodega, MovimientosBodega.Fecha FROM MovimientosBodega INNER JOIN  Bodegas ON MovimientosBodega.Bodega = Bodegas.ID_Bodega ORDER BY Boleta_Movimiento DESC"
-            'Buscar.Text = "Buscar Ajuste de Bodega"
-            'Buscar.CampoFiltro = "Bodega"
-            'Buscar.CampoFecha = "Fecha"
-            'Buscar.ShowDialog()
+            Dim Resultado As New List(Of Datos.Models.MovimientosBodega)
+            For Each mov As Datos.Models.MovimientosBodega In datos
+                Dim movimientos As New Datos.Models.MovimientosBodega
+                movimientos.BoletaMovimiento = mov.BoletaMovimiento
+                movimientos.Bodega = mov.Bodega
+                movimientos.Fecha = mov.Fecha
+                movimientos.FechaEntrada = mov.FechaEntrada
+                movimientos.Referencia = mov.Referencia
+                movimientos.Usuario = mov.Usuario
+                movimientos.Anulado = mov.Anulado
+                movimientos.Cliente = mov.Cliente
 
-            'Fx.Cargar_Tabla_Generico(Me.SqlDataAdapterMovimiento_Bodega, "SELECT * FROM MovimientosBodega WHERE (Boleta_Movimiento = " & Buscar.Codigo & ")")
-            'Me.SqlDataAdapterMovimiento_Bodega.Fill(Me.DataSet_Movimiento_Bodega, "MovimientosBodega")
+                For Each detalle As Datos.Models.MovimientosBodegaDetalle In Me.db.BuscarDetalle(movimientos.BoletaMovimiento)
+                    Dim movimientoDetalle As New Datos.Models.MovimientosBodegaDetalle
+                    movimientoDetalle.IdDetalle = detalle.IdDetalle
+                    movimientoDetalle.BoletaMovimiento = detalle.BoletaMovimiento
+                    movimientoDetalle.Codigo = detalle.Codigo
+                    movimientoDetalle.CodArticulo = detalle.CodArticulo
+                    movimientoDetalle.Descripcion = detalle.Descripcion
+                    movimientoDetalle.Cantidad = detalle.Cantidad
+                    movimientoDetalle.TipoEntrada = detalle.TipoEntrada
+                    movimientoDetalle.TipoSalida = detalle.TipoSalida
+                    movimientoDetalle.Numero = detalle.Numero
+                    movimientoDetalle.ExistenciaForzada = detalle.ExistenciaForzada
+                    movimientoDetalle.ExistVeteForzada = detalle.ExistVeteForzada
 
-            'Fx.Cargar_Tabla_Generico(Me.SqlDataAdapter_MovimientDetalle, "SELECT * FROM MovimientosBodega_Detalle WHERE (Boleta_Movimiento = " & Buscar.Codigo & ")")
-            'Me.SqlDataAdapter_MovimientDetalle.Fill(Me.DataSet_Movimiento_Bodega, "MovimientosBodega_Detalle")
+                    movimientos.MovimientosBodegaDetalles.Add(movimientoDetalle)
+                Next
 
+                Resultado.Add(movimientos)
+            Next
+
+            Return Resultado
         End Function
 
         Public Function Crear(movimientobodega As Datos.Models.MovimientosBodega) As String

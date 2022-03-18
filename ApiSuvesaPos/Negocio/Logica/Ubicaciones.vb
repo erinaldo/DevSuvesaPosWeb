@@ -9,7 +9,31 @@ Namespace Logica
         End Sub
 
         Public Function Buscar(pornombre As Boolean, filtro As String) As List(Of Datos.Models.Ubicacione)
-            Return Me.db.Buscar(pornombre, filtro)
+            Dim datos As New List(Of Datos.Models.Ubicacione)
+            datos = Me.db.Buscar(pornombre, filtro)
+
+            Dim Resultado As New List(Of Datos.Models.Ubicacione)
+            For Each ubi As Datos.Models.Ubicacione In datos
+                Dim Ubicacion As New Datos.Models.Ubicacione
+                Ubicacion.Codigo = ubi.Codigo
+                Ubicacion.Descripcion = ubi.Descripcion
+                Ubicacion.Observaciones = ubi.Observaciones
+                Ubicacion.Activa = ubi.Activa
+
+                For Each subUbi As Datos.Models.SubUbicacion In Me.db.BuscarDetalle(ubi.Codigo)
+                    Dim SubUbicacion As New Datos.Models.SubUbicacion
+                    SubUbicacion.CodUbicacion = subUbi.CodUbicacion
+                    SubUbicacion.CodSubUbicacion = subUbi.CodSubUbicacion
+                    SubUbicacion.Codigo = subUbi.Codigo
+                    SubUbicacion.DescripcionD = subUbi.DescripcionD
+                    SubUbicacion.Observaciones = subUbi.Observaciones
+                    Ubicacion.SubUbicacions.Add(SubUbicacion)
+                Next
+
+                Resultado.Add(Ubicacion)
+            Next
+
+            Return Resultado
         End Function
 
         Public Function Crear(ubicacion As Datos.Models.Ubicacione) As String

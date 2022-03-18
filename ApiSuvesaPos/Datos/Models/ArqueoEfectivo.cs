@@ -12,5 +12,7 @@ namespace Datos.Models
         public long IdDenominacion { get; set; }
         public double Monto { get; set; }
         public int Cantidad { get; set; }
+
+        public virtual ArqueoCaja IdArqueoNavigation { get; set; }
     }
 }

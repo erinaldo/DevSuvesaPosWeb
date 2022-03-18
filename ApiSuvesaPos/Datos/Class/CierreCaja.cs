@@ -59,6 +59,64 @@ namespace Datos.Class
 
         }
 
+        public List<Models.CierreCajaDetMon> ObtenerCierreCajaDetalleMonto(int Id)
+        {
+            try
+            {
+                List<Models.CierreCajaDetMon> result;
+
+            
+                    var temp = from c in entities.CierreCajaDetMons
+                               where c.IdCierreCaja == Id
+                               select c;
+                    result = temp.ToList<Models.CierreCajaDetMon>();
+                
+
+                if (result.Count > 0)
+                {
+                    return result;
+                }
+                else
+                {
+                    return result = null;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<Models.CierreCajaDetTarj> ObtenerCierreCajaDetalleTarjeta(int Id)
+        {
+            try
+            {
+                List<Models.CierreCajaDetTarj> result;
+
+
+                var temp = from c in entities.CierreCajaDetTarjs
+                           where c.IdCierreCaja == Id
+                           select c;
+                result = temp.ToList<Models.CierreCajaDetTarj>();
+
+
+                if (result.Count > 0)
+                {
+                    return result;
+                }
+                else
+                {
+                    return result = null;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public List<Models.Cierrecaja> ObtenerCierreCajas(bool porId, string Filtro)
         {
             try

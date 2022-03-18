@@ -10,5 +10,7 @@ namespace Datos.Models
         public decimal IdAreaEncargado { get; set; }
         public decimal IdArea { get; set; }
         public string IdUsuario { get; set; }
+
+        public virtual Area IdAreaNavigation { get; set; }
     }
 }

@@ -8,15 +8,59 @@
         End Sub
 
         Public Function Buscar(porId As Boolean, Filtro As String) As List(Of Datos.Models.Cierrecaja)
-            Return Me.db.ObtenerCierreCajas(porId, Filtro)
-            'Dim cFunciones As New cFunciones
-            'Apertura = "0"
-            'Dim CierreNumero As String = cFunciones.Buscar_X_Descripcion_Fecha("SELECT CAST(NumeroCierre AS varchar) AS Cierre, Nombre, Fecha FROM cierrecaja Order by NumeroCierre Desc", "Nombre", "Fecha", "Buscando Cierre de Caja...")
+            Dim datos As New List(Of Datos.Models.Cierrecaja)
+            datos = Me.db.ObtenerCierreCajas(porId, Filtro)
 
-            'If CierreNumero = Nothing Then
-            '    Exit Sub
-            'End If
+            Dim Resultado As New List(Of Datos.Models.Cierrecaja)
+            For Each cierre As Datos.Models.Cierrecaja In datos
+                Dim CierreCaja As New Datos.Models.Cierrecaja
+                CierreCaja.NumeroCierre = cierre.NumeroCierre
+                CierreCaja.Cajera = cierre.Cajera
+                CierreCaja.Nombre = cierre.Nombre
+                CierreCaja.Apertura = cierre.Apertura
+                CierreCaja.Usuario = cierre.Usuario
+                CierreCaja.Fecha = cierre.Fecha
+                CierreCaja.NombreUsuario = cierre.NombreUsuario
+                CierreCaja.Anulado = cierre.Anulado
+                CierreCaja.Devoluciones = cierre.Devoluciones
+                CierreCaja.Subtotal = cierre.Subtotal
+                CierreCaja.TotalSistema = cierre.TotalSistema
+                CierreCaja.Equivalencia = cierre.Equivalencia
+                CierreCaja.EfectivoColones = cierre.EfectivoColones
+                CierreCaja.EfectivoDolares = cierre.EfectivoDolares
+                CierreCaja.TarjetaColones = cierre.TarjetaColones
+                CierreCaja.TarjetaDolares = cierre.TarjetaDolares
+                CierreCaja.Cheques = cierre.Cheques
+                CierreCaja.ChequeDol = cierre.ChequeDol
+                CierreCaja.DepositosCol = cierre.DepositosCol
+                CierreCaja.DepositosDol = cierre.DepositosDol
 
+                For Each det As Datos.Models.CierreCajaDetMon In Me.db.ObtenerCierreCajaDetalleMonto(CierreCaja.NumeroCierre)
+                    Dim Detalle As New Datos.Models.CierreCajaDetMon
+                    Detalle.IdDetaMoneda = det.IdDetaMoneda
+                    Detalle.IdCierreCaja = det.IdCierreCaja
+                    Detalle.IdMoneda = det.IdMoneda
+                    Detalle.MontoSistema = det.MontoSistema
+                    Detalle.MontoCajero = det.MontoCajero
+
+                    CierreCaja.CierreCajaDetMons.Add(Detalle)
+                Next
+
+                For Each det As Datos.Models.CierreCajaDetTarj In Me.db.ObtenerCierreCajaDetalleTarjeta(CierreCaja.NumeroCierre)
+                    Dim Detalle As New Datos.Models.CierreCajaDetTarj
+                    Detalle.IdDetalleTarjeta = det.IdDetalleTarjeta
+                    Detalle.IdCierreCaja = det.IdCierreCaja
+                    Detalle.IdTipoTarjeta = det.IdTipoTarjeta
+                    Detalle.MontoSistema = det.MontoSistema
+                    Detalle.MontoCajero = det.MontoCajero
+
+                    CierreCaja.CierreCajaDetTarjs.Add(Detalle)
+                Next
+
+                Resultado.Add(CierreCaja)
+            Next
+
+            Return Resultado
         End Function
 
         Public Function Anular(Id As Integer) As String

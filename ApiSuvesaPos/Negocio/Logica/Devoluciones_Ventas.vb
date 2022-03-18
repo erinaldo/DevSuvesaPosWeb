@@ -8,21 +8,77 @@
         End Sub
 
         Public Function Buscar(porNombre As Boolean, Filtro As String) As List(Of Datos.Models.DevolucionesVenta)
+            Dim datos As New List(Of Datos.Models.DevolucionesVenta)
+            datos = db.Buscar(porNombre, Filtro)
 
-            Return Me.db.Buscar(porNombre, Filtro)
+            Dim Resultado As New List(Of Datos.Models.DevolucionesVenta)
+            For Each devo As Datos.Models.DevolucionesVenta In datos
+                Dim Devolucion As New Datos.Models.DevolucionesVenta
+                Devolucion.Devolucion = devo.Devolucion
+                Devolucion.IdFactura = devo.IdFactura
+                Devolucion.SaldoAntFact = devo.SaldoAntFact
+                Devolucion.SubTotalGravado = devo.SubTotalGravado
+                Devolucion.SubTotalExcento = devo.SubTotalExcento
+                Devolucion.Descuento = devo.Descuento
+                Devolucion.Impuesto = devo.Impuesto
+                Devolucion.Monto = devo.Monto
+                Devolucion.Fecha = devo.Fecha
+                Devolucion.Contabilizado = devo.Contabilizado
+                Devolucion.NumeroAsiento = devo.NumeroAsiento
+                Devolucion.Anulado = devo.Anulado
+                Devolucion.CedulaUsuario = devo.CedulaUsuario
+                Devolucion.CodMoneda = devo.CodMoneda
+                Devolucion.Transporte = devo.Transporte
+                Devolucion.ContabilizadoCosto = devo.ContabilizadoCosto
+                Devolucion.NumeroAsientoCosto = devo.NumeroAsientoCosto
+                Devolucion.Caja = devo.Caja
+                Devolucion.Consecutivo = devo.Consecutivo
+                Devolucion.Enviadodgt = devo.Enviadodgt
+                Devolucion.Estadodgt = devo.Estadodgt
+                Devolucion.Consecutivodgt = devo.Consecutivodgt
+                Devolucion.Clavedgt = devo.Clavedgt
+                Devolucion.MontoDevolucion = devo.MontoDevolucion
+                Devolucion.NumApertura = devo.NumApertura
+                Devolucion.UsuarioRecibio = devo.UsuarioRecibio
+                Devolucion.NotasDevolucion = devo.NotasDevolucion
+                Devolucion.IdSucursal = devo.IdSucursal
 
-            'Datos.Models.DevolucionesVenta
-            'Datos.Models.DevolucionesVenta
 
-            'identificador = CDbl(Fx.Buscar_X_Descripcion_Fecha("SELECT  dbo.devoluciones_ventas.Devolucion, dbo.Ventas.Nombre_Cliente, dbo.devoluciones_ventas.Fecha FROM dbo.devoluciones_ventas INNER JOIN dbo.Ventas ON dbo.devoluciones_ventas.Id_Factura = dbo.Ventas.Id Order by dbo.devoluciones_ventas.Fecha DESC", "Nombre_Cliente", "Fecha", "Buscar Devolución de Venta"))
-            'buscando = True
-            'If identificador = 0.0 Then ' si se dio en el boton de cancelar
-            '    Me.buscando = False
-            '    Exit Sub
-            'End If
+                For Each detalle As Datos.Models.ArticulosVentasDevuelto In Me.db.BuscarDetalle(Devolucion.Devolucion)
+                    Dim ArticulosDevueltos As New Datos.Models.ArticulosVentasDevuelto
+                    ArticulosDevueltos.Consecutivo = detalle.Consecutivo
+                    ArticulosDevueltos.Devolucion = detalle.Devolucion
+                    ArticulosDevueltos.Codigo = detalle.Codigo
+                    ArticulosDevueltos.Descripcion = detalle.Descripcion
+                    ArticulosDevueltos.Cantidad = detalle.Cantidad
+                    ArticulosDevueltos.CantVet = detalle.CantVet
+                    ArticulosDevueltos.CantBod = detalle.CantBod
+                    ArticulosDevueltos.PrecioCosto = detalle.PrecioCosto
+                    ArticulosDevueltos.PrecioBase = detalle.PrecioBase
+                    ArticulosDevueltos.PrecioFlete = detalle.PrecioFlete
+                    ArticulosDevueltos.PrecioOtros = detalle.PrecioOtros
+                    ArticulosDevueltos.PrecioUnit = detalle.PrecioUnit
+                    ArticulosDevueltos.Descuento = detalle.Descuento
+                    ArticulosDevueltos.MontoDescuento = detalle.MontoDescuento
+                    ArticulosDevueltos.Impuesto = detalle.Impuesto
+                    ArticulosDevueltos.MontoImpuesto = detalle.MontoImpuesto
+                    ArticulosDevueltos.SubtotalGravado = detalle.SubtotalGravado
+                    ArticulosDevueltos.SubTotalExcento = detalle.SubTotalExcento
+                    ArticulosDevueltos.SubTotal = detalle.SubTotal
+                    ArticulosDevueltos.IdArtVenta = detalle.IdArtVenta
+                    ArticulosDevueltos.IdArticuloV = detalle.IdArticuloV
+                    ArticulosDevueltos.Devuelto = detalle.Devuelto
+                    ArticulosDevueltos.Empaquetado = detalle.Empaquetado
+                    ArticulosDevueltos.Recibido = detalle.Recibido
+                    ArticulosDevueltos.IdSucursal = detalle.IdSucursal
 
-            'Me.LlenarVentas(identificador)
-            'Me.llenarVentasOpcionesdePago(Me.BindingContext(Me.DataSetDevolucionVentas1, "devoluciones_ventas").Current("Id_Factura"))
+                    Devolucion.ArticulosVentasDevueltos.Add(ArticulosDevueltos)
+                Next
+
+                Resultado.Add(Devolucion)
+            Next
+
+            Return Resultado
         End Function
 
         Public Function Anular(id As Integer) As String

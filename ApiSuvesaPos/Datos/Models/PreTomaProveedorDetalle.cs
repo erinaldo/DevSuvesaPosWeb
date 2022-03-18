@@ -13,5 +13,7 @@ namespace Datos.Models
         public string CodArticulo { get; set; }
         public string Descripicon { get; set; }
         public double Cantidad { get; set; }
+
+        public virtual PreTomaProveedor IdPreTomaProveedorNavigation { get; set; }
     }
 }

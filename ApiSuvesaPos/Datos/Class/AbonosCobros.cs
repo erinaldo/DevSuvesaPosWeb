@@ -51,6 +51,32 @@ namespace Datos.Class
 
         }
 
+        public List<Models.DetalleAbonoccobrar> ObtenerDetalleAbonoscCobrar(long IdRecibo)
+        {
+            try
+            {
+                var temp = from c in entities.DetalleAbonoccobrars
+                           where c.IdRecibo == IdRecibo
+                           select c;
+                List<DetalleAbonoccobrar> result = temp.ToList<DetalleAbonoccobrar>();
+
+                if (result.Count > 0)
+                {
+                    return result;
+                }
+                else
+                {
+                    return result = null;
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public List<Abonoccobrar> ObtenerAbonoCobros()
         {
             try

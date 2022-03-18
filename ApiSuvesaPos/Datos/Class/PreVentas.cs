@@ -30,6 +30,32 @@ namespace Datos.Class
 			}
 		}
 
+		public List<Models.PreVentasDetalle> BuscarDetalle(long Id)  //consultar PreVentas
+		{
+			try
+			{
+				List<Models.PreVentasDetalle> result;
+				
+					var temp = from c in entities.PreVentasDetalles
+							   where c.IdFactura == Id
+							   select c;
+					result = temp.ToList<Models.PreVentasDetalle>();
+				
+				if (result.Count > 0)
+				{
+					return result;
+				}
+				else
+				{
+					return result = null;
+				}
+			}
+			catch (Exception ex)
+			{
+				throw ex;
+			}
+		}
+
 		public List<Models.PreVenta> Buscar(bool porNombre, string filtro)  //consultar PreVentas
 		{
 			try

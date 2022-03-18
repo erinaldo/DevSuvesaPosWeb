@@ -91,6 +91,32 @@ namespace Datos.Class
             }
         }
 
+        public List<AjusteInventarioDetalle> ObtenerDetalleAjustesInventario(long id)
+        {
+            try
+            {
+                var temp = from c in entities.AjusteInventarioDetalles
+                           where c.ConsAjuste == id
+                           select c;
+                List<AjusteInventarioDetalle> result = temp.ToList<AjusteInventarioDetalle>();
+
+                if (result.Count > 0)
+                {
+                    return result;
+                }
+                else
+                {
+                    return result = null;
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public List<AjusteInventario> ObtenerAjusteInventario(long id)
         {
             try

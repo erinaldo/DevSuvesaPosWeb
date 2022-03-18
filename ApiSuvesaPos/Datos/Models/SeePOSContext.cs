@@ -977,6 +977,12 @@ namespace Datos.Models
                 entity.Property(e => e.IdApertura).HasColumnName("Id_Apertura");
 
                 entity.Property(e => e.IdDenominacion).HasColumnName("Id_Denominacion");
+
+                entity.HasOne(d => d.IdAperturaNavigation)
+                    .WithMany(p => p.AperturaDenominaciones)
+                    .HasForeignKey(d => d.IdApertura)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Apertura_Denominaciones_aperturacaja");
             });
 
             modelBuilder.Entity<AperturaTotalTope>(entity =>
@@ -1093,6 +1099,12 @@ namespace Datos.Models
                 entity.Property(e => e.Codigo).HasColumnType("numeric(18, 0)");
 
                 entity.Property(e => e.IdArea).HasColumnType("numeric(18, 0)");
+
+                entity.HasOne(d => d.IdAreaNavigation)
+                    .WithMany(p => p.AreaArticulos)
+                    .HasForeignKey(d => d.IdArea)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_AreaArticulo_Area");
             });
 
             modelBuilder.Entity<AreaEncargado>(entity =>
@@ -1111,6 +1123,12 @@ namespace Datos.Models
                     .IsRequired()
                     .HasMaxLength(75)
                     .HasDefaultValueSql("('')");
+
+                entity.HasOne(d => d.IdAreaNavigation)
+                    .WithMany(p => p.AreaEncargados)
+                    .HasForeignKey(d => d.IdArea)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_AreaEncargado_Area");
             });
 
             modelBuilder.Entity<ArqueoCaja>(entity =>
@@ -1151,8 +1169,6 @@ namespace Datos.Models
 
                 entity.Property(e => e.IdApertura).HasColumnType("numeric(18, 0)");
 
-                entity.Property(e => e.IdArqueo).HasColumnType("numeric(18, 0)");
-
                 entity.Property(e => e.Moneda)
                     .IsRequired()
                     .HasMaxLength(50)
@@ -1167,6 +1183,12 @@ namespace Datos.Models
                     .IsRequired()
                     .HasMaxLength(50)
                     .HasDefaultValueSql("('Deposito')");
+
+                entity.HasOne(d => d.IdArqueoNavigation)
+                    .WithMany(p => p.ArqueoDepositos)
+                    .HasForeignKey(d => d.IdArqueo)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_ArqueoDeposito_ArqueoDeposito");
             });
 
             modelBuilder.Entity<ArqueoEfectivo>(entity =>
@@ -1176,6 +1198,12 @@ namespace Datos.Models
                 entity.Property(e => e.IdArqueo).HasColumnName("Id_Arqueo");
 
                 entity.Property(e => e.IdDenominacion).HasColumnName("Id_Denominacion");
+
+                entity.HasOne(d => d.IdArqueoNavigation)
+                    .WithMany(p => p.ArqueoEfectivos)
+                    .HasForeignKey(d => d.IdArqueo)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_ArqueoEfectivo_ArqueoCajas");
             });
 
             modelBuilder.Entity<ArqueoTarjetum>(entity =>
@@ -1183,6 +1211,12 @@ namespace Datos.Models
                 entity.Property(e => e.IdArqueo).HasColumnName("Id_Arqueo");
 
                 entity.Property(e => e.IdTarjeta).HasColumnName("Id_Tarjeta");
+
+                entity.HasOne(d => d.IdArqueoNavigation)
+                    .WithMany(p => p.ArqueoTarjeta)
+                    .HasForeignKey(d => d.IdArqueo)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_ArqueoTarjeta_ArqueoCajas");
             });
 
             modelBuilder.Entity<ArticulosComprado>(entity =>
@@ -3711,6 +3745,12 @@ namespace Datos.Models
                 entity.Property(e => e.IdPrestamo).HasColumnName("ID_prestamo");
 
                 entity.Property(e => e.Precio).HasColumnName("precio");
+
+                entity.HasOne(d => d.IdPrestamoNavigation)
+                    .WithMany(p => p.DetallePrestamos)
+                    .HasForeignKey(d => d.IdPrestamo)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_detalle_prestamo_Prestamo");
             });
 
             modelBuilder.Entity<DevolucionPrestamo>(entity =>
@@ -6972,6 +7012,12 @@ namespace Datos.Models
                     .HasMaxLength(255);
 
                 entity.Property(e => e.IdPreToma).HasColumnType("numeric(18, 0)");
+
+                entity.HasOne(d => d.IdPreTomaNavigation)
+                    .WithMany(p => p.PreTomaGeneralDetalles)
+                    .HasForeignKey(d => d.IdPreToma)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_PreTomaGeneralDetalle_PreTomaGeneral");
             });
 
             modelBuilder.Entity<PreTomaProveedor>(entity =>
@@ -7010,6 +7056,12 @@ namespace Datos.Models
                 entity.Property(e => e.IdPreTomaProveedor)
                     .HasColumnType("numeric(18, 0)")
                     .HasColumnName("Id_PreTomaProveedor");
+
+                entity.HasOne(d => d.IdPreTomaProveedorNavigation)
+                    .WithMany(p => p.PreTomaProveedorDetalles)
+                    .HasForeignKey(d => d.IdPreTomaProveedor)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_PreTomaProveedorDetalle_PreTomaProveedor");
             });
 
             modelBuilder.Entity<PreVenta>(entity =>
@@ -8781,6 +8833,12 @@ namespace Datos.Models
                     .HasMaxLength(255);
 
                 entity.Property(e => e.IdToma).HasColumnType("numeric(18, 0)");
+
+                entity.HasOne(d => d.IdTomaNavigation)
+                    .WithMany(p => p.TomaGeneralDetalles)
+                    .HasForeignKey(d => d.IdToma)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_TomaGeneralDetalle_TomaGeneral");
             });
 
             modelBuilder.Entity<TomaProveedor>(entity =>
@@ -8819,6 +8877,12 @@ namespace Datos.Models
                 entity.Property(e => e.IdTomaProveedor)
                     .HasColumnType("numeric(18, 0)")
                     .HasColumnName("Id_TomaProveedor");
+
+                entity.HasOne(d => d.IdTomaProveedorNavigation)
+                    .WithMany(p => p.TomaProveedorDetalles)
+                    .HasForeignKey(d => d.IdTomaProveedor)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_TomaProveedorDetalle_TomaProveedor");
             });
 
             modelBuilder.Entity<TrasladoPuntoVentaDetalle>(entity =>

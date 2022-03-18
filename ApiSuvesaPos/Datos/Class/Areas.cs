@@ -49,6 +49,62 @@ namespace Datos.Class
 
         }
 
+
+
+        public List<AreaArticulo> ObtenerAreasArticulo(Decimal Id)
+        {
+            try
+            {
+                List<AreaArticulo> result;               
+                    var temp = from c in entities.AreaArticulos
+                               where c.IdArea == Id
+                               select c;
+                    result = temp.ToList<AreaArticulo>();
+                
+
+                if (result.Count > 0)
+                {
+                    return result;
+                }
+                else
+                {
+                    return result = null;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<AreaEncargado> ObtenerAreasEncargado(Decimal Id)
+        {
+            try
+            {
+                List<AreaEncargado> result;
+                var temp = from c in entities.AreaEncargados
+                           where c.IdArea == Id
+                           select c;
+                result = temp.ToList<AreaEncargado>();
+
+
+                if (result.Count > 0)
+                {
+                    return result;
+                }
+                else
+                {
+                    return result = null;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public List<Area> ObtenerAreas(bool porId, string Filtro)
         {
             try
@@ -91,9 +147,6 @@ namespace Datos.Class
         {
             try
             {
-                // Ojo
-                //Falta agregar la relacion entra las tablas area con  areaarticulo y areaencargado
-
                 var p = entities.Areas.Find(id);
                 Area Nuevo = p;                
                 if (Nuevo != null)
@@ -102,8 +155,63 @@ namespace Datos.Class
                     Nuevo.Descripcion = area.Descripcion;
                     Nuevo.Observaciones = area.Observaciones;
 
-                    entities.Entry(Nuevo).State = EntityState.Modified;
+                    Models.AreaArticulo nuevaLinea1;
+                    foreach (Models.AreaArticulo Detalle in Nuevo.AreaArticulos)
+                    {
+                        //Agrega nuevos registros
+                        if (Detalle.IdAreaArticulo == 0)
+                        {
+                            nuevaLinea1 = new Models.AreaArticulo();
+                            nuevaLinea1.IdArea = Detalle.IdArea;
+                            nuevaLinea1.Codigo = Detalle.Codigo;
+                            Nuevo.AreaArticulos.Add(nuevaLinea1);
+                        }
+                        else
+                        {
+                            //Actualiza los detalles
+                            var a = entities.AreaArticulos.Find(Detalle.IdAreaArticulo);
+                            Models.AreaArticulo lineaModificada = a;
+                            if (lineaModificada != null)
+                            {
+                                lineaModificada.IdArea = Detalle.IdArea;
+                                lineaModificada.Codigo = Detalle.Codigo;
 
+                                entities.Entry(lineaModificada).State = EntityState.Modified;
+                                entities.SaveChanges();
+                            }
+                        }
+
+                    }
+
+                    Models.AreaEncargado nuevaLinea2;
+                    foreach (Models.AreaEncargado Detalle in Nuevo.AreaEncargados)
+                    {
+                        //Agrega nuevos registros
+                        if (Detalle.IdAreaEncargado == 0)
+                        {
+                            nuevaLinea2 = new Models.AreaEncargado();
+                            nuevaLinea2.IdArea = Detalle.IdArea;
+                            nuevaLinea2.IdUsuario = Detalle.IdUsuario;
+                            Nuevo.AreaEncargados.Add(nuevaLinea2);
+                        }
+                        else
+                        {
+                            //Actualiza los detalles
+                            var a = entities.AreaEncargados.Find(Detalle.IdAreaEncargado);
+                            Models.AreaEncargado lineaModificada = a;
+                            if (lineaModificada != null)
+                            {
+                                lineaModificada.IdArea = Detalle.IdArea;
+                                lineaModificada.IdUsuario = Detalle.IdUsuario;
+
+                                entities.Entry(lineaModificada).State = EntityState.Modified;
+                                entities.SaveChanges();
+                            }
+                        }
+
+                    }
+
+                    entities.Entry(Nuevo).State = EntityState.Modified;
                     return entities.SaveChanges();
                 }
                 else

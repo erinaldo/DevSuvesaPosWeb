@@ -30,6 +30,31 @@ namespace Datos.Class
 			}
 		}
 
+		public List<Models.DetallePreAbonocCobrar> BuscarDetalle(long Id)  //consultar PreAbonocCobrar
+		{
+			try
+			{
+				List<Models.DetallePreAbonocCobrar> result;
+					var temp = from c in entities.DetallePreAbonocCobrars
+							   where c.IdRecibo == Id
+							   select c;
+					result = temp.ToList<Models.DetallePreAbonocCobrar>();
+				
+				if (result.Count > 0)
+				{
+					return result;
+				}
+				else
+				{
+					return result = null;
+				}
+			}
+			catch (Exception ex)
+			{
+				throw ex;
+			}
+		}
+
 		public List<Models.PreAbonocCobrar> Buscar(bool porNombre, string filtro)  //consultar PreAbonocCobrar
 		{
 			try

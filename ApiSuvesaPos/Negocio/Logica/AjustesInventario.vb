@@ -1,27 +1,66 @@
 ﻿Namespace Logica
     Public Class AjustesInventario
 
-        Private a As Datos.Class.AjustesInventarios
+        Private db As Datos.Class.AjustesInventarios
         'Private ad As Datos.Class.AjustesInventariosDetalles
 
         Sub New()
-            Me.a = New Datos.Class.AjustesInventarios
+            Me.db = New Datos.Class.AjustesInventarios
             'Me.ad = New Datos.Class.AjustesInventariosDetalles
         End Sub
 
         Public Function Buscar(porId As Boolean, filtro As String) As List(Of Datos.Models.AjusteInventario)
+            Dim datos As New List(Of Datos.Models.AjusteInventario)
+            datos = db.ObtenerAjusteInventario(porId, filtro)
 
-            Return a.ObtenerAjusteInventario(porId, filtro)
-            'identificador = CDbl(Fx.Buscar_X_Descripcion_Fecha("SELECT AjusteInventario.Consecutivo, AjusteInventario_Detalle.Desc_Articulo AS Articulo, AjusteInventario.Fecha FROM AjusteInventario INNER JOIN AjusteInventario_Detalle ON AjusteInventario.Consecutivo = AjusteInventario_Detalle.Cons_Ajuste Order by AjusteInventario.Fecha DESC", "Articulo", "Fecha", "Buscar Ajuste de Inventario"))
-            'buscando = True
-            'If identificador = 0.0 Then ' si se dio en el boton de cancelar
-            '    buscando = False
-            '    Exit Sub
-            'End If
+            Dim Resultado As New List(Of Datos.Models.AjusteInventario)
+            For Each ajuste As Datos.Models.AjusteInventario In datos
+                Dim AjusteInventario As New Datos.Models.AjusteInventario
+                AjusteInventario.Consecutivo = ajuste.Consecutivo
+                AjusteInventario.Fecha = ajuste.Fecha
+                AjusteInventario.Anula = ajuste.Anula
+                AjusteInventario.Cedula = ajuste.Cedula
+                AjusteInventario.TotalEntrada = ajuste.TotalEntrada
+                AjusteInventario.TotalSalida = ajuste.TotalSalida
+                AjusteInventario.SaldoAjuste = ajuste.SaldoAjuste
+                AjusteInventario.Asiento = ajuste.Asiento
+                AjusteInventario.Contabilizado = ajuste.Contabilizado
+                AjusteInventario.IdSucursal = ajuste.IdSucursal
+
+                For Each detalle As Datos.Models.AjusteInventarioDetalle In Me.db.ObtenerDetalleAjustesInventario(AjusteInventario.Consecutivo)
+                    Dim AjusteInventarioDetalle As New Datos.Models.AjusteInventarioDetalle
+                    AjusteInventarioDetalle.Consecutivo = detalle.Consecutivo
+                    AjusteInventarioDetalle.ConsAjuste = detalle.ConsAjuste
+                    AjusteInventarioDetalle.CodArticulo = detalle.CodArticulo
+                    AjusteInventarioDetalle.CodArticulo = detalle.CodArticulo
+                    AjusteInventarioDetalle.DescArticulo = detalle.DescArticulo
+                    AjusteInventarioDetalle.Cantidad = detalle.Cantidad
+                    AjusteInventarioDetalle.Entrada = detalle.Entrada
+                    AjusteInventarioDetalle.Salida = detalle.Salida
+                    AjusteInventarioDetalle.Observacion = detalle.Observacion
+                    AjusteInventarioDetalle.CuentaContable = detalle.CuentaContable
+                    AjusteInventarioDetalle.TotalEntrada = detalle.TotalEntrada
+                    AjusteInventarioDetalle.TotalSalida = detalle.TotalSalida
+                    AjusteInventarioDetalle.Existencia = detalle.Existencia
+                    AjusteInventarioDetalle.CostoUnit = detalle.CostoUnit
+                    AjusteInventarioDetalle.CuentaContable = detalle.CuentaContable
+                    AjusteInventarioDetalle.Descripcioncuentacontable = detalle.Descripcioncuentacontable
+                    AjusteInventarioDetalle.Numero = detalle.Numero
+                    AjusteInventarioDetalle.Gasto = detalle.Gasto
+                    AjusteInventarioDetalle.Muerte = detalle.Muerte
+                    AjusteInventarioDetalle.Actualizado = detalle.Actualizado
+
+                    AjusteInventario.AjusteInventarioDetalles.Add(AjusteInventarioDetalle)
+                Next
+
+                Resultado.Add(AjusteInventario)
+            Next
+
+            Return Resultado
         End Function
 
         Public Function Anular(Id As Integer) As String
-            Dim res As String = Me.a.AnularAjusteInventario(Id)
+            Dim res As String = Me.db.AnularAjusteInventario(Id)
             If res = "0" Then
                 Return "No existe el valor"
             Else
@@ -67,7 +106,7 @@
         End Function
         Public Function Crear(ajuste As Datos.Models.AjusteInventario) As String
             Try
-                Me.a.CrearAjustesInventarios(ajuste)
+                Me.db.CrearAjustesInventarios(ajuste)
 
                 Return "1"
             Catch ex As Exception
