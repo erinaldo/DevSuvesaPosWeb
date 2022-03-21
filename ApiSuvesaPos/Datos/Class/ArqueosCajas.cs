@@ -206,6 +206,41 @@ namespace Datos.Class
                 ArqueoCaja.TarjetaSistema = Arqueo.TarjetaSistema;
                 ArqueoCaja.OtrasTarjetas = Arqueo.OtrasTarjetas;
 
+                var ac1 = from x in entities.ArqueoDepositos
+                          where x.IdArqueo == id && !(from t in Arqueo.ArqueoDepositos select t.Id).Contains(x.Id)
+                          select x;
+                List<Models.ArqueoDeposito> Eliminar1 = ac1.ToList<Models.ArqueoDeposito>();
+                foreach (Models.ArqueoDeposito item in Eliminar1)
+                {
+                    var del = entities.ArqueoDepositos.Find(item.Id);
+                    entities.Remove(del);
+                    entities.SaveChanges();
+                }
+
+                var ac2 = from x in entities.ArqueoEfectivos
+                          where x.IdArqueo == id && !(from t in Arqueo.ArqueoEfectivos select t.Id).Contains(x.Id)
+                          select x;
+                List<Models.ArqueoEfectivo> Eliminar2 = ac2.ToList<Models.ArqueoEfectivo>();
+                foreach (Models.ArqueoEfectivo item in Eliminar2)
+                {
+                    var del = entities.ArqueoEfectivos.Find(item.Id);
+                    entities.Remove(del);
+                    entities.SaveChanges();
+                }
+
+                var ac3 = from x in entities.ArqueoTarjeta
+                          where x.IdArqueo == id && !(from t in Arqueo.ArqueoTarjeta select t.Id).Contains(x.Id)
+                          select x;
+                List<Models.ArqueoTarjetum> Eliminar3 = ac3.ToList<Models.ArqueoTarjetum>();
+                foreach (Models.ArqueoTarjetum item in Eliminar3)
+                {
+                    var del = entities.ArqueoTarjeta.Find(item.Id);
+                    entities.Remove(del);
+                    entities.SaveChanges();
+                }
+
+
+
                 Models.ArqueoDeposito nuevaLinea1;
                 foreach (Models.ArqueoDeposito Detalle in Arqueo.ArqueoDepositos)
                 {

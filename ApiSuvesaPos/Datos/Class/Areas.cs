@@ -155,6 +155,31 @@ namespace Datos.Class
                     Nuevo.Descripcion = area.Descripcion;
                     Nuevo.Observaciones = area.Observaciones;
 
+                    var ac1 = from x in entities.AreaArticulos
+                              where x.IdArea == id && !(from t in Nuevo.AreaArticulos select t.IdAreaArticulo).Contains(x.IdAreaArticulo)
+                              select x;
+                    List<Models.AreaArticulo> Eliminar1 = ac1.ToList<Models.AreaArticulo>();
+
+                    foreach (Models.AreaArticulo item in Eliminar1)
+                    {
+                        var del = entities.AreaArticulos.Find(item.IdAreaArticulo);
+                        entities.Remove(del);
+                        entities.SaveChanges();
+                    }
+
+                    var ac2 = from x in entities.AreaEncargados
+                              where x.IdArea == id && !(from t in Nuevo.AreaEncargados select t.IdAreaEncargado).Contains(x.IdAreaEncargado)
+                              select x;
+                    List<Models.AreaEncargado> Eliminar2 = ac2.ToList<Models.AreaEncargado>();
+
+                    foreach (Models.AreaEncargado item in Eliminar2)
+                    {
+                        var del = entities.AreaEncargados.Find(item.IdAreaEncargado);
+                        entities.Remove(del);
+                        entities.SaveChanges();
+                    }
+
+
                     Models.AreaArticulo nuevaLinea1;
                     foreach (Models.AreaArticulo Detalle in Nuevo.AreaArticulos)
                     {

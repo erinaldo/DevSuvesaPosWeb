@@ -170,6 +170,30 @@ namespace Datos.Class
                     Nuevo.NumCaja = aperturacaja.NumCaja;
                     Nuevo.IdSucursal = aperturacaja.IdSucursal;
 
+                    var ac1 = from x in entities.AperturaDenominaciones
+                             where x.IdApertura == id && !(from t in aperturacaja.AperturaDenominaciones select t.Id).Contains(x.Id)
+                             select x;
+                    List<Models.AperturaDenominacione> Eliminar1 = ac1.ToList<Models.AperturaDenominacione>();
+
+                    foreach (Models.AperturaDenominacione item in Eliminar1)
+                    {
+                        var del = entities.AperturaDenominaciones.Find(item.Id);
+                        entities.Remove(del);
+                        entities.SaveChanges();
+                    }
+
+                    var ac2 = from x in entities.AperturaTotalTopes
+                              where x.Napertura == id && !(from t in aperturacaja.AperturaTotalTopes select t.IdTotalTope).Contains(x.IdTotalTope)
+                              select x;
+                    List<Models.AperturaTotalTope> Eliminar2 = ac2.ToList<Models.AperturaTotalTope>();
+
+                    foreach (Models.AperturaTotalTope item in Eliminar2)
+                    {
+                        var del = entities.AperturaTotalTopes.Find(item.IdTotalTope);
+                        entities.Remove(del);
+                        entities.SaveChanges();
+                    }
+
                     Models.AperturaDenominacione AperturaDenominacion;
                     foreach (Models.AperturaDenominacione Detalle in aperturacaja.AperturaDenominaciones)
                     {

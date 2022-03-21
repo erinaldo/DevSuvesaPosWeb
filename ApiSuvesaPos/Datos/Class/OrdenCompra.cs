@@ -118,6 +118,18 @@ namespace Datos.Class
 					OrdenCompra.SubTotal = Orden.SubTotal;
 					OrdenCompra.Anulado = Orden.Anulado;
 
+					var ac = from x in entities.DetalleOrdencompras
+							 where x.Orden == id && !(from t in Orden.DetalleOrdencompras select t.Id).Contains(x.Id)
+							 select x;
+					List<Models.DetalleOrdencompra> Eliminar = ac.ToList<Models.DetalleOrdencompra>();
+
+					foreach (Models.DetalleOrdencompra item in Eliminar)
+					{
+						var del = entities.DetalleOrdencompras.Find(item.Id);
+						entities.Remove(del);
+						entities.SaveChanges();
+					}
+
 					Models.DetalleOrdencompra nuevaLinea;
 					foreach (Models.DetalleOrdencompra Detalle in OrdenCompra.DetalleOrdencompras)
 					{

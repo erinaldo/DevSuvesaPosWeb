@@ -108,6 +108,18 @@ namespace Datos.Class
 					Familias.CuentaCosto = Familia.CuentaCosto;
 					Familias.DescripcionCosto = Familia.DescripcionCosto;
 
+					var ac = from x in entities.SubFamilias
+							 where x.CodigoFamilia == id && !(from t in Familia.SubFamilia select t.Codigo).Contains(x.Codigo)
+							 select x;
+					List<Models.SubFamilia> Eliminar = ac.ToList<Models.SubFamilia>();
+
+					foreach (Models.SubFamilia item in Eliminar)
+					{
+						var del = entities.SubFamilias.Find(item.Codigo);
+						entities.Remove(del);
+						entities.SaveChanges();
+					}
+
 					Models.SubFamilia nuevaLinea;
 					foreach (Models.SubFamilia Detalle in Familias.SubFamilia)
 					{

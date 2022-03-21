@@ -161,6 +161,18 @@ namespace Datos.Class
                 nuevacompra.Prepagada = compra.Prepagada;
                 nuevacompra.PreAbono = compra.PreAbono;
 
+                var ac = from x in entities.ArticulosComprados
+                         where x.IdCompra == id && !(from t in compra.ArticulosComprados select t.IdArticuloComprados).Contains(x.IdArticuloComprados)
+                         select x;
+                List<Models.ArticulosComprado> Eliminar = ac.ToList<Models.ArticulosComprado>();
+
+                foreach (Models.ArticulosComprado item in Eliminar)
+                {
+                    var p = entities.ArticulosComprados.Find(item.IdArticuloComprados);
+                    entities.Remove(p);
+                    entities.SaveChanges();
+                }
+
                 Models.ArticulosComprado nuevaLinea;
                 foreach (Models.ArticulosComprado Detalle in compra.ArticulosComprados)
                 {

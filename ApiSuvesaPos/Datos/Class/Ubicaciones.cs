@@ -103,6 +103,18 @@ namespace Datos.Class
 					Ubicaciones.Observaciones = Ubicacion.Observaciones;
 					Ubicaciones.Activa = Ubicacion.Activa;
 
+					var ac = from x in entities.SubUbicacions
+							 where x.CodUbicacion == id && !(from t in Ubicacion.SubUbicacions select t.Codigo).Contains(x.Codigo)
+							 select x;
+					List<Models.SubUbicacion> Eliminar = ac.ToList<Models.SubUbicacion>();
+
+					foreach (Models.SubUbicacion item in Eliminar)
+					{
+						var del = entities.SubUbicacions.Find(item.Codigo);
+						entities.Remove(del);
+						entities.SaveChanges();
+					}
+
 					Models.SubUbicacion nuevaLinea;
 					foreach (Models.SubUbicacion Detalle in Ubicacion.SubUbicacions)
 					{

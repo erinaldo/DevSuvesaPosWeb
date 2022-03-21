@@ -149,7 +149,19 @@ namespace Datos.Class
                         Cotizacion.TipoCedula = cot.TipoCedula;
                         Cotizacion.CedulaCliente = cot.CedulaCliente;
 
-                        Models.CotizacionDetalle nuevaLinea;
+                    var ac = from x in entities.CotizacionDetalles
+                             where x.Cotizacion == id && !(from t in cot.CotizacionDetalles select t.Numero).Contains(x.Numero)
+                             select x;
+                    List<Models.CotizacionDetalle> CotizacionesDetalle = ac.ToList<Models.CotizacionDetalle>();
+
+                    foreach (Models.CotizacionDetalle item in CotizacionesDetalle)
+                    {
+                        var p = entities.CotizacionDetalles.Find(item.Numero);
+                        entities.Remove(p);
+                        entities.SaveChanges();
+                    }
+
+                    Models.CotizacionDetalle nuevaLinea;
                         foreach (Models.CotizacionDetalle Detalle in cot.CotizacionDetalles)
                         {
                             //Agrega nuevos registros
@@ -213,7 +225,8 @@ namespace Datos.Class
 
                         }
 
-                        entities.Entry(Cotizacion).State = EntityState.Modified;
+
+                    entities.Entry(Cotizacion).State = EntityState.Modified;
                         return entities.SaveChanges();//actualizar Cotizacion
 
                     }
