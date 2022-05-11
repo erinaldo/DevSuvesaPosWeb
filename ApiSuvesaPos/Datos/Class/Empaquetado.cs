@@ -17,12 +17,46 @@ namespace Datos.Class
 			entities = new SeePOSContext();
 		}
 
-		public int Crear(Models.Empaquetado empaquetado) // registro de Empaquetado
-		{
+		private int DevolucionEmpaquetada(long IdVentaDetalle)
+        {
 			try
 			{
-				entities.Empaquetados.Add(empaquetado);
-				return entities.SaveChanges();
+				var p = entities.ArticulosVentasDevueltos.Find(IdVentaDetalle);
+				Models.ArticulosVentasDevuelto viejo = p;
+				if (viejo != null)
+				{
+					viejo.Empaquetado = true;					
+					entities.Entry(viejo).State = EntityState.Modified;
+					return entities.SaveChanges();
+				}
+				else
+				{
+					return 0;// no se encotro el registro solicitado.
+				}
+			}
+			catch (Exception ex)
+			{
+				throw ex;
+			}			
+        }
+
+		private int FacturaEmpaquetada(long IdVentaDetalle)
+		{
+
+			try
+			{
+				var p = entities.PreVentasDetalles.Find(IdVentaDetalle);
+				Models.PreVentasDetalle viejo = p;
+				if (viejo != null)
+				{
+					viejo.Empaquetado = true;
+					entities.Entry(viejo).State = EntityState.Modified;
+					return entities.SaveChanges();
+				}
+				else
+				{
+					return 0;// no se encotro el registro solicitado.
+				}
 			}
 			catch (Exception ex)
 			{
@@ -30,22 +64,61 @@ namespace Datos.Class
 			}
 		}
 
-		public List<Models.Empaquetado> Buscar(bool porNombre, string filtro)  //consultar Empaquetado
+		public int Crear(Models.Empaquetado empaquetado) // registro de Empaquetado
 		{
 			try
 			{
-				List<Models.Empaquetado> result;
-				if (porNombre == true)
+				int resultado = 0;
+				// RE == Devoluciones
+				// EN == Facturas
+				if(empaquetado.Tipo == "RE")
+                {
+					// Esta empaquetando una devolucion
+					resultado = this.DevolucionEmpaquetada(empaquetado.IdVentaDetalle);
+                }
+                else 
+                {
+					// Esta empaquetando una factura
+					resultado = this.FacturaEmpaquetada(empaquetado.IdVentaDetalle);
+				}
+
+				if (resultado == 1)
+                {
+					entities.Empaquetados.Add(empaquetado);
+					return entities.SaveChanges();
+                }
+                else
+                {
+					return 0;
+                }
+
+				
+			}
+			catch (Exception ex)
+			{
+				throw ex;
+			}
+		}
+
+		public List<Models.DetalleEmpaquetado> BuscarDetalleEmpaquetado(int CodMarca)  //consultar Empaquetado
+		{
+			try
+			{
+				List<Models.DetalleEmpaquetado> result;
+				if (CodMarca == 0)
 				{
-					var temp = from c in entities.Empaquetados
+					var temp = from c in entities.DetalleEmpaquetados
+							   orderby c.Fecha descending
 							   select c;
-					result = temp.ToList<Models.Empaquetado>();
+					result = temp.ToList<Models.DetalleEmpaquetado>();
 				}
 				else
 				{
-					var temp = from c in entities.Empaquetados
+					var temp = from c in entities.DetalleEmpaquetados
+							   where c.CodMarca == CodMarca
+							   orderby c.Fecha descending
 							   select c;
-					result = temp.ToList<Models.Empaquetado>();
+					result = temp.ToList<Models.DetalleEmpaquetado>();
 				}
 				if (result.Count > 0)
 				{

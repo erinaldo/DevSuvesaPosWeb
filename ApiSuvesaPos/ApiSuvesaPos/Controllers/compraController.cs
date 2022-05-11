@@ -7,15 +7,14 @@ using System.Web;
 using Newtonsoft.Json;
 using Negocio.Logica;
 
-
 namespace ApiSuvesaPos.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class aperturacajaController : Controller
+    public class compraController : Controller
     {
 
-        private Negocio.Logica.AperturaCaja db = new Negocio.Logica.AperturaCaja();
+        private Negocio.Logica.Compras db = new Negocio.Logica.Compras();
 
         private bool Numerico(string text)
         {
@@ -25,16 +24,16 @@ namespace ApiSuvesaPos.Controllers
 
 
         [HttpPost]
-        public IActionResult Registrar(Datos.Models.Aperturacaja apertura)
+        public IActionResult Registrar(Datos.Models.Compra compra)
         {
             try
             {
-                string resp = db.Crear(apertura).ToString();
+                string resp = db.Crear(compra);
 
                 double test;
-                if (double.TryParse(resp, out test))// Si el resultado es numerico
+                if (double.TryParse( resp, out test))// Si el resultado es numerico
                 {
-                    if (test > 0)//Si el resultado es mayor que cero
+                    if (test>0)//Si el resultado es mayor que cero
                     {
                         return Ok("Ok");
                     }
@@ -47,6 +46,7 @@ namespace ApiSuvesaPos.Controllers
                 {
                     throw new Exception(resp);
                 }
+
             }
             catch (Exception ex)
             {
@@ -55,12 +55,12 @@ namespace ApiSuvesaPos.Controllers
         }
 
         [HttpPut]
-        public IActionResult Actualizar(int id, Datos.Models.Aperturacaja apertura)
+        public IActionResult Actualizar(int id, Datos.Models.Compra compra)
         {
             try
             {
 
-                string resp = db.Editar(id, apertura).ToString();
+                string resp = db.Editar(id, compra);
                 double test;
                 if (double.TryParse(resp, out test))// Si el resultado es numerico
                 {
@@ -72,10 +72,6 @@ namespace ApiSuvesaPos.Controllers
                     {
                         throw new Exception(resp);
                     }
-                }
-                else if (resp.Equals("No existe el valor"))
-                {
-                    return NotFound();
                 }
                 else
                 {
@@ -90,15 +86,15 @@ namespace ApiSuvesaPos.Controllers
         }
 
         [HttpGet]
-        public IActionResult Buscar(bool porid, string filtro)
+        public IActionResult Buscar(bool porId, string filtro)
         {
 
-            if (porid == true && !this.Numerico(filtro))
+            if (porId == true && !this.Numerico(filtro))
             {
                 return BadRequest("El parametro filtro no tiene el valor esperado. Se esperaba un valor numerico.");
             }
 
-            var result = this.db.Buscar(porid, filtro);
+            var result = this.db.Buscar(porId, filtro);
             if (result != null)
             {
                 return Ok(result);
@@ -111,12 +107,12 @@ namespace ApiSuvesaPos.Controllers
 
         [HttpPut]
         [Route("anular")]
-        public IActionResult Eliminar(int id)
+        public IActionResult Anular(int id)
         {
             try
             {
 
-                string resp = db.Anular(id).ToString();
+                string resp = db.Eliminar(id);
                 double test;
                 if (double.TryParse(resp, out test))// Si el resultado es numerico
                 {

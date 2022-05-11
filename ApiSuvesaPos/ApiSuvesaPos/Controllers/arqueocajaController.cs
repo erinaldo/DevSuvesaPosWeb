@@ -12,10 +12,10 @@ namespace ApiSuvesaPos.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class aperturacajaController : Controller
+    public class arqueocajaController : Controller
     {
 
-        private Negocio.Logica.AperturaCaja db = new Negocio.Logica.AperturaCaja();
+        private Negocio.Logica.ArqueoCajas db = new Negocio.Logica.ArqueoCajas();
 
         private bool Numerico(string text)
         {
@@ -25,11 +25,11 @@ namespace ApiSuvesaPos.Controllers
 
 
         [HttpPost]
-        public IActionResult Registrar(Datos.Models.Aperturacaja apertura)
+        public IActionResult Registrar(Datos.Models.ArqueoCaja arqueo)
         {
             try
             {
-                string resp = db.Crear(apertura).ToString();
+                string resp = db.Crear(arqueo).ToString();
 
                 double test;
                 if (double.TryParse(resp, out test))// Si el resultado es numerico
@@ -55,12 +55,12 @@ namespace ApiSuvesaPos.Controllers
         }
 
         [HttpPut]
-        public IActionResult Actualizar(int id, Datos.Models.Aperturacaja apertura)
+        public IActionResult Actualizar(int id, Datos.Models.ArqueoCaja arqueo)
         {
             try
             {
 
-                string resp = db.Editar(id, apertura).ToString();
+                string resp = db.Editar(id, arqueo).ToString();
                 double test;
                 if (double.TryParse(resp, out test))// Si el resultado es numerico
                 {

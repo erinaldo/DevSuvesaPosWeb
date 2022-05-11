@@ -46,7 +46,7 @@ namespace Datos.Class
 				}
 				else
 				{
-					return result = null;
+					return result;
 				}
 			}
 			catch (Exception ex)
@@ -63,7 +63,8 @@ namespace Datos.Class
 				if (porNombre == true)
 				{
 					var temp = from c in entities.MovimientosBodegas
-							   where c.Cliente.Contains(filtro)
+							   join b in entities.Bodegas on c.Bodega equals b.IdBodega
+							   where c.Cliente.Contains(filtro) || b.NombreBodega.Contains(filtro) || c.Referencia.Contains(filtro)
 							   orderby c.Fecha descending
 							   select c;
 					result = temp.ToList<Models.MovimientosBodega>();

@@ -7,6 +7,7 @@ namespace Datos.Models
 {
     public partial class Empaquetado
     {
+        public long Id { get; set; }
         public long IdVentaDetalle { get; set; }
         public string Nombre { get; set; }
         public string Cedula { get; set; }

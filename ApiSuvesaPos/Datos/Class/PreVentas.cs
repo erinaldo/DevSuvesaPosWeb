@@ -56,6 +56,46 @@ namespace Datos.Class
 			}
 		}
 
+		public Models.PreVenta Obtener(long id)  //consultar PreVentas
+		{
+			var p = entities.PreVentas.Find(id);
+			Models.PreVenta viejo = p;
+			if (viejo != null)
+			{
+				return viejo;
+			}
+			else
+			{
+				return null;
+			}
+		}
+
+		public List<Models.ViewPreventasActiva> FichasActivas()  //consultar PreVentas Activas
+		{
+			try
+			{
+				List<Models.ViewPreventasActiva> result;
+				
+					var temp = from c in entities.ViewPreventasActivas							   
+							   orderby c.Fecha descending
+							   select c;
+					result = temp.ToList<Models.ViewPreventasActiva>();
+				
+				if (result.Count > 0)
+				{
+					return result;
+				}
+				else
+				{
+					return result = null;
+				}
+			}
+			catch (Exception ex)
+			{
+				throw ex;
+			}
+		}
+
 		public List<Models.PreVenta> Buscar(bool porNombre, string filtro)  //consultar PreVentas
 		{
 			try
@@ -63,13 +103,17 @@ namespace Datos.Class
 				List<Models.PreVenta> result;
 				if (porNombre == true)
 				{
-					var temp = from c in entities.PreVentas							  
+					var temp = from c in entities.PreVentas
+							   where c.NombreCliente.Contains(filtro)
+							   orderby c.Fecha descending
 							   select c;
 					result = temp.ToList<Models.PreVenta>();
 				}
 				else
 				{
 					var temp = from c in entities.PreVentas
+							   where c.NumFactura == Convert.ToInt32(filtro)
+							   orderby c.Fecha descending
 							   select c;
 					result = temp.ToList<Models.PreVenta>();
 				}

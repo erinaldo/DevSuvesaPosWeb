@@ -4144,8 +4144,6 @@ namespace Datos.Models
 
             modelBuilder.Entity<Empaquetado>(entity =>
             {
-                entity.HasNoKey();
-
                 entity.ToTable("Empaquetado");
 
                 entity.Property(e => e.Cedula)

@@ -90,7 +90,7 @@ namespace Datos.Class
 			}
 		}
 
-		public int Editar(long id, Models.Ubicacione Ubicacion) //editar Ubicaciones
+		public int Editar(int id, Models.Ubicacione Ubicacion) //editar Ubicaciones
 		{
 			try
 			{
@@ -162,7 +162,7 @@ namespace Datos.Class
 			}
 		}
 
-		public int Borrar(long id) //borrar Ubicaciones
+		public int Borrar(int id) //borrar Ubicaciones
 		{
 			try
 			{

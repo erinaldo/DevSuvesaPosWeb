@@ -80,6 +80,7 @@ namespace Datos.Class
         public List<Models.Compra> ObtenerCompras(bool porId, string Filtro)
         {
             try
+
             {
                 List<Models.Compra> result;
 
@@ -160,6 +161,7 @@ namespace Datos.Class
                 nuevacompra.NumTrans = compra.NumTrans;
                 nuevacompra.Prepagada = compra.Prepagada;
                 nuevacompra.PreAbono = compra.PreAbono;
+
 
                 var ac = from x in entities.ArticulosComprados
                          where x.IdCompra == id && !(from t in compra.ArticulosComprados select t.IdArticuloComprados).Contains(x.IdArticuloComprados)

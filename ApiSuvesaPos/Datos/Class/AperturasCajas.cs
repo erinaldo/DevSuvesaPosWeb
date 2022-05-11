@@ -32,7 +32,7 @@ namespace Datos.Class
             }
         }
 
-        public int AnularAperturasCajas(long id)
+        public int AnularAperturasCajas(int id)
         {
             try
             {
@@ -121,7 +121,7 @@ namespace Datos.Class
                 if (porId == true)
                 {
                     var temp = from c in entities.Aperturacajas
-                               where c.NumCaja == Convert.ToInt64(Filtro)
+                               where c.Napertura == Convert.ToInt64(Filtro)
                                select c;
                     result = temp.ToList<Aperturacaja>();
                 }
@@ -152,7 +152,7 @@ namespace Datos.Class
             }
         }
 
-        public int EditarAperturasCajas(long id, Aperturacaja aperturacaja)
+        public int EditarAperturasCajas(int id, Aperturacaja aperturacaja)
         {
             try
             {
@@ -160,7 +160,7 @@ namespace Datos.Class
                 Aperturacaja Nuevo = p;
                 if (Nuevo != null)
                 {
-                    Nuevo.Napertura = aperturacaja.Napertura;
+                    //Nuevo.Napertura = aperturacaja.Napertura;
                     Nuevo.Fecha = aperturacaja.Fecha;
                     Nuevo.Nombre = aperturacaja.Nombre;
                     Nuevo.Estado = aperturacaja.Estado;
@@ -214,7 +214,6 @@ namespace Datos.Class
                             Models.AperturaDenominacione lineaModificada = a;
                             if (lineaModificada != null)
                             {
-                                lineaModificada.IdApertura = Detalle.IdApertura;
                                 lineaModificada.IdDenominacion = Detalle.IdDenominacion;
                                 lineaModificada.Monto = Detalle.Monto;
                                 lineaModificada.Cantidad = Detalle.Cantidad;
@@ -246,7 +245,6 @@ namespace Datos.Class
                             Models.AperturaTotalTope lineaModificada = a;
                             if (lineaModificada != null)
                             {
-                                lineaModificada.Napertura = Detalle.Napertura;
                                 lineaModificada.CodMoneda = Detalle.CodMoneda;
                                 lineaModificada.MontoTope = Detalle.MontoTope;
                                 lineaModificada.MonedaNombre = Detalle.MonedaNombre;

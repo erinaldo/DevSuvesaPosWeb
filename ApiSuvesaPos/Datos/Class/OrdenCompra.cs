@@ -131,14 +131,14 @@ namespace Datos.Class
 					}
 
 					Models.DetalleOrdencompra nuevaLinea;
-					foreach (Models.DetalleOrdencompra Detalle in OrdenCompra.DetalleOrdencompras)
+					foreach (Models.DetalleOrdencompra Detalle in Orden.DetalleOrdencompras)
 					{
 						//Agrega nuevos registros
 						if (Detalle.Id == 0)
 						{
 							nuevaLinea = new Models.DetalleOrdencompra();
 							//nuevaLinea.Id = Detalle.Id;
-							nuevaLinea.Orden = Detalle.Orden;
+							//nuevaLinea.Orden = Detalle.Orden;
 							nuevaLinea.Codigo = Detalle.Codigo;
 							nuevaLinea.Descripcion = Detalle.Descripcion;
 							nuevaLinea.CostoUnitario = Detalle.CostoUnitario;

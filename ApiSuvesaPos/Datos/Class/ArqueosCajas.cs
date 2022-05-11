@@ -32,7 +32,7 @@ namespace Datos.Class
             }
         }
 
-        public int AnuarArqueosCajas(int id)
+        public int AnuarArqueosCajas(long id)
 
 
         {
@@ -64,16 +64,9 @@ namespace Datos.Class
                                where c.IdApertura == Id
                                select c;
                     result = temp.ToList<ArqueoDeposito>();
-                
 
-                if (result.Count > 0)
-                {
-                    return result;
-                }
-                else
-                {
-                    return result = null;
-                }
+
+                return result;
 
 
             }
@@ -93,14 +86,7 @@ namespace Datos.Class
                            select c;
                 result = temp.ToList<ArqueoEfectivo>();
 
-                if (result.Count > 0)
-                {
-                    return result;
-                }
-                else
-                {
-                    return result = null;
-                }
+                return result;
 
 
             }
@@ -119,17 +105,7 @@ namespace Datos.Class
                            where c.IdArqueo == Id
                            select c;
                 result = temp.ToList<ArqueoTarjetum>();
-
-                if (result.Count > 0)
-                {
-                    return result;
-                }
-                else
-                {
-                    return result = null;
-                }
-
-
+                return result;
             }
             catch (Exception ex)
             {
@@ -156,7 +132,7 @@ namespace Datos.Class
                     // puede que quiera todos los arqueos o que solo quiera los que estan sin cerrar.
                     var temp = from c in entities.ArqueoCajas
                                join a in entities.Aperturacajas on c.IdApertura equals a.Napertura
-                               where a.Nombre.Contains(Filtro)
+                               where a.Nombre.Contains(Filtro) 
                                orderby c.Fecha descending
                                select c;
                     result = temp.ToList<ArqueoCaja>();
@@ -180,14 +156,14 @@ namespace Datos.Class
         }
 
 
-        public int EditarArqueosCajas(int id, ArqueoCaja Arqueo)
+        public int EditarArqueosCajas(long id, ArqueoCaja Arqueo)
         {
             try
             {
 
                 var p = entities.ArqueoCajas.Find(id);
                 ArqueoCaja ArqueoCaja = p;
-                ArqueoCaja.Id = Arqueo.Id;
+                //ArqueoCaja.Id = Arqueo.Id;
                 ArqueoCaja.EfectivoColones = Arqueo.EfectivoColones;
                 ArqueoCaja.EfectivoDolares = Arqueo.EfectivoDolares;
                 ArqueoCaja.TarjetaColones = Arqueo.TarjetaColones;

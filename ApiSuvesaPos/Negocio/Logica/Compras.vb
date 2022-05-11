@@ -24,9 +24,9 @@
             End If
         End Function
 
-        Public Function Buscar(porId As Boolean, porNombre As Boolean, filtro As String) As List(Of Datos.Models.Compra)
+        Public Function Buscar(porId As Boolean, filtro As String) As List(Of Datos.Models.Compra)
             Dim datos As New List(Of Datos.Models.Compra)
-            datos = Me.db.ObtenerCompras(porNombre, filtro)
+            datos = Me.db.ObtenerCompras(porId, filtro)
 
             Dim Resultado As New List(Of Datos.Models.Compra)
             For Each comp As Datos.Models.Compra In datos

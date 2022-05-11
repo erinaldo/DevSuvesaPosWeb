@@ -74,6 +74,7 @@ namespace Datos.Class
                     //busca por la descripcion
                     var temp = from c in entities.DevolucionesCompras
                                where c.NombrePro.Contains(filtro) // usar un like                               
+                               orderby c.Fecha descending
                                select c;
 
                     result = temp.ToList<Models.DevolucionesCompra>();
