@@ -1,8 +1,14 @@
 ﻿Namespace Logica
     Public Class Devolucion_prestamo
 
-        Public Function Buscar(texto As String) As List(Of Devolucion_prestamo)
+        Private db As Datos.Class.devolucion_prestamo
 
+        Sub New()
+            Me.db = New Datos.Class.devolucion_prestamo
+        End Sub
+
+        Public Function Buscar(porNombre As Boolean, Filtro As String) As List(Of Datos.Models.DevolucionPrestamo)
+            Return Me.db.Buscar(porNombre, Filtro)
             'Public Function buscar(ByVal texto As String) As DataTable
             '    Try
             '        conectado()
@@ -28,8 +34,8 @@
 
         End Function
 
-        Public Sub Crear(devolucion_prestamo As Modelo.devolucion_prestamo)
-
+        Public Function Crear(devolucion_prestamo As Datos.Models.DevolucionPrestamo) As String
+            Return Me.db.Crear(devolucion_prestamo)
             'Public Function insertar(ByVal dts As vdevolucion) As Boolean
             '    Try
             '        conectado()
@@ -58,11 +64,10 @@
             '    End Try
             'End Function
 
-        End Sub
+        End Function
 
-
-        Public Sub Eliminar()
-
+        Public Function Eliminar(id As Long) As String
+            Return Me.db.Borrar(id)
             'Public Function eliminar(ByVal dts As vdevolucion) As Boolean
             '   Try
             '        conectado()
@@ -85,7 +90,7 @@
 
             'End 
 
-        End Sub
+        End Function
 
     End Class
 End Namespace

@@ -226,20 +226,20 @@
             Return Resultado
         End Function
 
-        Public Function Crear(ventas As Datos.Models.PreVenta) As String
-            Return Me.db.Crear(ventas)
+        Public Function Crear(preventa As Datos.Models.PreVenta) As String
+            Return Me.db.Crear(preventa)
         End Function
 
-        Public Function Editar(ventas As Datos.Models.PreVenta) As String
-            Return Me.db.Crear(ventas)
+        Public Function Editar(id As Long, preventa As Datos.Models.PreVenta) As String
+            Return Me.db.Editar(id, preventa)
         End Function
 
         Public Function BuscarFichasActivas() As List(Of Datos.Models.ViewPreventasActiva)
             Return Me.db.FichasActivas
         End Function
 
-        Public Sub InactivarFicha(id As Integer, tipo As String, puntodeVenta As String)
-
+        Public Function InactivarFicha(id As Long, tipo As String, puntodeVenta As String) As String
+            Return Me.db.InactivarFicha(id, tipo, puntodeVenta)
             'Private Sub btnInactivar_Click(sender As Object, e As EventArgs) Handles btnInactivar.Click
             '    Try
             '        If Me.viewFichasActivas.RowCount > 0 Then
@@ -263,7 +263,7 @@
             '    End Try
             'End Sub
 
-        End Sub
+        End Function
 
         Public Sub GeneraVenta(id_preventa As Integer,
                             puntodeventa As String,

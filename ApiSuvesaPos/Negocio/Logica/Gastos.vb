@@ -1,170 +1,109 @@
 ﻿Namespace Logica
     Public Class Gastos
 
-        Public Property Moneda As New Monedas
-        Public Property Proveedores As New Proveedores
+        Private db As Datos.Class.Gastos
 
-        Public Function Buscar(porNombre As Boolean, porFactura As Boolean, filtro As String) As List(Of Modelo.compras)
-            '== a busarcompra pero filtrando las compras
-            Dim compras As New List(Of Modelo.compras)
-            'Dim Fx As New cFunciones
+        Sub New()
+            Me.db = New Datos.Class.Gastos
+        End Sub
 
-            'identificador = CDbl(Fx.Buscar_X_Descripcion_Fecha("Select Id_Compra, (convert(Varchar, convert(Bigint,Factura,0),1) + '-' + TipoCompra)as Factura,Proveedores.nombre,Fecha from compras inner join Proveedores on compras.CodigoProv = Proveedores.CodigoProv Order by Fecha DESC", "nombre", "Fecha", "Buscar Factura de Compra"))
-
-            'buscando = True
-            Return compras
+        Public Function Eliminar(Id As Long) As String
+            Return Me.db.BorrarGasto(Id)
         End Function
 
-        Public Sub Crear(gasto As Modelo.compras)
+        Public Function Crear(Gasto As Datos.Models.Compra) As String
+            Return db.CrearGastos(Gasto)
+        End Function
 
-            'If IdGasto = -1 Then
-            '    sql = " INSERT INTO Compras (Factura,CodigoProv,SubTotalGravado,SubTotalExento,Descuento,Impuesto" &
-            '        " ,TotalFactura, Fecha,Vence,FechaIngreso,Gasto,TipoCompra,Cod_MonedaCompra,TipoCambio,CedulaUsuario) " &
-            '        " VALUES (" & txtNumeroFactura.Text & "," & idProveedor(Me.cmbProveedor.SelectedIndex) & "," &
-            '        Grabado & "," & exento & "," & TotalDescuento & "," &
-            '        TotalImpuesto & "," & Total & ",'" & Me.dtpFecha.Value.Date & "','" &
-            '        FechaVence & "','" & Date.Now.Date & "',1,'" & TipoFactura(Me.cmbTipo.SelectedIndex) & "'," & IdMoneda(Me.cmbMoneda.SelectedIndex) & "," & BuscarTipoCambio(IdMoneda(Me.cmbMoneda.SelectedIndex)) & " , '" & Me.Id_Usuario & "' )"
-            'Else
-            '    sql = "UPDATE Compras SET Factura =" & txtNumeroFactura.Text & ",CodigoProv=" & idProveedor(Me.cmbProveedor.SelectedIndex) & "," &
-            '            "SubTotalGravado=" & Grabado & ",SubTotalExento=" & exento & ",Descuento=" & TotalDescuento & "," &
-            '            "Impuesto =" & TotalImpuesto & ", TotalFactura=" & Total & ",Fecha ='" & dtpFecha.Value.Date & "'," &
-            '            "Vence = '" & FechaVence & "', FechaIngreso='" & dtpFecha.Value.Date & "'" &
-            '            ",TipoCompra='" & TipoFactura(Me.cmbTipo.SelectedIndex) & "',Cod_MonedaCompra=" & IdMoneda(Me.cmbMoneda.SelectedIndex) & ", TipoCambio = " & BuscarTipoCambio(IdMoneda(Me.cmbMoneda.SelectedIndex)) & "  WHERE ID_Compra =" & IdGasto
-            'End If
+        Public Function Editar(Id As Long, Gasto As Datos.Models.Compra) As String
+            Dim res As String = db.EditarGasto(Id, Gasto)
+            If res = "0" Then
+                Return "No existe el valor"
+            Else
+                Return res
+            End If
+        End Function
 
-            'cnnConexion.ConnectionString = CadenaConexionSeePOS
-            'cnnConexion.Open()
-            'clsConexion.SlqExecute(cnnConexion, sql)
+        Public Function Buscar(porId As Boolean, filtro As String) As List(Of Datos.Models.Compra)
+            Dim datos As New List(Of Datos.Models.Compra)
+            datos = Me.db.ObtenerGasto(porId, filtro)
 
-            'If IdGasto = -1 Then
-            '    sql = "Select max(id_compra) from compras where Factura = " & Me.txtNumeroFactura.Text & " and codigoprov = " & idProveedor(Me.cmbProveedor.SelectedIndex) & " and gasto = 1"
-            '    rstReader = clsConexion.GetRecorset(cnnConexion, sql)
-            '    rstReader.Read()
-            '    IdGasto = rstReader(0)
-            'End If
-            'cnnConexion.Close()
-
-            'AgregarDetalleBD(IdGasto)
-
-            'cnnConexion.ConnectionString = CadenaConexionSeePOS
-            'cnnConexion.Open()
-
-            'sql = "DELETE FROM Articulos_Gastos WHERE IDCOMPRA = " & pIdGasto
-            'clsConexion.SlqExecute(cnnConexion, sql)
-
-
-            'For n = 0 To Me.dtsGasto.GastoDetalle.Count - 1
-            '    With dtsGasto.GastoDetalle(n)
-            '        sql = "INSERT INTO Articulos_Gastos(IdCompra,Descripcion,Base,Costo,Cantidad,Gravado,Exento," &
-            '                "Descuento_p,Descuento,Impuesto_p,Impuesto,Total,NuevoCostoBase,CuentaContable)" &
-            '                " VALUES(" & pIdGasto & ",'" & .Descripcion &
-            '                "'," & .Costo & "," & .Costo & "," & .Cantidad & "," & .Gravado & "," & .Exento &
-            '                "," & .Descuento_P & "," & .Descuento & "," & .Impuesto_p & "," & .Impuesto &
-            '                "," & .Total & "," & .NuevoCostoBase & ",'" & .CuentaContable & "')"
-            '        clsConexion.SlqExecute(cnnConexion, sql)
-            '    End With
-            'Next
-            'cnnConexion.Close()
-
-        End Sub
-
-
-        Public Sub Editar(gasto As Modelo.compras)
-
-            'If IdGasto = -1 Then
-            '    sql = " INSERT INTO Compras (Factura,CodigoProv,SubTotalGravado,SubTotalExento,Descuento,Impuesto" &
-            '        " ,TotalFactura, Fecha,Vence,FechaIngreso,Gasto,TipoCompra,Cod_MonedaCompra,TipoCambio,CedulaUsuario) " &
-            '        " VALUES (" & txtNumeroFactura.Text & "," & idProveedor(Me.cmbProveedor.SelectedIndex) & "," &
-            '        Grabado & "," & exento & "," & TotalDescuento & "," &
-            '        TotalImpuesto & "," & Total & ",'" & Me.dtpFecha.Value.Date & "','" &
-            '        FechaVence & "','" & Date.Now.Date & "',1,'" & TipoFactura(Me.cmbTipo.SelectedIndex) & "'," & IdMoneda(Me.cmbMoneda.SelectedIndex) & "," & BuscarTipoCambio(IdMoneda(Me.cmbMoneda.SelectedIndex)) & " , '" & Me.Id_Usuario & "' )"
-            'Else
-            '    sql = "UPDATE Compras SET Factura =" & txtNumeroFactura.Text & ",CodigoProv=" & idProveedor(Me.cmbProveedor.SelectedIndex) & "," &
-            '            "SubTotalGravado=" & Grabado & ",SubTotalExento=" & exento & ",Descuento=" & TotalDescuento & "," &
-            '            "Impuesto =" & TotalImpuesto & ", TotalFactura=" & Total & ",Fecha ='" & dtpFecha.Value.Date & "'," &
-            '            "Vence = '" & FechaVence & "', FechaIngreso='" & dtpFecha.Value.Date & "'" &
-            '            ",TipoCompra='" & TipoFactura(Me.cmbTipo.SelectedIndex) & "',Cod_MonedaCompra=" & IdMoneda(Me.cmbMoneda.SelectedIndex) & ", TipoCambio = " & BuscarTipoCambio(IdMoneda(Me.cmbMoneda.SelectedIndex)) & "  WHERE ID_Compra =" & IdGasto
-            'End If
-
-            'cnnConexion.ConnectionString = CadenaConexionSeePOS
-            'cnnConexion.Open()
-            'clsConexion.SlqExecute(cnnConexion, sql)
-
-            'If IdGasto = -1 Then
-            '    sql = "Select max(id_compra) from compras where Factura = " & Me.txtNumeroFactura.Text & " and codigoprov = " & idProveedor(Me.cmbProveedor.SelectedIndex) & " and gasto = 1"
-            '    rstReader = clsConexion.GetRecorset(cnnConexion, sql)
-            '    rstReader.Read()
-            '    IdGasto = rstReader(0)
-            'End If
-            'cnnConexion.Close()
-
-            'AgregarDetalleBD(IdGasto)
-
-            'cnnConexion.ConnectionString = CadenaConexionSeePOS
-            'cnnConexion.Open()
-
-            'sql = "DELETE FROM Articulos_Gastos WHERE IDCOMPRA = " & pIdGasto
-            'clsConexion.SlqExecute(cnnConexion, sql)
+            Dim Resultado As New List(Of Datos.Models.Compra)
+            For Each comp As Datos.Models.Compra In datos
+                Dim Compra As New Datos.Models.Compra
+                Compra.IdCompra = comp.IdCompra
+                Compra.Factura = comp.Factura
+                Compra.CodigoProv = comp.CodigoProv
+                Compra.SubTotalGravado = comp.SubTotalGravado
+                Compra.SubTotalExento = comp.SubTotalExento
+                Compra.Descuento = comp.Descuento
+                Compra.Impuesto = comp.Impuesto
+                Compra.TotalFactura = comp.TotalFactura
+                Compra.Fecha = comp.Fecha
+                Compra.Vence = comp.Vence
+                Compra.FechaIngreso = comp.FechaIngreso
+                Compra.MotivoGasto = comp.MotivoGasto
+                Compra.Compra1 = comp.Compra1
+                Compra.Contabilizado = comp.Contabilizado
+                Compra.Consignacion = comp.Consignacion
+                Compra.Asiento = comp.Asiento
+                Compra.ContaInve = comp.ContaInve
+                Compra.AsientoInve = comp.AsientoInve
+                Compra.TipoCompra = comp.TipoCompra
+                Compra.CedulaUsuario = comp.CedulaUsuario
+                Compra.CodMonedaCompra = comp.CodMonedaCompra
+                Compra.FacturaCancelado = comp.FacturaCancelado
+                Compra.Gasto = comp.Gasto
+                Compra.TipoCambio = comp.TipoCambio
+                Compra.CambioImpuesto = comp.CambioImpuesto
+                Compra.Taller = comp.Taller
+                Compra.Mascotas = comp.Mascotas
+                Compra.NumOrden = comp.NumOrden
+                Compra.Fec = comp.Fec
+                Compra.CodigoActividad = comp.CodigoActividad
+                Compra.EnviadoDgt = comp.EnviadoDgt
+                Compra.EstadoDgt = comp.EstadoDgt
+                Compra.ConsecutivoDgt = comp.ConsecutivoDgt
+                Compra.ClaveDgt = comp.ClaveDgt
+                Compra.Trans = comp.Trans
+                Compra.NumTrans = comp.NumTrans
+                Compra.Prepagada = comp.Prepagada
+                Compra.PreAbono = comp.PreAbono
 
 
-            'For n = 0 To Me.dtsGasto.GastoDetalle.Count - 1
-            '    With dtsGasto.GastoDetalle(n)
-            '        sql = "INSERT INTO Articulos_Gastos(IdCompra,Descripcion,Base,Costo,Cantidad,Gravado,Exento," &
-            '                "Descuento_p,Descuento,Impuesto_p,Impuesto,Total,NuevoCostoBase,CuentaContable)" &
-            '                " VALUES(" & pIdGasto & ",'" & .Descripcion &
-            '                "'," & .Costo & "," & .Costo & "," & .Cantidad & "," & .Gravado & "," & .Exento &
-            '                "," & .Descuento_P & "," & .Descuento & "," & .Impuesto_p & "," & .Impuesto &
-            '                "," & .Total & "," & .NuevoCostoBase & ",'" & .CuentaContable & "')"
-            '        clsConexion.SlqExecute(cnnConexion, sql)
-            '    End With
-            'Next
-            'cnnConexion.Close()
+                For Each det As Datos.Models.ArticulosGasto In Me.db.ObtenerArticulosGastos(Compra.IdCompra)
+                    Dim Detalle As New Datos.Models.ArticulosGasto
+                    Detalle.IdArticuloComprados = det.IdArticuloComprados
+                    Detalle.IdCompra = det.IdCompra
+                    Detalle.Descripcion = det.Descripcion
+                    Detalle.Base = det.Base
+                    Detalle.MontoFlete = det.MontoFlete
+                    Detalle.OtrosCargos = det.OtrosCargos
+                    Detalle.Costo = det.Costo
+                    Detalle.Cantidad = det.Cantidad
+                    Detalle.Gravado = det.Gravado
+                    Detalle.Exento = det.Exento
+                    Detalle.DescuentoP = det.DescuentoP
+                    Detalle.Descuento = det.Descuento
+                    Detalle.ImpuestoP = det.ImpuestoP
+                    Detalle.Impuesto = det.Impuesto
+                    Detalle.Total = det.Total
+                    Detalle.Devoluciones = det.Devoluciones
+                    Detalle.NuevoCostoBase = det.NuevoCostoBase
+                    Detalle.CuentaContable = det.CuentaContable
+                    Detalle.CodTipoCompra = det.CodTipoCompra
+                    Detalle.DescTipoCompra = det.DescTipoCompra
 
-        End Sub
+                    Compra.ArticulosGastos.Add(Detalle)
+                Next
 
-        Public Sub Eliminar(idcompra As Integer)
+                Resultado.Add(Compra)
+            Next
 
-            '     Private Sub EliminarBD()
-            '    Dim sql As String
-            '    Dim clsConexion As New Conexion
-            '    Dim cnnConexion As New System.Data.SqlClient.SqlConnection
-            '    Dim n As Integer
+            Return Resultado
+        End Function
 
-            '    If IdGasto = -1 Then Exit Sub
-            '    If ValidarModificarElimar() = False Then
-            '        MsgBox("No se puede eliminar la factura")
-            '        Exit Sub
-            '    End If
-
-            '    cnnConexion.ConnectionString = CadenaConexionSeePOS
-            '    cnnConexion.Open()
-
-
-            '    If MessageBox.Show("¿Desea eliminar esta Factura de gasto ?", "SeePos", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = 6 Then
-
-
-            '        'Elimnar los detalles
-            '        sql = "Delete from Articulos_Gastos where IdCompra=" & IdGasto
-            '        clsConexion.SlqExecute(cnnConexion, sql)
-
-            '        'Eliminar la cabezara
-            '        sql = "DELETE FROM  Compras where id_compra =" & IdGasto
-            '        clsConexion.SlqExecute(cnnConexion, sql)
-
-            '        cnnConexion.Close()
-
-            '        Me.tlbNuevo.Enabled = True
-            '        Me.tlbBuscar.Enabled = True
-            '        Me.tlbRegistrar.Enabled = False
-            '        Me.tlbEliminar.Enabled = False
-            '        Me.tlbImprimir.Enabled = False
-
-            '        Me.LimpiarCabezera()
-            '        Me.DesactivarCabezera()
-            '    End If
-            'End Sub
-
-        End Sub
 
     End Class
 End Namespace
+

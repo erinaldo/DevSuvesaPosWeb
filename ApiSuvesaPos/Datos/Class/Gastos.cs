@@ -8,22 +8,22 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Datos.Class
 {
-  public  class Compras
+  public  class Gastos
     {
 
         SeePOSContext entities;
 
-        public Compras()
+        public Gastos()
         {
             entities = new SeePOSContext();
         }
 
 
-        public int CrearCompras(Models.Compra compra)
+        public int CrearGastos(Models.Compra gasto)
         {
             try
             {
-                entities.Compras.Add(compra);
+                entities.Compras.Add(gasto);
                 return entities.SaveChanges();
 
             }
@@ -34,7 +34,7 @@ namespace Datos.Class
             }
         }
 
-        public int BorrarCompra(long id)
+        public int BorrarGasto(long id)
         {
             try
             {
@@ -51,15 +51,15 @@ namespace Datos.Class
 
         }
 
-        public List<Models.ArticulosComprado> ObtenerArticulosComprados(long IdCompra)
+        public List<Models.ArticulosGasto> ObtenerArticulosGastos(long IdCompra)
         {
             try
             {
-                List<Models.ArticulosComprado> result;
-                    var temp = from c in entities.ArticulosComprados
+                List<Models.ArticulosGasto> result;
+                    var temp = from c in entities.ArticulosGastos
                                where c.IdCompra == IdCompra
                                select c;
-                    result = temp.ToList<Models.ArticulosComprado>();
+                    result = temp.ToList<Models.ArticulosGasto>();
 
                 if (result.Count > 0)
                 {
@@ -77,7 +77,7 @@ namespace Datos.Class
             }
         }
 
-        public List<Models.Compra> ObtenerCompras(bool porId, string Filtro)
+        public List<Models.Compra> ObtenerGasto(bool porId, string Filtro)
         {
             try
 
@@ -95,7 +95,7 @@ namespace Datos.Class
                 {
                     var temp = from c in entities.Compras
                                join p in entities.Proveedores on c.CodigoProv equals p.CodigoProv
-                              where p.Nombre.Contains(Filtro) && c.Gasto == false
+                              where p.Nombre.Contains(Filtro) || c.Gasto == true
                               orderby c.Fecha descending
                                select c;
                     result = temp.ToList<Models.Compra>();
@@ -117,7 +117,7 @@ namespace Datos.Class
             }
         }
 
-        public int EditarCompras(long id, Models.Compra compra)
+        public int EditarGasto(long id, Models.Compra compra)
         {
             try
             {
@@ -163,34 +163,31 @@ namespace Datos.Class
                 nuevacompra.PreAbono = compra.PreAbono;
 
 
-                var ac = from x in entities.ArticulosComprados
-                         where x.IdCompra == id && !(from t in compra.ArticulosComprados select t.IdArticuloComprados).Contains(x.IdArticuloComprados)
+                var ac = from x in entities.ArticulosGastos
+                         where x.IdCompra == id && !(from t in compra.ArticulosGastos select t.IdArticuloComprados).Contains(x.IdArticuloComprados)
                          select x;
-                List<Models.ArticulosComprado> Eliminar = ac.ToList<Models.ArticulosComprado>();
+                List<Models.ArticulosGasto> Eliminar = ac.ToList<Models.ArticulosGasto>();
 
-                foreach (Models.ArticulosComprado item in Eliminar)
+                foreach (Models.ArticulosGasto item in Eliminar)
                 {
-                    var p = entities.ArticulosComprados.Find(item.IdArticuloComprados);
+                    var p = entities.ArticulosGastos.Find(item.IdArticuloComprados);
                     entities.Remove(p);
                     entities.SaveChanges();
                 }
 
-                Models.ArticulosComprado nuevaLinea;
-                foreach (Models.ArticulosComprado Detalle in compra.ArticulosComprados)
+                Models.ArticulosGasto nuevaLinea;
+                foreach (Models.ArticulosGasto Detalle in compra.ArticulosGastos)
                 {
                     //Agrega nuevos registros
                     if (Detalle.IdArticuloComprados == 0)
                     {
-                        nuevaLinea = new Models.ArticulosComprado();
-                        nuevaLinea.Codigo = Detalle.Codigo;
-                        nuevaLinea.CodArticulo = Detalle.CodArticulo;
+                        nuevaLinea = new Models.ArticulosGasto();
                         nuevaLinea.Descripcion = Detalle.Descripcion;
                         nuevaLinea.Base = Detalle.Base;
                         nuevaLinea.MontoFlete = Detalle.MontoFlete;
                         nuevaLinea.OtrosCargos = Detalle.OtrosCargos;
                         nuevaLinea.Costo = Detalle.Costo;
                         nuevaLinea.Cantidad = Detalle.Cantidad;
-                        nuevaLinea.Regalias = Detalle.Regalias;
                         nuevaLinea.Gravado = Detalle.Gravado;
                         nuevaLinea.Exento = Detalle.Exento;
                         nuevaLinea.DescuentoP = Detalle.DescuentoP;
@@ -199,38 +196,26 @@ namespace Datos.Class
                         nuevaLinea.Impuesto = Detalle.Impuesto;
                         nuevaLinea.Total = Detalle.Total;
                         nuevaLinea.Devoluciones = Detalle.Devoluciones;
-                        nuevaLinea.PrecioA = Detalle.PrecioA;
-                        nuevaLinea.PrecioB = Detalle.PrecioB;
-                        nuevaLinea.PrecioC = Detalle.PrecioC;
-                        nuevaLinea.PrecioD = Detalle.PrecioD;
-                        nuevaLinea.CodMonedaVenta = Detalle.CodMonedaVenta;
                         nuevaLinea.NuevoCostoBase = Detalle.NuevoCostoBase;
-                        nuevaLinea.Lote = Detalle.Lote;
-                        nuevaLinea.Bonificado = Detalle.Bonificado;
-                        nuevaLinea.CodigoBonificado = Detalle.CodigoBonificado;
-                        nuevaLinea.CantidadBonificado = Detalle.CantidadBonificado;
-                        nuevaLinea.CostoBonificado = Detalle.CostoBonificado;
-                        nuevaLinea.SubTotalBonificado = Detalle.SubTotalBonificado;
-                        nuevaLinea.CodArticuloBonificacion = Detalle.CodArticuloBonificacion;
-                        nuevaLinea.CodCabys = Detalle.CodCabys;
-                        nuevacompra.ArticulosComprados.Add(nuevaLinea);
+                        nuevaLinea.CuentaContable = Detalle.CuentaContable;
+                        nuevaLinea.CodTipoCompra = Detalle.CodTipoCompra;
+                        nuevaLinea.DescTipoCompra = Detalle.DescTipoCompra;
+
+                        nuevacompra.ArticulosGastos.Add(nuevaLinea);
                     }
                     else
                     {
                         //Actualiza los detalles
-                        var a = entities.ArticulosComprados.Find(Detalle.IdArticuloComprados);
-                        Models.ArticulosComprado lineaModificada = a;
+                        var a = entities.ArticulosGastos.Find(Detalle.IdArticuloComprados);
+                        Models.ArticulosGasto lineaModificada = a;
                         if (lineaModificada != null)
                         {
-                            lineaModificada.Codigo = Detalle.Codigo;
-                            lineaModificada.CodArticulo = Detalle.CodArticulo;
                             lineaModificada.Descripcion = Detalle.Descripcion;
                             lineaModificada.Base = Detalle.Base;
                             lineaModificada.MontoFlete = Detalle.MontoFlete;
                             lineaModificada.OtrosCargos = Detalle.OtrosCargos;
                             lineaModificada.Costo = Detalle.Costo;
                             lineaModificada.Cantidad = Detalle.Cantidad;
-                            lineaModificada.Regalias = Detalle.Regalias;
                             lineaModificada.Gravado = Detalle.Gravado;
                             lineaModificada.Exento = Detalle.Exento;
                             lineaModificada.DescuentoP = Detalle.DescuentoP;
@@ -239,20 +224,10 @@ namespace Datos.Class
                             lineaModificada.Impuesto = Detalle.Impuesto;
                             lineaModificada.Total = Detalle.Total;
                             lineaModificada.Devoluciones = Detalle.Devoluciones;
-                            lineaModificada.PrecioA = Detalle.PrecioA;
-                            lineaModificada.PrecioB = Detalle.PrecioB;
-                            lineaModificada.PrecioC = Detalle.PrecioC;
-                            lineaModificada.PrecioD = Detalle.PrecioD;
-                            lineaModificada.CodMonedaVenta = Detalle.CodMonedaVenta;
                             lineaModificada.NuevoCostoBase = Detalle.NuevoCostoBase;
-                            lineaModificada.Lote = Detalle.Lote;
-                            lineaModificada.Bonificado = Detalle.Bonificado;
-                            lineaModificada.CodigoBonificado = Detalle.CodigoBonificado;
-                            lineaModificada.CantidadBonificado = Detalle.CantidadBonificado;
-                            lineaModificada.CostoBonificado = Detalle.CostoBonificado;
-                            lineaModificada.SubTotalBonificado = Detalle.SubTotalBonificado;
-                            lineaModificada.CodArticuloBonificacion = Detalle.CodArticuloBonificacion;
-                            lineaModificada.CodCabys = Detalle.CodCabys;
+                            lineaModificada.CuentaContable = Detalle.CuentaContable;
+                            lineaModificada.CodTipoCompra = Detalle.CodTipoCompra;
+                            lineaModificada.DescTipoCompra = Detalle.DescTipoCompra;
 
                             entities.Entry(lineaModificada).State = EntityState.Modified;
                             entities.SaveChanges();

@@ -209,13 +209,44 @@ namespace Datos.Class
 			}
 		}
 
-		public int Borrar(long id) //borrar PreVentas
+		public int InactivarFicha(long id, string tipo, string puntoventa) //inactivar Fichas
 		{
 			try
 			{
-				var p = entities.PreVentas.Find(id);
-				entities.Remove(p);
-				return entities.SaveChanges();
+
+				if (tipo == "ABO")
+                {
+					var abono = entities.PreAbonocCobrars.Find(id);
+					Models.PreAbonocCobrar viejo = abono;
+					if (viejo != null)
+					{
+						viejo.Estado = "Inactivada";
+						entities.Entry(viejo).State = EntityState.Modified;
+						return entities.SaveChanges();
+					}
+					else
+					{
+						return 0;// no se encotro el registro solicitado.
+					}
+				}
+                else
+                {
+					var preventa = entities.PreVentas.Find(id);
+					Models.PreVenta viejo = preventa;
+					if (viejo != null)
+					{
+						viejo.Estado = "Inactivada";
+						entities.Entry(viejo).State = EntityState.Modified;
+						return entities.SaveChanges();
+					}
+					else
+					{
+						return 0;// no se encotro el registro solicitado.
+					}
+				}
+
+
+				
 			}
 			catch (Exception ex)
 			{

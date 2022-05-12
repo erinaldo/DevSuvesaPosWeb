@@ -7,7 +7,7 @@
             Me.db = New Datos.Class.Ventas
         End Sub
 
-        Public Function obtenerPreVentas(id As Long) As Datos.Models.Venta
+        Public Function obtenerVentas(id As Long) As Datos.Models.Venta
             Dim Datos As New Datos.Models.Venta
             Datos = Me.db.Obtener(id)
 
@@ -110,7 +110,7 @@
             Return venta
         End Function
 
-        Public Function BuscarPreVenta(porNombre As Boolean, Filtro As String) As List(Of Datos.Models.Venta)
+        Public Function BuscarVenta(porNombre As Boolean, Filtro As String) As List(Of Datos.Models.Venta)
             Dim datos As New List(Of Datos.Models.Venta)
             datos = Me.db.Buscar(porNombre, Filtro)
 
