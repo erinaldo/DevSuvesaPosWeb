@@ -51,14 +51,15 @@ namespace Datos.Class
 
         }
 
-        public List<AbonoApartado> ObtenerAbonoApartado()  
+        public List<AbonoApartadosdetalle> AbonosporApartado(long IdApartado)  
         {
             try
             {
-                var temp = from c in entities.AbonoApartados
-
-                           select c;
-                List<AbonoApartado> result = temp.ToList<AbonoApartado>();
+                var temp = from a in entities.AbonoApartados
+                           join ad in entities.AbonoApartadosdetalles on a.IdAbonoapartado equals ad.IdAbonoapartado
+                           where ad.Apartado == IdApartado && a.Anula == false
+                           select ad;
+                List<AbonoApartadosdetalle> result = temp.ToList<AbonoApartadosdetalle>();
 
                 if (result.Count > 0)
                 {
@@ -68,7 +69,6 @@ namespace Datos.Class
                 {
                     return result = null;
                 }
-
 
             }
             catch (Exception ex)
@@ -101,40 +101,7 @@ namespace Datos.Class
             {
                 throw ex;
             }
-        }
-
-        public int EditarAbonoApartado(int id, AbonoApartado abono) 
-        {
-            try
-            {
-                var p = entities.AbonoApartados.Find(id);
-                AbonoApartado Nuevo = p;
-                Nuevo.CodCliente = abono.CodCliente;
-                Nuevo.NombreCliente = abono.NombreCliente;
-                Nuevo.SaldoCuenta = abono.SaldoCuenta;
-                Nuevo.Monto = abono.Monto;
-                Nuevo.SaldoActual = abono.SaldoActual;
-                Nuevo.Fecha = abono.Fecha;
-                Nuevo.Observaciones = abono.Observaciones;
-                Nuevo.Anula = abono.Anula;
-                Nuevo.CedUsuario = abono.CedUsuario;
-                Nuevo.CodMoneda = abono.CodMoneda;
-                Nuevo.NumRecibo = abono.NumRecibo;
-                Nuevo.IdSucursal = abono.IdSucursal;
-                //Nuevo.AbonoApartadosdetalles = abono.AbonoApartadosdetalle;
-
-                entities.Entry(Nuevo).State = EntityState.Modified;
-
-                return entities.SaveChanges();
-
-
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
+        }    
 
     }
 }

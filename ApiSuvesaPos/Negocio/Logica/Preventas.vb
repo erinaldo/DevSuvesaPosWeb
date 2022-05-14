@@ -226,6 +226,22 @@
             Return Resultado
         End Function
 
+        Public Function Facturar_Preventa(IdPreventa As Long, Tipo As String, IdUsuario As String, IdEmpresa As Integer) As String
+            Return Me.db.Facturar_PreVenta(IdPreventa, Tipo, IdUsuario, IdEmpresa)
+        End Function
+
+        Public Function Generar_ReciboDinero(IdPreAbono As Long, IdUsuario As String, IdEmpresa As Integer) As String
+            Return Me.db.Generar_ReciboDinero(IdPreAbono, IdUsuario, IdEmpresa)
+        End Function
+
+        Public Function Apartar_Preventa(IdPreventa As Long, IdUsuario As String, IdEmpresa As Integer, MontoInicial As Double) As String
+            Return Me.db.Apartar_Preventa(IdPreventa, IdUsuario, IdEmpresa, MontoInicial)
+        End Function
+
+        Public Function InsertarAbonoReintegro(preventa As Datos.Models.Abonoreintegro) As String
+            Return Me.db.InsertarAbonoReintegro(preventa)
+        End Function
+
         Public Function Crear(preventa As Datos.Models.PreVenta) As String
             Return Me.db.Crear(preventa)
         End Function

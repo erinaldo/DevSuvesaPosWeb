@@ -51,6 +51,20 @@ namespace Datos.Class
 
         }
 
+        public Models.Abonoccobrar Obtener(long id)  //consultar PreVentas
+        {
+            var p = entities.Abonoccobrars.Find(id);
+            Models.Abonoccobrar viejo = p;
+            if (viejo != null)
+            {
+                return viejo;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         public List<Models.DetalleAbonoccobrar> ObtenerDetalleAbonoscCobrar(long IdRecibo)
         {
             try

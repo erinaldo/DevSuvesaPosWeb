@@ -4259,25 +4259,34 @@ namespace Datos.Models
 
             modelBuilder.Entity<ExepcionFirmadocontado>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => e.IdExepcionFirmadocontado);
 
                 entity.ToTable("EXEPCION_FIRMADOCONTADO");
 
-                entity.Property(e => e.Cedula)
-                    .HasMaxLength(100)
-                    .HasColumnName("CEDULA");
-
                 entity.Property(e => e.IdExepcionFirmadocontado)
                     .HasColumnType("numeric(10, 0)")
+                    .ValueGeneratedOnAdd()
                     .HasColumnName("ID_EXEPCION_FIRMADOCONTADO");
+
+                entity.Property(e => e.Cedula)
+                    .IsRequired()
+                    .HasMaxLength(100)
+                    .HasColumnName("CEDULA");
 
                 entity.Property(e => e.IdValidaFirmadocontado)
                     .HasColumnType("numeric(10, 0)")
                     .HasColumnName("ID_VALIDA_FIRMADOCONTADO");
 
                 entity.Property(e => e.Nombre)
+                    .IsRequired()
                     .HasMaxLength(100)
                     .HasColumnName("NOMBRE");
+
+                entity.HasOne(d => d.IdValidaFirmadocontadoNavigation)
+                    .WithMany(p => p.ExepcionFirmadocontados)
+                    .HasForeignKey(d => d.IdValidaFirmadocontado)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_EXEPCION_FIRMADOCONTADO_VALIDA_FIRMADOCONTADO");
             });
 
             modelBuilder.Entity<Familium>(entity =>
@@ -9076,17 +9085,18 @@ namespace Datos.Models
 
             modelBuilder.Entity<ValidaFirmadocontado>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => e.IdValidaFirmadocontado);
 
                 entity.ToTable("VALIDA_FIRMADOCONTADO");
+
+                entity.Property(e => e.IdValidaFirmadocontado)
+                    .HasColumnType("numeric(10, 0)")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnName("ID_VALIDA_FIRMADOCONTADO");
 
                 entity.Property(e => e.Contado).HasColumnName("CONTADO");
 
                 entity.Property(e => e.ExigeNombre).HasColumnName("EXIGE_NOMBRE");
-
-                entity.Property(e => e.IdValidaFirmadocontado)
-                    .HasColumnType("numeric(10, 0)")
-                    .HasColumnName("ID_VALIDA_FIRMADOCONTADO");
 
                 entity.Property(e => e.MaximoAutoriza)
                     .HasColumnType("numeric(10, 0)")

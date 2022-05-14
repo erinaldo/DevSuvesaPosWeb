@@ -11,10 +11,10 @@ namespace ApiSuvesaPos.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class compraController : Controller
+    public class devolucionprestamoController : Controller
     {
 
-        private Negocio.Logica.Compras db = new Negocio.Logica.Compras();
+        private Negocio.Logica.Devolucion_prestamo db = new Negocio.Logica.Devolucion_prestamo();
 
         private bool Numerico(string text)
         {
@@ -24,43 +24,12 @@ namespace ApiSuvesaPos.Controllers
 
 
         [HttpPost]
-        public IActionResult Registrar(Datos.Models.Compra compra)
+        public IActionResult Registrar(Datos.Models.DevolucionPrestamo devPrestamo)
         {
             try
             {
-                string resp = db.Crear(compra);
+                string resp = db.Crear(devPrestamo);
 
-                double test;
-                if (double.TryParse( resp, out test))// Si el resultado es numerico
-                {
-                    if (test>0)//Si el resultado es mayor que cero
-                    {
-                        return Ok("Ok");
-                    }
-                    else
-                    {
-                        throw new Exception(resp);
-                    }
-                }
-                else
-                {
-                    throw new Exception(resp);
-                }
-
-            }
-            catch (Exception ex)
-            {
-                return new BadRequestResult();
-            }
-        }
-
-        [HttpPut]
-        public IActionResult Actualizar(int id, Datos.Models.Compra compra)
-        {
-            try
-            {
-
-                string resp = db.Editar(id, compra);
                 double test;
                 if (double.TryParse(resp, out test))// Si el resultado es numerico
                 {
@@ -86,15 +55,15 @@ namespace ApiSuvesaPos.Controllers
         }
 
         [HttpGet]
-        public IActionResult Buscar(bool porId, string filtro)
+        public IActionResult Buscar(bool pornombre, string filtro)
         {
 
-            if (porId == true && !this.Numerico(filtro))
+            if (pornombre == false && !this.Numerico(filtro))
             {
                 return BadRequest("El parametro filtro no tiene el valor esperado. Se esperaba un valor numerico.");
             }
 
-            var result = this.db.Buscar(porId, filtro);
+            var result = this.db.Buscar(pornombre, filtro);
             if (result != null)
             {
                 return Ok(result);
@@ -106,7 +75,7 @@ namespace ApiSuvesaPos.Controllers
         }
 
         [HttpDelete]
-        public IActionResult Eliminar(int id)
+        public IActionResult Eliminar(long id)
         {
             try
             {

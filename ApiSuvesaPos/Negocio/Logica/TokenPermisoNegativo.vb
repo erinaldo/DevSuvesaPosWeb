@@ -1,49 +1,23 @@
 ﻿Namespace Logica
     Public Class TokenPermisoNegativo
 
+        Private db As Datos.Class.TokenPermisoNegativo
 
-        Public Function ConsultarToken() As List(Of TokenPermisoNegativo)
+        Sub New()
+            Me.db = New Datos.Class.TokenPermisoNegativo
+        End Sub
 
-            'Private Sub CargarDatos()
-            '    Dim dt As New DataTable
-            '    cFunciones.Llenar_Tabla_Generico("Select * from viewTokenSolicitados order by Fecha Desc", dt, CadenaConexionSeePOS)
-            '    Me.viewDatos.DataSource = dt
-            '    Me.viewDatos.Columns("Id").Visible = False
-            '    Me.viewDatos.Columns("IdUsuarioSolicita").Visible = False
-            '    Me.viewDatos.Columns("Codigo").Visible = False
-            '    Me.viewDatos.Columns("fecha").DefaultCellStyle.Format = "t"
-            'End Sub
-
+        Public Function ConsultarToken() As List(Of Datos.Models.ViewTokenSolicitado)
+            Return Me.db.ListaTokenSolicitadosdelDia
         End Function
 
 
-        Public Function SolicitarToken(idusuario As String, codigo As Integer)
-
-            'Private Sub SolicitarPermisoVentaNegativo()
-            '    Dim db As New OBSoluciones.SQL.Sentencias(CadenaConexionSeePOS)
-            '    db.AddParametro("@IdUsuarioSolicita", Me.IdUsuario)
-            '    db.AddParametro("@Codigo", Me.Codigo)
-            '    db.Ejecutar("spSolicitarTokenVentaNegativa")
-            'End Sub
-
+        Public Function SolicitarToken(idusuario As String, codigo As Decimal) As String
+            Return Me.db.SolicitarTokenVentaNegativa(idusuario, codigo)
         End Function
 
-        Public Function ValidarToken(idusuario As String, codigo As Integer, token As String) As Boolean
-
-            'Private Function ValidaToken() As Boolean
-            '    Dim db As New OBSoluciones.SQL.Sentencias(CadenaConexionSeePOS)
-            '    Dim dt As New DataTable
-            '    db.AddParametro("@IdUsuarioSolicita", Me.IdUsuario)
-            '    db.AddParametro("@Codigo", Me.Codigo)
-            '    db.AddParametro("@Token", Me.txtClave.Text)
-            '    dt = db.Ejecutar("spConsultaToken")
-            '    If dt.Rows.Count > 0 Then
-            '        Return True
-            '    Else
-            '        Return False
-            '    End If
-            'End Function
-
+        Public Function ValidarToken(idusuario As String, codigo As Decimal, token As String) As List(Of Datos.Models.ViewTokenSolicitado)
+            Return Me.db.ConsultarToken(idusuario, codigo, token)
         End Function
 
 

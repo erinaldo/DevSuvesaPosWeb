@@ -32,6 +32,48 @@ namespace Datos.Class
             }
         }
 
+        public List<Models.ViewApartadosActivo> Buscar(bool porNombre, string filtro) //obtener lista CartasdeExoneracion 
+        {
+            try
+            {
+                List<Models.ViewApartadosActivo> result;
+
+                if (porNombre == true)
+                {
+                    //busca por la descripcion
+                    var temp = from c in entities.ViewApartadosActivos
+                               where c.Cliente.Contains(filtro) // usar un like
+                               orderby c.Fecha descending
+                               select c;
+
+                    result = temp.ToList<Models.ViewApartadosActivo>();
+                }
+                else
+                {
+                    //busca por el id de la tabla
+                    var temp = from c in entities.ViewApartadosActivos
+                               where c.Apartado == Convert.ToInt64(filtro) //convertir el datos de string a long
+                               select c;
+                    result = temp.ToList<Models.ViewApartadosActivo>();
+                }
+
+                if (result.Count > 0)
+                {
+                    return result;
+                }
+                else
+                {
+                    return result = null;
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public int BorrarApartados(int id)
 
 

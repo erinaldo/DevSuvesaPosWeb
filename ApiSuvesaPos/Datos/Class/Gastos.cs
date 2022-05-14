@@ -95,7 +95,7 @@ namespace Datos.Class
                 {
                     var temp = from c in entities.Compras
                                join p in entities.Proveedores on c.CodigoProv equals p.CodigoProv
-                              where p.Nombre.Contains(Filtro) || c.Gasto == true
+                              where p.Nombre.Contains(Filtro) && c.Gasto == true
                               orderby c.Fecha descending
                                select c;
                     result = temp.ToList<Models.Compra>();

@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Class\AbonosApartadosDetalles.cs" />
     <Compile Remove="Class\AjustesInventariosDetalles.cs" />
     <Compile Remove="Class\ApartadosDetalles.cs" />
     <Compile Remove="Class\AperturasDenominaciones.cs" />

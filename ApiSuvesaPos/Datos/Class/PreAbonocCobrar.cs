@@ -30,6 +30,20 @@ namespace Datos.Class
 			}
 		}
 
+		public Models.PreAbonocCobrar Obtener(long id)  //consultar 
+		{
+			var p = entities.PreAbonocCobrars.Find(id);
+			Models.PreAbonocCobrar viejo = p;
+			if (viejo != null)
+			{
+				return viejo;
+			}
+			else
+			{
+				return null;
+			}
+		}
+
 		public List<Models.DetallePreAbonocCobrar> BuscarDetalle(long Id)  //consultar PreAbonocCobrar
 		{
 			try

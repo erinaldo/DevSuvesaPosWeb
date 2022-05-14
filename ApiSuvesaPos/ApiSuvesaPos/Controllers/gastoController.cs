@@ -11,10 +11,10 @@ namespace ApiSuvesaPos.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class compraController : Controller
+    public class gastoController : Controller
     {
 
-        private Negocio.Logica.Compras db = new Negocio.Logica.Compras();
+        private Negocio.Logica.Gastos db = new Negocio.Logica.Gastos();
 
         private bool Numerico(string text)
         {
@@ -24,11 +24,11 @@ namespace ApiSuvesaPos.Controllers
 
 
         [HttpPost]
-        public IActionResult Registrar(Datos.Models.Compra compra)
+        public IActionResult Registrar(Datos.Models.Compra Gasto)
         {
             try
             {
-                string resp = db.Crear(compra);
+                string resp = db.Crear(Gasto);
 
                 double test;
                 if (double.TryParse( resp, out test))// Si el resultado es numerico
@@ -55,12 +55,12 @@ namespace ApiSuvesaPos.Controllers
         }
 
         [HttpPut]
-        public IActionResult Actualizar(int id, Datos.Models.Compra compra)
+        public IActionResult Actualizar(int id, Datos.Models.Compra Gasto)
         {
             try
             {
 
-                string resp = db.Editar(id, compra);
+                string resp = db.Editar(id, Gasto);
                 double test;
                 if (double.TryParse(resp, out test))// Si el resultado es numerico
                 {

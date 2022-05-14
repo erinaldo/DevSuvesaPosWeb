@@ -55,6 +55,135 @@ namespace ApiSuvesaPos.Controllers
             }
         }
 
+        [HttpPost]
+        [Route("insertar_abonoreintegro")]
+        public IActionResult Insertar_AbonoReintegro(Datos.Models.Abonoreintegro Abono)
+        {
+            try
+            {
+                string resp = db.InsertarAbonoReintegro(Abono);
+
+                double test;
+                if (double.TryParse(resp, out test))// Si el resultado es numerico
+                {
+                    if (test > 0)//Si el resultado es mayor que cero
+                    {
+                        return Ok("Ok");
+                    }
+                    else
+                    {
+                        throw new Exception(resp);
+                    }
+                }
+                else
+                {
+                    throw new Exception(resp);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return new BadRequestResult();
+            }
+        }
+
+        [HttpPost]
+        [Route("facturar_preventa")]
+        public IActionResult Facturar_Preventa(long IdPreventa, string Tipo, string IdUsuario, int IdEmpresa)
+        {
+            try
+            {
+                string resp = db.Facturar_Preventa(IdPreventa, Tipo, IdUsuario, IdEmpresa);
+
+                long test;
+                if (long.TryParse(resp, out test))// Si el resultado es numerico
+                {
+                    if (test > 0)//Si el resultado es mayor que cero
+                    {
+                        return Ok(test);
+                    }
+                    else
+                    {
+                        throw new Exception(resp);
+                    }
+                }
+                else
+                {
+                    throw new Exception(resp);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return new BadRequestResult();
+            }
+        }
+
+        [HttpPost]
+        [Route("generar_recibodinero")]
+        public IActionResult Generar_ReciboDinero(long IdPreAbono, string IdUsuario, int IdEmpresa)
+        {
+            try
+            {
+                string resp = db.Generar_ReciboDinero(IdPreAbono, IdUsuario, IdEmpresa);
+
+                long test;
+                if (long.TryParse(resp, out test))// Si el resultado es numerico
+                {
+                    if (test > 0)//Si el resultado es mayor que cero
+                    {
+                        return Ok(test);
+                    }
+                    else
+                    {
+                        throw new Exception(resp);
+                    }
+                }
+                else
+                {
+                    throw new Exception(resp);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return new BadRequestResult();
+            }
+        }
+
+        [HttpPost]
+        [Route("apartar_preventa")]
+        public IActionResult Apartar_Preventa(long IdPreventa, string IdUsuario, int IdEmpresa, double MontoInicial)
+        {
+            try
+            {
+                string resp = db.Apartar_Preventa(IdPreventa, IdUsuario, IdEmpresa, MontoInicial);
+
+                long test;
+                if (long.TryParse(resp, out test))// Si el resultado es numerico
+                {
+                    if (test > 0)//Si el resultado es mayor que cero
+                    {
+                        return Ok(test);
+                    }
+                    else
+                    {
+                        throw new Exception(resp);
+                    }
+                }
+                else
+                {
+                    throw new Exception(resp);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return new BadRequestResult();
+            }
+        }
+
+
         [HttpPut]
         public IActionResult Actualizar(int id, Datos.Models.PreVenta preventa)
         {
