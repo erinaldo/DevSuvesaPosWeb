@@ -30,12 +30,19 @@ namespace DatosFE.Class
             entities = new FEContext();
         }
 
-        
-        public async Task<IdentityResult> crearUsuario(IdentityUser usuario)
+        public Usuarios(UserManager<IdentityUser> manager, SignInManager<IdentityUser> signInManager)
+        {
+            this.signInManager = signInManager;
+            this.manager = manager;
+            entities = new FEContext();
+        }
+
+
+        public async Task<IdentityResult> crearUsuario(IdentityUser usuario, string pass)
         {
             try
             {
-                return await manager.CreateAsync(usuario);
+                return await manager.CreateAsync(usuario, pass);
 
             }
             catch(Exception ex)
@@ -44,12 +51,14 @@ namespace DatosFE.Class
             }
         }
 
-        public async Task<SignInResult> ConsultarUsuario(string user, string password)
+        public async Task<SignInResult> ConsultarUsuario(string email, string password)
         {
             try
             {
-                return await  signInManager.PasswordSignInAsync(user, password,
-                    isPersistent: false, lockoutOnFailure: false); 
+                return await signInManager.PasswordSignInAsync(email, password,
+                    isPersistent: false, lockoutOnFailure: false);
+                //var usuario = new IdentityUser { UserName = crendeciales.Email, Email = crendeciales.Email, P };
+                //return await signInManager.SignInAsync(user, password);
 
             }
             catch (Exception ex)

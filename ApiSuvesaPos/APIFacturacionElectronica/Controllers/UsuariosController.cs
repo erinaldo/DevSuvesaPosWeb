@@ -37,8 +37,8 @@ namespace APIFacturacionElectronica.Controllers
             try
             {
                 Usuarios usuariosDatos = new Usuarios(userManager);
-                var usuario = new IdentityUser {UserName= crendeciales.Email, Email= crendeciales.Email };
-                var resultado = await usuariosDatos.crearUsuario(usuario);
+                var usuario = new IdentityUser {UserName= crendeciales.Email, Email= crendeciales.Email};
+                var resultado = await usuariosDatos.crearUsuario(usuario, crendeciales.Password);
 
                 if (resultado.Succeeded)
                 {
@@ -63,8 +63,9 @@ namespace APIFacturacionElectronica.Controllers
         {
             try
             {
-                Usuarios usuariosDatos = new Usuarios(signInManager);
+                Usuarios usuariosDatos = new Usuarios(userManager, signInManager);
                 var resultado = await usuariosDatos.ConsultarUsuario(credencial.Email, credencial.Password);
+
                 if(resultado.Succeeded)
                 {
                     return construirToken(credencial);
@@ -73,7 +74,6 @@ namespace APIFacturacionElectronica.Controllers
                 {
                     return BadRequest("Login incorrecto");
                 }
-
 
             }
             catch(Exception ex)
