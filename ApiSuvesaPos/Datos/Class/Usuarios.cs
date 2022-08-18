@@ -85,6 +85,7 @@ namespace Datos.Class
 					viejo.AplicarDesc = nuevo.AplicarDesc;
 					viejo.PorcDesc = nuevo.PorcDesc;
 					viejo.ExistNegativa = nuevo.ExistNegativa;
+					viejo.idUserAspNet = nuevo.idUserAspNet;
 
 					entities.Entry(viejo).State = EntityState.Modified;
 

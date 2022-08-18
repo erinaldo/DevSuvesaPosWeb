@@ -34,6 +34,7 @@ namespace Datos.Models
         [Required]
         public string Password { get; set; }
 
+        public string idUserAspNet { get; set; }
 
 
         public virtual ICollection<PerfilXUsuario> PerfilXUsuarios { get; set; }

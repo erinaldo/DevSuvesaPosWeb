@@ -49,35 +49,41 @@ namespace ApiSuvesaPos.Controllers
             {
                 Users usu = new Datos.Class.Users(userManager);
 
-                
-                //int resp = db.Crear(usuario);
-                //if (resp == 1)
-                //{
+                int resp = db.Crear(usuario);
 
-
-                    var User = new IdentityUser { UserName = usuario.Nombre, Email = usuario.Email };
+                if (resp == 1)
+                {
+                    var User = new IdentityUser { UserName = usuario.Email, Email = usuario.Email};
                     var resultado = await usu.crearUsuario(User, usuario.Password);
 
-                    //if (resultado.Succeeded && resp == 1)
                     if (resultado.Succeeded )
                     {
-                        CredencialUsuario temp = new CredencialUsuario()
-                        {
-                            Email = usuario.Email,
-                            Password = usuario.Password
-                        };
+                        string res = db.Editar(long.Parse(usuario.IdUsuario), usuario);
 
-                        return construirToken(temp);
+                        if(res.Equals("1") )
+                        {
+                            CredencialUsuario temp = new CredencialUsuario()
+                            {
+                                Email = usuario.Email,
+                                Password = usuario.Password
+                            };
+
+                            return construirToken(temp);
+                        } else
+                        {
+                            return BadRequest("Error en el registro de usuario, vaya orine y se acuesta");
+                        }
+                        
                     }
                     else
                     {
                         return BadRequest(resultado.Errors + "Vaya orine y se acuesta");
                     }
-                //}
-                //else
-                //{
-                //    return BadRequest("Error en el registro de usuario, vaya orine y se acuesta");
-                //}
+                }
+                else
+                {
+                    return BadRequest("Error en el registro de usuario, vaya orine y se acuesta");
+                }
 
                 //double test;
                 //if (double.TryParse(resp, out test))// Si el resultado es numerico
