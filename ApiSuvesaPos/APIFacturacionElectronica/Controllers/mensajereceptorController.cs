@@ -7,7 +7,8 @@ using System.Web;
 using Newtonsoft.Json;
 using APIFacturacionElectronica.Models;
 using NegocioFE.Logica;
-
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 
 namespace APIFacturacionElectronica.Controllers
 {
@@ -19,6 +20,7 @@ namespace APIFacturacionElectronica.Controllers
         private NegocioFE.Logica.MensajeReceptor db = new NegocioFE.Logica.MensajeReceptor();
 
         [HttpPost]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public IActionResult PostCrearMensajeReceptor(List<DatosFE.Models.MensajeReceptor> Estado)
         {
             try
@@ -42,6 +44,7 @@ namespace APIFacturacionElectronica.Controllers
         }
 
         [HttpGet]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public IActionResult GetObtenerMensejeReceptor(bool porfecha, DateTime desde, DateTime hasta, bool porestado, string estado)
         {
 

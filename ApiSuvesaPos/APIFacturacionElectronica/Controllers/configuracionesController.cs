@@ -7,6 +7,8 @@ using System.Web;
 using Newtonsoft.Json;
 using APIFacturacionElectronica.Models;
 using NegocioFE.Logica;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace APIFacturacionElectronica.Controllers
 {
@@ -17,6 +19,7 @@ namespace APIFacturacionElectronica.Controllers
         private NegocioFE.Logica.Configuraciones db = new NegocioFE.Logica.Configuraciones();
 
         [HttpPost]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public IActionResult PostConfiguraciones(DatosFE.Models.Configuracione conf)
         {
             try
@@ -42,6 +45,7 @@ namespace APIFacturacionElectronica.Controllers
 
         [HttpGet]
         [Route("cedula")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public IActionResult GetConfiguraciones(string cedula)
         {
 
@@ -57,6 +61,7 @@ namespace APIFacturacionElectronica.Controllers
         }
 
         [HttpGet]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public IActionResult GetConfiguraciones()
         {
 

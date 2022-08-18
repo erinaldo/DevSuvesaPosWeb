@@ -7,6 +7,8 @@ using System.Web;
 using Newtonsoft.Json;
 using APIFacturacionElectronica.Models;
 using NegocioFE.Logica;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace APIFacturacionElectronica.Controllers
 {
@@ -18,6 +20,7 @@ namespace APIFacturacionElectronica.Controllers
         private NegocioFE.EnvioComprobantes FE = new NegocioFE.EnvioComprobantes();
 
         [HttpPut]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [Route("enviar")]        
         public IActionResult PutEnviarComprobanteElectronico(string id, string tipodoc)
         {
@@ -66,6 +69,7 @@ namespace APIFacturacionElectronica.Controllers
         }
 
         [HttpPut]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [Route("actualizar")]
         public IActionResult PutActualizarComprobanteElectronico(string id, string tipodoc)
         {
@@ -114,6 +118,7 @@ namespace APIFacturacionElectronica.Controllers
         }
 
         [HttpPut]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [Route("correo")]
         public IActionResult PutCorreoComprobanteElectronico(string id, string tipodoc)
         {

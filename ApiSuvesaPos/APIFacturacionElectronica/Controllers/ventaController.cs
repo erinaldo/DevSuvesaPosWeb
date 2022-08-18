@@ -7,6 +7,8 @@ using System.Web;
 using Newtonsoft.Json;
 using APIFacturacionElectronica.Models;
 using NegocioFE.Logica;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace APIFacturacionElectronica.Controllers
 {
@@ -17,6 +19,7 @@ namespace APIFacturacionElectronica.Controllers
         private NegocioFE.Logica.Ventas db = new NegocioFE.Logica.Ventas();
 
         [HttpPut]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public IActionResult PutCambiarEstadoVentas(long id, string estado)
         {
             try
@@ -40,6 +43,7 @@ namespace APIFacturacionElectronica.Controllers
         }
 
         [HttpGet]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [Route("clave")]
         public IActionResult GetObtenerClaveVentas(long id)
         {
@@ -61,6 +65,7 @@ namespace APIFacturacionElectronica.Controllers
 
         [HttpGet]
         [Route("consecutivo")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public IActionResult GetObtenerConsecutivoVentas(long id)
         {
 
@@ -81,6 +86,7 @@ namespace APIFacturacionElectronica.Controllers
 
         [HttpGet]
         [Route("encabezadoxml")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public IActionResult GetObtenerEncabezadoXMLVentas(long id)
         {
 
@@ -101,6 +107,7 @@ namespace APIFacturacionElectronica.Controllers
 
         [HttpGet]
         [Route("detallexml")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public IActionResult GetObtenerDetalleXMLVentas(long id)
         {
 
