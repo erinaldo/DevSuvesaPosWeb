@@ -11,7 +11,7 @@
             Return Me.db.Buscar(porNombre, Filtro)
         End Function
 
-        Public Function Crear(usuario As Datos.Models.Usuario) As String
+        Public Function Crear(usuario As Datos.Models.Usuario) As Integer
             Return Me.db.Crear(usuario)
             '    Function Registra()
             '    Try

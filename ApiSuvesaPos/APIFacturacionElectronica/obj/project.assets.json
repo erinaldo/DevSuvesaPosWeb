@@ -6608,28 +6608,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\PereiraCoto\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\AlbertoMartinezQuesa\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\PereiraCoto\\Documents\\Personal\\Dev\\Guana\\DevSuvesaPosWeb\\ApiSuvesaPos\\APIFacturacionElectronica\\APIFacturacionElectronica.csproj",
+      "projectUniqueName": "C:\\Proyectos\\SEEPOS\\DevSuvesaPosWeb\\ApiSuvesaPos\\APIFacturacionElectronica\\APIFacturacionElectronica.csproj",
       "projectName": "APIFacturacionElectronica",
-      "projectPath": "C:\\Users\\PereiraCoto\\Documents\\Personal\\Dev\\Guana\\DevSuvesaPosWeb\\ApiSuvesaPos\\APIFacturacionElectronica\\APIFacturacionElectronica.csproj",
-      "packagesPath": "C:\\Users\\PereiraCoto\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\PereiraCoto\\Documents\\Personal\\Dev\\Guana\\DevSuvesaPosWeb\\ApiSuvesaPos\\APIFacturacionElectronica\\obj\\",
+      "projectPath": "C:\\Proyectos\\SEEPOS\\DevSuvesaPosWeb\\ApiSuvesaPos\\APIFacturacionElectronica\\APIFacturacionElectronica.csproj",
+      "packagesPath": "C:\\Users\\AlbertoMartinezQuesa\\.nuget\\packages\\",
+      "outputPath": "C:\\Proyectos\\SEEPOS\\DevSuvesaPosWeb\\ApiSuvesaPos\\APIFacturacionElectronica\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\PereiraCoto\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\AlbertoMartinezQuesa\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -6642,8 +6639,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\PereiraCoto\\Documents\\Personal\\Dev\\Guana\\DevSuvesaPosWeb\\ApiSuvesaPos\\NegocioFE\\NegocioFE.vbproj": {
-              "projectPath": "C:\\Users\\PereiraCoto\\Documents\\Personal\\Dev\\Guana\\DevSuvesaPosWeb\\ApiSuvesaPos\\NegocioFE\\NegocioFE.vbproj"
+            "C:\\Proyectos\\SEEPOS\\DevSuvesaPosWeb\\ApiSuvesaPos\\NegocioFE\\NegocioFE.vbproj": {
+              "projectPath": "C:\\Proyectos\\SEEPOS\\DevSuvesaPosWeb\\ApiSuvesaPos\\NegocioFE\\NegocioFE.vbproj"
             }
           }
         }

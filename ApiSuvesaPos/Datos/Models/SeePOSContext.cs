@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
@@ -6,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace Datos.Models
 {
-    public partial class SeePOSContext : DbContext
+    public partial class SeePOSContext : IdentityDbContext
     {
         public SeePOSContext()
         {
@@ -357,12 +358,13 @@ namespace Datos.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=DESKTOP-5A4BJJV; Database=SeePOS; User=sa; Password=suvesacr;");
+                optionsBuilder.UseSqlServer("Server=ALBERTO-PC\\QSOFT2017; Database=SeePOS; User=sa; Password=QsoftMSDEsa2005;");
             }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
             modelBuilder.HasAnnotation("Relational:Collation", "Modern_Spanish_CI_AS");
 
             modelBuilder.Entity<AbonoApartado>(entity =>

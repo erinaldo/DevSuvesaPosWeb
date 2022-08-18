@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\PereiraCoto\\Documents\\Personal\\Dev\\Guana\\DevSuvesaPosWeb\\ApiSuvesaPos\\ApiSuvesaPos\\ApiSuvesaPos.csproj": {}
+    "C:\\Proyectos\\SEEPOS\\DevSuvesaPosWeb\\ApiSuvesaPos\\ApiSuvesaPos\\ApiSuvesaPos.csproj": {}
   },
   "projects": {
-    "C:\\Users\\PereiraCoto\\Documents\\Personal\\Dev\\Guana\\DevSuvesaPosWeb\\ApiSuvesaPos\\ApiSuvesaPos\\ApiSuvesaPos.csproj": {
+    "C:\\Proyectos\\SEEPOS\\DevSuvesaPosWeb\\ApiSuvesaPos\\ApiSuvesaPos\\ApiSuvesaPos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\PereiraCoto\\Documents\\Personal\\Dev\\Guana\\DevSuvesaPosWeb\\ApiSuvesaPos\\ApiSuvesaPos\\ApiSuvesaPos.csproj",
+        "projectUniqueName": "C:\\Proyectos\\SEEPOS\\DevSuvesaPosWeb\\ApiSuvesaPos\\ApiSuvesaPos\\ApiSuvesaPos.csproj",
         "projectName": "ApiSuvesaPos",
-        "projectPath": "C:\\Users\\PereiraCoto\\Documents\\Personal\\Dev\\Guana\\DevSuvesaPosWeb\\ApiSuvesaPos\\ApiSuvesaPos\\ApiSuvesaPos.csproj",
-        "packagesPath": "C:\\Users\\PereiraCoto\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\PereiraCoto\\Documents\\Personal\\Dev\\Guana\\DevSuvesaPosWeb\\ApiSuvesaPos\\ApiSuvesaPos\\obj\\",
+        "projectPath": "C:\\Proyectos\\SEEPOS\\DevSuvesaPosWeb\\ApiSuvesaPos\\ApiSuvesaPos\\ApiSuvesaPos.csproj",
+        "packagesPath": "C:\\Users\\AlbertoMartinezQuesa\\.nuget\\packages\\",
+        "outputPath": "C:\\Proyectos\\SEEPOS\\DevSuvesaPosWeb\\ApiSuvesaPos\\ApiSuvesaPos\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\PereiraCoto\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\AlbertoMartinezQuesa\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -34,11 +32,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\PereiraCoto\\Documents\\Personal\\Dev\\Guana\\DevSuvesaPosWeb\\ApiSuvesaPos\\Datos\\Datos.csproj": {
-                "projectPath": "C:\\Users\\PereiraCoto\\Documents\\Personal\\Dev\\Guana\\DevSuvesaPosWeb\\ApiSuvesaPos\\Datos\\Datos.csproj"
+              "C:\\Proyectos\\SEEPOS\\DevSuvesaPosWeb\\ApiSuvesaPos\\Datos\\Datos.csproj": {
+                "projectPath": "C:\\Proyectos\\SEEPOS\\DevSuvesaPosWeb\\ApiSuvesaPos\\Datos\\Datos.csproj"
               },
-              "C:\\Users\\PereiraCoto\\Documents\\Personal\\Dev\\Guana\\DevSuvesaPosWeb\\ApiSuvesaPos\\Negocio\\Negocio.vbproj": {
-                "projectPath": "C:\\Users\\PereiraCoto\\Documents\\Personal\\Dev\\Guana\\DevSuvesaPosWeb\\ApiSuvesaPos\\Negocio\\Negocio.vbproj"
+              "C:\\Proyectos\\SEEPOS\\DevSuvesaPosWeb\\ApiSuvesaPos\\Negocio\\Negocio.vbproj": {
+                "projectPath": "C:\\Proyectos\\SEEPOS\\DevSuvesaPosWeb\\ApiSuvesaPos\\Negocio\\Negocio.vbproj"
               }
             }
           }
@@ -53,11 +51,23 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[5.0.17, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.9, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
               "version": "[5.0.13, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[9.0.1, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -86,24 +96,22 @@
         }
       }
     },
-    "C:\\Users\\PereiraCoto\\Documents\\Personal\\Dev\\Guana\\DevSuvesaPosWeb\\ApiSuvesaPos\\Datos\\Datos.csproj": {
+    "C:\\Proyectos\\SEEPOS\\DevSuvesaPosWeb\\ApiSuvesaPos\\Datos\\Datos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\PereiraCoto\\Documents\\Personal\\Dev\\Guana\\DevSuvesaPosWeb\\ApiSuvesaPos\\Datos\\Datos.csproj",
+        "projectUniqueName": "C:\\Proyectos\\SEEPOS\\DevSuvesaPosWeb\\ApiSuvesaPos\\Datos\\Datos.csproj",
         "projectName": "Datos",
-        "projectPath": "C:\\Users\\PereiraCoto\\Documents\\Personal\\Dev\\Guana\\DevSuvesaPosWeb\\ApiSuvesaPos\\Datos\\Datos.csproj",
-        "packagesPath": "C:\\Users\\PereiraCoto\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\PereiraCoto\\Documents\\Personal\\Dev\\Guana\\DevSuvesaPosWeb\\ApiSuvesaPos\\Datos\\obj\\",
+        "projectPath": "C:\\Proyectos\\SEEPOS\\DevSuvesaPosWeb\\ApiSuvesaPos\\Datos\\Datos.csproj",
+        "packagesPath": "C:\\Users\\AlbertoMartinezQuesa\\.nuget\\packages\\",
+        "outputPath": "C:\\Proyectos\\SEEPOS\\DevSuvesaPosWeb\\ApiSuvesaPos\\Datos\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\PereiraCoto\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\AlbertoMartinezQuesa\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -128,6 +136,14 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Identity": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.9, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[5.0.13, )"
@@ -162,24 +178,22 @@
         }
       }
     },
-    "C:\\Users\\PereiraCoto\\Documents\\Personal\\Dev\\Guana\\DevSuvesaPosWeb\\ApiSuvesaPos\\Negocio\\Negocio.vbproj": {
+    "C:\\Proyectos\\SEEPOS\\DevSuvesaPosWeb\\ApiSuvesaPos\\Negocio\\Negocio.vbproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\PereiraCoto\\Documents\\Personal\\Dev\\Guana\\DevSuvesaPosWeb\\ApiSuvesaPos\\Negocio\\Negocio.vbproj",
+        "projectUniqueName": "C:\\Proyectos\\SEEPOS\\DevSuvesaPosWeb\\ApiSuvesaPos\\Negocio\\Negocio.vbproj",
         "projectName": "Negocio",
-        "projectPath": "C:\\Users\\PereiraCoto\\Documents\\Personal\\Dev\\Guana\\DevSuvesaPosWeb\\ApiSuvesaPos\\Negocio\\Negocio.vbproj",
-        "packagesPath": "C:\\Users\\PereiraCoto\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\PereiraCoto\\Documents\\Personal\\Dev\\Guana\\DevSuvesaPosWeb\\ApiSuvesaPos\\Negocio\\obj\\",
+        "projectPath": "C:\\Proyectos\\SEEPOS\\DevSuvesaPosWeb\\ApiSuvesaPos\\Negocio\\Negocio.vbproj",
+        "packagesPath": "C:\\Users\\AlbertoMartinezQuesa\\.nuget\\packages\\",
+        "outputPath": "C:\\Proyectos\\SEEPOS\\DevSuvesaPosWeb\\ApiSuvesaPos\\Negocio\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\PereiraCoto\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\AlbertoMartinezQuesa\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -192,8 +206,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\PereiraCoto\\Documents\\Personal\\Dev\\Guana\\DevSuvesaPosWeb\\ApiSuvesaPos\\Datos\\Datos.csproj": {
-                "projectPath": "C:\\Users\\PereiraCoto\\Documents\\Personal\\Dev\\Guana\\DevSuvesaPosWeb\\ApiSuvesaPos\\Datos\\Datos.csproj"
+              "C:\\Proyectos\\SEEPOS\\DevSuvesaPosWeb\\ApiSuvesaPos\\Datos\\Datos.csproj": {
+                "projectPath": "C:\\Proyectos\\SEEPOS\\DevSuvesaPosWeb\\ApiSuvesaPos\\Datos\\Datos.csproj"
               }
             }
           }
