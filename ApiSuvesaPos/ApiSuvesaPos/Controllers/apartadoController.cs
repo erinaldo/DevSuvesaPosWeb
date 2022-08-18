@@ -7,10 +7,13 @@ using System.Web;
 using Newtonsoft.Json;
 using Negocio.Logica;
 using Negocio;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace ApiSuvesaPos.Controllers
 {
     [ApiController]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [Route("[controller]")]
     public class apartadoController : Controller
     {

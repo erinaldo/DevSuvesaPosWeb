@@ -6,10 +6,13 @@ using System.Threading.Tasks;
 using System.Web;
 using Newtonsoft.Json;
 using Negocio.Logica;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ApiSuvesaPos.Controllers
 {
     [ApiController]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [Route("[controller]")]
     public class cotizacionController : Controller
     {
