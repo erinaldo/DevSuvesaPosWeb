@@ -82,7 +82,14 @@ namespace ApiSuvesaPos
             });
 
             services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<SeePOSContext>().AddDefaultTokenProviders();
-
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowOrigin", opt =>
+                    opt.AllowAnyOrigin()
+                        .AllowAnyHeader()
+                        .AllowAnyMethod()
+                );
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -101,6 +108,8 @@ namespace ApiSuvesaPos
             }
 
             app.UseRouting();
+
+            app.UseCors("AllowOrigin");
 
             app.UseAuthorization();
 
