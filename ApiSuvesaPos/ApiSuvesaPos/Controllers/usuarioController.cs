@@ -208,7 +208,8 @@ namespace ApiSuvesaPos.Controllers
                 return new RespuestaAutenticacion()
                 {
                     Token = new JwtSecurityTokenHandler().WriteToken(securityToken),
-                    Expiracion = experiracion
+                    Expiracion = experiracion,
+                    Usuario = credencialesUsuario.Email
                 };
 
 

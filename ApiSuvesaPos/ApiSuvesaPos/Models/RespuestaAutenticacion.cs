@@ -7,5 +7,7 @@ namespace ApiSuvesaPos.Models
         
         public string Token { get; set; }
         public DateTime Expiracion { get; set; }
+
+        public string Usuario { get; set; }
     }
 }
