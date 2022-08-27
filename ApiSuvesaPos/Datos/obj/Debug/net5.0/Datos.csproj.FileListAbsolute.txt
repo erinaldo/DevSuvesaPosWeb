@@ -43,3 +43,17 @@ C:\Users\PereiraCoto\Documents\Personal\Dev\Guana\DevSuvesaPosWeb\ApiSuvesaPos\D
 C:\Users\PereiraCoto\Documents\Personal\Dev\Guana\DevSuvesaPosWeb\ApiSuvesaPos\Datos\obj\Debug\net5.0\Datos.pdb
 C:\Users\PereiraCoto\Documents\Personal\Dev\Guana\DevSuvesaPosWeb\ApiSuvesaPos\Datos\obj\Debug\net5.0\Datos.genruntimeconfig.cache
 C:\Users\PereiraCoto\Documents\Personal\Dev\Guana\DevSuvesaPosWeb\ApiSuvesaPos\Datos\obj\Debug\net5.0\ref\Datos.dll
+C:\Proyectos\SEEPOS\DevSuvesaPosWeb\ApiSuvesaPos\Datos\bin\Debug\net5.0\Datos.deps.json
+C:\Proyectos\SEEPOS\DevSuvesaPosWeb\ApiSuvesaPos\Datos\bin\Debug\net5.0\Datos.runtimeconfig.json
+C:\Proyectos\SEEPOS\DevSuvesaPosWeb\ApiSuvesaPos\Datos\bin\Debug\net5.0\Datos.runtimeconfig.dev.json
+C:\Proyectos\SEEPOS\DevSuvesaPosWeb\ApiSuvesaPos\Datos\bin\Debug\net5.0\Datos.dll
+C:\Proyectos\SEEPOS\DevSuvesaPosWeb\ApiSuvesaPos\Datos\bin\Debug\net5.0\ref\Datos.dll
+C:\Proyectos\SEEPOS\DevSuvesaPosWeb\ApiSuvesaPos\Datos\bin\Debug\net5.0\Datos.pdb
+C:\Proyectos\SEEPOS\DevSuvesaPosWeb\ApiSuvesaPos\Datos\obj\Debug\net5.0\Datos.GeneratedMSBuildEditorConfig.editorconfig
+C:\Proyectos\SEEPOS\DevSuvesaPosWeb\ApiSuvesaPos\Datos\obj\Debug\net5.0\Datos.AssemblyInfoInputs.cache
+C:\Proyectos\SEEPOS\DevSuvesaPosWeb\ApiSuvesaPos\Datos\obj\Debug\net5.0\Datos.AssemblyInfo.cs
+C:\Proyectos\SEEPOS\DevSuvesaPosWeb\ApiSuvesaPos\Datos\obj\Debug\net5.0\Datos.csproj.CoreCompileInputs.cache
+C:\Proyectos\SEEPOS\DevSuvesaPosWeb\ApiSuvesaPos\Datos\obj\Debug\net5.0\Datos.dll
+C:\Proyectos\SEEPOS\DevSuvesaPosWeb\ApiSuvesaPos\Datos\obj\Debug\net5.0\ref\Datos.dll
+C:\Proyectos\SEEPOS\DevSuvesaPosWeb\ApiSuvesaPos\Datos\obj\Debug\net5.0\Datos.pdb
+C:\Proyectos\SEEPOS\DevSuvesaPosWeb\ApiSuvesaPos\Datos\obj\Debug\net5.0\Datos.genruntimeconfig.cache
