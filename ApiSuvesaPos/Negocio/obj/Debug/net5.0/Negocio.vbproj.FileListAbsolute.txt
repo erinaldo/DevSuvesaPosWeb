@@ -58,3 +58,4 @@ C:\Proyectos\SEEPOS\DevSuvesaPosWeb\ApiSuvesaPos\Negocio\obj\Debug\net5.0\Negoci
 C:\Proyectos\SEEPOS\DevSuvesaPosWeb\ApiSuvesaPos\Negocio\obj\Debug\net5.0\Negocio.dll
 C:\Proyectos\SEEPOS\DevSuvesaPosWeb\ApiSuvesaPos\Negocio\obj\Debug\net5.0\ref\Negocio.dll
 C:\Proyectos\SEEPOS\DevSuvesaPosWeb\ApiSuvesaPos\Negocio\obj\Debug\net5.0\Negocio.pdb
+C:\Proyectos\SEEPOS\DevSuvesaPosWeb\ApiSuvesaPos\Negocio\bin\Debug\net5.0\Datos.dll.config

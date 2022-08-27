@@ -57,3 +57,5 @@ C:\Proyectos\SEEPOS\DevSuvesaPosWeb\ApiSuvesaPos\Datos\obj\Debug\net5.0\Datos.dl
 C:\Proyectos\SEEPOS\DevSuvesaPosWeb\ApiSuvesaPos\Datos\obj\Debug\net5.0\ref\Datos.dll
 C:\Proyectos\SEEPOS\DevSuvesaPosWeb\ApiSuvesaPos\Datos\obj\Debug\net5.0\Datos.pdb
 C:\Proyectos\SEEPOS\DevSuvesaPosWeb\ApiSuvesaPos\Datos\obj\Debug\net5.0\Datos.genruntimeconfig.cache
+C:\Proyectos\SEEPOS\DevSuvesaPosWeb\ApiSuvesaPos\Datos\bin\Debug\net5.0\Datos.dll.config
+C:\Proyectos\SEEPOS\DevSuvesaPosWeb\ApiSuvesaPos\Datos\obj\Debug\net5.0\Datos.csproj.AssemblyReference.cache
