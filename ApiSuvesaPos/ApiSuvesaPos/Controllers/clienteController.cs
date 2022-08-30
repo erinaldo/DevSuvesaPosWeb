@@ -8,6 +8,7 @@ using Newtonsoft.Json;
 using Negocio.Logica;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using ApiSuvesaPos.DTOs;
 
 namespace ApiSuvesaPos.Controllers
 {
@@ -27,28 +28,30 @@ namespace ApiSuvesaPos.Controllers
         }
 
         [HttpPost]
-        public IActionResult Registrar(Datos.Models.Cliente cliente)
+        public IActionResult Registrar(ClienteDTO cliente)
         {
             try
             {
-                string resp = db.Crear(cliente);
+                return Ok("Ok");
 
-                double test;
-                if (double.TryParse(resp, out test))// Si el resultado es numerico
-                {
-                    if (test > 0)//Si el resultado es mayor que cero
-                    {
-                        return Ok("Ok");
-                    }
-                    else
-                    {
-                        throw new Exception(resp);
-                    }
-                }
-                else
-                {
-                    throw new Exception(resp);
-                }
+                //string resp = db.Crear(cliente);
+
+                //double test;
+                //if (double.TryParse(resp, out test))// Si el resultado es numerico
+                //{
+                //    if (test > 0)//Si el resultado es mayor que cero
+                //    {
+                //        return Ok("Ok");
+                //    }
+                //    else
+                //    {
+                //        throw new Exception(resp);
+                //    }
+                //}
+                //else
+                //{
+                //    throw new Exception(resp);
+                //}
             }
             catch (Exception ex)
             {
