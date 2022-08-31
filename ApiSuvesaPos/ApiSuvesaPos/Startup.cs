@@ -54,7 +54,7 @@ namespace ApiSuvesaPos
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "API WSVAP (WebSmartView)", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "API SUVESA (SeePOS)", Version = "v1" });
                 c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First()); //This line
                 c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
@@ -101,7 +101,7 @@ namespace ApiSuvesaPos
                 app.UseSwagger();
                 app.UseSwaggerUI(c =>
                 {
-                    c.SwaggerEndpoint("./v1/swagger.json", "My API V1"); //originally "./swagger/v1/swagger.json"
+                    c.SwaggerEndpoint("./v1/swagger.json", "SUVESA API V1"); //originally "./swagger/v1/swagger.json"
                 });
                 //app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "APIFacturacionElectronica v1"));
                 //  app.UseSwaggerUI();
