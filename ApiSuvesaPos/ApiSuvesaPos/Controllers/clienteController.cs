@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 using Negocio.Logica;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using ApiSuvesaPos.DTOs;
+using Datos.Interfaces;
 
 namespace ApiSuvesaPos.Controllers
 {
@@ -17,7 +17,12 @@ namespace ApiSuvesaPos.Controllers
     [Route("[controller]")]
     public class clienteController : Controller
     {
+        public Datos.Interfaces.IClientesManager clientesManager;
 
+        public clienteController(Datos.Interfaces.IClientesManager clientesManager)
+        {
+            this.clientesManager = clientesManager;
+        }
 
         private Negocio.Logica.Clientes db = new Negocio.Logica.Clientes();
 
@@ -27,35 +32,23 @@ namespace ApiSuvesaPos.Controllers
             return double.TryParse(text, out test);
         }
 
+        /// <summary>
+        /// Inserta un nuevo cliente
+        /// </summary>
+        /// <returns>El cliente ingresado</returns>
+        /// <response code="200">Cuando le ejecución es exitosa (existan o no resultados)</response>
+        /// <response code="401">Cuando no se recibe ApiKey válido en el header del request</response>
+        /// <response code="500">Cuando exista un error asociado a la ejecución de la operación</response>
         [HttpPost]
-        public IActionResult Registrar(ClienteDTO cliente)
+        public async Task<Datos.Helpers.ResponseGeneric<Datos.DTOs.ClienteDTO>> Registrar([FromBody] Datos.DTOs.ClienteDTO cliente)
         {
             try
             {
-                return Ok("Ok");
-
-                //string resp = db.Crear(cliente);
-
-                //double test;
-                //if (double.TryParse(resp, out test))// Si el resultado es numerico
-                //{
-                //    if (test > 0)//Si el resultado es mayor que cero
-                //    {
-                //        return Ok("Ok");
-                //    }
-                //    else
-                //    {
-                //        throw new Exception(resp);
-                //    }
-                //}
-                //else
-                //{
-                //    throw new Exception(resp);
-                //}
+                return await clientesManager.addClientEntry(cliente);   
             }
             catch (Exception ex)
             {
-                return new BadRequestResult();
+                return new Datos.Helpers.ResponseGeneric<Datos.DTOs.ClienteDTO>(ex);
             }
         }
 

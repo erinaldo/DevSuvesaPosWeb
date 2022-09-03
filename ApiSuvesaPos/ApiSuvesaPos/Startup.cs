@@ -90,6 +90,11 @@ namespace ApiSuvesaPos
                         .AllowAnyMethod()
                 );
             });
+
+            services.AddSingleton<IConfiguration>(Configuration);
+
+            services.AddScoped<Datos.Interfaces.IClientesManager, Datos.Class.ClientesManager>();
+            services.AddScoped<Datos.Interfaces.IConnectionManager, Datos.Connection.ConnectionManager>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
