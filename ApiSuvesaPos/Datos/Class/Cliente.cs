@@ -7,7 +7,7 @@ using Datos.Models;
 using Microsoft.EntityFrameworkCore;
 namespace Datos.Class
 {
-  public  class Cliente
+    public class Cliente
     {
 
         private SeePOSContext entities;
@@ -143,7 +143,7 @@ namespace Datos.Class
         {
             try
             {
-                var p = entities.Clientes.Find(id);                               
+                var p = entities.Clientes.Find(id);
                 Models.Cliente Nuevo = p;
                 if (Nuevo != null)
                 {
