@@ -14,6 +14,9 @@ namespace Datos.Connection
     {
         private readonly IConfiguration configuration = null;
 
+        public static string PDR = "BloggingDatabase";
+        public static string DEVCarlos = "ConnectionDevCarlos";
+
         public ConnectionManager(IConfiguration configuration)
         {
             this.configuration = configuration;

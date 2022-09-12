@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using Datos.Connection;
 using Datos.DTOs;
 using Datos.Helpers;
 using Datos.Interfaces;
@@ -12,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace Datos.Class
 {
-    public class ClientesManager : IClientesManager
+    public class ClientesManager : IClientesManagerDA
     {
         private readonly IConnectionManager _ConnectionManager;
 
@@ -26,7 +27,7 @@ namespace Datos.Class
             try
             {
                 //Realiza la conexión con la base de datos 
-                using (var connection = _ConnectionManager.GetConnection("ConnectionDevCarlos"))
+                using (var connection = _ConnectionManager.GetConnection(ConnectionManager.DEVCarlos))
                 {
                     var resultado = await connection.QueryAsync<DTOs.ClienteDTO>
                     (
@@ -50,18 +51,11 @@ namespace Datos.Class
                              request.Empresa,
                              request.Tipoprecio,
                              request.Sinrestriccion,
-                             request.Usuario,
-                             request.Nombreusuario,
                              request.Agente,
                              request.CodMonedaCredito,
                              Cliente_Moroso = request.ClienteMoroso,
-                             request.PrecioSugerido,
                              request.Anulado,
-                             request.Notificar,
-                             tipo_cedula = request.TipoCedula,
                              request.OrdenCompra,
-                             request.IdTipoExoneracion,
-                             request.TipoCliente,
                              request.CorreoComprobante,
                              request.Actualizado,
                              request.DescuentoEspecial,
@@ -71,7 +65,9 @@ namespace Datos.Class
                              request.CorreoRecibo,
                              request.UsoInterno,
                              request.Fallecido,
-                             request.IdSucursal
+                             request.IdSucursal,
+                             request.IdTipoIdentificacion,
+                             request.IdUsuarioCreacion
                          },
                          commandType: CommandType.StoredProcedure, commandTimeout: 1200
                     );

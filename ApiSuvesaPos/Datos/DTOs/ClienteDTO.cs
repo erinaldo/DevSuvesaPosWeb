@@ -23,18 +23,11 @@ namespace Datos.DTOs
         public string Empresa { get; set; }
         public short Tipoprecio { get; set; }
         public string Sinrestriccion { get; set; }
-        public string Usuario { get; set; }
-        public string Nombreusuario { get; set; }
         public string Agente { get; set; }
         public int CodMonedaCredito { get; set; }
         public bool ClienteMoroso { get; set; }
-        public bool PrecioSugerido { get; set; }
         public bool Anulado { get; set; }
-        public bool? Notificar { get; set; }
-        public string TipoCedula { get; set; }
         public bool OrdenCompra { get; set; }
-        public decimal IdTipoExoneracion { get; set; }
-        public string TipoCliente { get; set; }
         public string CorreoComprobante { get; set; }
         public bool Actualizado { get; set; }
         public double DescuentoEspecial { get; set; }
@@ -45,11 +38,8 @@ namespace Datos.DTOs
         public bool UsoInterno { get; set; }
         public bool Fallecido { get; set; }
         public int IdSucursal { get; set; }
-        public virtual ICollection<EncargadoComprasDTO> EncargadoCompras { get; set; }
-        public virtual ICollection<ReferenciasBancariasDTO> ReferenciasBancarias { get; set; }
-        public virtual ICollection<ReferenciaComercialDTO> ReferenciasComerciales { get; set; }
-        public virtual CartaExoneracionDTO CartaExoneracion { get; set; }
-
+        public int IdTipoIdentificacion { get; set; }
+        public string IdUsuarioCreacion { get; set; }
 
     }
 }

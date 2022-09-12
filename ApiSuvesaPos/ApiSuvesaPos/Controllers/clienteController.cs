@@ -17,9 +17,9 @@ namespace ApiSuvesaPos.Controllers
     [Route("[controller]")]
     public class clienteController : Controller
     {
-        public Datos.Interfaces.IClientesManager clientesManager;
+        public NegocioSuvesa.Interfaces.IClienteManagerBL clientesManager;
 
-        public clienteController(Datos.Interfaces.IClientesManager clientesManager)
+        public clienteController(NegocioSuvesa.Interfaces.IClienteManagerBL clientesManager)
         {
             this.clientesManager = clientesManager;
         }

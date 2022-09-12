@@ -1979,6 +1979,19 @@
         "runtime": {
           "bin/placeholder/Negocio.dll": {}
         }
+      },
+      "NegocioSuvesa/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "Datos": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/NegocioSuvesa.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/NegocioSuvesa.dll": {}
+        }
       }
     }
   },
@@ -6652,6 +6665,11 @@
       "type": "project",
       "path": "../Negocio/Negocio.vbproj",
       "msbuildProject": "../Negocio/Negocio.vbproj"
+    },
+    "NegocioSuvesa/1.0.0": {
+      "type": "project",
+      "path": "../NegocioSuvesa/NegocioSuvesa.csproj",
+      "msbuildProject": "../NegocioSuvesa/NegocioSuvesa.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -6661,6 +6679,7 @@
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 5.0.9",
       "Microsoft.EntityFrameworkCore.Design >= 5.0.13",
       "Negocio >= 1.0.0",
+      "NegocioSuvesa >= 1.0.0",
       "Newtonsoft.Json >= 13.0.1",
       "Swashbuckle.AspNetCore >= 5.6.3"
     ]
@@ -6702,6 +6721,9 @@
           "projectReferences": {
             "C:\\Users\\PereiraCoto\\Documents\\Personal\\Dev\\Guana\\DevSuvesaPosWeb\\ApiSuvesaPos\\Datos\\Datos.csproj": {
               "projectPath": "C:\\Users\\PereiraCoto\\Documents\\Personal\\Dev\\Guana\\DevSuvesaPosWeb\\ApiSuvesaPos\\Datos\\Datos.csproj"
+            },
+            "C:\\Users\\PereiraCoto\\Documents\\Personal\\Dev\\Guana\\DevSuvesaPosWeb\\ApiSuvesaPos\\NegocioSuvesa\\NegocioSuvesa.csproj": {
+              "projectPath": "C:\\Users\\PereiraCoto\\Documents\\Personal\\Dev\\Guana\\DevSuvesaPosWeb\\ApiSuvesaPos\\NegocioSuvesa\\NegocioSuvesa.csproj"
             },
             "C:\\Users\\PereiraCoto\\Documents\\Personal\\Dev\\Guana\\DevSuvesaPosWeb\\ApiSuvesaPos\\Negocio\\Negocio.vbproj": {
               "projectPath": "C:\\Users\\PereiraCoto\\Documents\\Personal\\Dev\\Guana\\DevSuvesaPosWeb\\ApiSuvesaPos\\Negocio\\Negocio.vbproj"
