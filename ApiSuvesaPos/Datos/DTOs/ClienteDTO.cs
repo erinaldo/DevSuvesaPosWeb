@@ -14,15 +14,15 @@ namespace Datos.DTOs
         public string Fax01 { get; set; }
         public string Fax02 { get; set; }
         public string EMail { get; set; }
-        public string Abierto { get; set; }
+        public bool Abierto { get; set; }
         public string Direccion { get; set; }
         public double Impuesto { get; set; }
         public double MaxCredito { get; set; }
         public int PlazoCredito { get; set; }
         public double Descuento { get; set; }
-        public string Empresa { get; set; }
+        public bool Empresa { get; set; }
         public short Tipoprecio { get; set; }
-        public string Sinrestriccion { get; set; }
+        public bool Sinrestriccion { get; set; }
         public string Agente { get; set; }
         public int CodMonedaCredito { get; set; }
         public bool ClienteMoroso { get; set; }
