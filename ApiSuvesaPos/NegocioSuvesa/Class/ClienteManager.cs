@@ -55,5 +55,10 @@ namespace NegocioSuvesa.Class
 
             return await _clientesManager.addClientEntry(request);
         }
+
+        public async Task<ResponseGeneric<int>> getIDClient(string cedula)
+        {
+            return await _clientesManager.getIDClient(cedula);
+        }
     }
 }

@@ -10,5 +10,7 @@ namespace NegocioSuvesa.Interfaces
     public interface IClienteManagerBL
     {
         Task<ResponseGeneric<Datos.DTOs.ClienteDTO>> addClientEntry(Datos.DTOs.ClienteDTO request);
+
+        Task<ResponseGeneric<int>> getIDClient(string cedula);
     }
 }
