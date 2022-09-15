@@ -81,5 +81,31 @@ namespace Datos.Class
             }
 
         }
+
+        public async Task<ResponseGeneric<int>> getIDClient(string cedula)
+        {
+            try
+            {
+                //Realiza la conexión con la base de datos 
+                using (var connection = _ConnectionManager.GetConnection(ConnectionManager.DEVCarlos))
+                {
+                    var resultado = await connection.QueryAsync<int>
+                    (
+                         sql: "usp_Clientes_Obtener_ID",
+                         param: new
+                         {
+                            cedula
+                         },
+                         commandType: CommandType.StoredProcedure, commandTimeout: 1200
+                    );
+
+                    return new ResponseGeneric<int>(resultado.FirstOrDefault());
+                }
+            }
+            catch (Exception ex)
+            {
+                return new ResponseGeneric<int>(ex);
+            }
+        }
     }
 }
