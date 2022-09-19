@@ -67,6 +67,7 @@ namespace Datos.Class
                              request.Fallecido,
                              request.IdSucursal,
                              request.IdTipoIdentificacion,
+                             Estado = true,
                              request.IdUsuarioCreacion
                          },
                          commandType: CommandType.StoredProcedure, commandTimeout: 1200
