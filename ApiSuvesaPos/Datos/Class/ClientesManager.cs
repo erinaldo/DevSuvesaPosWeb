@@ -107,5 +107,31 @@ namespace Datos.Class
                 return new ResponseGeneric<int>(ex);
             }
         }
+
+        public async Task<ResponseGeneric<FiltranClienteDTO>> getClient(BuscarClienteDTO request)
+        {
+            try
+            {
+                //Realiza la conexión con la base de datos 
+                using (var connection = _ConnectionManager.GetConnection(ConnectionManager.DEVCarlos))
+                {
+                    var resultado = await connection.QueryAsync<DTOs.FiltranClienteDTO>
+                    (
+                         sql: "usp_Clientes_Obtener_Cedula",
+                         param: new
+                         {
+                             request.Cedula
+                         },
+                         commandType: CommandType.StoredProcedure, commandTimeout: 1200
+                    );
+
+                    return new ResponseGeneric<FiltranClienteDTO>(resultado.FirstOrDefault());
+                }
+            }
+            catch (Exception ex)
+            {
+                return new ResponseGeneric<FiltranClienteDTO>(ex);
+            }
+        }
     }
 }

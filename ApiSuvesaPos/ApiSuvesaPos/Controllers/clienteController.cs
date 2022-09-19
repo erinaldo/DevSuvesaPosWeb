@@ -87,24 +87,39 @@ namespace ApiSuvesaPos.Controllers
             }
         }
 
+        /// <summary>
+        /// Obtiene un cliente por cedula
+        /// </summary>
+        /// <returns>El cliente ingresado</returns>
+        /// <response code="200">Cuando le ejecución es exitosa (existan o no resultados)</response>
+        /// <response code="401">Cuando no se recibe ApiKey válido en el header del request</response>
+        /// <response code="500">Cuando exista un error asociado a la ejecución de la operación</response>
         [HttpGet]
-        public IActionResult Buscar(bool pornombre, string filtro)
+        public async Task<Datos.Helpers.ResponseGeneric<Datos.DTOs.FiltranClienteDTO>> Buscar([FromBody] Datos.DTOs.BuscarClienteDTO request)
         {
-
-            if (pornombre == false && !this.Numerico(filtro))
+            try
+            {   
+                return await clientesManager.getClient(request);
+            }
+            catch (Exception ex)
             {
-                return BadRequest("El parametro filtro no tiene el valor esperado. Se esperaba un valor numerico.");
+                return new Datos.Helpers.ResponseGeneric<Datos.DTOs.FiltranClienteDTO>(ex);
             }
 
-            var result = this.db.Buscar(pornombre, filtro);
-            if (result != null)
-            {
-                return Ok(result);
-            }
-            else
-            {
-                return new NoContentResult();
-            }
+            //if (pornombre == false && !this.Numerico(filtro))
+            //{
+            //    return BadRequest("El parametro filtro no tiene el valor esperado. Se esperaba un valor numerico.");
+            //}
+
+            //var result = this.db.Buscar(pornombre, filtro);
+            //if (result != null)
+            //{
+            //    return Ok(result);
+            //}
+            //else
+            //{
+            //    return new NoContentResult();
+            //}
         }
 
         [HttpDelete]

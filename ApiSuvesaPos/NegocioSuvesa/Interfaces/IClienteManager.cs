@@ -12,5 +12,7 @@ namespace NegocioSuvesa.Interfaces
         Task<ResponseGeneric<Datos.DTOs.ClienteDTO>> addClientEntry(Datos.DTOs.ClienteDTO request);
 
         Task<ResponseGeneric<int>> getIDClient(string cedula);
+
+        Task<ResponseGeneric<Datos.DTOs.FiltranClienteDTO>> getClient(Datos.DTOs.BuscarClienteDTO request);
     }
 }

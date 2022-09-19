@@ -13,5 +13,7 @@ namespace Datos.Interfaces
 
         Task<ResponseGeneric<int>> getIDClient(string cedula);
 
+        Task<ResponseGeneric<DTOs.FiltranClienteDTO>> getClient(Datos.DTOs.BuscarClienteDTO request);
+
     }
 }
