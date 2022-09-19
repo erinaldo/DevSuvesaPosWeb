@@ -7,8 +7,8 @@ namespace Datos.Models
 {
     public partial class TipoExoneracion
     {
-        public decimal IdTipoExoneracion { get; set; }
-        public string TipoExoneracion1 { get; set; }
+        public int IdTipoExoneracion { get; set; }
+        public string Detalle { get; set; }
         public string Codigo { get; set; }
     }
 }
