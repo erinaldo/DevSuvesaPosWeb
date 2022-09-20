@@ -10,5 +10,7 @@ namespace NegocioSuvesa.Interfaces
     public interface ICartaExoneracionManagerBL
     {
         Task<ResponseGeneric<Datos.DTOs.CartaExoneracionDTO>> addCartaExoneracionEntry(Datos.DTOs.CartaExoneracionDTO request);
+
+        Task<ResponseGeneric<Datos.DTOs.CartaExoneracionDTO>> removeCartaExoneracion(Datos.DTOs.BuscarCartaExoneracionDTO request);
     }
 }

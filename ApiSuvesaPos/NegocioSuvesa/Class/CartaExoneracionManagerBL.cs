@@ -74,5 +74,18 @@ namespace NegocioSuvesa.Class
 
             return await _cartaExoneracionManager.addCartaExoneracionEntry(request, idCliente.Responses);
         }
+
+        public async Task<ResponseGeneric<CartaExoneracionDTO>> removeCartaExoneracion(BuscarCartaExoneracionDTO request)
+        {
+            // Validaciones Cedula
+            if (_validaciones.isEmpty(request.Cedula) || !_validaciones.isOnlyNumeric(request.Cedula))
+            {
+                return new ResponseGeneric<CartaExoneracionDTO>("Error: Cédula incorrecta");
+            }
+
+            ResponseGeneric<int> idCliente = await _clienteManager.getIDClient(request.Cedula);
+
+            return await _cartaExoneracionManager.removeCartaExoneracion(idCliente.Responses);
+        }
     }
 }

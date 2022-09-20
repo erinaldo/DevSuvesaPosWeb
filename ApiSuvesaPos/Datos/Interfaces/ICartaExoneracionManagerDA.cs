@@ -10,5 +10,7 @@ namespace Datos.Interfaces
     public interface ICartaExoneracionManagerDA
     {
         Task<ResponseGeneric<DTOs.CartaExoneracionDTO>> addCartaExoneracionEntry(Datos.DTOs.CartaExoneracionDTO request, int idCliente);
+
+        Task<ResponseGeneric<DTOs.CartaExoneracionDTO>> removeCartaExoneracion(int idCliente);
     }
 }
