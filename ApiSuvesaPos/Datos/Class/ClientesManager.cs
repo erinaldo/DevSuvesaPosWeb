@@ -134,5 +134,31 @@ namespace Datos.Class
                 return new ResponseGeneric<FiltranClienteDTO>(ex);
             }
         }
+
+        public async Task<ResponseGeneric<FiltranClienteDTO>> removeClient(int idCliente)
+        {
+            try
+            {
+                //Realiza la conexión con la base de datos 
+                using (var connection = _ConnectionManager.GetConnection(ConnectionManager.DEVCarlos))
+                {
+                    var resultado = await connection.QueryAsync<DTOs.FiltranClienteDTO>
+                    (
+                         sql: "usp_Clientes_Eliminar",
+                         param: new
+                         {
+                             idCliente
+                         },
+                         commandType: CommandType.StoredProcedure, commandTimeout: 1200
+                    );
+
+                    return new ResponseGeneric<FiltranClienteDTO>(resultado.FirstOrDefault());
+                }
+            }
+            catch (Exception ex)
+            {
+                return new ResponseGeneric<FiltranClienteDTO>(ex);
+            }
+        }
     }
 }

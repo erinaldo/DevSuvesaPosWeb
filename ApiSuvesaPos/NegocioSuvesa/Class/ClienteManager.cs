@@ -71,5 +71,18 @@ namespace NegocioSuvesa.Class
         {
             return await _clientesManager.getIDClient(cedula);
         }
+
+        public async Task<ResponseGeneric<FiltranClienteDTO>> removeClient(BuscarClienteDTO request)
+        {
+            // Validaciones Cedula
+            if (_validaciones.isEmpty(request.Cedula) || !_validaciones.isOnlyNumeric(request.Cedula))
+            {
+                return new ResponseGeneric<FiltranClienteDTO>("Error: Cédula incorrecta");
+            }
+
+            ResponseGeneric<int> idCliente = await getIDClient(request.Cedula);
+
+            return await _clientesManager.removeClient(idCliente.Responses);
+        }
     }
 }

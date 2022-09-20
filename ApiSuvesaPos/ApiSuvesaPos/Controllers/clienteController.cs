@@ -123,38 +123,48 @@ namespace ApiSuvesaPos.Controllers
         }
 
         [HttpDelete]
-        public IActionResult Eliminar(int id)
+        public async Task<Datos.Helpers.ResponseGeneric<Datos.DTOs.FiltranClienteDTO>> Eliminar([FromBody] Datos.DTOs.BuscarClienteDTO request)
         {
+
             try
             {
-
-                string resp = db.Eliminar(id);
-                double test;
-                if (double.TryParse(resp, out test))// Si el resultado es numerico
-                {
-                    if (test > 0)//Si el resultado es mayor que cero
-                    {
-                        return Ok("Ok");
-                    }
-                    else
-                    {
-                        throw new Exception(resp);
-                    }
-                }
-                else if (resp.Equals("No existe el valor"))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw new Exception(resp);
-                }
-
+                return await clientesManager.removeClient(request);
             }
             catch (Exception ex)
             {
-                return new BadRequestResult();
+                return new Datos.Helpers.ResponseGeneric<Datos.DTOs.FiltranClienteDTO>(ex);
             }
+
+            //try
+            //{
+
+            //    string resp = db.Eliminar(id);
+            //    double test;
+            //    if (double.TryParse(resp, out test))// Si el resultado es numerico
+            //    {
+            //        if (test > 0)//Si el resultado es mayor que cero
+            //        {
+            //            return Ok("Ok");
+            //        }
+            //        else
+            //        {
+            //            throw new Exception(resp);
+            //        }
+            //    }
+            //    else if (resp.Equals("No existe el valor"))
+            //    {
+            //        return NotFound();
+            //    }
+            //    else
+            //    {
+            //        throw new Exception(resp);
+            //    }
+
+            //}
+            //catch (Exception ex)
+            //{
+            //    return new BadRequestResult();
+            //}
         }
 
     }

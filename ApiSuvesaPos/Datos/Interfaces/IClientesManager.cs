@@ -15,5 +15,7 @@ namespace Datos.Interfaces
 
         Task<ResponseGeneric<DTOs.FiltranClienteDTO>> getClient(Datos.DTOs.BuscarClienteDTO request);
 
+        Task<ResponseGeneric<DTOs.FiltranClienteDTO>> removeClient(int idCliente);
+
     }
 }
