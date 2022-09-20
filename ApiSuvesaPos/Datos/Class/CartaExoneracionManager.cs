@@ -40,7 +40,8 @@ namespace Datos.Class
                              request.FechaVence,
                              request.PorcentajeCompra,
                              request.Impuesto,
-                             request.Nota
+                             request.Nota,
+                             Estado = true
                          },
                          commandType: CommandType.StoredProcedure, commandTimeout: 1200
                     );
