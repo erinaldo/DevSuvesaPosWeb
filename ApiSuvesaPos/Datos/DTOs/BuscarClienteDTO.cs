@@ -9,5 +9,7 @@ namespace Datos.DTOs
     public class BuscarClienteDTO
     {
         public string Cedula { get; set; }
+
+        public string Nombre { get; set; }
     }
 }

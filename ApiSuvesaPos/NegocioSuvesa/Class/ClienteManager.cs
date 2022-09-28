@@ -56,7 +56,7 @@ namespace NegocioSuvesa.Class
             return await _clientesManager.addClientEntry(request);
         }
 
-        public async Task<ResponseGeneric<FiltranClienteDTO>> getClient(BuscarClienteDTO request)
+        public async Task<ResponseGeneric<FiltranClienteDTO>> getClientByCedula(BuscarClienteDTO request)
         {
             // Validaciones Cedula
             if (_validaciones.isEmpty(request.Cedula) || !_validaciones.isOnlyNumeric(request.Cedula))
@@ -64,7 +64,18 @@ namespace NegocioSuvesa.Class
                 return new ResponseGeneric<FiltranClienteDTO>("Error: Cédula incorrecta");
             }
 
-            return await _clientesManager.getClient(request);
+            return await _clientesManager.getClientByCedula(request);
+        }
+
+        public async Task<ResponseGeneric<FiltranClienteDTO>> getClientByNombre(BuscarClienteDTO request)
+        {
+            // Validaciones Cedula
+            if (_validaciones.isEmpty(request.Nombre) || !_validaciones.isOnlyLetter(request.Nombre))
+            {
+                return new ResponseGeneric<FiltranClienteDTO>("Error: Nombre incorrecta");
+            }
+
+            return await _clientesManager.getClientByNombre(request);
         }
 
         public async Task<ResponseGeneric<int>> getIDClient(string cedula)

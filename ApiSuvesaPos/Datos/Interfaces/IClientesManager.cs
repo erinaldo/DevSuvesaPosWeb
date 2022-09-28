@@ -13,7 +13,9 @@ namespace Datos.Interfaces
 
         Task<ResponseGeneric<int>> getIDClient(string cedula);
 
-        Task<ResponseGeneric<DTOs.FiltranClienteDTO>> getClient(Datos.DTOs.BuscarClienteDTO request);
+        Task<ResponseGeneric<DTOs.FiltranClienteDTO>> getClientByCedula(Datos.DTOs.BuscarClienteDTO request);
+
+        Task<ResponseGeneric<DTOs.FiltranClienteDTO>> getClientByNombre(Datos.DTOs.BuscarClienteDTO request);
 
         Task<ResponseGeneric<DTOs.FiltranClienteDTO>> removeClient(int idCliente);
 

@@ -13,7 +13,6 @@ using Datos.Interfaces;
 namespace ApiSuvesaPos.Controllers
 {
     [ApiController]
-    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [Route("[controller]")]
     public class clienteController : Controller
     {
@@ -40,6 +39,7 @@ namespace ApiSuvesaPos.Controllers
         /// <response code="401">Cuando no se recibe ApiKey válido en el header del request</response>
         /// <response code="500">Cuando exista un error asociado a la ejecución de la operación</response>
         [HttpPost]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<Datos.Helpers.ResponseGeneric<Datos.DTOs.ClienteDTO>> Registrar([FromBody] Datos.DTOs.ClienteDTO cliente)
         {
             try
@@ -53,6 +53,7 @@ namespace ApiSuvesaPos.Controllers
         }
 
         [HttpPut]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public IActionResult Actualizar(int id, Datos.Models.Cliente cliente)
         {
             try
@@ -95,11 +96,50 @@ namespace ApiSuvesaPos.Controllers
         /// <response code="401">Cuando no se recibe ApiKey válido en el header del request</response>
         /// <response code="500">Cuando exista un error asociado a la ejecución de la operación</response>
         [HttpGet]
-        public async Task<Datos.Helpers.ResponseGeneric<Datos.DTOs.FiltranClienteDTO>> Buscar([FromBody] Datos.DTOs.BuscarClienteDTO request)
+        [Route("/[controller]/[action]")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        public async Task<Datos.Helpers.ResponseGeneric<Datos.DTOs.FiltranClienteDTO>> BuscarCedula([FromBody] Datos.DTOs.BuscarClienteDTO request)
         {
             try
             {   
-                return await clientesManager.getClient(request);
+                return await clientesManager.getClientByCedula(request);
+            }
+            catch (Exception ex)
+            {
+                return new Datos.Helpers.ResponseGeneric<Datos.DTOs.FiltranClienteDTO>(ex);
+            }
+
+            //if (pornombre == false && !this.Numerico(filtro))
+            //{
+            //    return BadRequest("El parametro filtro no tiene el valor esperado. Se esperaba un valor numerico.");
+            //}
+
+            //var result = this.db.Buscar(pornombre, filtro);
+            //if (result != null)
+            //{
+            //    return Ok(result);
+            //}
+            //else
+            //{
+            //    return new NoContentResult();
+            //}
+        }
+
+        /// <summary>
+        /// Obtiene un cliente por nombre
+        /// </summary>
+        /// <returns>El cliente ingresado</returns>
+        /// <response code="200">Cuando le ejecución es exitosa (existan o no resultados)</response>
+        /// <response code="401">Cuando no se recibe ApiKey válido en el header del request</response>
+        /// <response code="500">Cuando exista un error asociado a la ejecución de la operación</response>
+        [HttpGet]
+        [Route("/[controller]/[action]")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        public async Task<Datos.Helpers.ResponseGeneric<Datos.DTOs.FiltranClienteDTO>> BuscarNombre([FromBody] Datos.DTOs.BuscarClienteDTO request)
+        {
+            try
+            {
+                return await clientesManager.getClientByNombre(request);
             }
             catch (Exception ex)
             {
@@ -123,6 +163,7 @@ namespace ApiSuvesaPos.Controllers
         }
 
         [HttpDelete]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<Datos.Helpers.ResponseGeneric<Datos.DTOs.FiltranClienteDTO>> Eliminar([FromBody] Datos.DTOs.BuscarClienteDTO request)
         {
 
