@@ -12,5 +12,7 @@ namespace Datos.Interfaces
         Task<ResponseGeneric<DTOs.CartaExoneracionDTO>> addCartaExoneracionEntry(Datos.DTOs.CartaExoneracionDTO request, int idCliente);
 
         Task<ResponseGeneric<DTOs.CartaExoneracionDTO>> removeCartaExoneracion(int idCliente);
+
+        Task<ResponseGeneric<DTOs.CartaExoneracionDTO>> getCartaExoneracionByCedula(int idCliente);
     }
 }

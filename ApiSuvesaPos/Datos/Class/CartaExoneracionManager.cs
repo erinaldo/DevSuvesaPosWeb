@@ -57,6 +57,33 @@ namespace Datos.Class
             }
         }
 
+        public async Task<ResponseGeneric<CartaExoneracionDTO>> getCartaExoneracionByCedula(int idCliente)
+        {
+            try
+            {
+                //Realiza la conexión con la base de datos 
+                using (var connection = _ConnectionManager.GetConnection(ConnectionManager.DEVCarlos))
+                {
+                    var resultado = await connection.QueryAsync<DTOs.CartaExoneracionDTO>
+                    (
+                         sql: "usp_CartaExoneracion_Obtener_Cedula",
+                         param: new
+                         {
+                             Identificacion = idCliente
+                         },
+                         commandType: CommandType.StoredProcedure, commandTimeout: 1200
+                    );
+
+                    CartaExoneracionDTO res = resultado.FirstOrDefault();
+                    return new ResponseGeneric<CartaExoneracionDTO>(res);
+                }
+            }
+            catch (Exception ex)
+            {
+                return new ResponseGeneric<CartaExoneracionDTO>(ex);
+            }
+        }
+
         public async Task<ResponseGeneric<CartaExoneracionDTO>> removeCartaExoneracion(int idCliente)
         {
             try
