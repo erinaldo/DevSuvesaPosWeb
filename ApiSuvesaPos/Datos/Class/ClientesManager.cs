@@ -215,7 +215,7 @@ namespace Datos.Class
             }
         }
 
-        public async Task<ResponseGeneric<FiltranClienteDTO>> removeClient(int idCliente, string idUsuarioModificacion)
+        public async Task<ResponseGeneric<FiltranClienteDTO>> disableClient(int idCliente, string idUsuarioModificacion)
         {
             try
             {
@@ -224,7 +224,7 @@ namespace Datos.Class
                 {
                     var resultado = await connection.QueryAsync<DTOs.FiltranClienteDTO>
                     (
-                         sql: "usp_Clientes_Eliminar",
+                         sql: "usp_Clientes_Activar",
                          param: new
                          {
                              idCliente,
@@ -242,5 +242,31 @@ namespace Datos.Class
             }
         }
 
+        public async Task<ResponseGeneric<FiltranClienteDTO>> enableClient(int idCliente, string idUsuarioModificacion)
+        {
+            try
+            {
+                //Realiza la conexión con la base de datos 
+                using (var connection = _ConnectionManager.GetConnection(ConnectionManager.DEVCarlos))
+                {
+                    var resultado = await connection.QueryAsync<DTOs.FiltranClienteDTO>
+                    (
+                         sql: "usp_Clientes_Activar",
+                         param: new
+                         {
+                             idCliente,
+                             idUsuarioModificacion
+                         },
+                         commandType: CommandType.StoredProcedure, commandTimeout: 1200
+                    );
+
+                    return new ResponseGeneric<FiltranClienteDTO>(resultado.FirstOrDefault());
+                }
+            }
+            catch (Exception ex)
+            {
+                return new ResponseGeneric<FiltranClienteDTO>(ex);
+            }
+        }
     }
 }

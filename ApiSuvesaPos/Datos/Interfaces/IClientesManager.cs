@@ -21,7 +21,9 @@ namespace Datos.Interfaces
 
         Task<ResponseGeneric<IEnumerable<DTOs.FiltranClienteDTO>>> getClientByFiltro(Datos.DTOs.BuscarClienteDTO request);
 
-        Task<ResponseGeneric<DTOs.FiltranClienteDTO>> removeClient(int idCliente, string idUsuarioModificacion);
+        Task<ResponseGeneric<DTOs.FiltranClienteDTO>> disableClient(int idCliente, string idUsuarioModificacion);
+
+        Task<ResponseGeneric<DTOs.FiltranClienteDTO>> enableClient(int idCliente, string idUsuarioModificacion);
 
     }
 }

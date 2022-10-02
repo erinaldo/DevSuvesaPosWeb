@@ -167,12 +167,27 @@ namespace ApiSuvesaPos.Controllers
 
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public async Task<Datos.Helpers.ResponseGeneric<Datos.DTOs.FiltranClienteDTO>> Eliminar([FromBody] Datos.DTOs.EliminarClienteDTO request)
+        public async Task<Datos.Helpers.ResponseGeneric<Datos.DTOs.FiltranClienteDTO>> Desactivar([FromBody] Datos.DTOs.EliminarClienteDTO request)
         {
 
             try
             {
-                return await clientesManager.removeClient(request);
+                return await clientesManager.disableClient(request);
+            }
+            catch (Exception ex)
+            {
+                return new Datos.Helpers.ResponseGeneric<Datos.DTOs.FiltranClienteDTO>(ex);
+            }
+        }
+
+        [HttpPost]
+        [Route("/[controller]/[action]")]
+        public async Task<Datos.Helpers.ResponseGeneric<Datos.DTOs.FiltranClienteDTO>> Activar([FromBody] Datos.DTOs.EliminarClienteDTO request)
+        {
+
+            try
+            {
+                return await clientesManager.enableClient(request);
             }
             catch (Exception ex)
             {

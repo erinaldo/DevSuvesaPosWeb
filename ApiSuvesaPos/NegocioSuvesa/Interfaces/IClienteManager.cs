@@ -21,6 +21,8 @@ namespace NegocioSuvesa.Interfaces
 
         Task<ResponseGeneric<IEnumerable<Datos.DTOs.FiltranClienteDTO>>> getClientByFiltro(Datos.DTOs.BuscarClienteDTO request);
 
-        Task<ResponseGeneric<Datos.DTOs.FiltranClienteDTO>> removeClient(Datos.DTOs.EliminarClienteDTO request);
+        Task<ResponseGeneric<Datos.DTOs.FiltranClienteDTO>> disableClient(Datos.DTOs.EliminarClienteDTO request);
+
+        Task<ResponseGeneric<Datos.DTOs.FiltranClienteDTO>> enableClient(Datos.DTOs.EliminarClienteDTO request);
     }
 }
