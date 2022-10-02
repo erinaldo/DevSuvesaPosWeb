@@ -92,10 +92,37 @@ namespace Datos.Class
                 {
                     var resultado = await connection.QueryAsync<int>
                     (
-                         sql: "usp_Clientes_Obtener_ID",
+                         sql: "[usp_Clientes_Obtener_ID_PorCedula]",
                          param: new
                          {
                             cedula
+                         },
+                         commandType: CommandType.StoredProcedure, commandTimeout: 1200
+                    );
+
+                    return new ResponseGeneric<int>(resultado.FirstOrDefault());
+                }
+            }
+            catch (Exception ex)
+            {
+                return new ResponseGeneric<int>(ex);
+            }
+        }
+
+        public async Task<ResponseGeneric<int>> getIDClient(string cedula, string nombre)
+        {
+            try
+            {
+                //Realiza la conexión con la base de datos 
+                using (var connection = _ConnectionManager.GetConnection(ConnectionManager.DEVCarlos))
+                {
+                    var resultado = await connection.QueryAsync<int>
+                    (
+                         sql: "usp_Clientes_Obtener_ID_PorCedula_PorNombre",
+                         param: new
+                         {
+                             cedula,
+                             nombre
                          },
                          commandType: CommandType.StoredProcedure, commandTimeout: 1200
                     );
@@ -188,7 +215,7 @@ namespace Datos.Class
             }
         }
 
-        public async Task<ResponseGeneric<FiltranClienteDTO>> removeClient(int idCliente)
+        public async Task<ResponseGeneric<FiltranClienteDTO>> removeClient(int idCliente, string idUsuarioModificacion)
         {
             try
             {
@@ -200,7 +227,8 @@ namespace Datos.Class
                          sql: "usp_Clientes_Eliminar",
                          param: new
                          {
-                             idCliente
+                             idCliente,
+                             idUsuarioModificacion
                          },
                          commandType: CommandType.StoredProcedure, commandTimeout: 1200
                     );

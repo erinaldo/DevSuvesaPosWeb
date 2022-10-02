@@ -13,13 +13,15 @@ namespace Datos.Interfaces
 
         Task<ResponseGeneric<int>> getIDClient(string cedula);
 
+        Task<ResponseGeneric<int>> getIDClient(string cedula, string nombre);
+
         Task<ResponseGeneric<IEnumerable<DTOs.FiltranClienteDTO>>> getClientByCedula(Datos.DTOs.BuscarClienteDTO request);
 
         Task<ResponseGeneric<IEnumerable<DTOs.FiltranClienteDTO>>> getClientByNombre(Datos.DTOs.BuscarClienteDTO request);
 
         Task<ResponseGeneric<IEnumerable<DTOs.FiltranClienteDTO>>> getClientByFiltro(Datos.DTOs.BuscarClienteDTO request);
 
-        Task<ResponseGeneric<DTOs.FiltranClienteDTO>> removeClient(int idCliente);
+        Task<ResponseGeneric<DTOs.FiltranClienteDTO>> removeClient(int idCliente, string idUsuarioModificacion);
 
     }
 }

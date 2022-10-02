@@ -13,12 +13,14 @@ namespace NegocioSuvesa.Interfaces
 
         Task<ResponseGeneric<int>> getIDClient(string cedula);
 
+        Task<ResponseGeneric<int>> getIDClient(string cedula, string nombre);
+
         Task<ResponseGeneric<IEnumerable<Datos.DTOs.FiltranClienteDTO>>> getClientByCedula(Datos.DTOs.BuscarClienteDTO request);
 
         Task<ResponseGeneric<IEnumerable<Datos.DTOs.FiltranClienteDTO>>> getClientByNombre(Datos.DTOs.BuscarClienteDTO request);
 
         Task<ResponseGeneric<IEnumerable<Datos.DTOs.FiltranClienteDTO>>> getClientByFiltro(Datos.DTOs.BuscarClienteDTO request);
 
-        Task<ResponseGeneric<Datos.DTOs.FiltranClienteDTO>> removeClient(Datos.DTOs.BuscarClienteDTO request);
+        Task<ResponseGeneric<Datos.DTOs.FiltranClienteDTO>> removeClient(Datos.DTOs.EliminarClienteDTO request);
     }
 }
