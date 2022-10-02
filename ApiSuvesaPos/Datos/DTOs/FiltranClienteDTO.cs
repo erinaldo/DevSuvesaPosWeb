@@ -41,6 +41,7 @@ namespace Datos.DTOs
         public bool Fallecido { get; set; }
         public int IdSucursal { get; set; }
         public int IdTipoIdentificacion { get; set; }
-        public string IdUsuarioCreacion { get; set; }   
+        public string IdUsuarioCreacion { get; set; }
+        public bool Estado { get; set; }
     }
 }
