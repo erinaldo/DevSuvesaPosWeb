@@ -56,23 +56,40 @@ namespace NegocioSuvesa.Class
             return await _clientesManager.addClientEntry(request);
         }
 
-        public async Task<ResponseGeneric<FiltranClienteDTO>> getClientByCedula(BuscarClienteDTO request)
+        public async Task<ResponseGeneric<IEnumerable<FiltranClienteDTO>>> getClientByCedula(BuscarClienteDTO request)
         {
             // Validaciones Cedula
             if (_validaciones.isEmpty(request.Cedula) || !_validaciones.isOnlyNumeric(request.Cedula))
             {
-                return new ResponseGeneric<FiltranClienteDTO>("Error: Cédula incorrecta");
+                return new ResponseGeneric<IEnumerable<FiltranClienteDTO>>("Error: Cédula incorrecta");
             }
 
             return await _clientesManager.getClientByCedula(request);
         }
 
-        public async Task<ResponseGeneric<FiltranClienteDTO>> getClientByNombre(BuscarClienteDTO request)
+        public async Task<ResponseGeneric<IEnumerable<FiltranClienteDTO>>> getClientByFiltro(BuscarClienteDTO request)
+        {
+            // Validaciones Cedula
+            if (_validaciones.isEmpty(request.Cedula) || !_validaciones.isOnlyNumeric(request.Cedula))
+            {
+                return new ResponseGeneric<IEnumerable<FiltranClienteDTO>>("Error: Cédula incorrecta");
+            }
+
+            // Validaciones Nombre
+            if (_validaciones.isEmpty(request.Nombre) || !_validaciones.isOnlyLetter(request.Nombre))
+            {
+                return new ResponseGeneric<IEnumerable<FiltranClienteDTO>>("Error: Nombre incorrecta");
+            }
+
+            return await _clientesManager.getClientByFiltro(request);
+        }
+
+        public async Task<ResponseGeneric<IEnumerable<FiltranClienteDTO>>> getClientByNombre(BuscarClienteDTO request)
         {
             // Validaciones Cedula
             if (_validaciones.isEmpty(request.Nombre) || !_validaciones.isOnlyLetter(request.Nombre))
             {
-                return new ResponseGeneric<FiltranClienteDTO>("Error: Nombre incorrecta");
+                return new ResponseGeneric<IEnumerable<FiltranClienteDTO>>("Error: Nombre incorrecta");
             }
 
             return await _clientesManager.getClientByNombre(request);

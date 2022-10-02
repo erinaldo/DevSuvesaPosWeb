@@ -109,7 +109,7 @@ namespace Datos.Class
             }
         }
 
-        public async Task<ResponseGeneric<FiltranClienteDTO>> getClientByCedula(BuscarClienteDTO request)
+        public async Task<ResponseGeneric<IEnumerable<FiltranClienteDTO>>> getClientByCedula(BuscarClienteDTO request)
         {
             try
             {
@@ -126,16 +126,16 @@ namespace Datos.Class
                          commandType: CommandType.StoredProcedure, commandTimeout: 1200
                     );
 
-                    return new ResponseGeneric<FiltranClienteDTO>(resultado.FirstOrDefault());
+                    return new ResponseGeneric<IEnumerable<FiltranClienteDTO>>(resultado);
                 }
             }
             catch (Exception ex)
             {
-                return new ResponseGeneric<FiltranClienteDTO>(ex);
+                return new ResponseGeneric<IEnumerable<FiltranClienteDTO>>(ex);
             }
         }
 
-        public async Task<ResponseGeneric<FiltranClienteDTO>> getClientByNombre(BuscarClienteDTO request)
+        public async Task<ResponseGeneric<IEnumerable<FiltranClienteDTO>>> getClientByNombre(BuscarClienteDTO request)
         {
             try
             {
@@ -152,12 +152,39 @@ namespace Datos.Class
                          commandType: CommandType.StoredProcedure, commandTimeout: 1200
                     );
 
-                    return new ResponseGeneric<FiltranClienteDTO>(resultado.FirstOrDefault());
+                    return new ResponseGeneric<IEnumerable<FiltranClienteDTO>>(resultado);
                 }
             }
             catch (Exception ex)
             {
-                return new ResponseGeneric<FiltranClienteDTO>(ex);
+                return new ResponseGeneric<IEnumerable<FiltranClienteDTO>>(ex);
+            }
+        }
+        
+        public async Task<ResponseGeneric<IEnumerable<FiltranClienteDTO>>> getClientByFiltro(BuscarClienteDTO request)
+        {
+            try
+            {
+                //Realiza la conexión con la base de datos 
+                using (var connection = _ConnectionManager.GetConnection(ConnectionManager.DEVCarlos))
+                {
+                    var resultado = await connection.QueryAsync<DTOs.FiltranClienteDTO>
+                    (
+                         sql: "usp_Clientes_Obtener_Filtro",
+                         param: new
+                         {
+                             request.Cedula,
+                             request.Nombre
+                         },
+                         commandType: CommandType.StoredProcedure, commandTimeout: 1200
+                    );
+
+                    return new ResponseGeneric<IEnumerable<FiltranClienteDTO>>(resultado);
+                }
+            }
+            catch (Exception ex)
+            {
+                return new ResponseGeneric<IEnumerable<FiltranClienteDTO>>(ex);
             }
         }
 
