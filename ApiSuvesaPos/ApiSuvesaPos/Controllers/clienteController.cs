@@ -165,7 +165,7 @@ namespace ApiSuvesaPos.Controllers
             }
         }
 
-        [HttpDelete]
+        [HttpPost]
         [Route("/[controller]/[action]")]
         public async Task<Datos.Helpers.ResponseGeneric<Datos.DTOs.FiltranClienteDTO>> Eliminar([FromBody] Datos.DTOs.EliminarClienteDTO request)
         {
