@@ -224,7 +224,7 @@ namespace Datos.Class
                 {
                     var resultado = await connection.QueryAsync<DTOs.FiltranClienteDTO>
                     (
-                         sql: "usp_Clientes_Activar",
+                         sql: "usp_Clientes_Desactivar",
                          param: new
                          {
                              idCliente,

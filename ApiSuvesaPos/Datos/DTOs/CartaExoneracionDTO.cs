@@ -12,5 +12,6 @@ namespace Datos.DTOs
         public double PorcentajeCompra { get; set; }
         public double Impuesto { get; set; }
         public string Nota { get; set; }
+        public bool Estado { get; set; }
     }
 }

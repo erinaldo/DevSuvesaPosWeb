@@ -107,9 +107,9 @@ namespace ApiSuvesaPos.Controllers
         //    }
         //}
 
-        [HttpGet]
+        [HttpPost]
         [Route("/[controller]/[action]")]
-        public async Task<Datos.Helpers.ResponseGeneric<Datos.DTOs.CartaExoneracionDTO>> BuscarCedula([FromBody] Datos.DTOs.BuscarCartaExoneracionDTO carta)
+        public async Task<Datos.Helpers.ResponseGeneric<Datos.DTOs.CartaExoneracionDTO>> BuscarCarta([FromBody] Datos.DTOs.BuscarCartaExoneracionDTO carta)
         {
             try
             {
@@ -119,81 +119,36 @@ namespace ApiSuvesaPos.Controllers
             {
                 return new Datos.Helpers.ResponseGeneric<Datos.DTOs.CartaExoneracionDTO>(ex);
             }
-
-            //try
-            //{
-
-            //    string resp = db.Eliminar(id);
-            //    double test;
-            //    if (double.TryParse(resp, out test))// Si el resultado es numerico
-            //    {
-            //        if (test > 0)//Si el resultado es mayor que cero
-            //        {
-            //            return Ok("Ok");
-            //        }
-            //        else
-            //        {
-            //            throw new Exception(resp);
-            //        }
-            //    }
-            //    else if (resp.Equals("No existe el valor"))
-            //    {
-            //        return NotFound();
-            //    }
-            //    else
-            //    {
-            //        throw new Exception(resp);
-            //    }
-
-            //}
-            //catch (Exception ex)
-            //{
-            //    return new BadRequestResult();
-            //}
         }
 
-        [HttpDelete]
-        public async Task<Datos.Helpers.ResponseGeneric<Datos.DTOs.CartaExoneracionDTO>> Eliminar([FromBody] Datos.DTOs.BuscarCartaExoneracionDTO carta)
+        [HttpPost]
+        [Route("/[controller]/[action]")]
+        public async Task<Datos.Helpers.ResponseGeneric<Datos.DTOs.CartaExoneracionDTO>> DesactivarCarta([FromBody] Datos.DTOs.BuscarCartaExoneracionDTO carta)
         {
             try
             {
-                return await _cartaExoneracionManager.removeCartaExoneracion(carta);
+                return await _cartaExoneracionManager.disableCartaExoneracion(carta);
             }
             catch (Exception ex)
             {
                 return new Datos.Helpers.ResponseGeneric<Datos.DTOs.CartaExoneracionDTO>(ex);
             }
 
-            //try
-            //{
+        }
 
-            //    string resp = db.Eliminar(id);
-            //    double test;
-            //    if (double.TryParse(resp, out test))// Si el resultado es numerico
-            //    {
-            //        if (test > 0)//Si el resultado es mayor que cero
-            //        {
-            //            return Ok("Ok");
-            //        }
-            //        else
-            //        {
-            //            throw new Exception(resp);
-            //        }
-            //    }
-            //    else if (resp.Equals("No existe el valor"))
-            //    {
-            //        return NotFound();
-            //    }
-            //    else
-            //    {
-            //        throw new Exception(resp);
-            //    }
+        [HttpPost]
+        [Route("/[controller]/[action]")]
+        public async Task<Datos.Helpers.ResponseGeneric<Datos.DTOs.CartaExoneracionDTO>> ActivarCarta([FromBody] Datos.DTOs.BuscarCartaExoneracionDTO carta)
+        {
+            try
+            {
+                return await _cartaExoneracionManager.enableCartaExoneracion(carta);
+            }
+            catch (Exception ex)
+            {
+                return new Datos.Helpers.ResponseGeneric<Datos.DTOs.CartaExoneracionDTO>(ex);
+            }
 
-            //}
-            //catch (Exception ex)
-            //{
-            //    return new BadRequestResult();
-            //}
         }
 
     }

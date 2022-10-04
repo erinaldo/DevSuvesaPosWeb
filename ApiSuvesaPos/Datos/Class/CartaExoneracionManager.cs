@@ -84,7 +84,7 @@ namespace Datos.Class
             }
         }
 
-        public async Task<ResponseGeneric<CartaExoneracionDTO>> removeCartaExoneracion(int idCliente)
+        public async Task<ResponseGeneric<CartaExoneracionDTO>> disableCartaExoneracion(int idCliente)
         {
             try
             {
@@ -93,7 +93,33 @@ namespace Datos.Class
                 {
                     var resultado = await connection.QueryAsync<DTOs.CartaExoneracionDTO>
                     (
-                         sql: "usp_CartaExoneracion_Eliminar",
+                         sql: "usp_CartaExoneracion_Desactivar",
+                         param: new
+                         {
+                             Cedula = idCliente
+                         },
+                         commandType: CommandType.StoredProcedure, commandTimeout: 1200
+                    );
+
+                    return new ResponseGeneric<CartaExoneracionDTO>(resultado.FirstOrDefault());
+                }
+            }
+            catch (Exception ex)
+            {
+                return new ResponseGeneric<CartaExoneracionDTO>(ex);
+            }
+        }
+
+        public async Task<ResponseGeneric<CartaExoneracionDTO>> enableCartaExoneracion(int idCliente)
+        {
+            try
+            {
+                //Realiza la conexión con la base de datos 
+                using (var connection = _ConnectionManager.GetConnection(ConnectionManager.DEVCarlos))
+                {
+                    var resultado = await connection.QueryAsync<DTOs.CartaExoneracionDTO>
+                    (
+                         sql: "usp_CartaExoneracion_Activar",
                          param: new
                          {
                              Cedula = idCliente
