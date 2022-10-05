@@ -6,6 +6,7 @@ namespace Datos.DTOs
 {
     public class ClienteDTO
     {
+        public long Identificacion { get; set; }
         public string Cedula { get; set; }
         public string Nombre { get; set; }
         public string Observaciones { get; set; }
@@ -40,6 +41,7 @@ namespace Datos.DTOs
         public int IdSucursal { get; set; }
         public int IdTipoIdentificacion { get; set; }
         public string IdUsuarioCreacion { get; set; }
+        public string IdUsuarioModificacion { get; set; }
 
     }
 }

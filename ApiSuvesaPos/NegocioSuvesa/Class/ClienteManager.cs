@@ -55,6 +55,41 @@ namespace NegocioSuvesa.Class
 
             return await _clientesManager.addClientEntry(request);
         }
+        
+        public async Task<ResponseGeneric<ClienteDTO>> editClient(ClienteDTO request)
+        {
+            // Validaciones Cedula
+            if (_validaciones.isEmpty(request.Cedula) || !_validaciones.isOnlyNumeric(request.Cedula))
+            {
+                return new ResponseGeneric<ClienteDTO>("Error: Cédula incorrecta");
+            }
+
+            // Validaciones Nombre 
+            if (_validaciones.isEmpty(request.Nombre) || !_validaciones.isOnlyLetter(request.Nombre))
+            {
+                return new ResponseGeneric<ClienteDTO>("Error: Nombre incorrecto");
+            }
+
+            // Validaciones Email 
+            if (_validaciones.isEmpty(request.EMail) || !_validaciones.isEmail(request.EMail))
+            {
+                return new ResponseGeneric<ClienteDTO>("Error: Correo electronico incorrecto");
+            }
+
+            // Validaciones CorreoComprobante 
+            if (_validaciones.isEmpty(request.CorreoComprobante) || !_validaciones.isEmail(request.CorreoComprobante))
+            {
+                return new ResponseGeneric<ClienteDTO>("Error: Correo Comprobante incorrecto");
+            }
+
+            // Validaciones Direccion 
+            if (_validaciones.isEmpty(request.Direccion))
+            {
+                return new ResponseGeneric<ClienteDTO>("Error: Direccion requerida");
+            }
+
+            return await _clientesManager.editClient(request);
+        }
 
         public async Task<ResponseGeneric<IEnumerable<FiltranClienteDTO>>> getClientByCedula(BuscarClienteDTO request)
         {
@@ -142,5 +177,6 @@ namespace NegocioSuvesa.Class
 
             return await _clientesManager.enableClient(idCliente.Responses, request.IdUsuarioModificacion);
         }
+
     }
 }

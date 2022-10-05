@@ -11,6 +11,8 @@ namespace Datos.Interfaces
     {
         Task<ResponseGeneric<DTOs.ClienteDTO>> addClientEntry(Datos.DTOs.ClienteDTO request);
 
+        Task<ResponseGeneric<DTOs.ClienteDTO>> editClient(Datos.DTOs.ClienteDTO request);
+
         Task<ResponseGeneric<int>> getIDClient(string cedula);
 
         Task<ResponseGeneric<int>> getIDClient(string cedula, string nombre);
