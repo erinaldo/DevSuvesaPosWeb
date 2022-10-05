@@ -75,6 +75,53 @@ namespace NegocioSuvesa.Class
             return await _cartaExoneracionManager.addCartaExoneracionEntry(request, idCliente.Responses);
         }
 
+        public async Task<ResponseGeneric<CartaExoneracionDTO>> editCartaExoneracionEntry(CartaExoneracionDTO request)
+        {
+            // Validaciones Cedula
+            if (_validaciones.isEmpty(request.Cedula) || !_validaciones.isOnlyNumeric(request.Cedula))
+            {
+                return new ResponseGeneric<CartaExoneracionDTO>("Error: Cédula incorrecta");
+            }
+
+            // Validaciones Tipo Exoneracion
+            if (request.IdTipoExoneracion == 0)
+            {
+                return new ResponseGeneric<CartaExoneracionDTO>("Error: Motivo Exoneracion incorrecto");
+            }
+
+            // Validaciones Numero Documento
+            if (_validaciones.isEmpty(request.NumeroDocumento) || _validaciones.hasSpecialCharacters(request.NumeroDocumento))
+            {
+                return new ResponseGeneric<CartaExoneracionDTO>("Error: Número Documento incorrecto");
+            }
+
+            // Validaciones Fecha Emision
+            if (_validaciones.isEmpty(request.FechaEmision.ToString()))
+            {
+                return new ResponseGeneric<CartaExoneracionDTO>("Error: Fecha Emision incorrecta");
+            }
+
+            // Validaciones Fecha Vence
+            if (_validaciones.isEmpty(request.FechaVence.ToString()))
+            {
+                return new ResponseGeneric<CartaExoneracionDTO>("Error: Fecha Vence incorrecta");
+            }
+
+            // Validaciones Porcentaje Compra
+            if (!(request.PorcentajeCompra >= 1 && request.PorcentajeCompra <= 100))
+            {
+                return new ResponseGeneric<CartaExoneracionDTO>("Error: Porcentaje Compra incorrecta");
+            }
+
+            // Validaciones Impuesto
+            if (_validaciones.isEmpty(request.Impuesto.ToString()) || !(request.Impuesto >= 0 && request.Impuesto <= 13))
+            {
+                return new ResponseGeneric<CartaExoneracionDTO>("Error: Impuesto incorrecta");
+            }
+
+            return await _cartaExoneracionManager.editCartaExoneracionEntry(request);
+        }
+
         public async Task<ResponseGeneric<CartaExoneracionDTO>> getCartaExoneracionByCedula(BuscarCartaExoneracionDTO request)
         {
             // Validaciones Cedula
@@ -117,5 +164,6 @@ namespace NegocioSuvesa.Class
 
             return await _cartaExoneracionManager.enableCartaExoneracion(idCliente.Responses);
         }
+
     }
 }

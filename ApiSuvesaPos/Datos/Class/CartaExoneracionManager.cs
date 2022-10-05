@@ -57,6 +57,42 @@ namespace Datos.Class
             }
         }
 
+        public async Task<ResponseGeneric<CartaExoneracionDTO>> editCartaExoneracionEntry(CartaExoneracionDTO request)
+        {
+            try
+            {
+                //Realiza la conexión con la base de datos 
+                using (var connection = _ConnectionManager.GetConnection(ConnectionManager.DEVCarlos))
+                {
+                    var resultado = await connection.QueryAsync<DTOs.CartaExoneracionDTO>
+                    (
+                         sql: "usp_CartaExoneracion_Editar",
+                         param: new
+                         {
+                             request.Id,
+                             request.IdTipoExoneracion,
+                             request.NumeroDocumento,
+                             request.FechaEmision,
+                             request.FechaVence,
+                             request.PorcentajeCompra,
+                             request.Impuesto,
+                             request.Nota,
+                             Estado = true
+                         },
+                         commandType: CommandType.StoredProcedure, commandTimeout: 1200
+                    );
+
+                    CartaExoneracionDTO res = resultado.FirstOrDefault();
+                    res.Cedula = request.Cedula;
+                    return new ResponseGeneric<CartaExoneracionDTO>(res);
+                }
+            }
+            catch (Exception ex)
+            {
+                return new ResponseGeneric<CartaExoneracionDTO>(ex);
+            }
+        }
+
         public async Task<ResponseGeneric<CartaExoneracionDTO>> getCartaExoneracionByCedula(int idCliente)
         {
             try
@@ -135,5 +171,6 @@ namespace Datos.Class
                 return new ResponseGeneric<CartaExoneracionDTO>(ex);
             }
         }
+
     }
 }

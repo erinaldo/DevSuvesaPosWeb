@@ -11,6 +11,8 @@ namespace NegocioSuvesa.Interfaces
     {
         Task<ResponseGeneric<Datos.DTOs.CartaExoneracionDTO>> addCartaExoneracionEntry(Datos.DTOs.CartaExoneracionDTO request);
 
+        Task<ResponseGeneric<Datos.DTOs.CartaExoneracionDTO>> editCartaExoneracionEntry(Datos.DTOs.CartaExoneracionDTO request);
+
         Task<ResponseGeneric<Datos.DTOs.CartaExoneracionDTO>> disableCartaExoneracion(Datos.DTOs.BuscarCartaExoneracionDTO request);
 
         Task<ResponseGeneric<Datos.DTOs.CartaExoneracionDTO>> enableCartaExoneracion(Datos.DTOs.BuscarCartaExoneracionDTO request);

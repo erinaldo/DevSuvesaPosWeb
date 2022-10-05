@@ -4,6 +4,7 @@ namespace Datos.DTOs
 {
     public class CartaExoneracionDTO
     {
+        public int Id { get; set; }
         public string Cedula { get; set; }
         public int IdTipoExoneracion { get; set; }
         public string NumeroDocumento { get; set; }

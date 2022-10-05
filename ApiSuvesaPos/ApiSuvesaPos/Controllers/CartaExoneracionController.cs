@@ -52,40 +52,50 @@ namespace ApiSuvesaPos.Controllers
             }
         }
 
-        //[HttpPut]
-        //public IActionResult Actualizar(int id, Datos.Models.Cliente cliente)
-        //{
-        //    try
-        //    {
+        [HttpPost]
+        [Route("/[controller]/[action]")]
+        public async Task<Datos.Helpers.ResponseGeneric<Datos.DTOs.CartaExoneracionDTO>> Actualizar([FromBody] Datos.DTOs.CartaExoneracionDTO carta)
+        {
+            try
+            {
+                return await _cartaExoneracionManager.editCartaExoneracionEntry(carta);
+            }
+            catch (Exception ex)
+            {
+                return new Datos.Helpers.ResponseGeneric<Datos.DTOs.CartaExoneracionDTO>(ex);
+            }
 
-        //        string resp = db.Editar(id, cliente);
-        //        double test;
-        //        if (double.TryParse(resp, out test))// Si el resultado es numerico
-        //        {
-        //            if (test > 0)//Si el resultado es mayor que cero
-        //            {
-        //                return Ok("Ok");
-        //            }
-        //            else
-        //            {
-        //                throw new Exception(resp);
-        //            }
-        //        }
-        //        else if (resp.Equals("No existe el valor"))
-        //        {
-        //            return NotFound();
-        //        }
-        //        else
-        //        {
-        //            throw new Exception(resp);
-        //        }
+            //try
+            //{
 
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return new BadRequestResult();
-        //    }
-        //}
+            //    string resp = db.Editar(id, cliente);
+            //    double test;
+            //    if (double.TryParse(resp, out test))// Si el resultado es numerico
+            //    {
+            //        if (test > 0)//Si el resultado es mayor que cero
+            //        {
+            //            return Ok("Ok");
+            //        }
+            //        else
+            //        {
+            //            throw new Exception(resp);
+            //        }
+            //    }
+            //    else if (resp.Equals("No existe el valor"))
+            //    {
+            //        return NotFound();
+            //    }
+            //    else
+            //    {
+            //        throw new Exception(resp);
+            //    }
+
+            //}
+            //catch (Exception ex)
+            //{
+            //    return new BadRequestResult();
+            //}
+        }
 
         //[HttpGet]
         //public IActionResult Buscar(bool pornombre, string filtro)
