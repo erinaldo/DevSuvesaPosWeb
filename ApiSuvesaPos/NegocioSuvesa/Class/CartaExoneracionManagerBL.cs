@@ -134,7 +134,10 @@ namespace NegocioSuvesa.Class
 
             ResponseGeneric<CartaExoneracionDTO> resp =  await _cartaExoneracionManager.getCartaExoneracionByCedula(idCliente.Responses);
 
-            resp.Responses.Cedula = request.Cedula;
+            if(resp.Responses != null)
+            {
+                resp.Responses.Cedula = request.Cedula;
+            }
 
             return resp;
         }

@@ -8,6 +8,7 @@ namespace Datos.DTOs
 {
     public class FiltranClienteDTO
     {
+        public long Identificacion { get; set; }
         public string Cedula { get; set; }
         public string Nombre { get; set; }
         public string Observaciones { get; set; }
