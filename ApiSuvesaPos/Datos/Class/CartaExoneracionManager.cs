@@ -41,7 +41,8 @@ namespace Datos.Class
                              request.PorcentajeCompra,
                              request.Impuesto,
                              request.Nota,
-                             Estado = true
+                             Estado = true,
+                             request.IdUsuarioCreacion
                          },
                          commandType: CommandType.StoredProcedure, commandTimeout: 1200
                     );
@@ -77,7 +78,8 @@ namespace Datos.Class
                              request.PorcentajeCompra,
                              request.Impuesto,
                              request.Nota,
-                             Estado = true
+                             Estado = true,
+                             request.IdUsuarioModificacion
                          },
                          commandType: CommandType.StoredProcedure, commandTimeout: 1200
                     );

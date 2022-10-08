@@ -14,5 +14,7 @@ namespace Datos.DTOs
         public double Impuesto { get; set; }
         public string Nota { get; set; }
         public bool Estado { get; set; }
+        public string IdUsuarioCreacion { get; set; }
+        public string IdUsuarioModificacion { get; set; }
     }
 }
