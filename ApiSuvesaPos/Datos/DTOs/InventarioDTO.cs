@@ -23,6 +23,9 @@ namespace Datos.DTOs
         public long RebajaOtroArticulo { get; set; }
         public long pantalla { get; set; }
         public long CODCABYS { get; set; }
+        public bool Estado { get; set; }
+        public string IdUsuarioCreacion { get; set; }
+        public string IdUsuarioModificacion { get; set; }
 
     }
 }
