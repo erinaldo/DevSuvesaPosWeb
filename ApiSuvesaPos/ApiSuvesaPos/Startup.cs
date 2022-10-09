@@ -98,12 +98,14 @@ namespace ApiSuvesaPos
             services.AddScoped<Datos.Interfaces.IConnectionManager, Datos.Connection.ConnectionManager>();
             services.AddScoped<Datos.Interfaces.ICartaExoneracionManagerDA, Datos.Class.CartaExoneracionManager>();
             services.AddScoped<Datos.Interfaces.ITipoExoneracionManagerDA, Datos.Class.TipoExoneracionManager>();
+            services.AddScoped<Datos.Interfaces.IInventariosManagerDA, Datos.Class.InventariosManagerDA>();
 
             // Interface Negocio
             services.AddScoped<NegocioSuvesa.Interfaces.IValidaciones, NegocioSuvesa.Class.Validaciones>();
             services.AddScoped<NegocioSuvesa.Interfaces.IClienteManagerBL, NegocioSuvesa.Class.ClienteManager>();
             services.AddScoped<NegocioSuvesa.Interfaces.ICartaExoneracionManagerBL, NegocioSuvesa.Class.CartaExoneracionManagerBL>();
             services.AddScoped<NegocioSuvesa.Interfaces.ITipoExoneracionBL, NegocioSuvesa.Class.TipoExoneracionManager>();
+            services.AddScoped<NegocioSuvesa.Interfaces.IInventarioManagerBL, NegocioSuvesa.Class.InventarioManagerBL>();
 
         }
 

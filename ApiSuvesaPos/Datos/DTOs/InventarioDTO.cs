@@ -9,20 +9,20 @@ namespace Datos.DTOs
     public class InventarioDTO
     {
         public long Codigo { get; set; }
-        public long Cod_Articulo { get; set; }
-        public long Descripcion { get; set; }
-        public long Actualizado { get; set; }
-        public long SoloContado { get; set; }
-        public long CodPresentacion { get; set; }
-        public long Barras { get; set; }
-        public long barras2 { get; set; }
-        public long barras3 { get; set; }
-        public long SubFamilia { get; set; }
-        public long SubUbicacion { get; set; }
-        public long Proveedor { get; set; }
-        public long RebajaOtroArticulo { get; set; }
-        public long pantalla { get; set; }
-        public long CODCABYS { get; set; }
+        public string Cod_Articulo { get; set; }
+        public string Descripcion { get; set; }
+        public bool Actualizado { get; set; }
+        public bool SoloContado { get; set; }
+        public int CodPresentacion { get; set; }
+        public string Barras { get; set; }
+        public string barras2 { get; set; }
+        public string barras3 { get; set; }
+        public string SubFamilia { get; set; }
+        public string SubUbicacion { get; set; }
+        public int Proveedor { get; set; }
+        //public long RebajaOtroArticulo { get; set; }
+        public bool pantalla { get; set; }
+        public string CODCABYS { get; set; }
         public bool Estado { get; set; }
         public string IdUsuarioCreacion { get; set; }
         public string IdUsuarioModificacion { get; set; }
